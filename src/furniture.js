@@ -1,5 +1,6 @@
 import * as game from 'game'
 import * as u from 'utils'
+import * as vec2 from 'vector2'
 import Thing from 'thing'
 import { drawBackground, drawSprite } from './draw.js'
 
@@ -21,6 +22,7 @@ export default class Furniture extends Thing {
 
   update() {
     this.isError = false;
+    this.scale = 1.0;
 
     if (this.isBeingDragged) {
       this.position = [...game.mouse.position];
@@ -36,6 +38,12 @@ export default class Furniture extends Thing {
       // Check collision with other furniture
       if (!this.isValidPlacement()) {
         this.isError = true;
+      }
+    }
+    else {
+      if (!this.isPlaced) {
+        this.scale = 0.6;
+        this.position = vec2.lerp(this.position, this.homePosition, 0.2)
       }
     }
   }
@@ -115,13 +123,12 @@ export default class Furniture extends Thing {
   onClick() {
     if (this.isBeingDragged) {
       this.isBeingDragged = false;
-
-      if (!this.isValidPlacement()) {
-        this.position = [...this.homePosition];
-      }
+      
+      this.isPlaced = this.isValidPlacement();
     }
     else {
       this.isBeingDragged = true;
+      this.isPlaced = false;
     }
   }
 
@@ -152,11 +159,13 @@ export default class Furniture extends Thing {
       ]
     }
 
+    let scaledAabb = rotatedAabb.map((x) => x * this.scale)
+
     return [
-      rotatedAabb[0] + this.position[0],
-      rotatedAabb[1] + this.position[1],
-      rotatedAabb[2] + this.position[0],
-      rotatedAabb[3] + this.position[1],
+      scaledAabb[0] + this.position[0],
+      scaledAabb[1] + this.position[1],
+      scaledAabb[2] + this.position[0],
+      scaledAabb[3] + this.position[1],
     ];
   }
 
@@ -190,8 +199,8 @@ export default class Furniture extends Thing {
       sprite: this.sprite,
       color: color,
       centered: true,
-      width: 256,
-      height: 256,
+      width: 256 * this.scale,
+      height: 256 * this.scale,
       depth: this.depth,
       rotation: Math.PI/2 * this.rotation,
       position: this.position,
