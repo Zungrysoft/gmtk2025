@@ -31,8 +31,18 @@ export default class House extends Thing {
   }
 
   addFurniture() {
-    game.addThing(new Furniture(game.assets.textures.furniture_test, 'table', [-64, -60, 64, 60], [128, 256]))
-    game.addThing(new Furniture(game.assets.textures.furniture_test, 'table', [-64, -60, 64, 60], [128, 512]))
+    // Tables
+    game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', [-105, -52, 105, 52], [128, 256]))
+    game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', [-83, -64, 83, 64], [128, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', [-58, -42, 58, 42], [128, 512]))
+
+    // Seating
+    game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', [-40, -45, 40, 45], [128, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_chair2, 'chair', [-40, -45, 40, 45], [128, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_couch, 'couch', [-115, -46, 115, 46], [128, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'loveseat', [-50, -44, 45, 41], [128, 512]))
+
+    // Food
     game.addThing(new Furniture(game.assets.textures.furniture_food1, 'food1', [-18, -18, 18, 18], [512, 512]))
   }
 

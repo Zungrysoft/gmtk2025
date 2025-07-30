@@ -17,9 +17,15 @@ ctx.restore()
 
 game.assets.images = await game.loadImages({
   square: 'images/square.png',
-  background_day: 'images/background_day.png',
-  furniture_test: 'images/furniture_test.png',
+  background_day: 'images/ui/ui_layout_sample.png',
   furniture_food1: 'images/furniture_food1.png',
+  furniture_table1: 'images/furniture/furniture_table1.png',
+  furniture_table2: 'images/furniture/furniture_table2.png',
+  furniture_table3: 'images/furniture/furniture_table3.png',
+  furniture_couch: 'images/furniture/furniture_couch.png',
+  furniture_loveseat: 'images/furniture/furniture_loveseat.png',
+  furniture_chair1: 'images/furniture/furniture_chair1.png',
+  furniture_chair2: 'images/furniture/furniture_chair2.png',
 })
 
 game.assets.data = await game.loadJson({

@@ -41,6 +41,19 @@ export default class Furniture extends Thing {
   }
 
   isValidPlacement() {
+    // First, check collision with house walls to make sure furniture is placed inside the house
+    for (const worldAabb of [
+      [0, 0, 1280, 126],
+      [0, 0, 234, 720],
+      [0, 478, 463, 720],
+      [0, 589, 1280, 720],
+      [1039, 0, 1280, 720],
+    ]) {
+      if (u.checkAabbIntersection(worldAabb, this.getAabb())) {
+        return false;
+      }
+    }
+
     // Placeable (food, mics, etc.)
     if (this.isPlaceable()) {
       for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && this.mustBePlacedOn().includes(t.type))) {
@@ -113,11 +126,37 @@ export default class Furniture extends Thing {
   }
 
   getAabb() {
+    let rotatedAabb = this.aabb;
+    if (this.rotation === 2) {
+      rotatedAabb = [
+        -this.aabb[2],
+        -this.aabb[3],
+        -this.aabb[0],
+        -this.aabb[1],
+      ]
+    }
+    if (this.rotation === 1) {
+      rotatedAabb = [
+        -this.aabb[3],
+        this.aabb[0],
+        -this.aabb[1],
+        this.aabb[2],
+      ]
+    }
+    if (this.rotation === 3) {
+      rotatedAabb = [
+        this.aabb[1],
+        -this.aabb[2],
+        this.aabb[3],
+        -this.aabb[0],
+      ]
+    }
+
     return [
-      this.aabb[0] + this.position[0],
-      this.aabb[1] + this.position[1],
-      this.aabb[2] + this.position[0],
-      this.aabb[3] + this.position[1],
+      rotatedAabb[0] + this.position[0],
+      rotatedAabb[1] + this.position[1],
+      rotatedAabb[2] + this.position[0],
+      rotatedAabb[3] + this.position[1],
     ];
   }
 
