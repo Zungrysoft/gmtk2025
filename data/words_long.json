@@ -1,0 +1,21 @@
+{
+    "who": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "what" : { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "when" : { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "where": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "why": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "how": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+
+    "you": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "they": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "pierce": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+
+    "kill": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+
+
+    "north": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "south": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "africa": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "america": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } },
+    "meridia": { "locks": { "act1": 0, "act2": 3, "act3": 5, "act4": 7 } }
+}
