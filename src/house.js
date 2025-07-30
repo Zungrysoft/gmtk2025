@@ -43,7 +43,8 @@ export default class House extends Thing {
     game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'loveseat', [-50, -44, 45, 41], [128, 512]))
 
     // Food
-    game.addThing(new Furniture(game.assets.textures.furniture_food1, 'food1', [-18, -18, 18, 18], [512, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_food_platter, 'food_platter', [-30, -20, 30, 20], [512, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_alcohol, 'food_alcohol', [-64, -37, 64, 36], [512, 512]))
   }
 
   draw() {

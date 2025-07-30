@@ -64,6 +64,14 @@ export default class Furniture extends Thing {
 
     // Placeable (food, mics, etc.)
     if (this.isPlaceable()) {
+      // First, check not colliding with other placeables
+      for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && t.isPlaceable())) {
+        if (u.checkAabbIntersection(this.getAabb(), other.getAabb())) {
+          return false;
+        }
+      }
+
+      // Second, check that it's on top of a valid surface
       for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && this.mustBePlacedOn().includes(t.type))) {
         const worldAabb = this.getAabb();
         let cornerCount = 0;

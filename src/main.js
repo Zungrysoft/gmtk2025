@@ -26,6 +26,8 @@ game.assets.images = await game.loadImages({
   furniture_loveseat: 'images/furniture/furniture_loveseat.png',
   furniture_chair1: 'images/furniture/furniture_chair1.png',
   furniture_chair2: 'images/furniture/furniture_chair2.png',
+  furniture_food_platter: 'images/furniture/furniture_food_platter.png',
+  furniture_alcohol: 'images/furniture/furniture_alcohol.png',
 })
 
 game.assets.data = await game.loadJson({
