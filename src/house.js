@@ -34,7 +34,7 @@ export default class House extends Thing {
     // Tables
     game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', [-105, -52, 105, 52], [128, 256]))
     game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', [-83, -64, 83, 64], [128, 512]))
-    game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', [-58, -42, 58, 42], [128, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', [-66, -48, 66, 48], [128, 512]))
 
     // Seating
     game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', [-40, -45, 40, 45], [128, 512]))
@@ -44,7 +44,7 @@ export default class House extends Thing {
 
     // Food
     game.addThing(new Furniture(game.assets.textures.furniture_food_platter, 'food_platter', [-30, -20, 30, 20], [512, 512]))
-    game.addThing(new Furniture(game.assets.textures.furniture_alcohol, 'food_alcohol', [-64, -37, 64, 36], [512, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_alcohol, 'food_alcohol', [-59, -37, 59, 36], [512, 512]))
   }
 
   draw() {
