@@ -24,7 +24,7 @@ export function drawSprite({
       u.map(position[1] + (centered ? 0 : height/2), 0, game.getHeight(), 1, -1),
       convertDepth(depth),
     ],
-    scale: [width / game.getWidth(), -height / game.getHeight(), 1.0],
+    scale: rotation === Math.PI * 0.5 || rotation === Math.PI * 1.5 ? [-height / game.getHeight(), width / game.getWidth(), 1.0] : [width / game.getWidth(), -height / game.getHeight(), 1.0],
     rotation: [0, 0, rotation],
   }))
 

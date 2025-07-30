@@ -13,7 +13,8 @@ export default class Furniture extends Thing {
     this.sprite = sprite;
     this.type = type;
     this.aabb = aabb;
-    this.position = position;
+    this.position = [...position];
+    this.homePosition = [...position]
 
     this.depth = this.mustBePlacedOn().length > 0 ? 31 : 30;
   }
@@ -24,43 +25,66 @@ export default class Furniture extends Thing {
     if (this.isBeingDragged) {
       this.position = [...game.mouse.position];
 
-      // Check collision with other furniture
-      
-      if (this.isPlaceable()) {
-        this.isError = true;
-        for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && this.mustBePlacedOn().includes(t.type))) {
-          const worldAabb = this.getAabb();
-          let cornerCount = 0;
-          for (const cornerPos of [
-            [worldAabb[0], worldAabb[1]],
-            [worldAabb[0], worldAabb[3]],
-            [worldAabb[2], worldAabb[1]],
-            [worldAabb[2], worldAabb[3]],
-          ]) {
-            if (u.checkAabbIntersection([...cornerPos, ...cornerPos], other.getAabb())) {
-              cornerCount ++;
-            }
-          }
-          if (cornerCount === 4) {
-            this.isError = false;
-            break;
-          }
-        }
+      // Rotate object
+      if (game.keysPressed.KeyR || game.mouse.scrollDelta[1] < 0) {
+        this.rotate();
       }
-      else {
-        this.isError = false;
-        for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && !t.isPlaceable())) {
-          if (u.checkAabbIntersection(this.getAabb(), other.getAabb())) {
-            this.isError = true;
-            break;
-          }
-        }
+      else if (game.mouse.scrollDelta[1] > 0) {
+        this.rotate(true);
+      }
+
+      // Check collision with other furniture
+      if (!this.isValidPlacement()) {
+        this.isError = true;
       }
     }
   }
 
-  rotate() {
-    this.rotation += 1
+  isValidPlacement() {
+    // Placeable (food, mics, etc.)
+    if (this.isPlaceable()) {
+      for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && this.mustBePlacedOn().includes(t.type))) {
+        const worldAabb = this.getAabb();
+        let cornerCount = 0;
+        for (const cornerPos of [
+          [worldAabb[0], worldAabb[1]],
+          [worldAabb[0], worldAabb[3]],
+          [worldAabb[2], worldAabb[1]],
+          [worldAabb[2], worldAabb[3]],
+        ]) {
+          if (u.checkAabbIntersection([...cornerPos, ...cornerPos], other.getAabb())) {
+            cornerCount ++;
+          }
+        }
+        if (cornerCount === 4) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // Non-placeable (table, couch, etc.)
+    for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && !t.isPlaceable())) {
+      if (u.checkAabbIntersection(this.getAabb(), other.getAabb())) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  rotate(backwards = false) {
+    if (backwards) {
+      this.rotation -= 1;
+      if (this.rotation === -1) {
+        this.rotation = 3;
+      }
+    }
+    else {
+      this.rotation += 1;
+      if (this.rotation === 4) {
+        this.rotation = 0;
+      }
+    }
   }
 
   isClickable() {
@@ -76,8 +100,16 @@ export default class Furniture extends Thing {
   }
 
   onClick() {
-    this.isBeingDragged = !this.isBeingDragged;
-    console.log(this.isBeingDragged)
+    if (this.isBeingDragged) {
+      this.isBeingDragged = false;
+
+      if (!this.isValidPlacement()) {
+        this.position = [...this.homePosition];
+      }
+    }
+    else {
+      this.isBeingDragged = true;
+    }
   }
 
   getAabb() {
