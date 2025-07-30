@@ -2,6 +2,7 @@ import * as game from 'game'
 import * as webgl from 'webgl'
 import * as soundmanager from 'soundmanager'
 import House from './house.js'
+import Selector from './selector.js'
 
 document.title = 'Into the Loop'
 game.setWidth(1280)
@@ -97,6 +98,7 @@ game.assets.images = await game.loadImages({
   menu_savedata: 'images/menu_savedata.png',
   menu_credits: 'images/menu_credits.png',
   background_day: 'images/background_day.png',
+  furniture_test: 'images/furniture_test.png',
 })
 
 game.assets.data = await game.loadJson({
@@ -148,6 +150,7 @@ game.assets.textures = Object.fromEntries(
 game.setScene(() => {
   // Global things
   game.addThing(new House());
+  game.addThing(new Selector());
 
   // Camera setup
   game.getCamera3D().lookVector = [0, 0, -1];
