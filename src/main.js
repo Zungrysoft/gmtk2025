@@ -99,6 +99,7 @@ game.assets.images = await game.loadImages({
   menu_credits: 'images/menu_credits.png',
   background_day: 'images/background_day.png',
   furniture_test: 'images/furniture_test.png',
+  furniture_food1: 'images/furniture_food1.png',
 })
 
 game.assets.data = await game.loadJson({

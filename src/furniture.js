@@ -1,4 +1,5 @@
 import * as game from 'game'
+import * as u from 'utils'
 import Thing from 'thing'
 import { drawBackground, drawSprite } from './draw.js'
 
@@ -13,11 +14,48 @@ export default class Furniture extends Thing {
     this.type = type;
     this.aabb = aabb;
     this.position = position;
+
+    this.depth = this.mustBePlacedOn().length > 0 ? 31 : 30;
   }
 
   update() {
+    this.isError = false;
+
     if (this.isBeingDragged) {
       this.position = [...game.mouse.position];
+
+      // Check collision with other furniture
+      
+      if (this.isPlaceable()) {
+        this.isError = true;
+        for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && this.mustBePlacedOn().includes(t.type))) {
+          const worldAabb = this.getAabb();
+          let cornerCount = 0;
+          for (const cornerPos of [
+            [worldAabb[0], worldAabb[1]],
+            [worldAabb[0], worldAabb[3]],
+            [worldAabb[2], worldAabb[1]],
+            [worldAabb[2], worldAabb[3]],
+          ]) {
+            if (u.checkAabbIntersection([...cornerPos, ...cornerPos], other.getAabb())) {
+              cornerCount ++;
+            }
+          }
+          if (cornerCount === 4) {
+            this.isError = false;
+            break;
+          }
+        }
+      }
+      else {
+        this.isError = false;
+        for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && !t.isPlaceable())) {
+          if (u.checkAabbIntersection(this.getAabb(), other.getAabb())) {
+            this.isError = true;
+            break;
+          }
+        }
+      }
     }
   }
 
@@ -26,6 +64,14 @@ export default class Furniture extends Thing {
   }
 
   isClickable() {
+    if (!this.isBeingDragged && !this.isPlaceable()) {
+      for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && t.isPlaceable())) {
+        if (u.checkAabbIntersection(this.getAabb(), other.getAabb())) {
+          return false;
+        }
+      }
+    }
+
     return true;
   }
 
@@ -43,14 +89,39 @@ export default class Furniture extends Thing {
     ];
   }
 
+  isPlaceable() {
+    return this.mustBePlacedOn().length > 0;
+  }
+
+  mustBePlacedOn() {
+    if (this.type.includes('food')) {
+      return ['table'];
+    }
+    if (this.type === 'microphone') {
+      return ['table', 'speakers', 'couch', 'loveseat', 'chair', 'guitar', 'tv'];
+    }
+    if (this.type.includes('cd')) {
+      return ['speakers'];
+    }
+    return [];
+  }
+
   draw() {
+    let color = [1.0, 1.0, 1.0];
+    if (this.isHighlighted && !this.isBeingDragged) {
+      color = [1.3, 1.3, 1.3];
+    }
+    if (this.isError) {
+      color = [1.0, 0.0, 0.0];
+    }
+
     drawSprite({
       sprite: this.sprite,
-      color: this.isError ? [1.0, 0.0, 0.0] : [1.0, 1.0, 1.0],
+      color: color,
       centered: true,
       width: 256,
       height: 256,
-      depth: 30,
+      depth: this.depth,
       rotation: Math.PI/2 * this.rotation,
       position: this.position,
     })

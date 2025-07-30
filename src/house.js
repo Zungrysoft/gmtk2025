@@ -32,6 +32,8 @@ export default class House extends Thing {
 
   addFurniture() {
     game.addThing(new Furniture(game.assets.textures.furniture_test, 'table', [-64, -62, 64, 62], [128, 256]))
+    game.addThing(new Furniture(game.assets.textures.furniture_test, 'table', [-64, -62, 64, 62], [128, 512]))
+    game.addThing(new Furniture(game.assets.textures.furniture_food1, 'food1', [-18, -18, 18, 18], [512, 512]))
   }
 
   draw() {
