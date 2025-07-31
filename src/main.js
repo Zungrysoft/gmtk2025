@@ -17,7 +17,16 @@ ctx.restore()
 
 game.assets.images = await game.loadImages({
   square: 'images/square.png',
-  background_day: 'images/ui/ui_layout_sample.png',
+  tray_furniture_open: 'images/ui/ui_tray_furniture_open.png',
+  tray_furniture_closed: 'images/ui/ui_tray_furniture_closed.png',
+  tray_logs_open: 'images/ui/ui_tray_logs_open.png',
+  tray_logs_closed: 'images/ui/ui_tray_logs_closed.png',
+  tray_mics: 'images/ui/ui_tray_mics.png',
+  button_pause: 'images/ui/ui_button_pause.png',
+  button_skipnight: 'images/ui/ui_button_skipnight.png',
+  button_startnight: 'images/ui/ui_button_startnight.png',
+  house_day: 'images/ui/ui_house_day.png',
+  background_day: 'images/ui/ui_background_day.png',
   furniture_food1: 'images/furniture_food1.png',
   furniture_table1: 'images/furniture/furniture_table1.png',
   furniture_table2: 'images/furniture/furniture_table2.png',

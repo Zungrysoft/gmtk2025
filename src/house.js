@@ -9,6 +9,8 @@ import GuestDancer from './guest_dancer.js'
 import GuestDrinker from './guest_drinker.js'
 import GuestIntenseGamer from './guest_intensegamer.js'
 import GuestQuietGamer from './guest_quietgamer.js'
+import Tray from './tray.js'
+import Button from './button.js'
 
 export default class House extends Thing {
   isDying = false
@@ -18,13 +20,14 @@ export default class House extends Thing {
   night = 1
   selectedMic = 0
   partyTime = 0
+  furnitureTray = null;
 
   constructor(sprite, type) {
     super();
     this.type = type;
 
     game.setThingName(this, 'house');
-
+    this.initUiElements()
     this.changePhase('placement')
 
     soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0]);
@@ -80,6 +83,27 @@ export default class House extends Thing {
       
     }
     
+
+  }
+
+  // add the trays and clickable buttons to the scene
+  initUiElements() {
+    game.addThing(new Tray('tray_furniture', game.assets.textures.tray_furniture_open, game.assets.textures.tray_furniture_closed,
+                          [200,600], [0,0], [-163,0], true, [163,36,190,90]))
+    game.addThing(new Tray('tray_logs', game.assets.textures.tray_logs_open, game.assets.textures.tray_logs_closed,
+                          [200,600], [1080,125], [1244,125], true, [7,34,36,79]))
+    game.addThing(new Tray('tray_logs', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
+                          [225,125], [0,595], [0,703], true, [0,8,213,125]))                   
+
+
+    game.addThing(new Button('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
+                            [100,100], [1180,20], [1180,-85], true, [3,3,97,97]))
+    game.addThing(new Button('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
+                            [100,100], [1080,20], [1080,-85], true, [4,4,92,95]))
+    game.addThing(new Button('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
+                            [400,100], [456,613], [456,700], true, [45,7,357,90]))
+
+    // game.addThing()
 
   }
 
@@ -141,7 +165,8 @@ export default class House extends Thing {
   }
 
   draw() {
-    drawBackground({ sprite: game.assets.textures.square, depth: 1, color: [0, 0, 0] });
+    // drawBackground({ sprite: game.assets.textures.square, depth: 1, color: [0, 0, 0] });
     drawBackground({ sprite: game.assets.textures.background_day, depth: 3 });
+    drawBackground({ sprite: game.assets.textures.house_day, depth: 10 });
   }
 }
