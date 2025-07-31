@@ -44,16 +44,20 @@ export default class Tray extends Thing {
   }
 
 
-  toggleOpenState () {
-    if (this.isOpen) { // start closing the tray
-      this.isOpen = false
-      this.sprite = this.closedSprite
-      this.isTransitioningClosed = true
-    }
-    else { // start opening the tray
+  toggleOpenState() {
+    this.setOpenState(!this.isOpen)
+  }
+
+  setOpenState (open) {
+    if (open) {
       this.isOpen = true
       this.sprite = this.openSprite
       this.isTransitioningOpen = true
+    }
+    else { 
+      this.isOpen = false
+      this.sprite = this.closedSprite
+      this.isTransitioningClosed = true
     }
   }
 

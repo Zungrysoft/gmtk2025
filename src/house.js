@@ -92,30 +92,52 @@ export default class House extends Thing {
                           [200,600], [0,0], [-163,0], true, [163,36,190,90]))
     game.addThing(new Tray('tray_logs', game.assets.textures.tray_logs_open, game.assets.textures.tray_logs_closed,
                           [200,600], [1080,125], [1244,125], true, [7,34,36,79]))
-    game.addThing(new Tray('tray_logs', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
+    game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
                           [225,125], [0,595], [0,703], true, [0,8,213,125]))                   
 
 
     game.addThing(new Button('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
-                            [100,100], [1180,20], [1180,-85], true, [3,3,97,97]))
+                            [100,100], [1180,20], [1180,-100], true, [3,3,97,97]))
     game.addThing(new Button('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
-                            [100,100], [1080,20], [1080,-85], true, [4,4,92,95]))
+                            [100,100], [1180,20], [1180,-100], false, [4,4,92,95]))
     game.addThing(new Button('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
                             [400,100], [456,613], [456,700], true, [45,7,357,90]))
 
-    // game.addThing()
-
   }
+
+  // hide all the placement UI for when the party starts. swap pause with skip party
+  tuckUiDuringParty() {
+    game.getThing('tray_furniture').setOpenState(false)
+    game.getThing('tray_logs').setOpenState(false)
+    game.getThing('tray_mics').setOpenState(false)
+    game.getThing('button_pause').setOpenState(false)
+    game.getThing('button_skipnight').setOpenState(true)
+    game.getThing('button_startnight').setOpenState(false)
+  }
+
+  // show all the UI during the party so the player can place again. swap skip party with pause
+  showUiForPlacement() {
+    game.getThing('tray_furniture').setOpenState(true)
+    game.getThing('tray_logs').setOpenState(true)
+    game.getThing('tray_mics').setOpenState(true)
+    game.getThing('button_pause').setOpenState(true)
+    game.getThing('button_skipnight').setOpenState(false)
+    game.getThing('button_startnight').setOpenState(true)
+  }
+
+
 
   changePhase(phase) {
     this.gamePhase = phase
 
     if (phase == 'placement') {
-      this.addFurniture();
-      this.addGuests();
+      this.showUiForPlacement()
+      this.addFurniture()
+      this.addGuests()
     }
 
     if (phase == 'party') {
+      this.tuckUiDuringParty();
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         if (!thing.isPlaced) {
           thing.isDead = true;
