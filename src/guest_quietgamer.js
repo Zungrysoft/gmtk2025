@@ -11,7 +11,7 @@ export default class GuestQuietGamer extends Guest {
   maxDrunkedness = 1
   arrivalTime = 2000
   speedMultiplier = 1.1
-  activityOffset = [-64, 0]
+  activityOffset = [45, 45]
   likes_dancing = 0
   likes_avoid_music = 25
   likes_relax = 17

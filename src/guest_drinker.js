@@ -11,7 +11,7 @@ export default class GuestDrinker extends Guest {
   maxDrunkedness = 2
   arrivalTime = 2000
   speedMultiplier = 1.1
-  activityOffset = [-64, 0]
+  activityOffset = [-45, 45]
   likes_dancing = 12
   likes_avoid_music = 0
   likes_relax = 0
