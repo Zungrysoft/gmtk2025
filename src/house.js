@@ -88,8 +88,8 @@ export default class House extends Thing {
 
   // add the trays and clickable buttons to the scene
   initUiElements() {
-    game.addThing(new Tray('tray_furniture', game.assets.textures.tray_furniture_open, game.assets.textures.tray_furniture_closed,
-                          [200,600], [0,0], [-163,0], true, [163,36,190,90]))
+    game.addThing(new Tray('tray_furniture', game.assets.textures.tray_furniture, game.assets.textures.tray_furniture,
+                          [200,600], [0,0], [-163,0], true, [-10,-10,-9,-9]))
     game.addThing(new Tray('tray_logs', game.assets.textures.tray_logs_open, game.assets.textures.tray_logs_closed,
                           [200,600], [1080,125], [1244,125], true, [7,34,36,79]))
     game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,

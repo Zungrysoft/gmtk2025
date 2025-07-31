@@ -26,8 +26,7 @@ for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark']) 
 
 game.assets.images = await game.loadImages({
   square: 'images/square.png',
-  tray_furniture_open: 'images/ui/ui_tray_furniture_open.png',
-  tray_furniture_closed: 'images/ui/ui_tray_furniture_closed.png',
+  tray_furniture: 'images/ui/ui_tray_furniture.png',
   tray_logs_open: 'images/ui/ui_tray_logs_open.png',
   tray_logs_closed: 'images/ui/ui_tray_logs_closed.png',
   tray_mics: 'images/ui/ui_tray_mics.png',
