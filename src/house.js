@@ -26,6 +26,8 @@ export default class House extends Thing {
     game.setThingName(this, 'house');
 
     this.changePhase('placement')
+
+    soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0]);
   }
 
   update() {

@@ -46,6 +46,7 @@ export default class Guest extends Thing {
     }
 
     if (this.isInConversation()) {
+      this.activityTime --;
       return;
     }
 
@@ -58,10 +59,9 @@ export default class Guest extends Thing {
         this.position = vec2.add(this.position, vel);
         this.conversationTime = 120;
 
-        this.footstepTime -= 0.025 * this.speedMultiplier;
+        this.footstepTime -= 0.03 * this.speedMultiplier;
         if (this.footstepTime <= 0) {
           this.footstepTime = 1.0;
-          console.log("STEP!", game.getThing('house').partyTime)
           soundmanager.playSound(['footstep1', 'footstep2', 'footstep3'], 0.6, 1.0, [...this.position, 0]);
         }
       }
