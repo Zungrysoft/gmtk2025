@@ -3,6 +3,11 @@ import Thing from 'thing'
 import { drawBackground } from './draw.js'
 import Furniture from './furniture.js'
 import GuestAntonio from './guestantonio.js'
+import GuestAllAround from './guest_allaround.js'
+import GuestDancer from './guest_dancer.js'
+import GuestDrinker from './guest_drinker.js'
+import GuestIntenseGamer from './guest_intensegamer.js'
+import GuestQuietGamer from './guest_quietgamer.js'
 
 export default class House extends Thing {
   isDying = false
@@ -23,6 +28,11 @@ export default class House extends Thing {
   update() {
     if (game.keysPressed.KeyJ) {
       game.addThing(new GuestAntonio());
+      game.addThing(new GuestAllAround());
+      game.addThing(new GuestDancer());
+      game.addThing(new GuestDrinker());
+      game.addThing(new GuestIntenseGamer());
+      game.addThing(new GuestQuietGamer());
     }
 
   }
