@@ -1,5 +1,6 @@
 import * as game from 'game'
 import * as u from 'utils'
+import * as soundmanager from 'soundmanager'
 import * as vec2 from 'vector2'
 import Thing from 'thing'
 import { drawBackground, drawSprite } from './draw.js'
@@ -118,6 +119,8 @@ export default class Furniture extends Thing {
         this.rotation = 0;
       }
     }
+
+    soundmanager.playSound('move2', 0.2, 1.0);
   }
 
   isClickable() {
@@ -142,6 +145,7 @@ export default class Furniture extends Thing {
   onClick() {
     if (game.getThing('house')?.gamePhase === 'party' && this.type === 'mic') {
       game.getThing('house').selectedMic = this.micNumber;
+      soundmanager.playSound('select', 0.2, 1.3);
       return;
     }
 
@@ -149,13 +153,19 @@ export default class Furniture extends Thing {
       this.isBeingDragged = false;
       
       this.isPlaced = this.isValidPlacement();
-      if (!this.isPlaced) {
+      if (this.isPlaced) {
+        soundmanager.playSound('move1', 0.2, 1.0);
+      }
+      else {
         this.rotation = 0;
+        soundmanager.playSound('swipe', 0.2, 1.0);
       }
     }
     else {
       this.isBeingDragged = true;
       this.isPlaced = false;
+
+      soundmanager.playSound('move1', 0.2, 1.3);
     }
   }
 

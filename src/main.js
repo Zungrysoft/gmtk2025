@@ -69,6 +69,9 @@ game.assets.sounds = await game.loadAudio({
   hint: 'sounds/hint.wav',
   menubutton: 'sounds/menubutton.wav',
   musicchange: 'sounds/musicchange.wav',
+  move1: 'sounds/move1.wav',
+  move2: 'sounds/move2.wav',
+  select: 'sounds/select.wav',
 
   ...conversationAudio,
 
