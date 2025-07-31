@@ -50,12 +50,19 @@ export default class Guest extends Thing {
       return;
     }
 
+    let activityPosition = this.activityFurniture?.position
+    if (activityPosition) {
+      activityPosition = vec2.add(activityPosition, vec2.scale(this.activityOffset, 0.5));
+    }
+    else {
+      activityPosition = [423, 481];
+    }
     if (this.currentActivity) {
       // Walk toward activity
-      const dist = vec2.distance(this.position, this.activityPosition)
+      const dist = vec2.distance(this.position, activityPosition)
       const moveSpeed = 2 * this.speedMultiplier;
       if (dist > moveSpeed * 1.1) {
-        const vel = vec2.scale(vec2.normalize(vec2.subtract(this.activityPosition, this.position)), moveSpeed);
+        const vel = vec2.scale(vec2.normalize(vec2.subtract(activityPosition, this.position)), moveSpeed);
         this.position = vec2.add(this.position, vel);
         this.conversationTime = 120;
 
@@ -67,7 +74,7 @@ export default class Guest extends Thing {
       }
       else {
         // Snap to final position and do activity
-        this.position = [...this.activityPosition];
+        this.position = [...activityPosition];
 
         this.activityTime --;
         if (this.activityTime <= 0) {
@@ -129,7 +136,7 @@ export default class Guest extends Thing {
   startActivity(activity) {
     this.currentActivity = activity;
     this.activityTime = TIME_TO_COMPLETE_ACTIVITY;
-    this.activityPosition = vec2.add(this.getActivityNearestPosition(activity), this.activityOffset);
+    this.activityFurniture = this.getActivityNearestFurniture(activity)
   }
 
   finishActivity() {
@@ -151,6 +158,13 @@ export default class Guest extends Thing {
   }
 
   isActivityAvailable(activity) {
+    if (activity === 'relax') {
+      if (game.getThings().some(x => x instanceof Furniture && ['chair', 'couch'].includes(x.type) && !x.isFull())) {
+        return true;
+      }
+      return false;
+    }
+
     return true;
   }
 
@@ -192,18 +206,19 @@ export default class Guest extends Thing {
     return (likesActivity + bonus) - timesCompletedActivity * 10;
   }
 
-  getActivityNearestPosition(activity) {
+  getActivityNearestFurniture(activity) {
     if (activity === 'relax') {
-      return this.getNearestFurnitureOfType(['chair', 'couch']).position;
+
+      return this.getNearestFurnitureOfType(['chair', 'couch']);
     }
 
-    return this.getNearestFurnitureOfType([activity])?.position ?? [423, 481];
+    return this.getNearestFurnitureOfType([activity]);
   }
 
   getNearestFurnitureOfType(types) {
     let minDist = 99999999999;
     let minObj = null;
-    for (const obj of game.getThings().filter(x => x instanceof Furniture && types.includes(x.type))) {
+    for (const obj of game.getThings().filter(x => x instanceof Furniture && types.includes(x.type) && !x.isFull())) {
       const dist = vec2.distance(obj.position, this.position)
       if (dist < minDist) {
         minDist = dist;
