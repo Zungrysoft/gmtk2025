@@ -21,7 +21,7 @@ export default class Guest extends Thing {
   likes_relax = 10
   likes_food_pizza = 10
   likes_food_platter = 10
-  likes_games = 10
+  likes_game = 10
   likes_alcohol = 10
 
   // Variables
@@ -111,7 +111,7 @@ export default class Guest extends Thing {
       'relax',
       'food_pizza',
       'food_platter',
-      'games',
+      'game',
       'alcohol',
     ].filter(x => this.getActivityScore(x) > 0 && this.isActivityPresent(x)).sort((a, b) => this.getActivityScore(b) - this.getActivityScore(a))
 

@@ -40,14 +40,22 @@ game.assets.images = await game.loadImages({
   furniture_table1: 'images/furniture/furniture_table1.png',
   furniture_table2: 'images/furniture/furniture_table2.png',
   furniture_table3: 'images/furniture/furniture_table3.png',
+  furniture_icon_table3: 'images/furniture/furniture_icon_table3.png',
   furniture_couch: 'images/furniture/furniture_couch.png',
   furniture_loveseat: 'images/furniture/furniture_loveseat.png',
   furniture_chair1: 'images/furniture/furniture_chair1.png',
   furniture_chair2: 'images/furniture/furniture_chair2.png',
+  furniture_icon_chair1: 'images/furniture/furniture_icon_chair.png',
   furniture_food_platter: 'images/furniture/furniture_food_platter.png',
+  furniture_icon_food_platter: 'images/furniture/furniture_icon_food_platter.png',
   furniture_food_pizza: 'images/furniture/furniture_food_pizza.png',
+  furniture_icon_food_pizza: 'images/furniture/furniture_icon_food_pizza.png',
   furniture_alcohol: 'images/furniture/furniture_alcohol.png',
+  furniture_icon_alcohol: 'images/furniture/furniture_icon_alcohol.png',
   furniture_dancing: 'images/furniture/furniture_dj.png',
+  furniture_icon_dancing: 'images/furniture/furniture_icon_dj.png',
+  furniture_game: 'images/furniture/furniture_game.png',
+  furniture_icon_game: 'images/furniture/furniture_icon_game.png',
   furniture_mic: 'images/furniture/furniture_mic.png',
   furniture_mic_a: 'images/furniture/furniture_mic_a.png',
   furniture_mic_b: 'images/furniture/furniture_mic_b.png',
@@ -132,8 +140,8 @@ game.assets.textures = Object.fromEntries(
 
 game.setScene(() => {
   // Global things
-  game.addThing(new House());
   game.addThing(new Selector());
+  game.addThing(new House());
   game.addThing(new Quiz());
 
   // Camera setup

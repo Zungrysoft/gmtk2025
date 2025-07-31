@@ -12,7 +12,7 @@ export default class Furniture extends Thing {
   rotation = 0
   isBeingDragged = false
 
-  constructor(sprite, type, aabb, position, micNumber) {
+  constructor(sprite, type, aabb, position, micNumber, iconSprite) {
     super();
     this.sprite = sprite;
     this.type = type;
@@ -20,6 +20,7 @@ export default class Furniture extends Thing {
     this.position = [...position];
     this.homePosition = [...position];
     this.micNumber = micNumber;
+    this.iconSprite = iconSprite
 
     this.depth = this.mustBePlacedOn().length > 0 ? 31 : 30;
     if (type === 'mic') {
@@ -29,7 +30,6 @@ export default class Furniture extends Thing {
 
   update() {
     this.isError = false;
-    this.scale = 1.0;
 
     if (this.isBeingDragged) {
       this.position = [...game.mouse.position];
@@ -49,7 +49,6 @@ export default class Furniture extends Thing {
     }
     else {
       if (!this.isPlaced) {
-        this.scale = 0.6;
         this.position = vec2.lerp(this.position, this.homePosition, 0.2)
       }
     }
@@ -156,8 +155,6 @@ export default class Furniture extends Thing {
     }
 
     if (this.isBeingDragged) {
-      this.isBeingDragged = false;
-      
       this.isPlaced = this.isValidPlacement();
       if (this.isPlaced) {
         soundmanager.playSound('move1', 0.2, 1.0);
@@ -166,6 +163,7 @@ export default class Furniture extends Thing {
         this.rotation = 0;
         soundmanager.playSound('swipe', 0.2, 1.0);
       }
+      this.isBeingDragged = false;
     }
     else {
       this.isBeingDragged = true;
@@ -173,6 +171,10 @@ export default class Furniture extends Thing {
 
       soundmanager.playSound('move1', 0.2, 1.3);
     }
+  }
+
+  isIcon() {
+    return !this.isPlaced && !this.isBeingDragged && this.iconSprite;
   }
 
   getAabb() {
@@ -202,13 +204,15 @@ export default class Furniture extends Thing {
       ]
     }
 
-    let scaledAabb = rotatedAabb.map((x) => x * this.scale)
+    if (this.isIcon()) {
+      rotatedAabb = [-24, -24, 24, 24];
+    }
 
     return [
-      scaledAabb[0] + this.position[0],
-      scaledAabb[1] + this.position[1],
-      scaledAabb[2] + this.position[0],
-      scaledAabb[3] + this.position[1],
+      rotatedAabb[0] + this.position[0],
+      rotatedAabb[1] + this.position[1],
+      rotatedAabb[2] + this.position[0],
+      rotatedAabb[3] + this.position[1],
     ];
   }
 
@@ -217,7 +221,7 @@ export default class Furniture extends Thing {
   }
 
   mustBePlacedOn() {
-    if (this.type.includes('food') || this.type === 'alcohol') {
+    if (this.type.includes('food') || this.type === 'alcohol' || this.type === 'game') {
       return ['table'];
     }
     if (this.type === 'mic') {
@@ -247,16 +251,31 @@ export default class Furniture extends Thing {
       color = [1.0, 0.1, 0.1];
     }
 
-    drawSprite({
-      sprite: this.sprite,
-      color: color,
-      centered: true,
-      width: 256 * this.scale,
-      height: 256 * this.scale,
-      depth: this.depth,
-      rotation: Math.PI/2 * this.rotation,
-      position: this.position,
-    })
+    if (this.isIcon()) {
+      drawSprite({
+        sprite: this.iconSprite,
+        color: color,
+        centered: true,
+        width: 64,
+        height: 64,
+        depth: this.depth,
+        rotation: 0,
+        position: this.position,
+      })
+    }
+    else {
+      drawSprite({
+        sprite: this.sprite,
+        color: color,
+        centered: true,
+        width: 256,
+        height: 256,
+        depth: this.depth,
+        rotation: Math.PI/2 * this.rotation,
+        position: this.position,
+      })
+    }
+    
 
     if (this.micNumber != null) {
       let sprite = game.assets.textures["furniture_mic_a"];
@@ -276,8 +295,8 @@ export default class Furniture extends Thing {
         sprite: sprite,
         color: color,
         centered: true,
-        width: 256 * this.scale,
-        height: 256 * this.scale,
+        width: 256,
+        height: 256,
         depth: this.depth,
         rotation: 0,
         position: vec2.add(this.position, offset),
@@ -290,8 +309,8 @@ export default class Furniture extends Thing {
           drawSprite({
             sprite: game.assets.textures.furniture_mic_selected,
             centered: true,
-            width: 256 * this.scale * scale,
-            height: 256 * this.scale * scale,
+            width: 256 * scale,
+            height: 256 * scale,
             depth: this.depth + 1,
             position: this.position,
           })

@@ -16,7 +16,7 @@ export default class GuestAntonio extends Guest {
   likes_relax = 23
   likes_food_pizza = 25
   likes_food_platter = 17
-  likes_games = 22
+  likes_game = 22
   likes_alcohol = 20
 
 }

@@ -17,6 +17,12 @@ export default class Button extends Tray {
     if (!this.isTransitioningClosed && !this.isTransitioningOpen) this.toggleOpenState();
   }
 
+  isClickable() {
+    if (game.getThing('quiz')?.isEnabled) return false
+    if (game.getThing('house')?.gamePhase == 'party') return false
+    if (this.isTransitioningClosed || this.isTransitioningOpen) return false
+    return true
+  }
 
   update() {
     super.update()

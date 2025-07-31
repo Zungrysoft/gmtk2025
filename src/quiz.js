@@ -62,7 +62,7 @@ export default class Quiz extends Thing {
       }
 
       if (correctAnswers >= quiz.questions.length) {
-        soundmanager.playSound('solve', 0.6, 1.0);
+        soundmanager.playSound('solve', 0.4, 1.0);
         this.solvedPages[this.currentPage] = true;
         this.setUpPageClickables();
         this.solveTime = SOLVE_DURATION;
@@ -85,7 +85,7 @@ export default class Quiz extends Thing {
   changePage(page) {
     this.currentPage = page;
 
-    soundmanager.playSound('paper2', 0.15, [0.9, 1.1]);
+    soundmanager.playSound('paper2', 0.13, [1.1, 1.3]);
 
     this.solveTime = 0
 
@@ -132,7 +132,7 @@ export default class Quiz extends Thing {
     }
     else {
       if (this.selectedOptions[[this.currentPage, question]] != option) {
-        // Sound effect
+        soundmanager.playSound('click3', 0.4, 1.4);
       }
       this.selectedOptions[[this.currentPage, question]] = option;
     }

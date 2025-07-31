@@ -159,28 +159,32 @@ export default class House extends Thing {
 
   addFurniture() {
     // Mics
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [33, 33], 0));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [55, 33], 1));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [77, 33], 2));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [65, 690], 0));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [105, 690], 1));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [145, 690], 2));
 
-    // Misc.
-    game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', [-77, -107, 77, 101], [512, 128]));
+    
 
     // Seating
-    game.addThing(new Furniture(game.assets.textures.furniture_couch, 'couch', [-115, -46, 115, 46], [128, 512]));
-    game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', [-40, -45, 40, 45], [128, 512]));
-    game.addThing(new Furniture(game.assets.textures.furniture_chair2, 'chair', [-40, -45, 40, 45], [128, 512]));
-    game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'chair', [-50, -44, 45, 41], [128, 512]));
+    game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', [-40, -45, 40, 45], [33, 173], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_chair2, 'chair', [-40, -45, 40, 45], [79, 171], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'chair', [-50, -44, 45, 41], [142, 179], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_couch, 'couch', [-115, -46, 115, 46], [129, 225], null, game.assets.textures.furniture_icon_chair1));
 
     // Tables
-    game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', [-105, -52, 105, 52], [128, 256]));
-    game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', [-83, -64, 83, 64], [128, 512]));
-    game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', [-66, -48, 66, 48], [128, 512]));
+    game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', [-105, -52, 105, 52], [27, 72], null, game.assets.textures.furniture_icon_table3));
+    game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', [-83, -64, 83, 64], [87, 74], null, game.assets.textures.furniture_icon_table3));
+    game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', [-66, -48, 66, 48], [143, 77], null, game.assets.textures.furniture_icon_table3));
 
     // Food
-    game.addThing(new Furniture(game.assets.textures.furniture_alcohol, 'alcohol', [-59, -37, 59, 36], [512, 512]));
-    game.addThing(new Furniture(game.assets.textures.furniture_food_platter, 'food_platter', [-30, -20, 30, 20], [512, 512]));
-    game.addThing(new Furniture(game.assets.textures.furniture_food_pizza, 'food_pizza', [-38, -38, 38, 38], [512, 512]));
+    game.addThing(new Furniture(game.assets.textures.furniture_alcohol, 'alcohol', [-59, -37, 59, 36], [39, 356], null, game.assets.textures.furniture_icon_alcohol));
+    game.addThing(new Furniture(game.assets.textures.furniture_food_platter, 'food_platter', [-30, -20, 30, 20], [128, 332], null, game.assets.textures.furniture_icon_food_platter));
+    game.addThing(new Furniture(game.assets.textures.furniture_food_pizza, 'food_pizza', [-38, -38, 38, 38], [42, 257], null, game.assets.textures.furniture_icon_food_pizza));
+
+    // Misc.
+    game.addThing(new Furniture(game.assets.textures.furniture_game, 'game', [-38, -38, 38, 38], [39, 552], null, game.assets.textures.furniture_icon_game));
+    game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', [-77, -107, 77, 101], [38, 469], null, game.assets.textures.furniture_icon_dancing));
+
   }
 
   addGuests() {

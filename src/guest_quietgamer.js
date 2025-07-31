@@ -17,7 +17,7 @@ export default class GuestQuietGamer extends Guest {
   likes_relax = 17
   likes_food_pizza = 20
   likes_food_platter = 19
-  likes_games = 18
+  likes_game = 18
   likes_alcohol = 0
 
   getActivityNearestPosition(activity) {
