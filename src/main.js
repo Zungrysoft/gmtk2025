@@ -41,6 +41,12 @@ game.assets.data = await game.loadJson({
   conversations: 'data/conversations.json',
 })
 
+const conversationAudioStrings = game.assets.data.conversations.flatMap(c => c.audio.map(a => a.sound))
+let conversationAudio = {};
+for (const aString of conversationAudioStrings) {
+  conversationAudio['conversation_' + aString] = 'sounds/conversations/' + aString + '.wav';
+}
+
 game.assets.sounds = await game.loadAudio({
   click1: 'sounds/click1.wav',
   click2: 'sounds/click2.wav',
@@ -64,11 +70,14 @@ game.assets.sounds = await game.loadAudio({
   menubutton: 'sounds/menubutton.wav',
   musicchange: 'sounds/musicchange.wav',
 
+  ...conversationAudio,
+
   music1: 'sounds/track1.flac',
   music2: 'sounds/track2.flac',
   music3: 'sounds/track3.flac',
 })
 soundmanager.setSoundsTable(game.assets.sounds)
+soundmanager.configurePositionalSound(conversationAudioStrings.map(x => 'conversation_' + x));
 
 game.assets.textures = Object.fromEntries(
   Object.entries(game.assets.images).map(([name, image]) => [

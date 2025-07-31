@@ -5,6 +5,7 @@ import * as soundmanager from 'soundmanager'
 import Thing from 'thing'
 import Furniture from './furniture.js'
 import { drawSprite } from './draw.js'
+import Conversation from './conversation.js'
 
 const TIME_TO_COMPLETE_ACTIVITY = 1200;
 
@@ -43,6 +44,10 @@ export default class Guest extends Thing {
       return;
     }
 
+    if (this.isInConversation()) {
+      return;
+    }
+
     if (this.currentActivity) {
       // Walk toward activity
       const dist = vec2.distance(this.position, this.activityPosition)
@@ -50,6 +55,7 @@ export default class Guest extends Thing {
       if (dist > moveSpeed * 1.1) {
         const vel = vec2.scale(vec2.normalize(vec2.subtract(this.activityPosition, this.position)), moveSpeed);
         this.position = vec2.add(this.position, vel);
+        this.conversationTime = 120;
       }
       else {
         // Snap to final position and do activity
@@ -59,12 +65,29 @@ export default class Guest extends Thing {
         if (this.activityTime <= 0) {
           this.finishActivity();
         }
+
+        this.conversationTime --;
+        if (this.conversationTime <= 0) {
+          this.startConversation();
+        }
+        
       }
       
     }
     else {
       this.decideCurrentActivity()
     }
+  }
+
+  startConversation() {
+    game.addThing(new Conversation(game.assets.data.conversations[0]))
+  }
+
+  isInConversation() {
+    if (game.getThings().some(x => x instanceof Conversation && x.conversation.participants.includes(this.name))) {
+      return true;
+    }
+    return false;
   }
 
   decideCurrentActivity() {
@@ -99,7 +122,6 @@ export default class Guest extends Thing {
     this.currentActivity = activity;
     this.activityTime = TIME_TO_COMPLETE_ACTIVITY;
     this.activityPosition = vec2.add(this.getActivityNearestPosition(activity), this.activityOffset);
-    console.log(this.name, " started activity ", this.currentActivity)
   }
 
   finishActivity() {
@@ -181,6 +203,13 @@ export default class Guest extends Thing {
       }
     }
     return minObj;
+  }
+
+  isActivityConversable(activity) {
+    if (['dancing'].includes(activity)) {
+      return false;
+    }
+    return true;
   }
 
   draw() {

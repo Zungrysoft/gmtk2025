@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "participants": ["antonio", "drinker"],
+        "participants": ["antonio", "dancer"],
         "conditions": [
             {
                 "type": "time",

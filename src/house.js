@@ -1,4 +1,5 @@
 import * as game from 'game'
+import * as soundmanager from 'soundmanager'
 import Thing from 'thing'
 import { drawBackground } from './draw.js'
 import Furniture from './furniture.js'
@@ -30,6 +31,23 @@ export default class House extends Thing {
   update() {
     if (this.gamePhase === 'party') {
       this.partyTime ++;
+
+      // Spatial audio
+      const selectedMicObj = game.getThings().find(x => x instanceof Furniture && x.micNumber === this.selectedMic);
+      if (selectedMicObj) {
+        const pos = [...selectedMicObj.position, 30];
+        let lookVector = [0, -1, 0];
+        if (selectedMicObj.rotation === 1) {
+          lookVector = [1, 0, 0];
+        }
+        else if (selectedMicObj.rotation === 2) {
+          lookVector = [0, 1, 0];
+        }
+        else if (selectedMicObj.rotation === 3) {
+          lookVector = [-1, 0, 0];
+        }
+        soundmanager.updateSoundPan(pos, lookVector);
+      }
     }
 
 
@@ -92,9 +110,9 @@ export default class House extends Thing {
 
   addFurniture() {
     // Mics
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [33, 33], 0));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [55, 33], 1));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [77, 33], 2));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [33, 33], 0));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [55, 33], 1));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [77, 33], 2));
 
     // Misc.
     game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', [-77, -107, 77, 101], [512, 128]));
