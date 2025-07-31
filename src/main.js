@@ -35,6 +35,7 @@ game.assets.images = await game.loadImages({
   furniture_mic_b: 'images/furniture/furniture_mic_b.png',
   furniture_mic_c: 'images/furniture/furniture_mic_c.png',
   furniture_mic_selected: 'images/furniture/furniture_mic_selected.png',
+  furniture_mic_loudness: 'images/furniture/furniture_mic_loudness.png',
 })
 
 game.assets.data = await game.loadJson({

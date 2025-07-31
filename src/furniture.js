@@ -2,6 +2,7 @@ import * as game from 'game'
 import * as u from 'utils'
 import * as soundmanager from 'soundmanager'
 import * as vec2 from 'vector2'
+import * as vec3 from 'vector3'
 import Thing from 'thing'
 import { drawBackground, drawSprite } from './draw.js'
 
@@ -266,6 +267,7 @@ export default class Furniture extends Thing {
       })
 
       if (game.getThing('house').gamePhase === 'party') {
+        // Selection indicator
         if (game.getThing('house').selectedMic === this.micNumber) {
           const scale = u.map(Math.sin(game.getThing('house').partyTime / 10), -1, 1, 1.0, 1.3);
           drawSprite({
@@ -277,6 +279,41 @@ export default class Furniture extends Thing {
             position: this.position,
           })
         }
+
+        // Loudness indicator
+        let total = 0;
+
+        for (const { analyser, panner } of game.globals.audioSources) {
+          const dataArray = new Uint8Array(analyser.fftSize);
+          analyser.getByteTimeDomainData(dataArray);
+
+          let sumSquares = 0;
+          for (let i = 0; i < dataArray.length; i++) {
+            const val = (dataArray[i] - 128) / 128;
+            sumSquares += val * val;
+          }
+
+          const rms = Math.sqrt(sumSquares / dataArray.length);
+
+          if (rms < 0.015) {
+            continue;
+          }
+
+          const dist = vec3.distance([panner.positionX.value, panner.positionZ.value, panner.positionY.value], [...this.position, 128]);
+          const scalar = Math.max(2.0, dist / 30)**(-2);
+
+          total += rms * scalar;
+        }
+
+        let loudnessScale = (total**0.5) * 2048;
+        drawSprite({
+          sprite: game.assets.textures.furniture_mic_loudness,
+          centered: true,
+          width: loudnessScale,
+          height: loudnessScale,
+          depth: this.depth + 2,
+          position: this.position,
+        })
       }
     }
   }

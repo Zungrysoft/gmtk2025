@@ -197,14 +197,28 @@ export function configurePositionalSound(soundDef=[]) {
     panner.coneOuterAngle = 360;
     panner.coneOuterGain = 1.0;
 
+    // Create analyser node
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 4096;
+
     // Connect the nodes and allow the audio element to control playback
     soundSource.disconnect();
-    soundSource.connect(panner);
+    soundSource.connect(analyser);
+    analyser.connect(panner);
     panner.connect(audioContext.destination);
 
     // Save references to these objects in the audio element so we can access them later
     sound.pannerObject = panner
     sound.isPositional = true
+
+    // Save references to the analyser and panner for later access in loudness checking
+    if (!game.globals.audioSources) {
+      game.globals.audioSources = [];
+    }
+    game.globals.audioSources.push({
+      panner,
+      analyser,
+    })
 
   } catch (error) {
     console.error('Error configuring spatial audio:', error);
