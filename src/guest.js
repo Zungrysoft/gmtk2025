@@ -18,7 +18,6 @@ export default class Guest extends Thing {
   speedMultiplier = 1.0
   activityOffset = [0, 0]
   likes_dance = 10
-  likes_avoid_music = 10
   likes_relax = 10
   likes_food_pizza = 10
   likes_food_platter = 10
@@ -60,7 +59,6 @@ export default class Guest extends Thing {
   decideCurrentActivity() {
     const activityPreferences = [
       'dance',
-      'avoid_music',
       'relax',
       'food_pizza',
       'food_platter',
@@ -90,9 +88,15 @@ export default class Guest extends Thing {
     this.currentActivity = activity;
     this.activityTime = TIME_TO_COMPLETE_ACTIVITY;
     this.activityPosition = vec2.add(this.getActivityNearestPosition(activity), this.activityOffset);
+    console.log(this.name, " started activity ", this.currentActivity)
   }
 
   finishActivity() {
+    if (this.currentActivity === 'leave') {
+      this.isDead = true;
+      return;
+    }
+
     if (this.currentActivity.includes('food')) {
       this.hunger --;
     }
@@ -112,10 +116,6 @@ export default class Guest extends Thing {
   isActivityPresent(activity) {
     if (activity === 'relax') {
       return game.getThings().some(x => x instanceof Furniture && (x.type === 'chair' || x.type === 'couch'));
-    }
-
-    if (activity === 'avoid_music') {
-      return game.getThings().some(x => x instanceof Furniture && (x.type === 'dancing'));
     }
 
     return game.getThings().some(x => x instanceof Furniture && x.type === activity);
@@ -143,10 +143,7 @@ export default class Guest extends Thing {
     }
 
     // Reduce activity enjoyment if the activity has already been done
-    let timesCompletedActivity = this.activityCompletions[activity] ?? 0;
-    if (['avoid_music'].includes(activity)) {
-      timesCompletedActivity = 0;
-    }
+    const timesCompletedActivity = this.activityCompletions[activity] ?? 0;
 
     // Base
     const likesActivity = this["likes_" + activity] ?? 0;
@@ -157,20 +154,6 @@ export default class Guest extends Thing {
   getActivityNearestPosition(activity) {
     if (activity === 'relax') {
       return this.getNearestFurnitureOfType(['chair', 'couch']).position;
-    }
-
-    // For avoiding the music, go to the furthest corner of the room from the music
-    if (activity === 'avoid_music') {
-      let maxDist = 0;
-      let maxPos = [0, 0];
-      for (const pos of [[321, 207], [295, 433], [984, 541], [987, 131]]) {
-        const dist = vec2.distance(pos, this.position)
-        if (dist > maxDist) {
-          maxDist = dist;
-          maxPos = pos;
-        }
-      }
-      return maxPos;
     }
 
     return this.getNearestFurnitureOfType([activity])?.position ?? [423, 481];

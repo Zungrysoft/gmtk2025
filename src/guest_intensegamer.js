@@ -13,7 +13,6 @@ export default class GuestIntenseGamer extends Guest {
   speedMultiplier = 1.1
   activityOffset = [64, 0]
   likes_dancing = 0
-  likes_avoid_music = 0
   likes_relax = 10
   likes_food_pizza = 23
   likes_food_platter = 22

@@ -13,7 +13,6 @@ export default class GuestAllAround extends Guest {
   speedMultiplier = 1.1
   activityOffset = [-45, -45]
   likes_dancing = 21
-  likes_avoid_music = 0
   likes_relax = 20
   likes_food_pizza = 24
   likes_food_platter = 23
