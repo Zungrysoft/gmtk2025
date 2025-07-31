@@ -11,7 +11,7 @@ export default class QuizButton extends Button {
   depth = 200
 
   onClick() {
-    game.getThing('quiz').isEnabled = !game.getThing('quiz').isEnabled;
+    game.getThing('quiz').toggleIsEnabled();
   }
 
   update() {

@@ -1,6 +1,6 @@
 [
     {
-        "unlock_threshold": 0,
+        "unlockThreshold": 0,
         "questions": [
             {
                 "title": "Who is this?",
@@ -35,5 +35,43 @@
             }
         ],
         "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
+    },
+    {
+        "unlockThreshold": 1,
+        "questions": [
+            {
+                "title": "Who is this?",
+                "audio_clip": {
+                    "sound": "",
+                    "picture": null
+                },
+                "options": [
+                    "Calvin",
+                    "Fe",
+                    "Luna",
+                    "Antonio",
+                    "Nick",
+                    "Daniel",
+                    "Steven",
+                    "Rick"
+                ],
+                "optionColumns": 2,
+                "correctOption": 6
+            },
+            {
+                "title": "And who does she\nhave a beef with?",
+                "audio_clip": null,
+                "options": [
+                    "Fe",
+                    "Luna",
+                    "Steven",
+                    "Calvin",
+                    "Antonio"
+                ],
+                "optionColumns": 2,
+                "correctOption": 1
+            }
+        ],
+        "hint": "Hint: People like to talk to\nothers who are close by."
     }
 ]

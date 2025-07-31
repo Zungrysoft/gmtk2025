@@ -37,12 +37,18 @@ export default class Quiz extends Thing {
     const desiredPosition = this.isEnabled ? [0, 0] : [0, -800];
     this.position = vec2.lerp(this.position, desiredPosition, 0.1);
 
-    // Change page
-    if ((game.keysPressed.KeyA || game.keysPressed.ArrowLeft) && this.currentPage > 0) {
-      this.changePage(this.currentPage - 1);
+    if (game.keysPressed.KeyQ) {
+      this.toggleIsEnabled();
     }
-    if ((game.keysPressed.KeyD || game.keysPressed.ArrowRight) && this.currentPage < game.assets.data.quizzes.length - 1) {
-      this.changePage(this.currentPage + 1);
+
+    // Change page
+    if (this.isEnabled) {
+      if ((game.keysPressed.KeyA || game.keysPressed.ArrowLeft) && this.currentPage > 0) {
+        this.changePage(this.currentPage - 1);
+      }
+      if ((game.keysPressed.KeyD || game.keysPressed.ArrowRight) && this.currentPage < this.getHighestAvailablePage()) {
+        this.changePage(this.currentPage + 1);
+      }
     }
 
     // Check for correct answers
@@ -63,16 +69,33 @@ export default class Quiz extends Thing {
       }
     }
     
-  }  
+  }
+
+  getHighestAvailablePage() {
+    let ret = 0;
+    let solvedPagesCount = Object.keys(this.solvedPages).length;
+    for (const quiz of game.assets.data.quizzes) {
+      if (solvedPagesCount >= quiz.unlockThreshold ?? 0) {
+        ret ++;
+      }
+    }
+    return ret - 1;
+  }
 
   changePage(page) {
     this.currentPage = page;
 
-    // Sound
+    soundmanager.playSound('paper2', 0.15, [0.9, 1.1]);
 
     this.solveTime = 0
 
     this.setUpPageClickables();
+  }
+
+  toggleIsEnabled() {
+    this.isEnabled = !this.isEnabled;
+    this.setUpPageClickables();
+    soundmanager.playSound('paper1', 0.2, 1.0);
   }
 
   setUpPageClickables() {
@@ -83,7 +106,7 @@ export default class Quiz extends Thing {
     }
 
     // Create new clickables for buttons (unless page is solved)
-    if (!this.solvedPages[this.currentPage]) {
+    if (!this.solvedPages[this.currentPage] && this.isEnabled) {
       const quiz = game.assets.data.quizzes[this.currentPage];
       for (const questionIndex in quiz.questions) {
         for (const index in quiz.questions[questionIndex].options) {
@@ -101,7 +124,7 @@ export default class Quiz extends Thing {
     if (question == 'left' && this.currentPage > 0) {
       this.changePage(this.currentPage - 1);
     }
-    else if (question == 'right' && this.currentPage < game.assets.data.quizzes.length - 1) {
+    else if (question == 'right' && this.currentPage < this.getHighestAvailablePage()) {
       this.changePage(this.currentPage + 1);
     }
     else if (option == -1) {

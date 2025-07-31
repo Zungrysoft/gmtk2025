@@ -101,6 +101,8 @@ game.assets.sounds = await game.loadAudio({
   move2: 'sounds/move2.wav',
   select: 'sounds/select.wav',
   solve: 'sounds/solve2.wav',
+  paper1: 'sounds/paper1.wav',
+  paper2: 'sounds/paper2.wav',
 
   ...conversationAudio,
 
