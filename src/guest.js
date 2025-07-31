@@ -30,6 +30,7 @@ export default class Guest extends Thing {
   activityTime = 0;
   position = [463, 531];
   activityCompletions = {};
+  footstepTime = 1.0;
 
   constructor() {
     super();
@@ -56,6 +57,13 @@ export default class Guest extends Thing {
         const vel = vec2.scale(vec2.normalize(vec2.subtract(this.activityPosition, this.position)), moveSpeed);
         this.position = vec2.add(this.position, vel);
         this.conversationTime = 120;
+
+        this.footstepTime -= 0.025 * this.speedMultiplier;
+        if (this.footstepTime <= 0) {
+          this.footstepTime = 1.0;
+          console.log("STEP!", game.getThing('house').partyTime)
+          soundmanager.playSound(['footstep1', 'footstep2', 'footstep3'], 0.6, 1.0, [...this.position, 0]);
+        }
       }
       else {
         // Snap to final position and do activity

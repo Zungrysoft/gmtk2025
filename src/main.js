@@ -75,12 +75,23 @@ game.assets.sounds = await game.loadAudio({
 
   ...conversationAudio,
 
+  footstep1: 'sounds/footsteps/footstep1.wav',
+  footstep2: 'sounds/footsteps/footstep2.wav',
+  footstep3: 'sounds/footsteps/footstep3.wav',
+
   music1: 'sounds/track1.flac',
   music2: 'sounds/track2.flac',
   music3: 'sounds/track3.flac',
 })
 soundmanager.setSoundsTable(game.assets.sounds)
-soundmanager.configurePositionalSound(conversationAudioStrings.map(x => 'conversation_' + x));
+
+const positionalSounds = [
+  ...conversationAudioStrings.map(x => 'conversation_' + x),
+  'footstep1',
+  'footstep2',
+  'footstep3',
+]
+soundmanager.configurePositionalSound(positionalSounds);
 
 game.assets.textures = Object.fromEntries(
   Object.entries(game.assets.images).map(([name, image]) => [

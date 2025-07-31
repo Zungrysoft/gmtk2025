@@ -94,17 +94,17 @@ export default class House extends Thing {
         if (!thing.isPlaced) {
           thing.isDead = true;
         }
-
-        this.selectedMic = 0
-        this.partyTime = 0
-
-        game.addThing(new GuestAntonio());
-        // game.addThing(new GuestAllAround());
-        game.addThing(new GuestDancer());
-        // game.addThing(new GuestDrinker());
-        // game.addThing(new GuestIntenseGamer());
-        // game.addThing(new GuestQuietGamer());
       }
+
+      this.selectedMic = 0
+      this.partyTime = 0
+
+      game.addThing(new GuestAntonio());
+      // game.addThing(new GuestAllAround());
+      game.addThing(new GuestDancer());
+      // game.addThing(new GuestDrinker());
+      // game.addThing(new GuestIntenseGamer());
+      // game.addThing(new GuestQuietGamer());
     }
   }
 
