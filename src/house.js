@@ -77,10 +77,7 @@ export default class House extends Thing {
           }
         }
       }
-      
     }
-    
-
   }
 
   changePhase(phase) {

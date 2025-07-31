@@ -12,7 +12,7 @@ export default class Selector extends Thing {
     // Get list of clickables
     const clickables = game.getThings().filter(x => x.isClickable?.()).sort((a, b) => {
       // Tie-break by depth
-      return b.depth - a.depth;
+      return a.depth - b.depth;
     });
 
     // Decide which clickable should be highlighted

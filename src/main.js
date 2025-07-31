@@ -3,6 +3,7 @@ import * as webgl from 'webgl'
 import * as soundmanager from 'soundmanager'
 import House from './house.js'
 import Selector from './selector.js'
+import Quiz from './quiz.js'
 
 document.title = 'In the Loop'
 game.setWidth(1280)
@@ -20,7 +21,7 @@ for (const char of "abcdefghijklmnopqrstuvwxyz") {
   fontData["letter_lower_" + char] = 'images/font/letter_lower_' + char + '.png';
   fontData["letter_upper_" + char] = 'images/font/letter_upper_' + char + '.png';
 }
-for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark']) {
+for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark', 'colon']) {
   fontData["letter_symbol_" + symbol] = 'images/font/letter_symbol_' + symbol + '.png';
 }
 
@@ -45,12 +46,17 @@ game.assets.images = await game.loadImages({
   furniture_mic_c: 'images/furniture/furniture_mic_c.png',
   furniture_mic_selected: 'images/furniture/furniture_mic_selected.png',
   furniture_mic_loudness: 'images/furniture/furniture_mic_loudness.png',
+  ui_quiz: 'images/ui/ui_quiz.png',
+  ui_checkmark: 'images/ui/ui_checkmark.png',
+
+  profile_unknown: 'images/profile/profile_unknown.png',
 
   ...fontData,
 })
 
 game.assets.data = await game.loadJson({
   conversations: 'data/conversations.json',
+  quizzes: 'data/quizzes.json',
 })
 
 const conversationAudioStrings = game.assets.data.conversations.flatMap(c => c.audio.map(a => a.sound))
@@ -84,6 +90,7 @@ game.assets.sounds = await game.loadAudio({
   move1: 'sounds/move1.wav',
   move2: 'sounds/move2.wav',
   select: 'sounds/select.wav',
+  solve: 'sounds/solve2.wav',
 
   ...conversationAudio,
 
@@ -115,6 +122,7 @@ game.setScene(() => {
   // Global things
   game.addThing(new House());
   game.addThing(new Selector());
+  game.addThing(new Quiz());
 
   // Camera setup
   game.getCamera3D().lookVector = [0, 0, -1];

@@ -94,6 +94,10 @@ export function drawText({
       imgName = 'letter_symbol_comma';
     }
 
+    if (char === ':') {
+      imgName = 'letter_symbol_colon';
+    }
+
     const isUpperCase = char === char.toUpperCase() && char !== char.toLowerCase();
     const isLowerCase = char === char.toLowerCase() && char !== char.toUpperCase();
     if (isUpperCase) {
@@ -119,6 +123,10 @@ export function drawText({
     }
     
   }
+}
+
+export function getTextHeight(text) {
+  return text.split('\n').length * 32;
 }
 
 function convertDepth(depth) {

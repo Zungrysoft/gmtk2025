@@ -9,27 +9,31 @@
                     "picture": null
                 },
                 "options": [
-                    "Antonio",
+                    "Calvin",
                     "Fe",
                     "Luna",
-                    "Calvin",
+                    "Antonio",
                     "Nick",
                     "Daniel",
                     "Steven",
                     "Rick"
-                ]
+                ],
+                "optionColumns": 2,
+                "correctOption": 3
             },
             {
-                "title": "And what does he always do first when he arrives?",
+                "title": "And what does he\nalways do first\nwhen he arrives?",
                 "audio_clip": null,
                 "options": [
                     "Dance",
                     "Relax",
                     "Eat Food",
                     "Play Games"
-                ]
+                ],
+                "optionColumns": 2,
+                "correctOption": 2
             }
         ],
-        "hint": "Microphones "
+        "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
     }
 ]

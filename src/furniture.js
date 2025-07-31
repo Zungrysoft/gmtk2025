@@ -126,6 +126,10 @@ export default class Furniture extends Thing {
   }
 
   isClickable() {
+    if (game.getThing('quiz')?.isEnabled) {
+      return false;
+    }
+
     if (game.getThing('house')?.gamePhase !== 'placement') {
       if (game.getThing('house')?.gamePhase === 'party' && this.type === 'mic' && game.getThing('house')?.selectedMic !== this.micNumber) {
         return true;
