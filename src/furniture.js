@@ -185,7 +185,7 @@ export default class Furniture extends Thing {
     if (this.type.includes('food') || this.type === 'alcohol') {
       return ['table'];
     }
-    if (this.type === 'microphone') {
+    if (this.type === 'mic') {
       return ['table', 'dancing', 'jazz', 'couch', 'chair', 'guitar', 'tv'];
     }
     return [];

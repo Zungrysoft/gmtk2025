@@ -4,7 +4,7 @@ import * as soundmanager from 'soundmanager'
 import House from './house.js'
 import Selector from './selector.js'
 
-document.title = 'Into the Loop'
+document.title = 'In the Loop'
 game.setWidth(1280)
 game.setHeight(720)
 game.createCanvases();
@@ -30,6 +30,7 @@ game.assets.images = await game.loadImages({
   furniture_food_pizza: 'images/furniture/furniture_food_pizza.png',
   furniture_alcohol: 'images/furniture/furniture_alcohol.png',
   furniture_dancing: 'images/furniture/furniture_dj.png',
+  furniture_mic: 'images/furniture/furniture_mic.png',
 })
 
 game.assets.data = await game.loadJson({

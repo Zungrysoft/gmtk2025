@@ -37,7 +37,12 @@ export default class House extends Thing {
   }
 
   addFurniture() {
-    // Music
+    // Mics
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [33, 33]));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [55, 33]));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [77, 33]));
+
+    // Misc.
     game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', [-77, -107, 77, 101], [512, 128]));
 
     // Seating
