@@ -7,9 +7,9 @@ import Guest from './guest.js'
 export default class GuestDrinker extends Guest {
   // Config
   name = "drinker"
-  hunger = 1
+  hunger = 0
   maxDrunkedness = 2
-  arrivalTime = 2000
+  arrivalTime = 500
   speedMultiplier = 1.1
   activityOffset = [-45, 45]
   likes_dancing = 12

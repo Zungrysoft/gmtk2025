@@ -9,7 +9,7 @@ export default class GuestAntonio extends Guest {
   name = "antonio"
   hunger = 2
   maxDrunkedness = 1
-  arrivalTime = 2000
+  arrivalTime = 300
   speedMultiplier = 1.1
   activityOffset = [-64, 0]
   likes_dancing = 10

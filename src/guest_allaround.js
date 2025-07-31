@@ -9,7 +9,7 @@ export default class GuestAllAround extends Guest {
   name = "allaround"
   hunger = 1
   maxDrunkedness = 2
-  arrivalTime = 2000
+  arrivalTime = 100
   speedMultiplier = 1.1
   activityOffset = [-45, -45]
   likes_dancing = 21

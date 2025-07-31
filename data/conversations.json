@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "participants": ["antonio", "drinker"],
+        "conditions": [
+            {
+                "type": "time",
+                "max_time": 25
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "dancer",
+                "duration": 1.38,
+                "sound": "001_dancer_001",
+                "text": "I see you're at the buffet table straight away."
+            },
+            {
+                "speaker": "antonio",
+                "duration": 1.38,
+                "sound": "001_antonio_001",
+                "text": "Yeah, I'm starving. I had a 12-hour shift, haven't eaten since breakfast."
+            },
+            {
+                "speaker": "dancer",
+                "duration": 1.38,
+                "sound": "001_dancer_002",
+                "text": "Damn! Get some food in you!"
+            }
+        ]
+    }
+]

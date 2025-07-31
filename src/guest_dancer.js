@@ -9,12 +9,13 @@ export default class GuestDancer extends Guest {
   name = "dancer"
   hunger = 1
   maxDrunkedness = 1
-  arrivalTime = 2000
+  arrivalTime = 200
   speedMultiplier = 1.1
   activityOffset = [0, -64]
   likes_dancing = 25
   likes_relax = 0
-  likes_food_pizza = 22
+  // likes_food_pizza = 22
+  likes_food_pizza = 220
   likes_food_platter = 21
   likes_games = 18
   likes_alcohol = 20

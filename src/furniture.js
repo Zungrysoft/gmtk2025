@@ -9,15 +9,19 @@ export default class Furniture extends Thing {
   rotation = 0
   isBeingDragged = false
 
-  constructor(sprite, type, aabb, position) {
+  constructor(sprite, type, aabb, position, micNumber) {
     super();
     this.sprite = sprite;
     this.type = type;
     this.aabb = aabb;
     this.position = [...position];
     this.homePosition = [...position];
+    this.micNumber = micNumber;
 
     this.depth = this.mustBePlacedOn().length > 0 ? 31 : 30;
+    if (type === 'mic') {
+      this.depth = 50;
+    }
   }
 
   update() {
@@ -117,6 +121,13 @@ export default class Furniture extends Thing {
   }
 
   isClickable() {
+    if (game.getThing('house')?.gamePhase !== 'placement') {
+      if (game.getThing('house')?.gamePhase === 'party' && this.type === 'mic' && game.getThing('house')?.selectedMic !== this.micNumber) {
+        return true;
+      }
+      return false;
+    }
+
     if (!this.isBeingDragged && !this.isPlaceable()) {
       for (const other of game.getThings().filter(t => t instanceof Furniture && t !== this && t.isPlaceable())) {
         if (u.checkAabbIntersection(this.getAabb(), other.getAabb())) {
@@ -129,10 +140,18 @@ export default class Furniture extends Thing {
   }
 
   onClick() {
+    if (game.getThing('house')?.gamePhase === 'party' && this.type === 'mic') {
+      game.getThing('house').selectedMic = this.micNumber;
+      return;
+    }
+
     if (this.isBeingDragged) {
       this.isBeingDragged = false;
       
       this.isPlaced = this.isValidPlacement();
+      if (!this.isPlaced) {
+        this.rotation = 0;
+      }
     }
     else {
       this.isBeingDragged = true;
@@ -210,5 +229,45 @@ export default class Furniture extends Thing {
       rotation: Math.PI/2 * this.rotation,
       position: this.position,
     })
+
+    if (this.micNumber != null) {
+      let sprite = game.assets.textures["furniture_mic_a"];
+      if (this.micNumber === 1) {
+        sprite = game.assets.textures["furniture_mic_b"];
+      }
+      else if (this.micNumber === 2) {
+        sprite = game.assets.textures["furniture_mic_c"];
+      }
+
+      let offset = [0, 0];
+      if (this.rotation === 1 || this.rotation === 3) {
+        offset = [-16, -20]
+      }
+
+      drawSprite({
+        sprite: sprite,
+        color: color,
+        centered: true,
+        width: 256 * this.scale,
+        height: 256 * this.scale,
+        depth: this.depth,
+        rotation: 0,
+        position: vec2.add(this.position, offset),
+      })
+
+      if (game.getThing('house').gamePhase === 'party') {
+        if (game.getThing('house').selectedMic === this.micNumber) {
+          const scale = u.map(Math.sin(game.getThing('house').partyTime / 10), -1, 1, 1.0, 1.3);
+          drawSprite({
+            sprite: game.assets.textures.furniture_mic_selected,
+            centered: true,
+            width: 256 * this.scale * scale,
+            height: 256 * this.scale * scale,
+            depth: this.depth + 1,
+            position: this.position,
+          })
+        }
+      }
+    }
   }
 }

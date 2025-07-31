@@ -33,11 +33,10 @@ export default class Selector extends Thing {
     }
 
     // Update isHighlighted status for all clickables
-    for (const clickable of clickables) {
+    for (const clickable of game.getThings()) {
       const shouldBeHighlighted = clickable === activeClickable;
       if (shouldBeHighlighted && !clickable.isHighlighted && !clickable.isSelected && !activeClickable.isGreyedOut) {
         soundmanager.playSound('click1', 0.05, 1.8);
-        console.log("CLICK!")
       }
       clickable.isHighlighted = shouldBeHighlighted;
     }

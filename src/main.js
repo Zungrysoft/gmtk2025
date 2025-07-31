@@ -31,17 +31,14 @@ game.assets.images = await game.loadImages({
   furniture_alcohol: 'images/furniture/furniture_alcohol.png',
   furniture_dancing: 'images/furniture/furniture_dj.png',
   furniture_mic: 'images/furniture/furniture_mic.png',
+  furniture_mic_a: 'images/furniture/furniture_mic_a.png',
+  furniture_mic_b: 'images/furniture/furniture_mic_b.png',
+  furniture_mic_c: 'images/furniture/furniture_mic_c.png',
+  furniture_mic_selected: 'images/furniture/furniture_mic_selected.png',
 })
 
 game.assets.data = await game.loadJson({
-  stories: 'data/stories.json',
-  words_orth: 'data/words_orth.json',
-  answers_orth_brother: 'data/answers_orth_brother.json',
-  words_long: 'data/words_long.json',
-  answers_long_act1: 'data/answers_long_act1.json',
-  answers_long_act2: 'data/answers_long_act2.json',
-  answers_long_act3: 'data/answers_long_act3.json',
-  answers_long_act4: 'data/answers_long_act4.json',
+  conversations: 'data/conversations.json',
 })
 
 game.assets.sounds = await game.loadAudio({

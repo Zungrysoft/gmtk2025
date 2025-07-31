@@ -13,28 +13,32 @@ export default class House extends Thing {
   isDying = false
   stripsAnimationState = 128
   type = null
-  furniture_bounds = [[256, 555], [931, 555], [931, 166], [406, 166], [406, 360], [256, 360]]
-  game_phase = ''
+  gamePhase = ''
   night = 1
-  tray_position = 100
+  selectedMic = 0
+  partyTime = 0
 
   constructor(sprite, type) {
     super();
     this.type = type;
 
+    game.setThingName(this, 'house');
+
     this.changePhase('placement')
   }
 
   update() {
+    if (this.gamePhase === 'party') {
+      this.partyTime ++;
+    }
+
+
     if (game.keysDown.ShiftLeft) {
       if (game.keysPressed.KeyJ) {
-        game.addThing(new GuestAntonio());
-        game.addThing(new GuestAllAround());
-        game.addThing(new GuestDancer());
-        game.addThing(new GuestDrinker());
-        game.addThing(new GuestIntenseGamer());
-        game.addThing(new GuestQuietGamer());
-      }
+        this.changePhase('party')
+      } 
+
+      // Randomize room structure
       if (game.keysPressed.KeyK) {
         for (let i = 0; i < 100; i ++) {
           for (const furniture of game.getThings().filter(x => x instanceof Furniture)) {
@@ -60,19 +64,37 @@ export default class House extends Thing {
   }
 
   changePhase(phase) {
-    this.game_phase = phase
+    this.gamePhase = phase
 
     if (phase == 'placement') {
       this.addFurniture();
       this.addGuests();
     }
+
+    if (phase == 'party') {
+      for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
+        if (!thing.isPlaced) {
+          thing.isDead = true;
+        }
+
+        this.selectedMic = 0
+        this.partyTime = 0
+
+        game.addThing(new GuestAntonio());
+        // game.addThing(new GuestAllAround());
+        game.addThing(new GuestDancer());
+        // game.addThing(new GuestDrinker());
+        // game.addThing(new GuestIntenseGamer());
+        // game.addThing(new GuestQuietGamer());
+      }
+    }
   }
 
   addFurniture() {
     // Mics
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [33, 33]));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [55, 33]));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [77, 33]));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [33, 33], 0));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [55, 33], 1));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -21, 7, 41], [77, 33], 2));
 
     // Misc.
     game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', [-77, -107, 77, 101], [512, 128]));

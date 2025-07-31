@@ -30,7 +30,19 @@ export default class Guest extends Thing {
   position = [463, 531];
   activityCompletions = {};
 
+  constructor() {
+    super();
+  }
+
   update() {
+    if (this.enteringTime == null) {
+      this.enteringTime = this.arrivalTime;
+    }
+    if (this.enteringTime > 0) {
+      this.enteringTime --;
+      return;
+    }
+
     if (this.currentActivity) {
       // Walk toward activity
       const dist = vec2.distance(this.position, this.activityPosition)
