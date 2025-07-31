@@ -6,8 +6,7 @@ import Thing from 'thing'
 import Furniture from './furniture.js'
 import { drawSprite } from './draw.js'
 
-// const TIME_TO_COMPLETE_ACTIVITY = 1200;
-const TIME_TO_COMPLETE_ACTIVITY = 60*3;
+const TIME_TO_COMPLETE_ACTIVITY = 1200;
 
 export default class Guest extends Thing {
   // Config

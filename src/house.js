@@ -26,14 +26,36 @@ export default class House extends Thing {
   }
 
   update() {
-    if (game.keysPressed.KeyJ) {
-      // game.addThing(new GuestAntonio());
-      // game.addThing(new GuestAllAround());
-      // game.addThing(new GuestDancer());
-      // game.addThing(new GuestDrinker());
-      // game.addThing(new GuestIntenseGamer());
-      game.addThing(new GuestQuietGamer());
+    if (game.keysDown.ShiftLeft) {
+      if (game.keysPressed.KeyJ) {
+        game.addThing(new GuestAntonio());
+        game.addThing(new GuestAllAround());
+        game.addThing(new GuestDancer());
+        game.addThing(new GuestDrinker());
+        game.addThing(new GuestIntenseGamer());
+        game.addThing(new GuestQuietGamer());
+      }
+      if (game.keysPressed.KeyK) {
+        for (let i = 0; i < 100; i ++) {
+          for (const furniture of game.getThings().filter(x => x instanceof Furniture)) {
+            if (furniture.isValidPlacement()) {
+              continue;
+            }
+
+            for (let j = 0; j < 1000; j ++) {
+              furniture.position = [Math.random() * 837 + 220, Math.random() * 461 + 117];
+              furniture.rotation = Math.floor(Math.random() * 4)
+              if (furniture.isValidPlacement()) {
+                furniture.isPlaced = true;
+                break;
+              }
+            }
+          }
+        }
+      }
+      
     }
+    
 
   }
 
