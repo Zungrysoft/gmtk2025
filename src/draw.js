@@ -2,6 +2,7 @@ import * as game from 'game'
 import * as matrix from 'matrices'
 import * as webgl from 'webgl'
 import * as u from 'utils'
+import * as vec2 from 'vector2'
 
 export function drawSprite({
   sprite,
@@ -49,6 +50,75 @@ export function drawBackground({
   }))
 
   webgl.drawScreen()
+}
+
+export function drawText({
+  text = "Test Text",
+  color = [1.0, 1.0, 1.0],
+  alpha = 1.0,
+  depth = 2,
+  position = [0, 0],
+  scale = 1.0,
+  stripsAnimationState = 256,
+} = {}) {
+  let translate = [0, 0];
+
+
+  for (const char of text) {
+    if (char === '\n') {
+      translate[0] = 0;
+      translate[1] += 32;
+      continue
+    }
+
+    if (char === ' ') {
+      translate[0] += 28;
+      continue
+    }
+
+    let imgName = null;
+
+    if (char === '.') {
+      imgName = 'letter_symbol_period';
+    }
+
+    if (char === '?') {
+      imgName = 'letter_symbol_question_mark';
+    }
+
+    if (char === '!') {
+      imgName = 'letter_symbol_exclamation_point';
+    }
+
+    if (char === ',') {
+      imgName = 'letter_symbol_comma';
+    }
+
+    const isUpperCase = char === char.toUpperCase() && char !== char.toLowerCase();
+    const isLowerCase = char === char.toLowerCase() && char !== char.toUpperCase();
+    if (isUpperCase) {
+      imgName = 'letter_upper_' + char.toLowerCase();
+    }
+    if (isLowerCase) {
+      imgName = 'letter_lower_' + char.toLowerCase();
+    }
+
+    if (char && imgName) {
+      const img = game.assets.textures[imgName];
+      drawSprite({
+        sprite: img,
+        position: vec2.add(position, vec2.scale(translate, scale)),
+        color: color,
+        alpha: alpha,
+        stripsAnimationState: stripsAnimationState,
+        width: 32 * scale,
+        height: 32 * scale,
+        depth: depth,
+      });
+      translate[0] += 20;
+    }
+    
+  }
 }
 
 function convertDepth(depth) {

@@ -15,6 +15,15 @@ ctx.font = 'italic bold 64px Arial'
 ctx.fillText('Loading...', 64, game.getHeight() - 64)
 ctx.restore()
 
+let fontData = {};
+for (const char of "abcdefghijklmnopqrstuvwxyz") {
+  fontData["letter_lower_" + char] = 'images/font/letter_lower_' + char + '.png';
+  fontData["letter_upper_" + char] = 'images/font/letter_upper_' + char + '.png';
+}
+for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark']) {
+  fontData["letter_symbol_" + symbol] = 'images/font/letter_symbol_' + symbol + '.png';
+}
+
 game.assets.images = await game.loadImages({
   square: 'images/square.png',
   background_day: 'images/ui/ui_layout_sample.png',
@@ -36,6 +45,8 @@ game.assets.images = await game.loadImages({
   furniture_mic_c: 'images/furniture/furniture_mic_c.png',
   furniture_mic_selected: 'images/furniture/furniture_mic_selected.png',
   furniture_mic_loudness: 'images/furniture/furniture_mic_loudness.png',
+
+  ...fontData,
 })
 
 game.assets.data = await game.loadJson({
