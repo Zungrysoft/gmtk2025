@@ -8,8 +8,8 @@ import { drawBackground, drawSprite } from './draw.js'
 
 export default class Button extends Tray {
 
-  constructor(trayName, openSprite, closedSprite, openPosition, closedPosition, defaultOpen, toggleButtonAABB, size) {
-    super(trayName, openSprite, closedSprite, openPosition, closedPosition, defaultOpen, toggleButtonAABB, size)
+  constructor(trayName, openSprite, closedSprite, size, openPosition, closedPosition, defaultOpen, toggleButtonAABB) {
+    super(trayName, openSprite, closedSprite, size, openPosition, closedPosition, defaultOpen, toggleButtonAABB)
   }
 
 
@@ -21,5 +21,19 @@ export default class Button extends Tray {
   update() {
     super.update()
 
+  }
+
+  draw() {
+    const color = this.isHighlighted ? [1.3, 1.3, 1.3] : [1.0, 1.0, 1.0]
+
+    drawSprite({
+      sprite: this.sprite,
+      color: color,
+      width: this.size[0],
+      height: this.size[1],
+      depth: this.depth,
+      position: this.position,
+    
+    })
   }
 }

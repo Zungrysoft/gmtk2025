@@ -1,0 +1,26 @@
+import * as game from 'game'
+import * as u from 'utils'
+import * as soundmanager from 'soundmanager'
+import * as vec2 from 'vector2'
+import * as vec3 from 'vector3'
+import Tray from './tray.js'
+import { drawBackground, drawSprite } from './draw.js'
+import Button from './button.js'
+
+export default class QuizButton extends Button {
+  depth = 200
+
+  onClick() {
+    game.getThing('quiz').isEnabled = !game.getThing('quiz').isEnabled;
+  }
+
+  update() {
+    super.update();
+
+    this.sprite = game.getThing('quiz')?.isEnabled ? game.assets.textures.ui_quiz_close : game.assets.textures.ui_quiz_open;
+  }
+
+  isClickable() {
+    return true
+  }
+}

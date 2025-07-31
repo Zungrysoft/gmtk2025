@@ -64,6 +64,7 @@ export default class Tray extends Thing {
 
   // tray is only not clickable if the party is currently happening or if it's in the middle of animating open/close
   isClickable() {
+    if (game.getThing('quiz')?.isEnabled) return false
     if (game.getThing('house')?.gamePhase == 'party') return false
     if (this.isTransitioningClosed || this.isTransitioningOpen) return false
     return true

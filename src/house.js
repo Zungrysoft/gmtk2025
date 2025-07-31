@@ -11,6 +11,7 @@ import GuestIntenseGamer from './guest_intensegamer.js'
 import GuestQuietGamer from './guest_quietgamer.js'
 import Tray from './tray.js'
 import Button from './button.js'
+import QuizButton from './quizbutton.js'
 
 export default class House extends Thing {
   isDying = false
@@ -99,6 +100,9 @@ export default class House extends Thing {
                             [100,100], [1180,20], [1180,-100], false, [4,4,92,95]))
     game.addThing(new Button('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
                             [400,100], [456,613], [456,700], true, [45,7,357,90]))
+
+    game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
+                            [256, 128], [850,0], [850,0], true, [25, 0, 232, 73]))
 
   }
 

@@ -25,7 +25,7 @@ export default class Quiz extends Thing {
     super();
 
     game.setThingName(this, 'quiz');
-    this.isEnabled = true
+    // this.isEnabled = true
     this.setUpPageClickables();
 
     // this.leftClickable = game.addThing(new QuizClickable(this, "left", -1));
