@@ -15,7 +15,7 @@ export default class Furniture extends Thing {
     this.type = type;
     this.aabb = aabb;
     this.position = [...position];
-    this.homePosition = [...position]
+    this.homePosition = [...position];
 
     this.depth = this.mustBePlacedOn().length > 0 ? 31 : 30;
   }
@@ -28,7 +28,7 @@ export default class Furniture extends Thing {
       this.position = [...game.mouse.position];
 
       // Rotate object
-      if (game.keysPressed.KeyR || game.mouse.scrollDelta[1] < 0) {
+      if (game.keysPressed.KeyR || game.mouse.rightClick || game.mouse.scrollDelta[1] < 0) {
         this.rotate();
       }
       else if (game.mouse.scrollDelta[1] > 0) {
@@ -182,14 +182,11 @@ export default class Furniture extends Thing {
   }
 
   mustBePlacedOn() {
-    if (this.type.includes('food')) {
+    if (this.type.includes('food') || this.type === 'alcohol') {
       return ['table'];
     }
     if (this.type === 'microphone') {
-      return ['table', 'speakers', 'couch', 'loveseat', 'chair', 'guitar', 'tv'];
-    }
-    if (this.type.includes('cd')) {
-      return ['speakers'];
+      return ['table', 'dancing', 'jazz', 'couch', 'chair', 'guitar', 'tv'];
     }
     return [];
   }
@@ -200,7 +197,7 @@ export default class Furniture extends Thing {
       color = [1.3, 1.3, 1.3];
     }
     if (this.isError) {
-      color = [1.0, 0.0, 0.0];
+      color = [1.0, 0.1, 0.1];
     }
 
     drawSprite({
