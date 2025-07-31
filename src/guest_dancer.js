@@ -13,7 +13,7 @@ export default class GuestDancer extends Guest {
   speedMultiplier = 1.1
   activityOffset = [0, -64]
   likes_dancing = 25
-  likes_relax = 0
+  likes_relax = 10
   // likes_food_pizza = 22
   likes_food_pizza = 220
   likes_food_platter = 21

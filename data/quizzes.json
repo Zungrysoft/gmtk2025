@@ -1,0 +1,35 @@
+[
+    {
+        "unlock_threshold": 0,
+        "questions": [
+            {
+                "title": "Who is this?",
+                "audio_clip": {
+                    "sound": "",
+                    "picture": null
+                },
+                "options": [
+                    "Antonio",
+                    "Fe",
+                    "Luna",
+                    "Calvin",
+                    "Nick",
+                    "Daniel",
+                    "Steven",
+                    "Rick"
+                ]
+            },
+            {
+                "title": "And what does he always do first when he arrives?",
+                "audio_clip": null,
+                "options": [
+                    "Dance",
+                    "Relax",
+                    "Eat Food",
+                    "Play Games"
+                ]
+            }
+        ],
+        "hint": "Microphones "
+    }
+]

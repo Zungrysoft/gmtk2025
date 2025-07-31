@@ -5,6 +5,7 @@ import * as vec2 from 'vector2'
 import * as vec3 from 'vector3'
 import Thing from 'thing'
 import { drawBackground, drawSprite } from './draw.js'
+import Guest from './guest.js'
 
 export default class Furniture extends Thing {
   placed = false
@@ -219,6 +220,18 @@ export default class Furniture extends Thing {
       return ['table', 'dancing', 'jazz', 'couch', 'chair', 'guitar', 'tv'];
     }
     return [];
+  }
+
+  isFull() {
+    if (this.type === 'chair') {
+      return game.getThings().filter(y => y instanceof Guest && y.activityFurniture === this).length >= 1;
+    }
+
+    if (this.type === 'couch') {
+      return game.getThings().filter(y => y instanceof Guest && y.activityFurniture === this).length >= 3;
+    }
+
+    return false;
   }
 
   draw() {

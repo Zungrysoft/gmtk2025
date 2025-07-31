@@ -1,7 +1,7 @@
 import * as game from 'game'
 import * as soundmanager from 'soundmanager'
 import Thing from 'thing'
-import { drawBackground } from './draw.js'
+import { drawBackground, drawText } from './draw.js'
 import Furniture from './furniture.js'
 import GuestAntonio from './guestantonio.js'
 import GuestAllAround from './guest_allaround.js'
