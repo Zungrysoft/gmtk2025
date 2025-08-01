@@ -128,7 +128,7 @@ export default class House extends Thing {
                             
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
-                                [256, 128], [170,0], [170,-128], true, [25, 0, 232, 73]))
+                                [256, 128], [165,0], [165,-128], true, [25, 0, 232, 73]))
 
     game.addThing(new PauseMenu())
   }

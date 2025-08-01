@@ -196,11 +196,8 @@ export default class Guest extends Thing {
       game.addThing(new Conversation(bestConversation));
 
       // Set information keys
-      console.log("---- Conversation! -----")
       for (const participant of this.getParticipantsOfConversation(bestConversation)) {
-        console.log("PARTICIPANT: ", participant)
         const guestObj = game.getThings().find(x => x instanceof Guest && x.name === participant);
-        console.log('')
 
         if (!guestObj) {
           continue;
@@ -209,7 +206,6 @@ export default class Guest extends Thing {
         if (bestConversation.infoKeys) {
           for (const infoKey of bestConversation.infoKeys) {
             guestObj.discussedInfoKeys[infoKey] = true;
-            console.log(participant, "now has infokeys", guestObj.discussedInfoKeys)
           }
         }
 
@@ -317,7 +313,7 @@ export default class Guest extends Thing {
     }
 
     this.activityCompletions[this.currentActivity] = (this.activityCompletions[this.currentActivity] ?? 0) + 1;
-    console.log(this.name, "FINISHED ACTIVITY", this.currentActivity)
+    console.log(this.name, "FINISHED activity", this.currentActivity)
     this.currentActivity = null;
     this.activityFurniture = null;
     this.beenDoingActivityFor = 0;
