@@ -7,7 +7,7 @@
                 "activities": ["food_pizza", "food_platter"]
             }
         ],
-        "informationKeys": ["hungry_is_hungry"],
+        "infoKeys": ["hungry_is_hungry"],
         "audio": [
             {
                 "speaker": "dancer",
@@ -28,7 +28,7 @@
     },
     {
         "maxTime": 25,
-        "informationKeys": ["drinker_joke"],
+        "infoKeys": ["drinker_joke"],
         "audio": [
             {
                 "speaker": "drinker",
@@ -49,6 +49,31 @@
                 "speaker": "hungry",
                 "sound": "002_hungry_002",
                 "text": "I know you think it's ironic. But after enough times, it isn't anymore."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["3u8291jndb"],
+        "audio": [
+            {
+                "speaker": "allaround",
+                "sound": "003_drinker_001",
+                "text": "Did you see that ludicrous display last night?"
+            },
+            {
+                "speaker": "drinker",
+                "sound": "003_hungry_001",
+                "text": "What was Wenger thinking sending Walcott on that early?"
+            },
+            {
+                "speaker": "allaround",
+                "sound": "003_drinker_002",
+                "text": "Thing about arsenal is they always try and walk it in!"
+            },
+            {
+                "speaker": "drinker",
+                "sound": "003_hungry_002",
+                "text": "That's true. See you later."
             }
         ]
     }
