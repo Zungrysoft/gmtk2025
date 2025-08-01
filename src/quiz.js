@@ -25,11 +25,7 @@ export default class Quiz extends Thing {
     super();
 
     game.setThingName(this, 'quiz');
-    // this.isEnabled = true
     this.setUpPageClickables();
-
-    // this.leftClickable = game.addThing(new QuizClickable(this, "left", -1));
-    // this.rightClickable = game.addThing(new QuizClickable(this, "right", -1));
   }
 
   update() {
@@ -120,21 +116,19 @@ export default class Quiz extends Thing {
   }
 
   clickedButton(question, option) {
-    // Play sound effect button
-    if (question == 'left' && this.currentPage > 0) {
-      this.changePage(this.currentPage - 1);
-    }
-    else if (question == 'right' && this.currentPage < this.getHighestAvailablePage()) {
-      this.changePage(this.currentPage + 1);
-    }
-    else if (option == -1) {
+    if (option == -1) {
       // Play profile picture sound
     }
     else {
-      if (this.selectedOptions[[this.currentPage, question]] != option) {
-        soundmanager.playSound('click3', 0.4, 1.4);
+      if (this.selectedOptions[[this.currentPage, question]] == option) {
+        soundmanager.playSound('click3', 0.4, 1.9);
+        this.selectedOptions[[this.currentPage, question]] = null;
       }
-      this.selectedOptions[[this.currentPage, question]] = option;
+      else {
+        soundmanager.playSound('click3', 0.4, 1.4);
+        this.selectedOptions[[this.currentPage, question]] = option;
+      }
+      
     }
   }
 

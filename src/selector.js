@@ -42,7 +42,7 @@ export default class Selector extends Thing {
     }
 
     // Active clickable
-    if (activeClickable && !activeClickable.isHidden) {
+    if (activeClickable && !activeClickable.isHidden && activeClickable.onClick) {
 
       // Left Click
       if (game.mouse.leftClick) {

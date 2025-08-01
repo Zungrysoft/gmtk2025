@@ -4,6 +4,7 @@ import * as soundmanager from 'soundmanager'
 import House from './house.js'
 import Selector from './selector.js'
 import Quiz from './quiz.js'
+import QuizArrowButton from './quizarrowbutton.js'
 
 document.title = 'In the Loop'
 game.setWidth(1280)
@@ -66,6 +67,8 @@ game.assets.images = await game.loadImages({
   ui_checkmark: 'images/ui/ui_checkmark.png',
   ui_quiz_open: 'images/ui/ui_quiz_open.png',
   ui_quiz_close: 'images/ui/ui_quiz_close.png',
+  ui_quiz_left: 'images/ui/ui_quiz_left.png',
+  ui_quiz_right: 'images/ui/ui_quiz_right.png',
   ui_tooltip: 'images/ui/ui_tooltip.png',
   ui_tooltip2: 'images/ui/ui_tooltip2.png',
 
@@ -145,6 +148,8 @@ game.setScene(() => {
   game.addThing(new Selector());
   game.addThing(new House());
   game.addThing(new Quiz());
+  game.addThing(new QuizArrowButton(true));
+  game.addThing(new QuizArrowButton(false));
 
   // Camera setup
   game.getCamera3D().lookVector = [0, 0, -1];
