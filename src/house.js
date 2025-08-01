@@ -3,6 +3,7 @@ import * as soundmanager from 'soundmanager'
 import Thing from 'thing'
 import { drawBackground, drawText } from './draw.js'
 import Furniture from './furniture.js'
+import Guest from './guest.js'
 import GuestHungry from './guest_hungry.js'
 import GuestAllAround from './guest_allaround.js'
 import GuestDancer from './guest_dancer.js'
@@ -13,6 +14,8 @@ import Tray from './tray.js'
 import Button from './button.js'
 import QuizButton from './quizbutton.js'
 import StartButton from './startbutton.js'
+import SkipButton from './skipbutton.js'
+import PauseButton from './pausebutton.js'
 
 export default class House extends Thing {
   isDying = false
@@ -23,6 +26,7 @@ export default class House extends Thing {
   selectedMic = 0
   partyTime = 0
   furnitureTray = null;
+  furnitureList = []
 
   constructor(sprite, type) {
     super();
@@ -113,36 +117,39 @@ export default class House extends Thing {
                           [225,125], [0,595], [0,703], true, [0,8,213,125]))                   
 
 
-    game.addThing(new Button('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
-                            [100,100], [1180,20], [1180,-100], true, [3,3,97,97]))
-    game.addThing(new Button('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
-                            [100,100], [1180,20], [1180,-100], false, [4,4,92,95]))
+    game.addThing(new PauseButton('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
+                                [100,100], [1170,20], [1170,-100], true, [3,3,97,97]))
+    game.addThing(new SkipButton('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
+                                [100,100], [1070,20], [1070,-100], false, [4,4,92,95]))
     game.addThing(new StartButton('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
-                            [400,100], [456,613], [456,730], true, [45,7,357,90]))
+                                [400,100], [456,613], [456,730], true, [45,7,357,90]))
+                            
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
-                            [256, 128], [850,0], [850,0], true, [25, 0, 232, 73]))
+                                [256, 128], [850,0], [850,-128], true, [25, 0, 232, 73]))
 
   }
 
-  // hide all the placement UI for when the party starts. swap pause with skip party
-  tuckUiDuringParty() {
+  // hide all the placement UI for when the party starts
+  tuckUiForParty() {
     game.getThing('tray_furniture').setOpenState(false)
     game.getThing('tray_logs').setOpenState(false)
     game.getThing('tray_mics').setOpenState(false)
-    game.getThing('button_pause').setOpenState(false)
+    // game.getThing('button_pause').setOpenState(true)
     game.getThing('button_skipnight').setOpenState(true)
     game.getThing('button_startnight').setOpenState(false)
+    game.getThing('button_quiz').setOpenState(false)
   }
 
-  // show all the UI during the party so the player can place again. swap skip party with pause
+  // show all the UI during the party so the player can place again
   showUiForPlacement() {
     game.getThing('tray_furniture').setOpenState(true)
     game.getThing('tray_logs').setOpenState(true)
     game.getThing('tray_mics').setOpenState(true)
-    game.getThing('button_pause').setOpenState(true)
+    // game.getThing('button_pause').setOpenState(false)
     game.getThing('button_skipnight').setOpenState(false)
     game.getThing('button_startnight').setOpenState(true)
+    game.getThing('button_quiz').setOpenState(true)
   }
 
 
@@ -152,28 +159,28 @@ export default class House extends Thing {
 
     if (phase == 'placement') {
       this.showUiForPlacement()
-      this.addFurniture()
+      for (const thing of game.getThings().filter(x => x instanceof Guest)) {
+        thing.isDead = true
+      }
       this.addGuests()
+      for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
+        thing.isDead = true
+      }
+      this.addFurniture()
+      
     }
 
     if (phase == 'party') {
       soundmanager.playSound('swipe', 0.3, 0.8);
-      this.tuckUiDuringParty();
+      this.tuckUiForParty()
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         if (!thing.isPlaced) {
-          thing.isDead = true;
+          thing.isDead = true
         }
       }
 
       this.selectedMic = 0
       this.partyTime = 0
-
-      game.addThing(new GuestHungry());
-      // game.addThing(new GuestAllAround());
-      // game.addThing(new GuestDancer());
-      game.addThing(new GuestDrinker());
-      // game.addThing(new GuestIntenseGamer());
-      // game.addThing(new GuestQuietGamer());
     }
   }
 
@@ -207,7 +214,12 @@ export default class House extends Thing {
   }
 
   addGuests() {
-    
+    game.addThing(new GuestHungry());
+    // game.addThing(new GuestAllAround());
+    // game.addThing(new GuestDancer());
+    game.addThing(new GuestDrinker());
+    // game.addThing(new GuestIntenseGamer());
+    // game.addThing(new GuestQuietGamer());
   }
 
   draw() {

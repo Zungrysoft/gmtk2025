@@ -9,16 +9,17 @@ import { drawBackground, drawSprite } from './draw.js'
 export default class Tray extends Thing {
   openSprite = null
   closedSprite = null
-  openPosition = null
-  closedPosition = null
+  openPosition = [100,0]
+  closedPosition = [0,0]
   defaultOpen = true
   isOpen = true
   isTransitioningOpen = false
   isTransitioningClosed = false
   size = [100,100]
+  transitionSpeed = 0.1
 
 
-  constructor(trayName, openSprite, closedSprite, size, openPosition, closedPosition, defaultOpen, toggleButtonAABB) {
+  constructor(trayName, openSprite, closedSprite, size, openPosition, closedPosition, defaultOpen, clickableAABB) {
     super()
     this.depth = 10 // draw on top of everything
     game.setThingName(this, trayName)
@@ -29,7 +30,7 @@ export default class Tray extends Thing {
     this.closedPosition = [...closedPosition]
     this.defaultOpen = defaultOpen
     this.isOpen = defaultOpen
-    this.aabb = toggleButtonAABB
+    this.aabb = clickableAABB
     
 
     if (defaultOpen) {
@@ -61,14 +62,24 @@ export default class Tray extends Thing {
     }
   }
 
+  getOpenState() {
+    return this.isOpen
+  }
 
-  // tray is only not clickable if the party is currently happening or if it's in the middle of animating open/close
+  setTransitionSpeed(t) {
+    this.transitionSpeed = t
+  }
+
+
+  // tray is not clickable by default. Extend it to add clickable funtionality
   isClickable() {
     return false;
   }
 
+  onClick() {
+    return
+  }
 
-  // the aabb is used as a proxy for the toggle open/closed button
   getAabb() {
     return [
       this.aabb[0] + this.position[0],
@@ -78,9 +89,6 @@ export default class Tray extends Thing {
     ];
   }
 
-  onClick() {
-    if (!this.isTransitioningClosed && !this.isTransitioningOpen) this.toggleOpenState()
-  }
 
   draw() {
 
@@ -108,17 +116,16 @@ export default class Tray extends Thing {
 
 
   update() {
-
     // if requested interpolate the tray's position. stop interpolation when it arrives
     if (this.isTransitioningOpen) {
-      this.position = vec2.lerp(this.position, this.openPosition, 0.15)
+      this.position = vec2.lerp(this.position, this.openPosition, this.transitionSpeed)
       if (vec2.distance(this.position, this.openPosition) < 1) {
         this.position = this.openPosition
         this.isTransitioningOpen = false
       }
     }
     if (this.isTransitioningClosed) {
-      this.position = vec2.lerp(this.position, this.closedPosition, 0.15)
+      this.position = vec2.lerp(this.position, this.closedPosition, this.transitionSpeed)
       if (vec2.distance(this.position, this.closedPosition) < 1) {
         this.position = this.closedPosition
         this.isTransitioningClosed = false
