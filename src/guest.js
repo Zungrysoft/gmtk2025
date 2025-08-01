@@ -7,6 +7,9 @@ import Furniture from './furniture.js'
 import { drawSprite, drawText } from './draw.js'
 import Conversation from './conversation.js'
 
+const CONVERSATION_RADIUS = 130
+const TALK_RADIUS = CONVERSATION_RADIUS * 2.1
+
 export default class Guest extends Thing {
   // Config
   name = "unnamed"
@@ -31,7 +34,7 @@ export default class Guest extends Thing {
   activityCompletions = {};
   footstepTime = 1.0;
   timeToWait = 60 * 10;
-  discussedInformationKeys = {}
+  discussedInfoKeys = {}
 
   constructor() {
     super();
@@ -111,6 +114,10 @@ export default class Guest extends Thing {
       return 2200;
     }
 
+    if (this.currentActivity === 'leave') {
+      return 5;
+    }
+
     return 1200;
   }
 
@@ -152,10 +159,10 @@ export default class Guest extends Thing {
       }
     }
     if (this.currentActivity === 'relax') {
-      if (this.beenDoingActivityFor === 30) {
+      if (this.beenDoingActivityFor === 60) {
         soundmanager.playSound(['foley_chair_sit_1', 'foley_chair_sit_2', 'foley_chair_sit_3'], 0.6, 1.0, [...this.getFoleyPosition(), 30]);
       }
-      if (this.activityTime === 30) {
+      if (this.activityTime === 60) {
         soundmanager.playSound(['foley_chair_stand_1', 'foley_chair_stand_2', 'foley_chair_stand_3'], 0.6, 1.0, [...this.getFoleyPosition(), 30]);
       }
     }
@@ -181,7 +188,64 @@ export default class Guest extends Thing {
   }
 
   startConversation() {
-    game.addThing(new Conversation(game.assets.data.conversations[1]))
+    // Find all nearby guests
+
+    const bestConversation = this.pickBestConversation(this.getInterlocutors());
+    if (bestConversation) {
+      // Create conversation thing
+      game.addThing(new Conversation(bestConversation));
+
+      // Set information keys
+      console.log("---- Conversation! -----")
+      for (const participant of this.getParticipantsOfConversation(bestConversation)) {
+        console.log("PARTICIPANT: ", participant)
+        const guestObj = game.getThings().find(x => x instanceof Guest && x.name === participant);
+        console.log('')
+
+        if (!guestObj) {
+          continue;
+        }
+        
+        if (bestConversation.infoKeys) {
+          for (const infoKey of bestConversation.infoKeys) {
+            guestObj.discussedInfoKeys[infoKey] = true;
+            console.log(participant, "now has infokeys", guestObj.discussedInfoKeys)
+          }
+        }
+
+        
+      }
+      
+    }
+  }
+
+  getInterlocutors() {
+    // Method: We do a DFS for all other guests that are in a small radius of
+    // each other to form a chain. Then, limit this to only guests that are
+    // within a larger radius of the the conversation initiator.
+
+    const guestsInChain = this.getGuestChain(this);
+    const guestsInRange = guestsInChain.filter(x => vec2.distance(this.position, x.position) < TALK_RADIUS);
+
+    return guestsInRange.map(x => x.name);
+  }
+
+  getGuestChain(guest, found = []) {
+    found.push(guest)
+
+    const otherGuests = game.getThings().filter(x => x instanceof Guest && x !== guest);
+
+    // DFS
+    // Find other guests that are close enough, aren't in the chain already, and are able to talk
+    for (const otherGuest of otherGuests) {
+      if (!found.includes(otherGuest)) {
+        if (vec2.distance(guest.position, otherGuest.position) < CONVERSATION_RADIUS && otherGuest.canHaveConversation()) {
+          this.getGuestChain(otherGuest, found)
+        }
+      }
+    }
+
+    return found;
   }
 
   isInConversation() {
@@ -247,9 +311,17 @@ export default class Guest extends Thing {
       this.drunkedness = Math.min(this.maxDrunkedness, this.drunkedness + 1);
     }
 
+    // Show's over, folks!
+    if (this.currentActivity === 'guitar' && this.canPlayGuitar) {
+      game.getThings().filter(x => x instanceof Guest && x !== this && x.currentActivity === 'guitar').forEach(x => x.finishActivity());
+    }
+
     this.activityCompletions[this.currentActivity] = (this.activityCompletions[this.currentActivity] ?? 0) + 1;
-  
+    console.log(this.name, "FINISHED ACTIVITY", this.currentActivity)
     this.currentActivity = null;
+    this.activityFurniture = null;
+    this.beenDoingActivityFor = 0;
+    this.activityTime = 0;
   }
 
   isActivityAvailable(activity) {
@@ -361,7 +433,7 @@ export default class Guest extends Thing {
     return true;
   }
 
-  isInformationKeyPresent(infoKey, participants) {
+  isInfoKeyPresent(infoKey, participants) {
     for (const int of participants) {
       const guestObj = game.getThings().find(x => x.name === int);
 
@@ -369,7 +441,7 @@ export default class Guest extends Thing {
         continue;
       }
 
-      if (guestObj.discussedInformationKeys[infoKey]) {
+      if (guestObj.discussedInfoKeys[infoKey]) {
         return true;
       }
     }
@@ -420,11 +492,11 @@ export default class Guest extends Thing {
     }
 
     // Don't do this conversation if all of its infokeys (relevant information) have been heard or said by one of the participants
-    if ((conversation?.informationKeys?.length ?? 0) > 0) {
-      const infoKeys = conversation.informationKeys;
+    if ((conversation?.infoKeys?.length ?? 0) > 0) {
+      const infoKeys = conversation.infoKeys;
       let count = 0;
       for (const infoKey of infoKeys) {
-        if (this.isInformationKeyPresent(infoKey), participants) {
+        if (this.isInfoKeyPresent(infoKey, participants)) {
           count ++;
         }
       }
@@ -439,7 +511,7 @@ export default class Guest extends Thing {
 
   pickBestConversation(interlocutors) {
     // First, filter out conversations that are invalid
-    const validConversations = game.assets.conversations.filter(x => this.isConversationValid(x))
+    const validConversations = game.assets.data.conversations.filter(x => this.isConversationValid(x, interlocutors))
 
     // Prioritize conversations that use all of the interlocutors
     for (const conv of validConversations) {

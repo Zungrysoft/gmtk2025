@@ -169,11 +169,11 @@ export default class House extends Thing {
       this.partyTime = 0
 
       game.addThing(new GuestHungry());
-      // game.addThing(new GuestAllAround());
-      // game.addThing(new GuestDancer());
+      game.addThing(new GuestAllAround());
+      game.addThing(new GuestDancer());
       game.addThing(new GuestDrinker());
-      // game.addThing(new GuestIntenseGamer());
-      // game.addThing(new GuestQuietGamer());
+      game.addThing(new GuestIntenseGamer());
+      game.addThing(new GuestQuietGamer());
     }
   }
 
