@@ -154,11 +154,11 @@ export default class Guest extends Thing {
   }
 
   startConversation() {
-    game.addThing(new Conversation(game.assets.data.conversations[0]))
+    game.addThing(new Conversation(game.assets.data.conversations[1]))
   }
 
   isInConversation() {
-    if (game.getThings().some(x => x instanceof Conversation && x.conversation.participants.includes(this.name))) {
+    if (game.getThings().some(x => x instanceof Conversation && x.conversation.audio.map(x => x.speaker).includes(this.name))) {
       return true;
     }
     return false;

@@ -1,7 +1,6 @@
 [
     {
-        "id": 0,
-        "participants": ["hungry", "dancer"],
+        "id": 1,
         "conditions": [
             {
                 "type": "time",
@@ -16,13 +15,44 @@
             },
             {
                 "speaker": "hungry",
-                "sound": "001_antonio_001",
+                "sound": "001_hungry_001",
                 "text": "Yeah, I'm starving. I had a 12-hour shift, haven't eaten since breakfast."
             },
             {
                 "speaker": "dancer",
                 "sound": "001_dancer_002",
                 "text": "Damn! Get some food in you!"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "conditions": [
+            {
+                "type": "time",
+                "max_time": 25
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "drinker",
+                "sound": "002_drinker_001",
+                "text": "So, are we partying hard, or hardly partying? Am I right?"
+            },
+            {
+                "speaker": "hungry",
+                "sound": "002_hungry_001",
+                "text": "You know that joke gets funnier every time you tell it."
+            },
+            {
+                "speaker": "drinker",
+                "sound": "002_drinker_002",
+                "text": "It's ironic!"
+            },
+            {
+                "speaker": "hungry",
+                "sound": "002_hungry_002",
+                "text": "I know you think it's ironic. But after enough times, it isn't anymore."
             }
         ]
     }
