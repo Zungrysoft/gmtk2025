@@ -34,10 +34,12 @@ game.assets.images = await game.loadImages({
   tray_logs_closed: 'images/ui/ui_tray_logs_closed.png',
   tray_mics: 'images/ui/ui_tray_mics.png',
   button_pause: 'images/ui/ui_button_pause.png',
+  button_options: 'images/ui/ui_button_options.png',
   button_skipnight: 'images/ui/ui_button_skipnight.png',
   button_startnight: 'images/ui/ui_button_startnight.png',
   house_day: 'images/ui/ui_house_day.png',
   background_day: 'images/ui/ui_background_day.png',
+
   furniture_food1: 'images/furniture_food1.png',
   furniture_table1: 'images/furniture/furniture_table1.png',
   furniture_table2: 'images/furniture/furniture_table2.png',
@@ -66,6 +68,7 @@ game.assets.images = await game.loadImages({
   furniture_mic_c: 'images/furniture/furniture_mic_c.png',
   furniture_mic_selected: 'images/furniture/furniture_mic_selected.png',
   furniture_mic_loudness: 'images/furniture/furniture_mic_loudness.png',
+
   ui_quiz: 'images/ui/ui_quiz.png',
   ui_checkmark: 'images/ui/ui_checkmark.png',
   ui_quiz_open: 'images/ui/ui_quiz_open.png',
