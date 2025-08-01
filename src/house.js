@@ -34,7 +34,7 @@ export default class House extends Thing {
 
     game.setThingName(this, 'house')
     this.initUiElements()
-    this.changePhase('placement')
+    this.changePhase('placement', true)
 
     soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0])
   }
@@ -157,10 +157,14 @@ export default class House extends Thing {
 
 
 
-  changePhase(phase) {
+  changePhase(phase, noSound = false) {
     this.gamePhase = phase
 
     if (phase == 'placement') {
+      if (!noSound) {
+        soundmanager.playSound('swipe', 0.3, 1.0);
+      }
+      
       this.showUiForPlacement()
       for (const thing of game.getThings().filter(x => x instanceof Guest)) {
         thing.isDead = true
@@ -174,7 +178,9 @@ export default class House extends Thing {
 
     if (phase == 'party') {
       this.addGuests()
-      soundmanager.playSound('swipe', 0.3, 0.8);
+      if (!noSound) {
+        soundmanager.playSound('swipe', 0.3, 0.8);
+      }
       this.tuckUiForParty()
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         if (!thing.isPlaced) {
