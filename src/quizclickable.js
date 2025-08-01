@@ -34,6 +34,6 @@ export default class QuizClickable extends Thing {
   }
 
   isClickable() {
-    return this.parent.isEnabled;
+    return this.parent.getIsEnabled();
   }
 }

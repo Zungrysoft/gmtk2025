@@ -111,8 +111,6 @@ export default class House extends Thing {
   initUiElements() {
     game.addThing(new Tray('tray_furniture', game.assets.textures.tray_furniture, game.assets.textures.tray_furniture,
                           [200,600], [0,0], [-200,0], true, [-10,-10,-9,-9]))
-    game.addThing(new Tray('tray_logs', game.assets.textures.tray_logs_open, game.assets.textures.tray_logs_closed,
-                          [200,600], [1080,125], [1244,125], true, [7,34,36,79]))
     game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
                           [225,125], [0,595], [0,703], true, [0,8,213,125]))
     game.addThing(new Tray('tray_levels', game.assets.textures.ui_levels, game.assets.textures.ui_levels,
@@ -136,7 +134,6 @@ export default class House extends Thing {
   // hide all the placement UI for when the party starts
   tuckUiForParty() {
     game.getThing('tray_furniture').setOpenState(false)
-    game.getThing('tray_logs').setOpenState(false)
     game.getThing('tray_mics').setOpenState(false)
     // game.getThing('button_pause').setOpenState(true)
     game.getThing('button_skipnight').setOpenState(true)
@@ -147,7 +144,6 @@ export default class House extends Thing {
   // show all the UI during the party so the player can place again
   showUiForPlacement() {
     game.getThing('tray_furniture').setOpenState(true)
-    game.getThing('tray_logs').setOpenState(true)
     game.getThing('tray_mics').setOpenState(true)
     // game.getThing('button_pause').setOpenState(false)
     game.getThing('button_skipnight').setOpenState(false)
@@ -182,6 +178,8 @@ export default class House extends Thing {
     }
 
     if (phase == 'party') {
+      game.getThing('recall').addMemory(this.night)
+      
       this.addGuests()
       if (!noSound) {
         soundmanager.playSound('swipe', 0.3, 0.8);
@@ -200,30 +198,30 @@ export default class House extends Thing {
 
   addFurniture() {
     // Mics
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [65, 690], 0));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [105, 690], 1));
-    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [145, 690], 2));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', 0, [-7, -13, 7, 13], [65, 690], 0));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', 1, [-7, -13, 7, 13], [105, 690], 1));
+    game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', 2, [-7, -13, 7, 13], [145, 690], 2));
 
     // Seating
-    game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', [-40, -45, 40, 45], [33, 173], null, game.assets.textures.furniture_icon_chair1));
-    game.addThing(new Furniture(game.assets.textures.furniture_chair2, 'chair', [-40, -45, 40, 45], [79, 171], null, game.assets.textures.furniture_icon_chair1));
-    game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'chair', [-50, -44, 45, 41], [142, 179], null, game.assets.textures.furniture_icon_chair1));
-    game.addThing(new Furniture(game.assets.textures.furniture_couch, 'couch', [-115, -46, 115, 46], [129, 225], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', 3, [-40, -45, 40, 45], [33, 173], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_chair2, 'chair', 4, [-40, -45, 40, 45], [79, 171], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'chair', 5, [-50, -44, 45, 41], [142, 179], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_couch, 'couch', 6, [-115, -46, 115, 46], [129, 225], null, game.assets.textures.furniture_icon_chair1));
 
     // Tables
-    game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', [-105, -52, 105, 52], [27, 72], null, game.assets.textures.furniture_icon_table3));
-    game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', [-83, -64, 83, 64], [87, 74], null, game.assets.textures.furniture_icon_table3));
-    game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', [-66, -48, 66, 48], [143, 77], null, game.assets.textures.furniture_icon_table3));
+    game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', 7, [-105, -52, 105, 52], [27, 72], null, game.assets.textures.furniture_icon_table3));
+    game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', 8, [-83, -64, 83, 64], [87, 74], null, game.assets.textures.furniture_icon_table3));
+    game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', 9, [-66, -48, 66, 48], [143, 77], null, game.assets.textures.furniture_icon_table3));
 
     // Food
-    game.addThing(new Furniture(game.assets.textures.furniture_alcohol, 'alcohol', [-59, -37, 59, 36], [39, 356], null, game.assets.textures.furniture_icon_alcohol));
-    game.addThing(new Furniture(game.assets.textures.furniture_food_platter, 'food_platter', [-30, -20, 30, 20], [128, 332], null, game.assets.textures.furniture_icon_food_platter));
-    game.addThing(new Furniture(game.assets.textures.furniture_food_pizza, 'food_pizza', [-38, -38, 38, 38], [42, 257], null, game.assets.textures.furniture_icon_food_pizza));
+    game.addThing(new Furniture(game.assets.textures.furniture_alcohol, 'alcohol', 10, [-59, -37, 59, 36], [39, 356], null, game.assets.textures.furniture_icon_alcohol));
+    game.addThing(new Furniture(game.assets.textures.furniture_food_platter, 'food_platter', 11, [-30, -20, 30, 20], [128, 332], null, game.assets.textures.furniture_icon_food_platter));
+    game.addThing(new Furniture(game.assets.textures.furniture_food_pizza, 'food_pizza', 12, [-38, -38, 38, 38], [42, 257], null, game.assets.textures.furniture_icon_food_pizza));
 
     // Misc.
-    game.addThing(new Furniture(game.assets.textures.furniture_game, 'game', [-38, -38, 38, 38], [39, 552], null, game.assets.textures.furniture_icon_game));
-    game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', [-77, -107, 77, 101], [38, 469], null, game.assets.textures.furniture_icon_dancing));
-    game.addThing(new Furniture(game.assets.textures.furniture_guitar, 'guitar', [-27, -46, 27, 46], [121, 426], null, game.assets.textures.furniture_icon_guitar));
+    game.addThing(new Furniture(game.assets.textures.furniture_game, 'game', 13, [-38, -38, 38, 38], [39, 552], null, game.assets.textures.furniture_icon_game));
+    game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', 14, [-77, -107, 77, 101], [38, 469], null, game.assets.textures.furniture_icon_dancing));
+    game.addThing(new Furniture(game.assets.textures.furniture_guitar, 'guitar', 15, [-27, -46, 27, 46], [121, 426], null, game.assets.textures.furniture_icon_guitar));
 
   }
 

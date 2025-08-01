@@ -12,7 +12,7 @@ export default class Furniture extends Thing {
   rotation = 0
   isBeingDragged = false
 
-  constructor(sprite, type, aabb, position, micNumber, iconSprite) {
+  constructor(sprite, type, id, aabb, position, micNumber, iconSprite) {
     super();
     this.sprite = sprite;
     this.type = type;
@@ -22,6 +22,7 @@ export default class Furniture extends Thing {
     this.micNumber = micNumber;
     this.iconSprite = iconSprite;
     this.scale = -2.5
+    this.id = id
 
     this.depth = this.mustBePlacedOn().length > 0 ? 31 : 30;
     if (type === 'mic') {

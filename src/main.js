@@ -6,6 +6,7 @@ import Selector from './selector.js'
 import Quiz from './quiz.js'
 import QuizArrowButton from './quizarrowbutton.js'
 import QuizCheckButton from './quizcheckbutton.js'
+import RecallPanel from './recallpanel.js'
 
 document.title = 'In the Loop'
 game.setWidth(1280)
@@ -25,6 +26,9 @@ for (const char of "abcdefghijklmnopqrstuvwxyz") {
 }
 for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark', 'colon']) {
   fontData["letter_symbol_" + symbol] = 'images/font/letter_symbol_' + symbol + '.png';
+}
+for (let i = 0; i < 10; i ++) {
+  fontData["letter_number_" + i.toString()] = 'images/font/letter_number_' + i.toString() + '.png';
 }
 
 game.assets.images = await game.loadImages({
@@ -80,6 +84,8 @@ game.assets.images = await game.loadImages({
   ui_tooltip: 'images/ui/ui_tooltip.png',
   ui_tooltip2: 'images/ui/ui_tooltip2.png',
   ui_levels: 'images/ui/ui_levels.png',
+  ui_recall: 'images/ui/ui_recall.png',
+  ui_number: 'images/ui/ui_number.png',
 
   profile_unknown: 'images/profile/profile_unknown.png',
 
@@ -164,6 +170,7 @@ game.assets.sounds = await game.loadAudio({
   bad: 'sounds/bad.wav',
   paper1: 'sounds/paper1.wav',
   paper2: 'sounds/paper2.wav',
+  recall: 'sounds/recall.wav',
 
   ...conversationAudio,
   ...foleySounds,
@@ -194,6 +201,7 @@ game.setScene(() => {
   game.addThing(new QuizArrowButton(true));
   game.addThing(new QuizArrowButton(false));
   game.addThing(new QuizCheckButton());
+  game.addThing(new RecallPanel());
 
   game.globals.soundWave = [0, 0, 0, 0, 0, 0, 0, 0]
 

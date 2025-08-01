@@ -62,6 +62,7 @@ export function drawText({
   stripsAnimationState = 256,
 } = {}) {
   let translate = [0, 0];
+  text = text.toString()
 
 
   for (const char of text) {
@@ -96,6 +97,10 @@ export function drawText({
 
     if (char === ':') {
       imgName = 'letter_symbol_colon';
+    }
+
+    if (char >= '0' && char <= '9') {
+      imgName = 'letter_number_' + char;
     }
 
     const isUpperCase = char === char.toUpperCase() && char !== char.toLowerCase();
