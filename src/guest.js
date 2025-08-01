@@ -97,7 +97,7 @@ export default class Guest extends Thing {
 
   getActivityDuration() {
     if (this.currentActivity === 'guitar') {
-      return 2100;
+      return 2200;
     }
 
     return 1200;
@@ -126,14 +126,22 @@ export default class Guest extends Thing {
           soundmanager.playSound(sound, 0.6, 1.0, [...this.getFoleyPosition(), 14]);
         }
         // Put guitar down
-        else if (this.beenDoingActivityFor === 2040) {
+        else if (this.activityTime === 60) {
           soundmanager.playSound('foley_guitar_put_down', 0.6, 1.0, [...this.getFoleyPosition(), 6]);
         }
       }
     }
     if (this.currentActivity === 'alcohol') {
       if (this.beenDoingActivityFor === 60) {
-        soundmanager.playSound(['foley_alcohol_1', 'foley_alcohol_2', 'foley_alcohol_3'], 0.6, 1.0, [...this.getFoleyPosition(), 80]);
+        soundmanager.playSound(['foley_alcohol_1', 'foley_alcohol_2', 'foley_alcohol_3'], 0.3, 1.0, [...this.getFoleyPosition(), 80]);
+      }
+    }
+    if (this.currentActivity === 'relax') {
+      if (this.beenDoingActivityFor === 30) {
+        soundmanager.playSound(['foley_chair_sit_1', 'foley_chair_sit_2', 'foley_chair_sit_3'], 0.6, 1.0, [...this.getFoleyPosition(), 30]);
+      }
+      if (this.activityTime === 30) {
+        soundmanager.playSound(['foley_chair_stand_1', 'foley_chair_stand_2', 'foley_chair_stand_3'], 0.6, 1.0, [...this.getFoleyPosition(), 30]);
       }
     }
   }

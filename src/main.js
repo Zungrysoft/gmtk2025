@@ -108,6 +108,12 @@ const foleySounds = {
   foley_alcohol_1: 'sounds/foley/alcohol_1.wav',
   foley_alcohol_2: 'sounds/foley/alcohol_2.wav',
   foley_alcohol_3: 'sounds/foley/alcohol_3.wav',
+  foley_chair_sit_1: 'sounds/foley/chair_sit_1.wav',
+  foley_chair_sit_2: 'sounds/foley/chair_sit_2.wav',
+  foley_chair_sit_3: 'sounds/foley/chair_sit_3.wav',
+  foley_chair_stand_1: 'sounds/foley/chair_stand_1.wav',
+  foley_chair_stand_2: 'sounds/foley/chair_stand_2.wav',
+  foley_chair_stand_3: 'sounds/foley/chair_stand_3.wav',
 };
 
 game.assets.sounds = await game.loadAudio({
