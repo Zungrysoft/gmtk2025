@@ -47,6 +47,8 @@ export default class Guest extends Thing {
 
     if (this.isInConversation()) {
       this.activityTime --;
+      this.beenDoingActivityFor ++;
+      this.activityFoley();
       return;
     }
 
@@ -109,6 +111,10 @@ export default class Guest extends Thing {
   }
 
   activityFoley() {
+    if (!this.currentActivity) {
+      return;
+    }
+
     if (this.currentActivity === 'guitar') {
       if (this.canPlayGuitar) {
         // Pick up guitar
@@ -147,6 +153,19 @@ export default class Guest extends Thing {
       }
       if (this.activityTime === 30) {
         soundmanager.playSound(['foley_chair_stand_1', 'foley_chair_stand_2', 'foley_chair_stand_3'], 0.6, 1.0, [...this.getFoleyPosition(), 30]);
+      }
+    }
+    if (this.currentActivity === 'game') {
+      if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
+        // Every few seconds, maybe play a board game sound
+        if (this.beenDoingActivityFor % (60 * 2) === 0 && Math.random() < 0.4) {
+          console.log("ROLL BABY")
+          soundmanager.playSound([
+            'foley_game_' + Math.floor(Math.random() * 8 + 1),
+            'foley_game_' + Math.floor(Math.random() * 8 + 1),
+            'foley_game_' + Math.floor(Math.random() * 8 + 1),
+          ], 0.6, 1.0, [...this.getFoleyPosition(), 80]);
+        }
       }
     }
   }

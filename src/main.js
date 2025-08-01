@@ -120,6 +120,14 @@ const foleySounds = {
   foley_chair_stand_1: 'sounds/foley/chair_stand_1.wav',
   foley_chair_stand_2: 'sounds/foley/chair_stand_2.wav',
   foley_chair_stand_3: 'sounds/foley/chair_stand_3.wav',
+  foley_game_1: 'sounds/foley/game_1.wav',
+  foley_game_2: 'sounds/foley/game_2.wav',
+  foley_game_3: 'sounds/foley/game_3.wav',
+  foley_game_4: 'sounds/foley/game_4.wav',
+  foley_game_5: 'sounds/foley/game_5.wav',
+  foley_game_6: 'sounds/foley/game_6.wav',
+  foley_game_7: 'sounds/foley/game_7.wav',
+  foley_game_8: 'sounds/foley/game_8.wav',
 };
 
 game.assets.sounds = await game.loadAudio({
