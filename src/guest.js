@@ -45,12 +45,14 @@ export default class Guest extends Thing {
       return;
     }
 
-    if (this.isInConversation()) {
-      this.activityTime --;
-      this.beenDoingActivityFor ++;
-      this.activityFoley();
-      return;
-    }
+    this.inTransit = false;
+
+    // if (this.isInConversation()) {
+    //   this.activityTime --;
+    //   this.beenDoingActivityFor ++;
+    //   this.activityFoley();
+    //   return;
+    // }
 
     let activityPosition = this.activityFurniture?.position
     if (activityPosition) {
@@ -67,6 +69,7 @@ export default class Guest extends Thing {
         const vel = vec2.scale(vec2.normalize(vec2.subtract(activityPosition, this.position)), moveSpeed);
         this.position = vec2.add(this.position, vel);
         this.conversationTime = 120;
+        this.inTransit = true;
 
         this.footstepTime -= 0.03 * this.speedMultiplier;
         if (this.footstepTime <= 0) {
@@ -90,7 +93,7 @@ export default class Guest extends Thing {
         }
 
         this.conversationTime --;
-        if (this.conversationTime <= 0) {
+        if (this.conversationTime <= 0 && this.canHaveConversation()) {
           this.startConversation();
         }
         
@@ -159,7 +162,6 @@ export default class Guest extends Thing {
       if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
         // Every few seconds, maybe play a board game sound
         if (this.beenDoingActivityFor % (60 * 2) === 0 && Math.random() < 0.4) {
-          console.log("ROLL BABY")
           soundmanager.playSound([
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
@@ -339,7 +341,20 @@ export default class Guest extends Thing {
   }
 
   isActivityConversable(activity) {
-    if (['dancing', 'guitar'].includes(activity)) {
+    if (['dancing', 'guitar', 'leave', null, undefined, ''].includes(activity)) {
+      return false;
+    }
+    return true;
+  }
+
+  canHaveConversation() {
+    if (this.isInConversation()) {
+      return false;
+    }
+    if (this.inTransit) {
+      return false;
+    }
+    if (!this.isActivityConversable(this.currentActivity)) {
       return false;
     }
     return true;

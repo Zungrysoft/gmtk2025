@@ -72,7 +72,7 @@ export default class Quiz extends Thing {
       }
 
       if (correctAnswers >= quiz.questions.length) {
-        soundmanager.playSound('solve', 0.4, 1.0);
+        soundmanager.playSound('solve', 0.3, 1.0);
         this.solvedPages[this.currentPage] = true;
         this.setUpPageClickables();
         this.solveTime = SOLVE_DURATION;
