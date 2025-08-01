@@ -6,7 +6,7 @@ import Guest from './guest.js'
 
 export default class GuestIntenseGamer extends Guest {
   // Config
-  name = "intense gamer"
+  name = "sam"
   hunger = 1
   maxDrunkedness = 1
   arrivalTime = 2000

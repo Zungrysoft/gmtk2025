@@ -7,7 +7,7 @@ import Furniture from './furniture.js'
 
 export default class GuestQuietGamer extends Guest {
   // Config
-  name = "quiet gamer"
+  name = "laura"
   hunger = 1
   maxDrunkedness = 1
   arrivalTime = 650

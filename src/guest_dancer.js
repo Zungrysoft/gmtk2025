@@ -6,7 +6,7 @@ import Guest from './guest.js'
 
 export default class GuestDancer extends Guest {
   // Config
-  name = "dancer"
+  name = "zoe"
   hunger = 1
   maxDrunkedness = 1
   arrivalTime = 200
@@ -14,10 +14,9 @@ export default class GuestDancer extends Guest {
   activityOffset = [0, -64]
   likes_dancing = 25
   likes_relax = 10
-  // likes_food_pizza = 22
-  likes_food_pizza = 220
-  likes_food_platter = 21
-  likes_game = 18
+  likes_food_pizza = 21
+  likes_food_platter = 22
+  likes_game = 0
   likes_alcohol = 20
   likes_guitar = 30
   shoeType = 'barefoot'

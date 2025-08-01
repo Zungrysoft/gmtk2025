@@ -6,12 +6,12 @@ import pyttsx3
 import multiprocessing
 
 SPEAKER_VOICE_MAP = {
-    "drinker": "Microsoft Sean - English (Ireland)",
-    "allaround": "Microsoft Richard - English (Canada)",
-    "intensegamer": "Microsoft James - English (Australia)",
-    "hungry": "Microsoft David Desktop - English (United States)",
-    "dancer": "Microsoft Hazel Desktop - English (Great Britain)",
-    "quietgamer": "Microsoft Zira Desktop - English (United States)"
+    "alfonso": "Microsoft Sean - English (Ireland)",
+    "taylor": "Microsoft Richard - English (Canada)",
+    "sam": "Microsoft James - English (Australia)",
+    "jimmy": "Microsoft David Desktop - English (United States)",
+    "zoe": "Microsoft Hazel Desktop - English (Great Britain)",
+    "laura": "Microsoft Zira Desktop - English (United States)"
 }
 
 OUTPUT_RATE = 11025
