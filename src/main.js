@@ -30,8 +30,7 @@ for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark', '
 game.assets.images = await game.loadImages({
   square: 'images/square.png',
   tray_furniture: 'images/ui/ui_tray_furniture.png',
-  tray_logs_open: 'images/ui/ui_tray_logs_open.png',
-  tray_logs_closed: 'images/ui/ui_tray_logs_closed.png',
+  tray_logs: 'images/ui/ui_tray_logs.png',
   tray_mics: 'images/ui/ui_tray_mics.png',
   button_pause: 'images/ui/ui_button_pause.png',
   button_options: 'images/ui/ui_button_options.png',
@@ -79,6 +78,17 @@ game.assets.images = await game.loadImages({
   ui_quiz_check: 'images/ui/ui_quiz_check.png',
   ui_tooltip: 'images/ui/ui_tooltip.png',
   ui_tooltip2: 'images/ui/ui_tooltip2.png',
+
+  tutorial_bg: 'images/ui/ui_tutorial_background.png',
+  tutorial_rightbutton: 'images/ui/ui_button_tutorial_right.png',
+  tutorial_leftbutton: 'images/ui/ui_button_tutorial_left.png',
+  tutorial_text1: 'images/ui/ui_tutorial_text1.png',
+  tutorial_text2: 'images/ui/ui_tutorial_text2.png',
+  tutorial_text3: 'images/ui/ui_tutorial_text3.png',
+  tutorial_text4: 'images/ui/ui_tutorial_text4.png',
+  tutorial_text5: 'images/ui/ui_tutorial_text5.png',
+  tutorial_text6: 'images/ui/ui_tutorial_text6.png',
+
 
   profile_unknown: 'images/profile/profile_unknown.png',
 
