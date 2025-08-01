@@ -20,7 +20,8 @@ export default class Furniture extends Thing {
     this.position = [...position];
     this.homePosition = [...position];
     this.micNumber = micNumber;
-    this.iconSprite = iconSprite
+    this.iconSprite = iconSprite;
+    this.scale = -2.5
 
     this.depth = this.mustBePlacedOn().length > 0 ? 31 : 30;
     if (type === 'mic') {
@@ -29,6 +30,11 @@ export default class Furniture extends Thing {
   }
 
   update() {
+    this.scale = Math.min(this.scale + 0.08, 1.0)
+    if (this.scale <= 0) {
+      return;
+    }
+
     this.isError = false;
 
     if (this.isBeingDragged) {
@@ -243,6 +249,10 @@ export default class Furniture extends Thing {
   }
 
   draw() {
+    if (this.scale <= 0) {
+      return;
+    }
+
     let color = [1.0, 1.0, 1.0];
     if (this.isHighlighted && !this.isBeingDragged) {
       color = [1.3, 1.3, 1.3];
@@ -256,8 +266,8 @@ export default class Furniture extends Thing {
         sprite: this.iconSprite,
         color: color,
         centered: true,
-        width: 64,
-        height: 64,
+        width: 64 * this.scale,
+        height: 64 * this.scale,
         depth: this.depth,
         rotation: 0,
         position: this.position,
@@ -268,8 +278,8 @@ export default class Furniture extends Thing {
         sprite: this.sprite,
         color: color,
         centered: true,
-        width: 256,
-        height: 256,
+        width: 256 * this.scale,
+        height: 256 * this.scale,
         depth: this.depth,
         rotation: Math.PI/2 * this.rotation,
         position: this.position,
@@ -299,8 +309,8 @@ export default class Furniture extends Thing {
     drawSprite({
       sprite: sprite,
       centered: true,
-      width: 256,
-      height: 256,
+      width: 256 * this.scale,
+      height: 256 * this.scale,
       depth: this.depth,
       rotation: 0,
       position: vec2.add(this.position, offset),

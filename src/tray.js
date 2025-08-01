@@ -13,8 +13,8 @@ export default class Tray extends Thing {
   closedPosition = [0,0]
   defaultOpen = true
   isOpen = true
-  isTransitioningOpen = false
-  isTransitioningClosed = false
+  // isTransitioningOpen = false
+  // isTransitioningClosed = false
   size = [100,100]
   transitionSpeed = 0.1
 
@@ -53,12 +53,12 @@ export default class Tray extends Thing {
     if (open) {
       this.isOpen = true
       this.sprite = this.openSprite
-      this.isTransitioningOpen = true
+      // this.isTransitioningOpen = true
     }
     else { 
       this.isOpen = false
       this.sprite = this.closedSprite
-      this.isTransitioningClosed = true
+      // this.isTransitioningClosed = true
     }
   }
 
@@ -117,18 +117,18 @@ export default class Tray extends Thing {
 
   update() {
     // if requested interpolate the tray's position. stop interpolation when it arrives
-    if (this.isTransitioningOpen) {
+    if (this.isOpen) {
       this.position = vec2.lerp(this.position, this.openPosition, this.transitionSpeed)
       if (vec2.distance(this.position, this.openPosition) < 1) {
         this.position = this.openPosition
-        this.isTransitioningOpen = false
+        // this.isTransitioningOpen = false
       }
     }
-    if (this.isTransitioningClosed) {
+    else {
       this.position = vec2.lerp(this.position, this.closedPosition, this.transitionSpeed)
       if (vec2.distance(this.position, this.closedPosition) < 1) {
         this.position = this.closedPosition
-        this.isTransitioningClosed = false
+        // this.isTransitioningClosed = false
       }
     }
   }
