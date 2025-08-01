@@ -10,6 +10,10 @@ import QuizClickable from './quizclickable.js'
 
 const SOLVE_DURATION = 30;
 
+const TEXT_REGULAR = [0.4, 0.266, 0.38];
+const TEXT_HIGHLIGHTED = [0.65, 0.54, 0.64];
+const TEXT_SELECTED = [0.91, 0.82, 0.90];
+
 export default class Quiz extends Thing {
   completedQuizzes = {};
   isEnabled = false
@@ -164,7 +168,7 @@ export default class Quiz extends Thing {
         text: quiz.hint,
         position: vec2.add(this.position, [left, bottom]),
         depth: this.depth + 1,
-        color: [0.4, 0.266, 0.38],
+        color: TEXT_REGULAR,
         scale: 0.6,
       })
     }
@@ -187,7 +191,7 @@ export default class Quiz extends Thing {
         text: question.title,
         position: vec2.add(this.position, [left, top]),
         depth: this.depth + 1,
-        color: [0.4, 0.266, 0.38]
+        color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
       })
       top += getTextHeight(question.title);
 
@@ -212,12 +216,12 @@ export default class Quiz extends Thing {
           Math.floor(index / question.optionColumns) * 32,
         ]
 
-        let color = [0.4, 0.266, 0.38];
+        let color = TEXT_REGULAR;
         if (this.clickables[[questionIndex, index]]?.isHighlighted) {
-          color = [0.65, 0.54, 0.64];
+          color = TEXT_HIGHLIGHTED;
         }
         if (this.selectedOptions[[this.currentPage, questionIndex]] == index) {
-          color = [0.91, 0.82, 0.90];
+          color = TEXT_SELECTED;
         }
 
         drawText({
