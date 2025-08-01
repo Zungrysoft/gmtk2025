@@ -105,6 +105,9 @@ const foleySounds = {
   foley_guitar_4: 'sounds/foley/guitar4.wav',
   foley_guitar_pick_up: 'sounds/foley/guitar_pick_up.wav',
   foley_guitar_put_down: 'sounds/foley/guitar_put_down.wav',
+  foley_alcohol_1: 'sounds/foley/alcohol_1.wav',
+  foley_alcohol_2: 'sounds/foley/alcohol_2.wav',
+  foley_alcohol_3: 'sounds/foley/alcohol_3.wav',
 };
 
 game.assets.sounds = await game.loadAudio({

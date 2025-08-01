@@ -131,6 +131,11 @@ export default class Guest extends Thing {
         }
       }
     }
+    if (this.currentActivity === 'alcohol') {
+      if (this.beenDoingActivityFor === 60) {
+        soundmanager.playSound(['foley_alcohol_1', 'foley_alcohol_2', 'foley_alcohol_3'], 0.6, 1.0, [...this.getFoleyPosition(), 80]);
+      }
+    }
   }
 
   getFoleyPosition() {
