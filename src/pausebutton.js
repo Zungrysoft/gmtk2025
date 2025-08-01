@@ -10,7 +10,7 @@ import Button from './button.js'
 export default class PauseButton extends Button {
 
   onClick() {
-    if (!this.isTransitioningClosed && !this.isTransitioningOpen) this.toggleOpenState();
+    // game.getThing('pausemenu').showPauseMenu = true
   }
 
   isClickable() {
