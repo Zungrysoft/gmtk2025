@@ -16,6 +16,7 @@ import QuizButton from './quizbutton.js'
 import StartButton from './startbutton.js'
 import SkipButton from './skipbutton.js'
 import PauseButton from './pausebutton.js'
+import PauseMenu from './pausemenu.js'
 
 export default class House extends Thing {
   isDying = false
@@ -25,18 +26,17 @@ export default class House extends Thing {
   night = 1
   selectedMic = 0
   partyTime = 0
-  furnitureTray = null;
-  furnitureList = []
+  furnitureTray = null
 
   constructor(sprite, type) {
     super();
     this.type = type;
 
-    game.setThingName(this, 'house');
+    game.setThingName(this, 'house')
     this.initUiElements()
     this.changePhase('placement')
 
-    soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0]);
+    soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0])
   }
 
   update() {
@@ -128,6 +128,7 @@ export default class House extends Thing {
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
                                 [256, 128], [850,0], [850,-128], true, [25, 0, 232, 73]))
 
+    game.addThing(new PauseMenu())
   }
 
   // hide all the placement UI for when the party starts
