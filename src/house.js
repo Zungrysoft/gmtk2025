@@ -17,6 +17,7 @@ import StartButton from './startbutton.js'
 import SkipButton from './skipbutton.js'
 import PauseButton from './pausebutton.js'
 import PauseMenu from './pausemenu.js'
+import Tutorial from './tutorial.js'
 
 export default class House extends Thing {
   isDying = false
@@ -128,24 +129,26 @@ export default class House extends Thing {
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
                                 [256, 128], [165,0], [165,-128], true, [25, 0, 232, 73]))
 
+    game.addThing(new Tutorial())
+
     game.addThing(new PauseMenu())
+
   }
 
   // hide all the placement UI for when the party starts
-  tuckUiForParty() {
+  tuckUi(showSkipButton) {
     game.getThing('tray_furniture').setOpenState(false)
     game.getThing('tray_mics').setOpenState(false)
-    // game.getThing('button_pause').setOpenState(true)
-    game.getThing('button_skipnight').setOpenState(true)
+    if (showSkipButton) game.getThing('button_skipnight').setOpenState(true)
+    else                game.getThing('button_skipnight').setOpenState(false)
     game.getThing('button_startnight').setOpenState(false)
     game.getThing('tray_levels').setOpenState(true)
   }
 
   // show all the UI during the party so the player can place again
-  showUiForPlacement() {
+  showUi() {
     game.getThing('tray_furniture').setOpenState(true)
     game.getThing('tray_mics').setOpenState(true)
-    // game.getThing('button_pause').setOpenState(false)
     game.getThing('button_skipnight').setOpenState(false)
     game.getThing('button_startnight').setOpenState(true)
     game.getThing('tray_levels').setOpenState(false)
@@ -166,7 +169,7 @@ export default class House extends Thing {
         game.getThing('quiz').toggleIsEnabled()
       }
       
-      this.showUiForPlacement()
+      this.showUi()
       for (const thing of game.getThings().filter(x => x instanceof Guest)) {
         thing.isDead = true
       }
@@ -184,7 +187,7 @@ export default class House extends Thing {
       if (!noSound) {
         soundmanager.playSound('swipe', 0.3, 0.8);
       }
-      this.tuckUiForParty()
+      this.tuckUi(true)
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         if (!thing.isPlaced) {
           thing.isDead = true
