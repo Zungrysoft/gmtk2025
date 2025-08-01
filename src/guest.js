@@ -73,7 +73,7 @@ export default class Guest extends Thing {
             `footstep_${this.shoeType}_1`,
             `footstep_${this.shoeType}_2`,
             `footstep_${this.shoeType}_3`,
-          ], 0.6, 1.0, [...this.position, 0]);
+          ], this.shoeType === 'flipflops' ? 0.4 : 0.6, 1.0, [...this.position, 0]);
         }
       }
       else {
