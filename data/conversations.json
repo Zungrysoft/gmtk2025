@@ -1,7 +1,7 @@
 [
     {
         "maxTime": 25,
-        "requiredActivites": [
+        "requiredActivities": [
             {
                 "participant": "hungry",
                 "activities": ["food_pizza", "food_platter"]

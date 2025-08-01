@@ -344,10 +344,9 @@ export default class Furniture extends Thing {
 
       // Selected mic
       if (game.getThing('house').selectedMic === this.micNumber) {
+        // Audio preview at bottom of screen
         game.globals.soundWave.shift()
         game.globals.soundWave.push(loudnessScale)
-        // Audio preview at bottom of screen
-
         this.drawMicrophoneAudioPreview();
 
         // Selection indicator
