@@ -118,7 +118,7 @@ export default class House extends Thing {
     game.addThing(new Button('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
                             [100,100], [1180,20], [1180,-100], false, [4,4,92,95]))
     game.addThing(new StartButton('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
-                            [400,100], [456,613], [456,700], true, [45,7,357,90]))
+                            [400,100], [456,613], [456,730], true, [45,7,357,90]))
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
                             [256, 128], [850,0], [850,0], true, [25, 0, 232, 73]))

@@ -4,7 +4,7 @@ import * as vec2 from 'vector2'
 import * as soundmanager from 'soundmanager'
 import Thing from 'thing'
 import Furniture from './furniture.js'
-import { drawSprite } from './draw.js'
+import { drawSprite, drawText } from './draw.js'
 import Conversation from './conversation.js'
 
 export default class Guest extends Thing {
@@ -327,13 +327,21 @@ export default class Guest extends Thing {
   }
 
   draw() {
-    drawSprite({
-      color: [1, 1, 1],
-      centered: true,
-      width: 16,
-      height: 16,
-      depth: 1000,
-      position: this.position,
-    })
+    if (game.keysDown.KeyP) {
+      drawSprite({
+        color: [1, 1, 1],
+        centered: true,
+        width: 16,
+        height: 16,
+        depth: 80,
+        position: this.position,
+      })
+      drawText({
+        text: this.name,
+        depth: 80,
+        position: vec2.add(this.position, [12, -6]),
+        scale: 0.5,
+      })
+    }
   }
 }
