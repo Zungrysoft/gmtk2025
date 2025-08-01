@@ -165,15 +165,15 @@ export default class House extends Thing {
       for (const thing of game.getThings().filter(x => x instanceof Guest)) {
         thing.isDead = true
       }
-      this.addGuests()
+      
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         thing.isDead = true
       }
       this.addFurniture()
-      
     }
 
     if (phase == 'party') {
+      this.addGuests()
       soundmanager.playSound('swipe', 0.3, 0.8);
       this.tuckUiForParty()
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
