@@ -110,7 +110,9 @@ export default class House extends Thing {
     game.addThing(new Tray('tray_logs', game.assets.textures.tray_logs_open, game.assets.textures.tray_logs_closed,
                           [200,600], [1080,125], [1244,125], true, [7,34,36,79]))
     game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
-                          [225,125], [0,595], [0,703], true, [0,8,213,125]))                   
+                          [225,125], [0,595], [0,703], true, [0,8,213,125]))
+    game.addThing(new Tray('tray_levels', game.assets.textures.ui_levels, game.assets.textures.ui_levels,
+                          [512, 128], [384,720-128], [384,720], false, [0, 0, 512, 128]))                              
 
 
     game.addThing(new Button('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
@@ -131,8 +133,10 @@ export default class House extends Thing {
     game.getThing('tray_logs').setOpenState(false)
     game.getThing('tray_mics').setOpenState(false)
     game.getThing('button_pause').setOpenState(false)
-    game.getThing('button_skipnight').setOpenState(true)
     game.getThing('button_startnight').setOpenState(false)
+
+    game.getThing('button_skipnight').setOpenState(true)
+    game.getThing('tray_levels').setOpenState(true)
   }
 
   // show all the UI during the party so the player can place again. swap skip party with pause
@@ -141,8 +145,10 @@ export default class House extends Thing {
     game.getThing('tray_logs').setOpenState(true)
     game.getThing('tray_mics').setOpenState(true)
     game.getThing('button_pause').setOpenState(true)
-    game.getThing('button_skipnight').setOpenState(false)
     game.getThing('button_startnight').setOpenState(true)
+
+    game.getThing('button_skipnight').setOpenState(false)
+    game.getThing('tray_levels').setOpenState(false)
   }
 
 

@@ -75,6 +75,7 @@ game.assets.images = await game.loadImages({
   ui_quiz_check: 'images/ui/ui_quiz_check.png',
   ui_tooltip: 'images/ui/ui_tooltip.png',
   ui_tooltip2: 'images/ui/ui_tooltip2.png',
+  ui_levels: 'images/ui/ui_levels.png',
 
   profile_unknown: 'images/profile/profile_unknown.png',
 
@@ -189,6 +190,8 @@ game.setScene(() => {
   game.addThing(new QuizArrowButton(true));
   game.addThing(new QuizArrowButton(false));
   game.addThing(new QuizCheckButton());
+
+  game.globals.soundWave = [0, 0, 0, 0, 0, 0, 0, 0]
 
   // Camera setup
   game.getCamera3D().lookVector = [0, 0, -1];

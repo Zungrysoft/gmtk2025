@@ -43,12 +43,12 @@
             {
                 "speaker": "drinker",
                 "sound": "002_drinker_002",
-                "text": "It's ironic!"
+                "text": "It's irony!"
             },
             {
                 "speaker": "hungry",
                 "sound": "002_hungry_002",
-                "text": "I know you think it's ironic. But after enough times, it isn't anymore."
+                "text": "I know you think it's irony. But after enough times, it just becomes genuine."
             }
         ]
     },

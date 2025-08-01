@@ -277,80 +277,111 @@ export default class Furniture extends Thing {
     }
     
 
-    if (this.micNumber != null) {
-      let sprite = game.assets.textures["furniture_mic_a"];
-      if (this.micNumber === 1) {
-        sprite = game.assets.textures["furniture_mic_b"];
-      }
-      else if (this.micNumber === 2) {
-        sprite = game.assets.textures["furniture_mic_c"];
+    if (this.micNumber != null && this.type === 'mic') {
+      this.drawMicrophoneStuff()
+    }
+  }
+
+  drawMicrophoneStuff() {
+    let sprite = game.assets.textures["furniture_mic_a"];
+    if (this.micNumber === 1) {
+      sprite = game.assets.textures["furniture_mic_b"];
+    }
+    else if (this.micNumber === 2) {
+      sprite = game.assets.textures["furniture_mic_c"];
+    }
+
+    let offset = [0, 0];
+    if (this.rotation === 1 || this.rotation === 3) {
+      offset = [-16, -20]
+    }
+
+    drawSprite({
+      sprite: sprite,
+      centered: true,
+      width: 256,
+      height: 256,
+      depth: this.depth,
+      rotation: 0,
+      position: vec2.add(this.position, offset),
+    })
+
+    if (game.getThing('house').gamePhase === 'party') {
+      // Loudness indicator
+      let total = 0;
+
+      for (const { analyser, panner } of game.globals.audioSources) {
+        const dataArray = new Uint8Array(analyser.fftSize);
+        analyser.getByteTimeDomainData(dataArray);
+
+        let sumSquares = 0;
+        for (let i = 0; i < dataArray.length; i++) {
+          const val = (dataArray[i] - 128) / 128;
+          sumSquares += val * val;
+        }
+
+        const rms = Math.sqrt(sumSquares / dataArray.length);
+
+        if (rms < 0.015) {
+          continue;
+        }
+
+        const dist = vec3.distance([panner.positionX.value, panner.positionZ.value, panner.positionY.value], [...this.position, 128]);
+        const scalar = Math.max(2.0, dist / 30)**(-2);
+
+        total += rms * scalar;
       }
 
-      let offset = [0, 0];
-      if (this.rotation === 1 || this.rotation === 3) {
-        offset = [-16, -20]
-      }
-
+      let loudnessScale = (total**0.5) * 2048;
       drawSprite({
-        sprite: sprite,
-        color: color,
+        sprite: game.assets.textures.furniture_mic_loudness,
         centered: true,
-        width: 256,
-        height: 256,
-        depth: this.depth,
-        rotation: 0,
-        position: vec2.add(this.position, offset),
+        width: loudnessScale,
+        height: loudnessScale,
+        depth: this.depth + 2,
+        position: this.position,
       })
 
-      if (game.getThing('house').gamePhase === 'party') {
+      // Selected mic
+      if (game.getThing('house').selectedMic === this.micNumber) {
+        game.globals.soundWave.shift()
+        game.globals.soundWave.push(loudnessScale)
+        // Audio preview at bottom of screen
+
+        this.drawMicrophoneAudioPreview();
+
         // Selection indicator
-        if (game.getThing('house').selectedMic === this.micNumber) {
-          const scale = u.map(Math.sin(game.getThing('house').partyTime / 10), -1, 1, 1.0, 1.3);
-          drawSprite({
-            sprite: game.assets.textures.furniture_mic_selected,
-            centered: true,
-            width: 256 * scale,
-            height: 256 * scale,
-            depth: this.depth + 1,
-            position: this.position,
-          })
-        }
-
-        // Loudness indicator
-        let total = 0;
-
-        for (const { analyser, panner } of game.globals.audioSources) {
-          const dataArray = new Uint8Array(analyser.fftSize);
-          analyser.getByteTimeDomainData(dataArray);
-
-          let sumSquares = 0;
-          for (let i = 0; i < dataArray.length; i++) {
-            const val = (dataArray[i] - 128) / 128;
-            sumSquares += val * val;
-          }
-
-          const rms = Math.sqrt(sumSquares / dataArray.length);
-
-          if (rms < 0.015) {
-            continue;
-          }
-
-          const dist = vec3.distance([panner.positionX.value, panner.positionZ.value, panner.positionY.value], [...this.position, 128]);
-          const scalar = Math.max(2.0, dist / 30)**(-2);
-
-          total += rms * scalar;
-        }
-
-        let loudnessScale = (total**0.5) * 2048;
+        const scale = u.map(Math.sin(game.getThing('house').partyTime / 10), -1, 1, 1.0, 1.3);
         drawSprite({
-          sprite: game.assets.textures.furniture_mic_loudness,
+          sprite: game.assets.textures.furniture_mic_selected,
           centered: true,
-          width: loudnessScale,
-          height: loudnessScale,
-          depth: this.depth + 2,
+          width: 256 * scale,
+          height: 256 * scale,
+          depth: this.depth + 1,
           position: this.position,
         })
       }
     }
+  }
+
+  drawMicrophoneAudioPreview() {
+    let pos = [548, 720-12-8];
+
+    for (const point of game.globals.soundWave) {
+      let height = Math.min(point * 0.15, 48);
+      drawSprite({
+        sprite: game.assets.textures.square,
+        color: [0.82, 0.51, 0.16],
+        centered: false,
+        width: 15,
+        height: height,
+        depth: this.depth + 5,
+        position: [pos[0], pos[1] - height],
+      })
+
+      pos[0] += 35;
+    }
+
+
   }
 }
