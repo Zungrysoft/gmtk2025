@@ -21,7 +21,7 @@ export default class QuizCheckButton extends Thing {
   }
 
   update() {
-    let offset = [850, 416];
+    let offset = [850, 400];
     this.position = vec2.add(game.getThing('quiz').position, offset)
   }
 

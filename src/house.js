@@ -82,6 +82,24 @@ export default class House extends Thing {
           }
         }
       }
+
+      // Randomize mics
+      if (game.keysPressed.KeyL) {
+        for (const furniture of game.getThings().filter(x => x instanceof Furniture && x.type === 'mic')) {
+          if (furniture.isValidPlacement()) {
+            continue;
+          }
+
+          for (let j = 0; j < 1000; j ++) {
+            furniture.position = [Math.random() * 837 + 220, Math.random() * 461 + 117];
+            furniture.rotation = Math.floor(Math.random() * 4)
+            if (furniture.isValidPlacement()) {
+              furniture.isPlaced = true;
+              break;
+            }
+          }
+        }
+      }
     }
   }
 

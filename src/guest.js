@@ -96,14 +96,22 @@ export default class Guest extends Thing {
   }
 
   getActivityDuration() {
+    if (this.currentActivity === 'guitar') {
+      return 2100;
+    }
+
     return 1200;
   }
 
   activityFoley() {
     if (this.currentActivity === 'guitar') {
       if (this.canPlayGuitar) {
-        if (this.beenDoingActivityFor === 5) {
-          console.log("GUITAR!!!")
+        // Pick up guitar
+        if (this.beenDoingActivityFor === 10) {
+          soundmanager.playSound('foley_guitar_pick_up', 0.6, 1.0, [...this.getFoleyPosition(), 6]);
+        }
+        // Play guitar track
+        else if (this.beenDoingActivityFor === 60) {
           const r = Math.random();
           let sound;
           if (r < 0.25) {
@@ -115,10 +123,21 @@ export default class Guest extends Thing {
           } else {
             sound = 'foley_guitar_4';
           }
-          soundmanager.playSound(sound, 0.6, 1.0, [...this.position, 14]);
+          soundmanager.playSound(sound, 0.6, 1.0, [...this.getFoleyPosition(), 14]);
+        }
+        // Put guitar down
+        else if (this.beenDoingActivityFor === 2040) {
+          soundmanager.playSound('foley_guitar_put_down', 0.6, 1.0, [...this.getFoleyPosition(), 6]);
         }
       }
     }
+  }
+
+  getFoleyPosition() {
+    if (this.activityFurniture) {
+      return this.activityFurniture.position;
+    }
+    return this.position;
   }
 
   startConversation() {

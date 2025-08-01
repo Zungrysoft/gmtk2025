@@ -92,6 +92,21 @@ for (const aString of conversationAudioStrings) {
   conversationAudio['conversation_' + aString] = 'sounds/conversations/' + aString + '.wav';
 }
 
+
+// Sounds that will be played in 3D-space simulation
+const foleySounds = {
+  footstep1: 'sounds/footsteps/footstep1.wav',
+  footstep2: 'sounds/footsteps/footstep2.wav',
+  footstep3: 'sounds/footsteps/footstep3.wav',
+
+  foley_guitar_1: 'sounds/foley/guitar1.wav',
+  foley_guitar_2: 'sounds/foley/guitar2.wav',
+  foley_guitar_3: 'sounds/foley/guitar3.wav',
+  foley_guitar_4: 'sounds/foley/guitar4.wav',
+  foley_guitar_pick_up: 'sounds/foley/guitar_pick_up.wav',
+  foley_guitar_put_down: 'sounds/foley/guitar_put_down.wav',
+};
+
 game.assets.sounds = await game.loadAudio({
   click1: 'sounds/click1.wav',
   click2: 'sounds/click2.wav',
@@ -123,15 +138,7 @@ game.assets.sounds = await game.loadAudio({
   paper2: 'sounds/paper2.wav',
 
   ...conversationAudio,
-
-  footstep1: 'sounds/footsteps/footstep1.wav',
-  footstep2: 'sounds/footsteps/footstep2.wav',
-  footstep3: 'sounds/footsteps/footstep3.wav',
-
-  foley_guitar_1: 'sounds/foley/guitar1.wav',
-  foley_guitar_2: 'sounds/foley/guitar2.wav',
-  foley_guitar_3: 'sounds/foley/guitar3.wav',
-  foley_guitar_4: 'sounds/foley/guitar4.wav',
+  ...foleySounds,
 
   music1: 'sounds/track1.flac',
   music2: 'sounds/track2.flac',
@@ -141,13 +148,7 @@ soundmanager.setSoundsTable(game.assets.sounds)
 
 const positionalSounds = [
   ...conversationAudioStrings.map(x => 'conversation_' + x),
-  'footstep1',
-  'footstep2',
-  'footstep3',
-  'foley_guitar_1',
-  'foley_guitar_2',
-  'foley_guitar_3',
-  'foley_guitar_4',
+  ...Object.keys(foleySounds),
 ]
 soundmanager.configurePositionalSound(positionalSounds);
 
