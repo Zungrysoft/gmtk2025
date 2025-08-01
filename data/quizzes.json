@@ -73,5 +73,9 @@
             }
         ],
         "hint": "Hint: People like to talk to\nothers who are close by."
+    },
+    {
+        "unlockThreshold": 2,
+        "message": "Congratulations!\nYou have solved\nall of the easy\npuzzles! The\nnext ones are\nmore challenging!"
     }
 ]

@@ -58,8 +58,11 @@ export default class Quiz extends Thing {
   }
 
   checkAnswer() {
-    // Check for correct answers
     const quiz = game.assets.data.quizzes[this.currentPage];
+    if (!quiz.questions) {
+      return;
+    }
+
     if (!this.solvedPages[this.currentPage]) {
       let correctAnswers = 0;
       for (const [questionIndex, question] of quiz.questions.entries()) {
@@ -185,72 +188,85 @@ export default class Quiz extends Thing {
       })
     }
 
-    // Questions:
-    for (const [questionIndex, question] of quiz.questions.entries()) {
-      // Confirmation check mark
-      if (this.solvedPages[this.currentPage]) {
-        drawSprite({
-          sprite: game.assets.textures.ui_checkmark,
-          width: 128,
-          height: 128,
-          depth: this.depth + 2,
-          position: vec2.add(vec2.add(this.position, [left, top]), [-74, -50]),
-        })
-      }
-
-      // Title text
+    // Message
+    if (quiz.message) {
       drawText({
-        text: question.title,
+        text: quiz.message,
         position: vec2.add(this.position, [left, top]),
         depth: this.depth + 1,
-        color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
+        color: TEXT_REGULAR,
       })
-      top += getTextHeight(question.title);
+      top += getTextHeight(quiz.message);
+    }
 
-      if (question.audio_clip) {
-
-        drawSprite({
-          sprite: game.assets.textures.profile_unknown,
-          width: 128,
-          height: 128,
-          depth: this.depth + 1,
-          position: vec2.add(vec2.add(this.position, [left, top]), [0, 0]),
-        })
-
-        top += 102
-      }
-
-      top += 24
-
-      for (const [index, option] of question.options.entries()) {
-        const offset = [
-          Math.floor(index % question.optionColumns) * Math.floor(405 / question.optionColumns),
-          Math.floor(index / question.optionColumns) * 32,
-        ]
-
-        let color = TEXT_REGULAR;
-        if (this.clickables[[questionIndex, index]]?.isHighlighted) {
-          color = TEXT_HIGHLIGHTED;
-        }
-        if (this.selectedOptions[[this.currentPage, questionIndex]] == index) {
-          color = TEXT_SELECTED;
+    // Questions:
+    if (quiz.questions) {
+      for (const [questionIndex, question] of quiz.questions.entries()) {
+        // Confirmation check mark
+        if (this.solvedPages[this.currentPage]) {
+          drawSprite({
+            sprite: game.assets.textures.ui_checkmark,
+            width: 128,
+            height: 128,
+            depth: this.depth + 2,
+            position: vec2.add(vec2.add(this.position, [left, top]), [-74, -50]),
+          })
         }
 
+        // Title text
         drawText({
-          text: option,
-          position: vec2.add(vec2.add(this.position, [left, top]), offset),
+          text: question.title,
+          position: vec2.add(this.position, [left, top]),
           depth: this.depth + 1,
-          color: color,
-          scale: 0.8,
+          color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
         })
+        top += getTextHeight(question.title);
 
-        // Set aabb for the relevant clickable
-        this.clickables[[questionIndex, index]]?.setAabb(vec2.add(vec2.add(this.position, [left, top]), offset), option.length * 18, 28)
+        if (question.audio_clip) {
+
+          drawSprite({
+            sprite: game.assets.textures.profile_unknown,
+            width: 128,
+            height: 128,
+            depth: this.depth + 1,
+            position: vec2.add(vec2.add(this.position, [left, top]), [0, 0]),
+          })
+
+          top += 102
+        }
+
+        top += 24
+
+        for (const [index, option] of question.options.entries()) {
+          const offset = [
+            Math.floor(index % question.optionColumns) * Math.floor(405 / question.optionColumns),
+            Math.floor(index / question.optionColumns) * 32,
+          ]
+
+          let color = TEXT_REGULAR;
+          if (this.clickables[[questionIndex, index]]?.isHighlighted) {
+            color = TEXT_HIGHLIGHTED;
+          }
+          if (this.selectedOptions[[this.currentPage, questionIndex]] == index) {
+            color = TEXT_SELECTED;
+          }
+
+          drawText({
+            text: option,
+            position: vec2.add(vec2.add(this.position, [left, top]), offset),
+            depth: this.depth + 1,
+            color: color,
+            scale: 0.8,
+          })
+
+          // Set aabb for the relevant clickable
+          this.clickables[[questionIndex, index]]?.setAabb(vec2.add(vec2.add(this.position, [left, top]), offset), option.length * 18, 28)
+        }
+        top += Math.ceil(question.options.length / question.optionColumns) * 32;
+
+        // Margin
+        top += 24
       }
-      top += Math.ceil(question.options.length / question.optionColumns) * 32;
-
-      // Margin
-      top += 24
     }
   }
 }

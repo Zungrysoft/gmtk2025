@@ -30,8 +30,9 @@ export default class QuizCheckButton extends Thing {
   }
 
   isDisabled() {
-    const quiz = game.getThing('quiz')
-    return quiz.solvedPages[quiz.currentPage];
+    const quiz = game.getThing('quiz');
+    const noQuestions = !game.assets.data.quizzes[quiz.currentPage]?.questions?.length;
+    return quiz.solvedPages[quiz.currentPage] || noQuestions;
   }
 
   getAabb() {
