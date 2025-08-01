@@ -24,7 +24,7 @@ export default class House extends Thing {
   stripsAnimationState = 128
   type = null
   gamePhase = ''
-  night = 1
+  night = 0
   selectedMic = 0
   partyTime = 0
   furnitureTray = null
@@ -35,7 +35,7 @@ export default class House extends Thing {
 
     game.setThingName(this, 'house')
     this.initUiElements()
-    this.changePhase('placement')
+    this.changePhase('placement', true)
 
     soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0])
   }
@@ -115,7 +115,9 @@ export default class House extends Thing {
     game.addThing(new Tray('tray_logs', game.assets.textures.tray_logs, game.assets.textures.tray_logs,
                           [200,600], [1080,125], [1244,125], true, [7,34,36,79]))
     game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
-                          [225,125], [0,595], [0,703], true, [0,8,213,125]))                   
+                          [225,125], [0,595], [0,703], true, [0,8,213,125]))
+    game.addThing(new Tray('tray_levels', game.assets.textures.ui_levels, game.assets.textures.ui_levels,
+                          [512, 128], [384,720-128], [384,720], false, [0, 0, 512, 128]))                              
 
 
     game.addThing(new PauseButton('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
@@ -127,7 +129,7 @@ export default class House extends Thing {
                             
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
-                                [256, 128], [850,0], [850,-128], true, [25, 0, 232, 73]))
+                                [256, 128], [165,0], [165,-128], true, [25, 0, 232, 73]))
 
     game.addThing(new Tutorial())
 
@@ -143,7 +145,7 @@ export default class House extends Thing {
     if (showSkipButton) game.getThing('button_skipnight').setOpenState(true)
     else                game.getThing('button_skipnight').setOpenState(false)
     game.getThing('button_startnight').setOpenState(false)
-    game.getThing('button_quiz').setOpenState(false)
+    game.getThing('tray_levels').setOpenState(true)
   }
 
   // show all the UI during the party so the player can place again
@@ -153,29 +155,40 @@ export default class House extends Thing {
     game.getThing('tray_mics').setOpenState(true)
     game.getThing('button_skipnight').setOpenState(false)
     game.getThing('button_startnight').setOpenState(true)
-    game.getThing('button_quiz').setOpenState(true)
+    game.getThing('tray_levels').setOpenState(false)
   }
 
 
 
-  changePhase(phase) {
+  changePhase(phase, noSound = false) {
     this.gamePhase = phase
 
     if (phase == 'placement') {
+      if (!noSound) {
+        soundmanager.playSound('swipe', 0.3, 1.0);
+      }
+
+      this.night ++
+      if (this.night === 2) {
+        game.getThing('quiz').toggleIsEnabled()
+      }
+      
       this.showUi()
       for (const thing of game.getThings().filter(x => x instanceof Guest)) {
         thing.isDead = true
       }
-      this.addGuests()
+      
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         thing.isDead = true
       }
       this.addFurniture()
-      
     }
 
     if (phase == 'party') {
-      soundmanager.playSound('swipe', 0.3, 0.8);
+      this.addGuests()
+      if (!noSound) {
+        soundmanager.playSound('swipe', 0.3, 0.8);
+      }
       this.tuckUi(true)
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         if (!thing.isPlaced) {
