@@ -21,6 +21,7 @@ export default class Guest extends Thing {
   likes_food_platter = 10
   likes_game = 10
   likes_alcohol = 10
+  shoeType = 'shoes'
 
   // Variables
   drunkedness = 0
@@ -68,7 +69,11 @@ export default class Guest extends Thing {
         this.footstepTime -= 0.03 * this.speedMultiplier;
         if (this.footstepTime <= 0) {
           this.footstepTime = 1.0;
-          soundmanager.playSound(['footstep1', 'footstep2', 'footstep3'], 0.6, 1.0, [...this.position, 0]);
+          soundmanager.playSound([
+            `footstep_${this.shoeType}_1`,
+            `footstep_${this.shoeType}_2`,
+            `footstep_${this.shoeType}_3`,
+          ], 0.6, 1.0, [...this.position, 0]);
         }
       }
       else {

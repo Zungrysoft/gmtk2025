@@ -19,5 +19,6 @@ export default class GuestHungry extends Guest {
   likes_game = 22
   likes_alcohol = 20
   likes_guitar = 10
+  shoeType = 'barefoot'
 
 }

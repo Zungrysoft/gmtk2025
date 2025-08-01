@@ -95,9 +95,15 @@ for (const aString of conversationAudioStrings) {
 
 // Sounds that will be played in 3D-space simulation
 const foleySounds = {
-  footstep1: 'sounds/footsteps/footstep1.wav',
-  footstep2: 'sounds/footsteps/footstep2.wav',
-  footstep3: 'sounds/footsteps/footstep3.wav',
+  footstep_shoes_1: 'sounds/footsteps/footstep_shoes_1.wav',
+  footstep_shoes_2: 'sounds/footsteps/footstep_shoes_2.wav',
+  footstep_shoes_3: 'sounds/footsteps/footstep_shoes_3.wav',
+  footstep_flipflops_1: 'sounds/footsteps/footstep_flipflops_1.wav',
+  footstep_flipflops_2: 'sounds/footsteps/footstep_flipflops_2.wav',
+  footstep_flipflops_3: 'sounds/footsteps/footstep_flipflops_3.wav',
+  footstep_barefoot_1: 'sounds/footsteps/footstep_barefoot_1.wav',
+  footstep_barefoot_2: 'sounds/footsteps/footstep_barefoot_2.wav',
+  footstep_barefoot_3: 'sounds/footsteps/footstep_barefoot_3.wav',
 
   foley_guitar_1: 'sounds/foley/guitar1.wav',
   foley_guitar_2: 'sounds/foley/guitar2.wav',
