@@ -149,6 +149,12 @@ const foleySounds = {
   foley_game_6: 'sounds/foley/game_6.wav',
   foley_game_7: 'sounds/foley/game_7.wav',
   foley_game_8: 'sounds/foley/game_8.wav',
+  foley_food_platter_1: 'sounds/foley/food_platter_1.wav',
+  foley_food_platter_2: 'sounds/foley/food_platter_2.wav',
+  foley_food_platter_3: 'sounds/foley/food_platter_3.wav',
+  foley_food_platter_4: 'sounds/foley/food_platter_4.wav',
+  foley_food_platter_5: 'sounds/foley/food_platter_5.wav',
+  foley_food_platter_6: 'sounds/foley/food_platter_6.wav',
 };
 
 game.assets.sounds = await game.loadAudio({
