@@ -23,7 +23,7 @@ export default class House extends Thing {
   stripsAnimationState = 128
   type = null
   gamePhase = ''
-  night = 1
+  night = 0
   selectedMic = 0
   partyTime = 0
   furnitureTray = null
@@ -163,6 +163,11 @@ export default class House extends Thing {
     if (phase == 'placement') {
       if (!noSound) {
         soundmanager.playSound('swipe', 0.3, 1.0);
+      }
+
+      this.night ++
+      if (this.night === 2) {
+        game.getThing('quiz').toggleIsEnabled()
       }
       
       this.showUiForPlacement()
