@@ -12,6 +12,7 @@ import GuestQuietGamer from './guest_quietgamer.js'
 import Tray from './tray.js'
 import Button from './button.js'
 import QuizButton from './quizbutton.js'
+import StartButton from './startbutton.js'
 
 export default class House extends Thing {
   isDying = false
@@ -87,7 +88,7 @@ export default class House extends Thing {
   // add the trays and clickable buttons to the scene
   initUiElements() {
     game.addThing(new Tray('tray_furniture', game.assets.textures.tray_furniture, game.assets.textures.tray_furniture,
-                          [200,600], [0,0], [-163,0], true, [-10,-10,-9,-9]))
+                          [200,600], [0,0], [-200,0], true, [-10,-10,-9,-9]))
     game.addThing(new Tray('tray_logs', game.assets.textures.tray_logs_open, game.assets.textures.tray_logs_closed,
                           [200,600], [1080,125], [1244,125], true, [7,34,36,79]))
     game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
@@ -98,7 +99,7 @@ export default class House extends Thing {
                             [100,100], [1180,20], [1180,-100], true, [3,3,97,97]))
     game.addThing(new Button('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
                             [100,100], [1180,20], [1180,-100], false, [4,4,92,95]))
-    game.addThing(new Button('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
+    game.addThing(new StartButton('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
                             [400,100], [456,613], [456,700], true, [45,7,357,90]))
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
@@ -138,6 +139,7 @@ export default class House extends Thing {
     }
 
     if (phase == 'party') {
+      soundmanager.playSound('swipe', 0.3, 0.8);
       this.tuckUiDuringParty();
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
         if (!thing.isPlaced) {

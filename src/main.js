@@ -66,6 +66,8 @@ game.assets.images = await game.loadImages({
   ui_checkmark: 'images/ui/ui_checkmark.png',
   ui_quiz_open: 'images/ui/ui_quiz_open.png',
   ui_quiz_close: 'images/ui/ui_quiz_close.png',
+  ui_tooltip: 'images/ui/ui_tooltip.png',
+  ui_tooltip2: 'images/ui/ui_tooltip2.png',
 
   profile_unknown: 'images/profile/profile_unknown.png',
 

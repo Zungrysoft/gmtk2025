@@ -39,6 +39,7 @@ export default class Button extends Tray {
       height: this.size[1],
       depth: this.depth,
       position: this.position,
+      alpha: this.isClickable() ? 1.0 : 0.5,
     
     })
   }
