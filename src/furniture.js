@@ -225,7 +225,7 @@ export default class Furniture extends Thing {
       return ['table'];
     }
     if (this.type === 'mic') {
-      return ['table', 'dancing', 'jazz', 'couch', 'chair', 'guitar', 'tv'];
+      return ['table', 'dancing', 'jazz', 'couch', 'chair', 'guitar'];
     }
     return [];
   }

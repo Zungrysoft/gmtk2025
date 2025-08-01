@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "participants": ["antonio", "dancer"],
+        "participants": ["hungry", "dancer"],
         "conditions": [
             {
                 "type": "time",
@@ -15,7 +15,7 @@
                 "text": "I see you're at the buffet table straight away."
             },
             {
-                "speaker": "antonio",
+                "speaker": "hungry",
                 "sound": "001_antonio_001",
                 "text": "Yeah, I'm starving. I had a 12-hour shift, haven't eaten since breakfast."
             },

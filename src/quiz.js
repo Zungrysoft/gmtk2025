@@ -24,6 +24,7 @@ export default class Quiz extends Thing {
   selectedOptions = {}
   solvedPages = {}
   solveTime = 0
+  errorTime = 0
 
   constructor() {
     super();
@@ -34,6 +35,7 @@ export default class Quiz extends Thing {
 
   update() {
     this.solveTime --;
+    this.errorTime --;
     const desiredPosition = this.isEnabled ? [0, 0] : [0, -800];
     this.position = vec2.lerp(this.position, desiredPosition, 0.1);
 
@@ -51,6 +53,11 @@ export default class Quiz extends Thing {
       }
     }
 
+    
+    
+  }
+
+  checkAnswer() {
     // Check for correct answers
     const quiz = game.assets.data.quizzes[this.currentPage];
     if (!this.solvedPages[this.currentPage]) {
@@ -67,8 +74,11 @@ export default class Quiz extends Thing {
         this.setUpPageClickables();
         this.solveTime = SOLVE_DURATION;
       }
+      else {
+        soundmanager.playSound('bad', 0.3, 0.9);
+        this.errorTime = SOLVE_DURATION;
+      }
     }
-    
   }
 
   getHighestAvailablePage() {
@@ -88,6 +98,7 @@ export default class Quiz extends Thing {
     soundmanager.playSound('paper2', 0.13, [1.1, 1.3]);
 
     this.solveTime = 0
+    this.errorTime = 0
 
     this.setUpPageClickables();
   }
@@ -148,11 +159,12 @@ export default class Quiz extends Thing {
 
     // Base
     const colorScale = u.squareMap(this.solveTime, 0, SOLVE_DURATION, 1.0, 3.0, true);
+    const redScale = u.squareMap(this.errorTime, 0, SOLVE_DURATION, 1.0, 0.6, true);
     drawSprite({
       sprite: game.assets.textures.ui_quiz,
       width: 1280,
       height: 720,
-      color: [colorScale, colorScale, colorScale],
+      color: [colorScale, colorScale * redScale, colorScale * redScale],
       depth: this.depth,
       position: this.position,
     })

@@ -18,5 +18,6 @@ export default class GuestIntenseGamer extends Guest {
   likes_food_platter = 22
   likes_game = 25
   likes_alcohol = 11
+  likes_guitar = 1
 
 }

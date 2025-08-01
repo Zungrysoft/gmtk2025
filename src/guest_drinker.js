@@ -14,9 +14,11 @@ export default class GuestDrinker extends Guest {
   activityOffset = [-45, 45]
   likes_dancing = 12
   likes_relax = 0
-  likes_food_pizza = 24
-  likes_food_platter = 23
+  likes_food_pizza = 0
+  likes_food_platter = 0
   likes_game = 0
   likes_alcohol = 25
+  likes_guitar = 10
+  canPlayGuitar = true
 
 }

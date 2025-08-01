@@ -5,6 +5,7 @@ import House from './house.js'
 import Selector from './selector.js'
 import Quiz from './quiz.js'
 import QuizArrowButton from './quizarrowbutton.js'
+import QuizCheckButton from './quizcheckbutton.js'
 
 document.title = 'In the Loop'
 game.setWidth(1280)
@@ -55,6 +56,8 @@ game.assets.images = await game.loadImages({
   furniture_icon_alcohol: 'images/furniture/furniture_icon_alcohol.png',
   furniture_dancing: 'images/furniture/furniture_dj.png',
   furniture_icon_dancing: 'images/furniture/furniture_icon_dj.png',
+  furniture_guitar: 'images/furniture/furniture_guitar.png',
+  furniture_icon_guitar: 'images/furniture/furniture_icon_guitar.png',
   furniture_game: 'images/furniture/furniture_game.png',
   furniture_icon_game: 'images/furniture/furniture_icon_game.png',
   furniture_mic: 'images/furniture/furniture_mic.png',
@@ -69,6 +72,7 @@ game.assets.images = await game.loadImages({
   ui_quiz_close: 'images/ui/ui_quiz_close.png',
   ui_quiz_left: 'images/ui/ui_quiz_left.png',
   ui_quiz_right: 'images/ui/ui_quiz_right.png',
+  ui_quiz_check: 'images/ui/ui_quiz_check.png',
   ui_tooltip: 'images/ui/ui_tooltip.png',
   ui_tooltip2: 'images/ui/ui_tooltip2.png',
 
@@ -114,6 +118,7 @@ game.assets.sounds = await game.loadAudio({
   move2: 'sounds/move2.wav',
   select: 'sounds/select.wav',
   solve: 'sounds/solve2.wav',
+  bad: 'sounds/bad.wav',
   paper1: 'sounds/paper1.wav',
   paper2: 'sounds/paper2.wav',
 
@@ -122,6 +127,11 @@ game.assets.sounds = await game.loadAudio({
   footstep1: 'sounds/footsteps/footstep1.wav',
   footstep2: 'sounds/footsteps/footstep2.wav',
   footstep3: 'sounds/footsteps/footstep3.wav',
+
+  foley_guitar_1: 'sounds/foley/guitar1.wav',
+  foley_guitar_2: 'sounds/foley/guitar2.wav',
+  foley_guitar_3: 'sounds/foley/guitar3.wav',
+  foley_guitar_4: 'sounds/foley/guitar4.wav',
 
   music1: 'sounds/track1.flac',
   music2: 'sounds/track2.flac',
@@ -134,6 +144,10 @@ const positionalSounds = [
   'footstep1',
   'footstep2',
   'footstep3',
+  'foley_guitar_1',
+  'foley_guitar_2',
+  'foley_guitar_3',
+  'foley_guitar_4',
 ]
 soundmanager.configurePositionalSound(positionalSounds);
 
@@ -150,6 +164,7 @@ game.setScene(() => {
   game.addThing(new Quiz());
   game.addThing(new QuizArrowButton(true));
   game.addThing(new QuizArrowButton(false));
+  game.addThing(new QuizCheckButton());
 
   // Camera setup
   game.getCamera3D().lookVector = [0, 0, -1];

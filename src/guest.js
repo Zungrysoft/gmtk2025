@@ -7,8 +7,6 @@ import Furniture from './furniture.js'
 import { drawSprite } from './draw.js'
 import Conversation from './conversation.js'
 
-const TIME_TO_COMPLETE_ACTIVITY = 1200;
-
 export default class Guest extends Thing {
   // Config
   name = "unnamed"
@@ -31,6 +29,7 @@ export default class Guest extends Thing {
   position = [463, 531];
   activityCompletions = {};
   footstepTime = 1.0;
+  timeToWait = 60 * 10;
 
   constructor() {
     super();
@@ -77,6 +76,8 @@ export default class Guest extends Thing {
         this.position = [...activityPosition];
 
         this.activityTime --;
+        this.beenDoingActivityFor ++;
+        this.activityFoley();
         if (this.activityTime <= 0) {
           this.finishActivity();
         }
@@ -94,6 +95,32 @@ export default class Guest extends Thing {
     }
   }
 
+  getActivityDuration() {
+    return 1200;
+  }
+
+  activityFoley() {
+    if (this.currentActivity === 'guitar') {
+      if (this.canPlayGuitar) {
+        if (this.beenDoingActivityFor === 5) {
+          console.log("GUITAR!!!")
+          const r = Math.random();
+          let sound;
+          if (r < 0.25) {
+            sound = 'foley_guitar_1';
+          } else if (r < 0.5) {
+            sound = 'foley_guitar_2';
+          } else if (r < 0.75) {
+            sound = 'foley_guitar_3';
+          } else {
+            sound = 'foley_guitar_4';
+          }
+          soundmanager.playSound(sound, 0.6, 1.0, [...this.position, 14]);
+        }
+      }
+    }
+  }
+
   startConversation() {
     game.addThing(new Conversation(game.assets.data.conversations[0]))
   }
@@ -108,6 +135,7 @@ export default class Guest extends Thing {
   decideCurrentActivity() {
     const activityPreferences = [
       'dance',
+      'guitar',
       'relax',
       'food_pizza',
       'food_platter',
@@ -131,11 +159,19 @@ export default class Guest extends Thing {
 
     // Wait for an activity to open up
     this.currentActivity = null;
+    this.timeToWait --;
+
+    // Waited too long for activities. We're leaving!
+    if (this.timeToWait <= 0) {
+      this.startActivity('leave');
+    }
   }
 
   startActivity(activity) {
+    console.log(this.name, "started activity", activity)
     this.currentActivity = activity;
-    this.activityTime = TIME_TO_COMPLETE_ACTIVITY;
+    this.activityTime = this.getActivityDuration();
+    this.beenDoingActivityFor = 0;
     this.activityFurniture = this.getActivityNearestFurniture(activity)
   }
 
@@ -165,12 +201,31 @@ export default class Guest extends Thing {
       return false;
     }
 
+    // Guitar activity is only available if can play guitar or if there is someone else playing guitar to listen to
+    if (activity === 'guitar') {
+      if (this.canPlayGuitar) {
+        return true;
+      }
+      for (const guitar of game.getThings().filter(x => x instanceof Furniture && x.type === 'guitar')) {
+        if (game.getThings().filter(y => y instanceof Guest && y.activityFurniture === guitar).length >= 1) {
+          return true;
+        }
+      }
+      return false;
+    }
+
     return true;
   }
 
   isActivityPresent(activity) {
     if (activity === 'relax') {
       return game.getThings().some(x => x instanceof Furniture && (x.type === 'chair' || x.type === 'couch'));
+    }
+
+    // Guitar won't be played if there is loud music
+    if (activity === 'guitar') {
+      return game.getThings().some(x => x instanceof Furniture && x.type === 'guitar') &&
+        !game.getThings().some(x => x instanceof Furniture && x.type === 'dancing');
     }
 
     return game.getThings().some(x => x instanceof Furniture && x.type === activity);
@@ -208,7 +263,6 @@ export default class Guest extends Thing {
 
   getActivityNearestFurniture(activity) {
     if (activity === 'relax') {
-
       return this.getNearestFurnitureOfType(['chair', 'couch']);
     }
 
@@ -229,7 +283,7 @@ export default class Guest extends Thing {
   }
 
   isActivityConversable(activity) {
-    if (['dancing'].includes(activity)) {
+    if (['dancing', 'guitar'].includes(activity)) {
       return false;
     }
     return true;

@@ -4,9 +4,9 @@ import * as vec2 from 'vector2'
 import * as soundmanager from 'soundmanager'
 import Guest from './guest.js'
 
-export default class GuestAntonio extends Guest {
+export default class GuestHungry extends Guest {
   // Config
-  name = "antonio"
+  name = "hungry"
   hunger = 2
   maxDrunkedness = 1
   arrivalTime = 300
@@ -18,5 +18,6 @@ export default class GuestAntonio extends Guest {
   likes_food_platter = 17
   likes_game = 22
   likes_alcohol = 20
+  likes_guitar = 10
 
 }

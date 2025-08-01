@@ -3,7 +3,7 @@ import * as soundmanager from 'soundmanager'
 import Thing from 'thing'
 import { drawBackground, drawText } from './draw.js'
 import Furniture from './furniture.js'
-import GuestAntonio from './guestantonio.js'
+import GuestHungry from './guest_hungry.js'
 import GuestAllAround from './guest_allaround.js'
 import GuestDancer from './guest_dancer.js'
 import GuestDrinker from './guest_drinker.js'
@@ -150,10 +150,10 @@ export default class House extends Thing {
       this.selectedMic = 0
       this.partyTime = 0
 
-      game.addThing(new GuestAntonio());
+      game.addThing(new GuestHungry());
       // game.addThing(new GuestAllAround());
-      game.addThing(new GuestDancer());
-      // game.addThing(new GuestDrinker());
+      // game.addThing(new GuestDancer());
+      game.addThing(new GuestDrinker());
       // game.addThing(new GuestIntenseGamer());
       // game.addThing(new GuestQuietGamer());
     }
@@ -164,8 +164,6 @@ export default class House extends Thing {
     game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [65, 690], 0));
     game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [105, 690], 1));
     game.addThing(new Furniture(game.assets.textures.furniture_mic, 'mic', [-7, -13, 7, 13], [145, 690], 2));
-
-    
 
     // Seating
     game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', [-40, -45, 40, 45], [33, 173], null, game.assets.textures.furniture_icon_chair1));
@@ -186,6 +184,7 @@ export default class House extends Thing {
     // Misc.
     game.addThing(new Furniture(game.assets.textures.furniture_game, 'game', [-38, -38, 38, 38], [39, 552], null, game.assets.textures.furniture_icon_game));
     game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', [-77, -107, 77, 101], [38, 469], null, game.assets.textures.furniture_icon_dancing));
+    game.addThing(new Furniture(game.assets.textures.furniture_guitar, 'guitar', [-27, -46, 27, 46], [121, 426], null, game.assets.textures.furniture_icon_guitar));
 
   }
 
