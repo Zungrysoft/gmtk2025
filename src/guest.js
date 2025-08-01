@@ -31,6 +31,7 @@ export default class Guest extends Thing {
   activityCompletions = {};
   footstepTime = 1.0;
   timeToWait = 60 * 10;
+  discussedInformationKeys = {}
 
   constructor() {
     super();
@@ -358,6 +359,97 @@ export default class Guest extends Thing {
       return false;
     }
     return true;
+  }
+
+  isInformationKeyPresent(infoKey, participants) {
+    for (const int of participants) {
+      const guestObj = game.getThings().find(x => x.name === int);
+
+      if (!guestObj) {
+        continue;
+      }
+
+      if (guestObj.discussedInformationKeys[infoKey]) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  getParticipantsOfConversation(conversation) {
+    return Array.from(new Set(conversation.audio.map(x => x.speaker)));
+  }
+
+  isConversationValid(conversation, interlocutors) {
+    let participants = this.getParticipantsOfConversation(conversation);
+
+    // Make sure participants is a subset of interlocutors
+    for (const participant of participants) {
+      if (!interlocutors.includes(participant)) {
+        return false;
+      }
+    }
+
+    // Check max time
+    if (conversation.maxTime && conversation.maxTime >= 0) {
+      if (game.getThing('house').partyTime / 60 > conversation.maxTime) {
+        return false;
+      }
+    }
+
+    // Check min time
+    if (conversation.minTime && conversation.minTime >= 0) {
+      if (game.getThing('house').partyTime / 60 < conversation.minTime) {
+        return false;
+      }
+    }
+
+    // Check that the right people are doing the right activites
+    if (conversation.requiredActivities) {
+      for (const req of conversation.requiredActivities) {
+        const guestObj = game.getThings().find(x => x.name === req.participant);
+
+        if (!guestObj) {
+          continue;
+        }
+
+        if (!req.activities.includes(guestObj.currentActivity)) {
+          return false;
+        }
+      }
+    }
+
+    // Don't do this conversation if all of its infokeys (relevant information) have been heard or said by one of the participants
+    if ((conversation?.informationKeys?.length ?? 0) > 0) {
+      const infoKeys = conversation.informationKeys;
+      let count = 0;
+      for (const infoKey of infoKeys) {
+        if (this.isInformationKeyPresent(infoKey), participants) {
+          count ++;
+        }
+      }
+
+      if (count >= infoKeys.length) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  pickBestConversation(interlocutors) {
+    // First, filter out conversations that are invalid
+    const validConversations = game.assets.conversations.filter(x => this.isConversationValid(x))
+
+    // Prioritize conversations that use all of the interlocutors
+    for (const conv of validConversations) {
+      if (this.getParticipantsOfConversation(conv).length === interlocutors.length) {
+        return conv;
+      }
+    }
+
+    // Otherwise, just return the top one
+    return validConversations?.[0];
   }
 
   draw() {

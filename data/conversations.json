@@ -1,12 +1,13 @@
 [
     {
-        "id": 1,
-        "conditions": [
+        "maxTime": 25,
+        "requiredActivites": [
             {
-                "type": "time",
-                "max_time": 25
+                "participant": "hungry",
+                "activities": ["food_pizza", "food_platter"]
             }
         ],
+        "informationKeys": ["hungry_is_hungry"],
         "audio": [
             {
                 "speaker": "dancer",
@@ -26,13 +27,8 @@
         ]
     },
     {
-        "id": 2,
-        "conditions": [
-            {
-                "type": "time",
-                "max_time": 25
-            }
-        ],
+        "maxTime": 25,
+        "informationKeys": ["drinker_joke"],
         "audio": [
             {
                 "speaker": "drinker",
