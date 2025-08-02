@@ -194,7 +194,7 @@
 
     {
         "infoKeys": ["jimmy-is-very-hungry"],
-        "maxTime": 15,
+        "maxTime": 20,
         "requiredActivities": [
             {
                 "participant": "jimmy",
@@ -600,7 +600,7 @@
                 "text": "Fuck off."
             },
             {
-                "speaker": "taylor",
+                "speaker": "jimmy",
                 "sound": "crash3",
                 "text": "Okay, look, I'm sorry for crashing your car. I've said I'm sorry a hundred times."
             },
@@ -610,12 +610,12 @@
                 "text": "Sorry didn't get my car out of that ditch, Jimmy. Nor does it pay for two thousand dollars in repairs."
             },
             {
-                "speaker": "taylor",
+                "speaker": "jimmy",
                 "sound": "crash5",
                 "text": "I'll pay you back, I swear! I'm just a bit strapped for cash right now."
             },
             {
-                "speaker": "jimmy",
+                "speaker": "taylor",
                 "sound": "crash6",
                 "text": "Uh huh."
             }
