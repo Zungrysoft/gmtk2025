@@ -1,6 +1,10 @@
 [
     {
         "unlockThreshold": 0,
+        "message": "Record your\nobservations in\nthis journal.\n\n\nIf you don't have\nthe information\nyou need, you\ncan always repeat\nthe party."
+    },
+    {
+        "unlockThreshold": 0,
         "questions": [
             {
                 "title": "Who is this?",

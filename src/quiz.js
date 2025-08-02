@@ -97,10 +97,12 @@ export default class Quiz extends Thing {
     // return game.assets.data.quizzes.length - 1;
   }
 
-  changePage(page) {
+  changePage(page, noSound = false) {
     this.currentPage = page;
 
-    soundmanager.playSound('paper2', 0.13, [1.1, 1.3]);
+    if (!noSound) {
+      soundmanager.playSound('paper2', 0.13, [1.1, 1.3]);
+    }
 
     this.solveTime = 0
     this.errorTime = 0

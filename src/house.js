@@ -63,6 +63,11 @@ export default class House extends Thing {
         }
         soundmanager.updateSoundPan(pos, lookVector);
       }
+
+      // Check for party end
+      if (this.partyTime > 60 && game.getThings().filter(x => x instanceof Guest).length === 0) {
+        this.changePhase('placement')
+      }
     }
     else {
       this.nightOverlayAlpha = Math.max(0, this.nightOverlayAlpha - 1/60)
@@ -167,10 +172,11 @@ export default class House extends Thing {
       this.night ++
       if (this.night === 2) {
         game.getThing('quiz').toggleIsEnabled()
+        game.getThing('quiz').changePage(1, true)
       }
 
       if (this.night > 1) {
-          soundmanager.stopAll()
+        soundmanager.stopAll()
       }
 
       if (!noSound) {
