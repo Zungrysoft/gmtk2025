@@ -500,7 +500,6 @@ export default class Guest extends Thing {
           return false;
         }
       }
-      
     }
 
     // Check that the right people are doing the right activites
@@ -513,6 +512,29 @@ export default class Guest extends Thing {
         }
 
         if (!req.activities.includes(guestObj.currentActivity)) {
+          return false;
+        }
+      }
+    }
+
+    // Check drunkedness
+    for (const participant of participants) {
+      const guestObj = game.getThings().find(x => x.name === req.participant);
+
+      if (!guestObj) {
+        continue;
+      }
+
+      if (participant.drunkedness >= 2) {
+        if (!conversation.drunkParticipants) {
+          return false;
+        }
+        if (!conversation.drunkParticipants.includes(participant)) {
+          return false;
+        }
+      }
+      else {
+        if (conversation.drunkParticipants && conversation.drunkParticipants.includes(participant)) {
           return false;
         }
       }

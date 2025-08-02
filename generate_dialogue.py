@@ -68,6 +68,9 @@ def synthesize_clip(text, output_path, voice_name):
 def process_audio_line(args):
     speaker, text, sound = args
     voice_name = SPEAKER_VOICE_MAP.get(speaker)
+    if voice_name == None:
+        print("Invalid speaker " + speaker)
+        return
     output_path = os.path.join(OUTPUT_DIR, f"{sound}.wav")
     synthesize_clip(text, output_path, voice_name)
 

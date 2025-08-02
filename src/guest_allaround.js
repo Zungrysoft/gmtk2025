@@ -8,7 +8,7 @@ export default class GuestAllAround extends Guest {
   // Config
   name = "taylor"
   hunger = 1
-  maxDrunkedness = 2
+  maxDrunkedness = 1
   arrivalTime = 100
   speedMultiplier = 1.1
   activityOffset = [-45, -45]

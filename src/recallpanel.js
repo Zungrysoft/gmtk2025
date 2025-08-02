@@ -139,7 +139,7 @@ export default class RecallPanel extends Thing {
       }
       drawText({
         text: memoryObj.text,
-        position: vec2.add(vec2.add(this.position, offset), [15, 15]),
+        position: vec2.add(vec2.add(this.position, offset), [text.toString().length > 1 ? 5 : 15, 15]),
         depth: this.depth + 10,
         color: color,
       })
