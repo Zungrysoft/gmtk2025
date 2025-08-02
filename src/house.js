@@ -20,6 +20,7 @@ import PauseMenu from './pausemenu.js'
 import Tutorial from './tutorial.js'
 import WalkingMan from './walkingman.js'
 import Reminder from './reminder.js'
+import Conversation from './conversation.js'
 
 export default class House extends Thing {
   isDying = false
@@ -192,6 +193,10 @@ export default class House extends Thing {
       }
       
       for (const thing of game.getThings().filter(x => x instanceof Furniture)) {
+        thing.isDead = true
+      }
+
+      for (const thing of game.getThings().filter(x => x instanceof Conversation)) {
         thing.isDead = true
       }
       this.addFurniture()
