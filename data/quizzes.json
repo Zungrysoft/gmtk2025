@@ -146,14 +146,12 @@
                 "optionColumns": 3
             },
             {
-                "title": "What is their\nfavorite game?",
+                "title": "And which of these\nactivities do they\nprefer?",
                 "options": [
-                    "Dominion",
-                    "Splendor",
-                    "Monopoly",
-                    "Poker",
-                    "Brass",
-                    "Risk"
+                    "Dancing",
+                    "Board Games",
+                    "Drinking",
+                    "Skydiving"
                 ],
                 "correctOption": 1,
                 "optionColumns": 2

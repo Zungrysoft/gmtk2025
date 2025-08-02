@@ -492,6 +492,16 @@ export default class Guest extends Thing {
       }
     }
 
+    // Check that certain activities are present
+    if (conversation.requiredActivitiesPresent) {
+      for (const activity of conversation.requiredActivitiesPresent) {
+        if (!this.isActivityPresent(activity)) {
+          return false;
+        }
+      }
+      
+    }
+
     // Check that the right people are doing the right activites
     if (conversation.requiredActivities) {
       for (const req of conversation.requiredActivities) {
