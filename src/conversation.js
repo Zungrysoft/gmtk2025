@@ -27,12 +27,26 @@ export default class Conversation extends Thing {
     const soundPos = game.getThings().find(x => x instanceof Guest && x.name === dialogue.speaker)?.position ?? [-1000, -1000];
 
     this.curSound = soundmanager.playSound('conversation_' + dialogue.sound, 0.66, 1.0, [...soundPos, 120], 1);
-    this.curSound.addEventListener('ended', () => {
-      this.moveToNextDialogue();
-    });
+
+    const endListener = () => {
+      this.moveToNextDialogue()
+    }
+
+    this.endListener = endListener
+    
+    this.curSound.addEventListener('ended', endListener);
+  }
+
+  endConversation() {
+    this.isDead = true
+    if (this.curSound) {
+      this.curSound.removeEventListener('ended', this.endListener)
+    }
   }
 
   moveToNextDialogue() {
+    this.curSound.removeEventListener('ended', this.endListener)
+
     if (this.isDead) {
       return;
     }

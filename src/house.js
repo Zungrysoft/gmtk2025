@@ -197,7 +197,7 @@ export default class House extends Thing {
       }
 
       for (const thing of game.getThings().filter(x => x instanceof Conversation)) {
-        thing.isDead = true
+        thing.endConversation()
       }
       this.addFurniture()
     }
@@ -218,7 +218,9 @@ export default class House extends Thing {
         if (!thing.isPlaced) {
           thing.isDead = true
         }
-        thing.startAmbientSounds();
+        else {
+          thing.startAmbientSounds();
+        }
       }
 
       this.selectedMic = 0
