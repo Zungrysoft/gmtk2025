@@ -10,21 +10,29 @@ import Button from './button.js'
 export default class TutorialButton extends Button {
   isForward = true
 
-  constructor(name, isForward, texture) {
-    super(name, texture, texture, [80,100], [0,0], [0,0], true, [10,4,72,92])
-    this.depth = 101
+  constructor(name, isForward, isMainMenuButton, texture, depth) {
+    super(name, texture, texture, [128,128], [0,0], [0,0], true, [17,23,111,98])
+    this.depth = depth
     this.isForward = isForward
     if (isForward) {
-      this.position = [995,338] 
-      this.openPosition = [995,338] 
-      this.closedPosition = [995,338]
+      this.position = [1012,300] 
+      this.openPosition = [1012,300] 
+      this.closedPosition = [1012,300] 
     }
     else {
-      this.position = [208,332]
-      this.openPosition = [208,332]
-      this.closedPosition = [208,332]
+      this.position = [128,302]
+      this.openPosition = [128,302]
+      this.closedPosition = [128,302]
     }
 
+    if (isMainMenuButton) {
+      // this.size = [1280,1280]
+      // this.aabb = [460,514,784,659]
+      this.position = [0,0]
+      this.openPosition = [0,0]
+      this.closedPosition = [0,0]
+      
+    }
   }
 
   isClickable() {

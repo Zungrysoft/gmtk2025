@@ -8,7 +8,6 @@ import QuizArrowButton from './quizarrowbutton.js'
 import QuizCheckButton from './quizcheckbutton.js'
 import RecallPanel from './recallpanel.js'
 import Tutorial from './tutorial.js'
-import AudioCheck from './audiocheck.js'
 
 document.title = 'Gossip Girls: Revelations'
 game.setWidth(1280)
@@ -104,7 +103,10 @@ game.assets.images = await game.loadImages({
   tutorial_text4: 'images/ui/ui_tutorial_text4.png',
   tutorial_text5: 'images/ui/ui_tutorial_text5.png',
   tutorial_text6: 'images/ui/ui_tutorial_text6.png',
-
+  tutorial_text7: 'images/ui/ui_tutorial_text7.png',
+  mainmenu_bg: 'images/ui/ui_mainmenu_background.png',
+  mainmenu_title: 'images/ui/ui_mainmenu_title.png',
+  mainmenu_button: 'images/ui/ui_mainmenu_button.png',
 
   profile_unknown: 'images/profile/profile_unknown.png',
 
@@ -251,7 +253,6 @@ game.setScene(() => {
   game.addThing(new QuizCheckButton());
   game.addThing(new RecallPanel());
   game.addThing(new Tutorial());
-  game.addThing(new AudioCheck());
 
   game.globals.soundWave = [0, 0, 0, 0, 0, 0, 0, 0]
 
