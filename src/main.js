@@ -10,7 +10,7 @@ import RecallPanel from './recallpanel.js'
 import Tutorial from './tutorial.js'
 import AudioCheck from './audiocheck.js'
 
-document.title = 'Gossip Girls: Revelations'
+document.title = 'Girl Gossip: Revelations'
 game.setWidth(1280)
 game.setHeight(720)
 game.createCanvases();
