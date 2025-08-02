@@ -311,6 +311,7 @@ export default class Guest extends Thing {
     this.activityTime = this.getActivityDuration();
     this.beenDoingActivityFor = 0;
     this.activityFurniture = this.getActivityNearestFurniture(activity)
+    this.inTransit = true
   }
 
   finishActivity() {
