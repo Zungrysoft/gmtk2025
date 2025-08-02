@@ -169,7 +169,7 @@ export default class Quiz extends Thing {
 
   draw() {
     // Grey-out backdrop
-    const backdropOpacity = u.map(vec2.distance(this.position, [0, 0]), 0, 300, 0.3, 0, true);
+    const backdropOpacity = u.map(vec2.distance(this.position, [0, 0]), 0, 300, 0.8, 0, true);
     drawBackground({
       sprite: game.assets.textures.square,
       depth: this.depth -1,
