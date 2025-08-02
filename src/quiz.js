@@ -88,6 +88,8 @@ export default class Quiz extends Thing {
   }
 
   getHighestAvailablePage() {
+    // return game.assets.data.quizzes.length - 1;
+
     let ret = 0;
     let solvedPagesCount = Object.keys(this.solvedPages).length;
     for (const quiz of game.assets.data.quizzes) {
@@ -96,8 +98,6 @@ export default class Quiz extends Thing {
       }
     }
     return ret - 1;
-
-    // return game.assets.data.quizzes.length - 1;
   }
 
   changePage(page, noSound = false) {

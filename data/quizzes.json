@@ -273,9 +273,9 @@
                 "title": "What did they do\nto make her mad?",
                 "options": [
                     "Cheated on her",
-                    "Ate her last oreo",
-                    "Crashed her car",
                     "Beat her at poker",
+                    "Crashed her car",
+                    "Ate the last oreo",
                     "Insulted her nails",
                     "Cancelled plans",
                     "Stabbed her",
@@ -361,7 +361,7 @@
         "unlockThreshold": 6,
         "questions": [
             {
-                "title": "Who can play\nguitar?",
+                "title": "Who dislikes loud\nmusic?",
                 "options": [
                     "Sam",
                     "Alfonso",
@@ -370,11 +370,11 @@
                     "Laura",
                     "Taylor"
                 ],
-                "correctOption": 1,
+                "correctOption": 4,
                 "optionColumns": 2
             },
             {
-                "title": "Who most enjoys\nlistening to them?",
+                "title": "Who most likes\nto dance?",
                 "options": [
                     "Sam",
                     "Alfonso",
@@ -390,7 +390,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 6,
+        "unlockThreshold": 7,
         "questions": [
             {
                 "title": "Who arrives to the\nparty late?",
@@ -406,7 +406,7 @@
                 "optionColumns": 3
             },
             {
-                "title": "Who dislikes loud\nmusic?",
+                "title": "Who can play\nguitar?",
                 "options": [
                     "Jimmy",
                     "Laura",
@@ -415,7 +415,7 @@
                     "Zoe",
                     "Alfonso"
                 ],
-                "correctOption": 1,
+                "correctOption": 5,
                 "optionColumns": 3
             },
             {

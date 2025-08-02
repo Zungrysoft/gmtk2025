@@ -6,22 +6,17 @@
             {
                 "speaker": "alfonso",
                 "sound": "bars-alfonso-01",
-                "text": "Hey Jimmy! You wanna join me to check out this bar after? They make killer White Russians"
+                "text": "Hey Jimmy! You wanna join me to check out this bar after? They make a killer White Russian!"
             },
             {
                 "speaker": "jimmy",
                 "sound": "bars-jimmy-01",
-                "text": "What kind of snacks do they have there?"
+                "text": "We all know how you like White Russians. You downed like five of them at Steven's place last week."
             },
             {
                 "speaker": "alfonso",
                 "sound": "bars-alfonso-02",
-                "text": "They make the best sliders I've ever had"
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "bars-jimmy-02",
-                "text": "Yeah lets go Alfonso! I've been feeling a burger lately"
+                "text": "Well I figure I'll keep up my streak."
             }
         ]
     },
@@ -276,7 +271,7 @@
             {
                 "speaker": "taylor",
                 "sound": "crash3",
-                "text": "Okay, look, I'm sorry. I've said I'm sorry a hundred times."
+                "text": "Okay, look, I'm sorry for crashing your car. I've said I'm sorry a hundred times."
             },
             {
                 "speaker": "taylor",
