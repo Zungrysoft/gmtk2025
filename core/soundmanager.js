@@ -188,40 +188,7 @@ export function configurePositionalSound(soundDef = []) {
     // If already configured, skip
     if (sound.isPositional) return;
 
-    const soundSource = audioContext.createMediaElementSource(sound);
-
-    const panner = audioContext.createPanner();
-    panner.panningModel = 'HRTF';
-    panner.distanceModel = 'exponential';
-    panner.refDistance = 50;
-    panner.maxDistance = 2000;
-    panner.rolloffFactor = 1.4;
-    panner.coneInnerAngle = 360;
-    panner.coneOuterAngle = 360;
-    panner.coneOuterGain = 1.0;
-
-    const analyser = audioContext.createAnalyser();
-    analyser.fftSize = 4096;
-
-    // Connect nodes
-    try {
-      soundSource.disconnect(); // May not always be needed
-    } catch (e) {
-      // Ignore if already disconnected
-    }
-
-    soundSource.connect(analyser);
-    analyser.connect(panner);
-    panner.connect(audioContext.destination);
-
-    sound.pannerObject = panner;
-    sound.isPositional = true;
-
-    if (!game.globals.audioSources) {
-      game.globals.audioSources = [];
-    }
-
-    game.globals.audioSources.push({ panner, analyser });
+    const wr = new SafeSoundWrapper(sound, audioContext)
 
   } catch (error) {
     console.error('Error configuring spatial audio:', error);
@@ -274,3 +241,103 @@ export function updateSoundPan(position, lookVector) {
   }
 }
 
+class SafeSoundWrapper {
+  constructor(audioElement, audioContext) {
+    this.audioElement = audioElement;
+    this.audioContext = audioContext;
+
+    // Create Web Audio nodes
+    this.sourceNode = audioContext.createMediaElementSource(audioElement);
+
+    const panner = audioContext.createPanner();
+    panner.panningModel = 'HRTF';
+    panner.distanceModel = 'exponential';
+    panner.refDistance = 50;
+    panner.maxDistance = 2000;
+    panner.rolloffFactor = 1.4;
+    panner.coneInnerAngle = 360;
+    panner.coneOuterAngle = 360;
+    panner.coneOuterGain = 1.0;
+
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 4096;
+
+    // Connect nodes
+    // try {
+    //   soundSource.disconnect(); // May not always be needed
+    // } catch (e) {
+    //   // Ignore if already disconnected
+    // }
+
+    // this.sourceNode.connect(analyser);
+    // analyser.connect(panner);
+    // panner.connect(audioContext.destination);
+
+    audioElement.pannerObject = panner;
+    audioElement.isPositional = true;
+
+    if (!game.globals.audioSources) {
+      game.globals.audioSources = [];
+    }
+
+    game.globals.audioSources.push(this);
+
+    this.panner = panner;
+    this.analyser = analyser;
+
+    // Track connection state
+    this.connected = false;
+
+    // Hook event listeners once
+    audioElement.addEventListener("play", () => this.connect());
+    audioElement.addEventListener("pause", () => this.disconnect());
+    audioElement.addEventListener("ended", () => this.disconnect());
+    audioElement.addEventListener("emptied", () => this.disconnect()); // if src is cleared
+  }
+
+  connect() {
+    if (this.connected) return;
+
+    // Connect chain
+    this.sourceNode.connect(this.analyser);
+    this.analyser.connect(this.panner);
+    this.panner.connect(this.audioContext.destination);
+
+    this.connected = true;
+  }
+
+  disconnect() {
+    if (!this.connected) return;
+
+    try {
+      this.sourceNode?.disconnect();
+      this.panner?.disconnect();
+      this.analyser?.disconnect();
+    } catch (e) {
+      console.warn("Safe disconnect failed", e);
+    }
+
+    // Release references to encourage GC
+    // this.sourceNode = null;
+    this.connected = false;
+  }
+
+  // Optional: manually dispose of everything
+  dispose() {
+    this.disconnect();
+    this.audioElement = null;
+  }
+
+  // Optional: get loudness
+  getLoudness() {
+    if (!this.connected) return 0;
+    const data = new Uint8Array(this.analyser.fftSize);
+    this.analyser.getByteTimeDomainData(data);
+    let sum = 0;
+    for (let i = 0; i < data.length; i++) {
+      const v = (data[i] - 128) / 128;
+      sum += v * v;
+    }
+    return Math.sqrt(sum / data.length);
+  }
+}
