@@ -100,7 +100,7 @@ export default class Guest extends Thing {
         this.activityTime --;
         this.beenDoingActivityFor ++;
         this.activityFoley();
-        if (this.activityTime <= 0) {
+        if (this.activityTime <= 0 && !this.isInConversation()) {
           this.finishActivity();
         }
 

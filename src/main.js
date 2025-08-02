@@ -163,6 +163,8 @@ const foleySounds = {
   foley_food_platter_4: 'sounds/foley/food_platter_4.wav',
   foley_food_platter_5: 'sounds/foley/food_platter_5.wav',
   foley_food_platter_6: 'sounds/foley/food_platter_6.wav',
+  foley_club_music_left: 'sounds/foley/annoying_club_music_left.wav',
+  foley_club_music_right: 'sounds/foley/annoying_club_music_right.wav',
 };
 
 game.assets.sounds = await game.loadAudio({

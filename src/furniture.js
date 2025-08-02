@@ -249,6 +249,15 @@ export default class Furniture extends Thing {
     return false;
   }
 
+  startAmbientSounds() {
+    if (this.type === 'dancing') {
+      const leftPosition = vec2.rotate([-64, -75], this.rotation * Math.PI * 0.5)
+      const rightPosition = vec2.rotate([64, -75], this.rotation * Math.PI * 0.5)
+      soundmanager.playSound('foley_club_music_left', 0.7, 1.0, [...vec2.add(this.position, leftPosition), 200])
+      soundmanager.playSound('foley_club_music_right', 0.7, 1.0, [...vec2.add(this.position, rightPosition), 200])
+    }
+  }
+
   draw() {
     if (this.scale <= 0) {
       return;

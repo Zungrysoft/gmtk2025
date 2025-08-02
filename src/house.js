@@ -213,6 +213,7 @@ export default class House extends Thing {
         if (!thing.isPlaced) {
           thing.isDead = true
         }
+        thing.startAmbientSounds();
       }
 
       this.selectedMic = 0
