@@ -519,7 +519,7 @@ export default class Guest extends Thing {
 
     // Check drunkedness
     for (const participant of participants) {
-      const guestObj = game.getThings().find(x => x.name === req.participant);
+      const guestObj = game.getThings().find(x => x.name === participant);
 
       if (!guestObj) {
         continue;
