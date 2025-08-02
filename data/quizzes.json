@@ -359,6 +359,44 @@
         "unlockThreshold": 5,
         "questions": [
             {
+                "title": "What does Taylor\nmost like to do\nafter getting food?",
+                "options": [
+                    "Play board games",
+                    "Eat more food",
+                    "Dance",
+                    "Drink alcohol",
+                    "Relax in a chair",
+                    "Leave the party"
+                ],
+                "correctOption": 3,
+                "optionColumns": 1
+            },
+            {
+                "title": "Which does Zoe\ndo first?",
+                "options": [
+                    "Dance",
+                    "Drink alcohol"
+                ],
+                "correctOption": 0,
+                "optionColumns": 3
+            },
+            {
+                "title": "Which does Laura\ndo first?",
+                "options": [
+                    "Relax",
+                    "Play games"
+                    
+                ],
+                "correctOption": 1,
+                "optionColumns": 3
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 5,
+        "questions": [
+            {
                 "title": "Who is vegetarian?",
                 "options": [
                     "Jimmy",
