@@ -169,12 +169,23 @@ export default class Guest extends Thing {
     if (this.currentActivity === 'game') {
       if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
         // Every few seconds, maybe play a board game sound
-        if (this.beenDoingActivityFor % (60 * 2) === 0 && Math.random() < 0.4) {
+        if (this.beenDoingActivityFor % 114 === 0 && Math.random() < 0.4) {
           soundmanager.playSound([
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
           ], 0.6, 1.0, [...this.getFoleyPosition(), 80]);
+        }
+      }
+    }
+    if (this.currentActivity === 'food_platter' || this.currentActivity === 'food_pizza') {
+      if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
+        if (this.beenDoingActivityFor % 43 === 0 && Math.random() < 0.3) {
+          soundmanager.playSound([
+            'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
+            'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
+            'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
+          ], 0.4, 1.0, [...this.getFoleyPosition(), 80]);
         }
       }
     }
