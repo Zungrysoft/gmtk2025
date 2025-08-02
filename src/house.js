@@ -164,15 +164,17 @@ export default class House extends Thing {
     this.gamePhase = phase
 
     if (phase == 'placement') {
-      soundmanager.stopAll()
-
-      if (!noSound) {
-        soundmanager.playSound('swipe', 0.3, 1.0);
-      }
-
       this.night ++
       if (this.night === 2) {
         game.getThing('quiz').toggleIsEnabled()
+      }
+
+      if (this.night > 1) {
+          soundmanager.stopAll()
+      }
+
+      if (!noSound) {
+        soundmanager.playSound('swipe', 0.3, 1.0);
       }
       
       this.showUi()
