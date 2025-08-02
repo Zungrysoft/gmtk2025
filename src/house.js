@@ -243,7 +243,7 @@ export default class House extends Thing {
     game.addThing(new Furniture(game.assets.textures.furniture_food_pizza, 'food_pizza', 12, [-38, -38, 38, 38], [42, 257], null, game.assets.textures.furniture_icon_food_pizza));
 
     // Misc.
-    game.addThing(new Furniture(game.assets.textures.furniture_game, 'game', 13, [-38, -38, 38, 38], [39, 552], null, game.assets.textures.furniture_icon_game));
+    game.addThing(new Furniture(game.assets.textures.furniture_game, 'game', 13, [-38, -38, 38, 38], [123, 550], null, game.assets.textures.furniture_icon_game));
     game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', 14, [-77, -107, 77, 101], [38, 469], null, game.assets.textures.furniture_icon_dancing));
     game.addThing(new Furniture(game.assets.textures.furniture_guitar, 'guitar', 15, [-27, -46, 27, 46], [121, 426], null, game.assets.textures.furniture_icon_guitar));
 
