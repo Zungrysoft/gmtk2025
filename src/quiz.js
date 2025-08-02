@@ -227,7 +227,7 @@ export default class Quiz extends Thing {
               sprite: game.assets.textures.ui_checkmark,
               width: 128,
               height: 128,
-              depth: this.depth + 2,
+              depth: this.depth + 10,
               position: vec2.add(vec2.add(this.position, [left, top]), [-74, -50]),
             })
           }
