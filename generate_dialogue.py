@@ -21,6 +21,7 @@ OUTPUT_DIR = "sounds/conversations"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def get_voice_id_by_name(target_name):
+    print(target_name)
     engine = pyttsx3.init()
     for voice in engine.getProperty('voices'):
         if target_name.lower() in voice.name.lower():

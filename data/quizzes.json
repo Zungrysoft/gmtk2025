@@ -4,8 +4,8 @@
         "questions": [
             {
                 "title": "Who is this?",
-                "audio_clip": {
-                    "sound": "profile_jimmy",
+                "audioClip": {
+                    "sounds": ["intro_jimmy_1", "intro_jimmy_2", "intro_jimmy_3"],
                     "picture": "profile_jimmy"
                 },
                 "options": [
@@ -23,7 +23,7 @@
             },
             {
                 "title": "And what do they\nalways do first\nwhen they arrive?",
-                "audio_clip": null,
+                "audioClip": null,
                 "options": [
                     "Dance",
                     "Relax",
@@ -41,8 +41,8 @@
         "questions": [
             {
                 "title": "Who are they?",
-                "audio_clip": {
-                    "sound": "profile_taylor",
+                "audioClip": {
+                    "sounds": ["intro_taylor_1", "intro_taylor_2", "intro_taylor_3"],
                     "picture": "profile_taylor"
                 },
                 "options": [
@@ -60,8 +60,8 @@
             },
             {
                 "title": null,
-                "audio_clip": {
-                    "sound": "profile_alfonso",
+                "audioClip": {
+                    "sounds": ["intro_alfonso_1", "intro_alfonso_2", "intro_alfonso_3"],
                     "picture": "profile_alfonso"
                 },
                 "options": [
@@ -121,8 +121,8 @@
         "questions": [
             {
                 "title": "Who is this?",
-                "audio_clip": {
-                    "sound": "profile_laura",
+                "audioClip": {
+                    "sounds": ["intro_laura_1", "intro_laura_2", "intro_laura_3"],
                     "picture": "profile_laura"
                 },
                 "options": [
@@ -157,8 +157,8 @@
         "questions": [
             {
                 "title": "Who are they?",
-                "audio_clip": {
-                    "sound": "profile_sam",
+                "audioClip": {
+                    "sounds": ["intro_sam_1", "intro_sam_2", "intro_sam_3"],
                     "picture": "profile_sam"
                 },
                 "options": [
@@ -174,8 +174,8 @@
             },
             {
                 "title": null,
-                "audio_clip": {
-                    "sound": "profile_zoe",
+                "audioClip": {
+                    "sounds": ["intro_zoe_1", "intro_zoe_2", "intro_zoe_3"],
                     "picture": "profile_zoe"
                 },
                 "options": [
