@@ -10,7 +10,7 @@ import TutorialText from './tutorialtext.js'
 
 export default class Tutorial extends Thing {
   stage = 0
-
+  depth = 100
   constructor() {
     super();
     game.setThingName(this, 'tutorial')
@@ -22,7 +22,6 @@ export default class Tutorial extends Thing {
     game.addThing(new TutorialText('tutorial_text4', game.assets.textures.tutorial_text4))
     game.addThing(new TutorialText('tutorial_text5', game.assets.textures.tutorial_text5))
     game.addThing(new TutorialText('tutorial_text6', game.assets.textures.tutorial_text6))
-    game.getThing('house').tuckUi(false)
   }
 
   draw() {
@@ -30,7 +29,7 @@ export default class Tutorial extends Thing {
       sprite: game.assets.textures.tutorial_bg,
       width: 1280,
       height: 720,
-      depth: 100
+      depth: this.depth,
     
     })
 
@@ -64,6 +63,7 @@ export default class Tutorial extends Thing {
 
     if (this.stage === 6) {
       game.getThing('house').showUi()
+      game.getThing('house').changePhase('placement')
 
       game.getThing('tutorial_text1').isDead = true
       game.getThing('tutorial_text2').isDead = true
@@ -74,6 +74,7 @@ export default class Tutorial extends Thing {
       game.getThing('tutorial_button_forward').isDead = true
       game.getThing('tutorial_button_backward').isDead = true
       game.getThing('tutorial').isDead = true
+      
     }
   }
 }

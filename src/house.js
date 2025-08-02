@@ -24,12 +24,13 @@ export default class House extends Thing {
   isDying = false
   stripsAnimationState = 128
   type = null
-  gamePhase = ''
+  gamePhase = 'start'
   night = 0
   selectedMic = 0
   partyTime = 0
   nightOverlayAlpha = 0
   furnitureTray = null
+
 
   constructor(sprite, type) {
     super();
@@ -37,7 +38,7 @@ export default class House extends Thing {
 
     game.setThingName(this, 'house')
     this.initUiElements()
-    this.changePhase('placement', true)
+    
 
     soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0])
   }
@@ -117,27 +118,25 @@ export default class House extends Thing {
   // add the trays and clickable buttons to the scene
   initUiElements() {
     game.addThing(new Tray('tray_furniture', game.assets.textures.tray_furniture, game.assets.textures.tray_furniture,
-                          [200,600], [0,0], [-200,0], true, [-10,-10,-9,-9]))
+                          [200,600], [0,0], [-200,0], false, [-10,-10,-9,-9]))
     game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
-                          [225,125], [0,595], [0,703], true, [0,8,213,125]))
+                          [225,125], [0,595], [0,703], false, [0,8,213,125]))
     game.addThing(new Tray('tray_levels', game.assets.textures.ui_levels, game.assets.textures.ui_levels,
                           [512, 128], [384,720-128], [384,720], false, [0, 0, 512, 128]))                              
 
 
-    game.addThing(new PauseButton('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
-                                [100,100], [1170,20], [1170,-100], true, [3,3,97,97]))
+    // game.addThing(new PauseButton('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
+    //                             [100,100], [1170,20], [1170,-100], true, [3,3,97,97]))
     game.addThing(new SkipButton('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
                                 [100,100], [1070,20], [1070,-100], false, [4,4,92,95]))
     game.addThing(new StartButton('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
-                                [400,100], [456,613], [456,730], true, [45,7,357,90]))
+                                [400,100], [456,613], [456,730], false, [45,7,357,90]))
                             
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
-                                [256, 128], [165,0], [165,-128], true, [25, 0, 232, 73]))
+                                [256, 128], [165,0], [165,-128], false, [25, 0, 232, 73]))
 
-    game.addThing(new Tutorial())
-
-    game.addThing(new PauseMenu())
+    // game.addThing(new PauseMenu())
 
   }
 
