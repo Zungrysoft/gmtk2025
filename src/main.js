@@ -8,6 +8,7 @@ import QuizArrowButton from './quizarrowbutton.js'
 import QuizCheckButton from './quizcheckbutton.js'
 import RecallPanel from './recallpanel.js'
 import Tutorial from './tutorial.js'
+import AudioCheck from './audiocheck.js'
 
 document.title = 'Gossip Girls: Revelations'
 game.setWidth(1280)
@@ -242,6 +243,7 @@ game.setScene(() => {
   game.addThing(new QuizCheckButton());
   game.addThing(new RecallPanel());
   game.addThing(new Tutorial());
+  game.addThing(new AudioCheck());
 
   game.globals.soundWave = [0, 0, 0, 0, 0, 0, 0, 0]
 
