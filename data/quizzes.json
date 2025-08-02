@@ -38,7 +38,7 @@
                 "optionColumns": 2
             }
         ],
-        "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
+        "hint": "Hint: Try different layouts\nfor different results."
     },
     {
         "unlockThreshold": 0,
@@ -159,7 +159,7 @@
                 "optionColumns": 2
             }
         ],
-        "hint": null
+        "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
     },
     {
         "unlockThreshold": 0,
