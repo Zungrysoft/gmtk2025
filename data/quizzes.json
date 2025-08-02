@@ -44,6 +44,47 @@
         "unlockThreshold": 0,
         "questions": [
             {
+                "title": "Was at least one\nmale present?",
+                "options": [
+                    "Yes",
+                    "No"
+                ],
+                "correctOption": 0,
+                "optionColumns": 4
+            },
+            {
+                "title": "Was at least one\nfemale present?",
+                "options": [
+                    "Yes",
+                    "No"
+                ],
+                "correctOption": 0,
+                "optionColumns": 4
+            },
+            {
+                "title": "Was there jazz\nmusic playing?",
+                "options": [
+                    "Yes",
+                    "No"
+                ],
+                "correctOption": 1,
+                "optionColumns": 4
+            },
+            {
+                "title": "Were there several\nconversations\nhappening at once?",
+                "options": [
+                    "Yes",
+                    "No"
+                ],
+                "correctOption": 0,
+                "optionColumns": 4
+            }
+        ]
+    },
+    {
+        "unlockThreshold": 0,
+        "questions": [
+            {
                 "title": "Who are they?",
                 "audioClip": {
                     "sounds": ["intro_taylor_1", "intro_taylor_2", "intro_taylor_3"],

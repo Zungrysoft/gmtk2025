@@ -5,7 +5,7 @@ import * as vec2 from 'vector2'
 import * as vec3 from 'vector3'
 import Thing from 'thing'
 import Tray from './tray.js'
-import { drawBackground, drawSprite } from './draw.js'
+import { drawBackground, drawSprite, drawText } from './draw.js'
 import Button from './button.js'
 
 export default class QuizCheckButton extends Thing {
@@ -26,7 +26,8 @@ export default class QuizCheckButton extends Thing {
   }
 
   isClickable() {
-    return game.getThing('quiz')?.isEnabled && !this.isDisabled();
+    const failedTooManyTimes = game.getThing('quiz').isCheckBlocked();
+    return game.getThing('quiz')?.isEnabled && !this.isDisabled() && !failedTooManyTimes;
   }
 
   isDisabled() {
@@ -66,8 +67,37 @@ export default class QuizCheckButton extends Thing {
       depth: this.depth,
       position: this.position,
       alpha: this.isClickable() ? 1.0 : 0.5,
-    
     })
+
+    
+    if (game.getThing('quiz').isCheckBlocked()) {
+      drawSprite({
+        sprite: game.assets.textures.ui_quiz_check_block,
+        color: color,
+        width: 256,
+        height: 128,
+        depth: this.depth+1,
+        position: this.position,
+      })
+
+      if (u.pointInsideAabb(...game.mouse.position, this.getAabb())) {
+        drawSprite({
+          sprite: game.assets.textures.ui_tooltip2,
+          width: 512,
+          height: 128,
+          depth: 2000,
+          position: vec2.add(game.mouse.position, [-256, -128]),
+        })
+
+        drawText({
+          text: "Try again later.",
+          color: [0.4, 0.266, 0.38],
+          depth: 2000,
+          scale: 0.9,
+          position: vec2.add(game.mouse.position, [-198, -90]),
+        })
+      }
+    }
   }
 
 }

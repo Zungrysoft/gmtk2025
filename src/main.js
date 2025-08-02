@@ -18,7 +18,9 @@ const { ctx } = game
 ctx.save()
 ctx.fillStyle = 'white'
 ctx.font = 'italic bold 64px Arial'
-ctx.fillText('Loading...', 64, game.getHeight() - 64)
+ctx.fillText('Loading audio...', 64, game.getHeight() - 128)
+ctx.font = 'italic bold 48px Arial'
+ctx.fillText('(this may take a minute or so)', 64, game.getHeight() - 64)
 ctx.restore()
 
 let fontData = {};
@@ -82,6 +84,7 @@ game.assets.images = await game.loadImages({
   ui_quiz_left: 'images/ui/ui_quiz_left.png',
   ui_quiz_right: 'images/ui/ui_quiz_right.png',
   ui_quiz_check: 'images/ui/ui_quiz_check.png',
+  ui_quiz_check_block: 'images/ui/ui_quiz_check_block.png',
   ui_tooltip: 'images/ui/ui_tooltip.png',
   ui_tooltip2: 'images/ui/ui_tooltip2.png',
   ui_levels: 'images/ui/ui_levels.png',

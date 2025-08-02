@@ -65,7 +65,7 @@ export default class House extends Thing {
       }
 
       // Check for party end
-      if (this.partyTime > 60 && game.getThings().filter(x => x instanceof Guest).length === 0) {
+      if (this.partyTime > 700 && game.getThings().filter(x => x instanceof Guest && x.hasEntered).length === 0) {
         this.changePhase('placement')
       }
     }
@@ -182,6 +182,9 @@ export default class House extends Thing {
       if (!noSound) {
         soundmanager.playSound('swipe', 0.3, 1.0);
       }
+
+      // Reset quiz failed attempts
+      game.getThing('quiz').failedAttempts = {}
       
       this.showUi()
       for (const thing of game.getThings().filter(x => x instanceof Guest)) {

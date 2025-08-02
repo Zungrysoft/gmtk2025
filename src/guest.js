@@ -55,7 +55,7 @@ export default class Guest extends Thing {
       return;
     }
 
-    
+    this.hasEntered = true
 
     this.inTransit = false;
 

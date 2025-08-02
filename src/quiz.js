@@ -25,6 +25,7 @@ export default class Quiz extends Thing {
   solvedPages = {}
   solveTime = 0
   errorTime = 0
+  failedAttempts = {}
 
   constructor() {
     super();
@@ -52,9 +53,10 @@ export default class Quiz extends Thing {
         this.changePage(this.currentPage + 1);
       }
     }
+  }
 
-    
-    
+  isCheckBlocked() {
+    return (this.failedAttempts[this.currentPage] ?? 0) >= 2;
   }
 
   checkAnswer() {
@@ -80,6 +82,7 @@ export default class Quiz extends Thing {
       else {
         soundmanager.playSound('bad', 0.3, 0.9);
         this.errorTime = SOLVE_DURATION;
+        this.failedAttempts[this.currentPage] = (this.failedAttempts[this.currentPage] ?? 0) + 1;
       }
     }
   }
