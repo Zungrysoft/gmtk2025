@@ -206,25 +206,30 @@ export default class Quiz extends Thing {
     // Questions:
     if (quiz.questions) {
       for (const [questionIndex, question] of quiz.questions.entries()) {
-        // Confirmation check mark
-        if (this.solvedPages[this.currentPage]) {
-          drawSprite({
-            sprite: game.assets.textures.ui_checkmark,
-            width: 128,
-            height: 128,
-            depth: this.depth + 2,
-            position: vec2.add(vec2.add(this.position, [left, top]), [-74, -50]),
-          })
-        }
-
         // Title text
-        drawText({
-          text: question.title,
-          position: vec2.add(this.position, [left, top]),
-          depth: this.depth + 1,
-          color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
-        })
-        top += getTextHeight(question.title);
+        if (question.title) {
+          // Confirmation check mark
+          if (this.solvedPages[this.currentPage]) {
+            drawSprite({
+              sprite: game.assets.textures.ui_checkmark,
+              width: 128,
+              height: 128,
+              depth: this.depth + 2,
+              position: vec2.add(vec2.add(this.position, [left, top]), [-74, -50]),
+            })
+          }
+
+          drawText({
+            text: question.title,
+            position: vec2.add(this.position, [left, top]),
+            depth: this.depth + 1,
+            color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
+          })
+          top += getTextHeight(question.title);
+        }
+        else {
+          top -= 24
+        }
 
         if (question.audio_clip) {
 

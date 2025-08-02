@@ -5,24 +5,24 @@
             {
                 "title": "Who is this?",
                 "audio_clip": {
-                    "sound": "",
-                    "picture": null
+                    "sound": "profile_jimmy",
+                    "picture": "profile_jimmy"
                 },
                 "options": [
-                    "Alfonso",
-                    "Laura",
-                    "Jimmy",
                     "Taylor",
-                    "Zoe",
-                    "Sam",
                     "Steven",
-                    "Kaitlyn"
+                    "Laura",
+                    "Sam",
+                    "Kaitlyn",
+                    "Jimmy",
+                    "Alfonso",
+                    "Zoe"
                 ],
-                "optionColumns": 2,
-                "correctOption": 3
+                "correctOption": 5,
+                "optionColumns": 2
             },
             {
-                "title": "And what do they\nalways do first\nwhen they arrives?",
+                "title": "And what do they\nalways do first\nwhen they arrive?",
                 "audio_clip": null,
                 "options": [
                     "Dance",
@@ -30,8 +30,8 @@
                     "Eat Food",
                     "Play Games"
                 ],
-                "optionColumns": 2,
-                "correctOption": 2
+                "correctOption": 2,
+                "optionColumns": 2
             }
         ],
         "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
@@ -40,42 +40,359 @@
         "unlockThreshold": 1,
         "questions": [
             {
-                "title": "Who is this?",
+                "title": "Who are they?",
                 "audio_clip": {
-                    "sound": "",
-                    "picture": null
+                    "sound": "profile_taylor",
+                    "picture": "profile_taylor"
                 },
                 "options": [
-                    "Calvin",
-                    "Fe",
-                    "Luna",
-                    "Antonio",
-                    "Nick",
-                    "Daniel",
+                    "Sam",
+                    "Alfonso",
+                    "Kaitlyn",
+                    "Zoe",
+                    "Taylor",
+                    "Jimmy",
                     "Steven",
-                    "Rick"
+                    "Laura"
                 ],
-                "optionColumns": 2,
-                "correctOption": 6
+                "correctOption": 4,
+                "optionColumns": 2
             },
             {
-                "title": "And who does she\nhave a beef with?",
-                "audio_clip": null,
+                "title": null,
+                "audio_clip": {
+                    "sound": "profile_alfonso",
+                    "picture": "profile_alfonso"
+                },
                 "options": [
-                    "Fe",
-                    "Luna",
+                    "Sam",
+                    "Alfonso",
+                    "Kaitlyn",
+                    "Zoe",
+                    "Jimmy",
                     "Steven",
-                    "Calvin",
-                    "Antonio"
+                    "Taylor",
+                    "Laura"
                 ],
-                "optionColumns": 2,
-                "correctOption": 1
+                "correctOption": 1,
+                "optionColumns": 2
             }
         ],
         "hint": "Hint: People like to talk to\nothers who are close by."
     },
     {
+        "unlockThreshold": 1,
+        "questions": [
+            {
+                "title": "Whose car was\ncrashed?",
+                "options": [
+                    "Alfonso",
+                    "Laura",
+                    "Taylor",
+                    "Sam",
+                    "Kaitlyn",
+                    "Zoe",
+                    "Steven",
+                    "Jimmy"
+                ],
+                "correctOption": 2,
+                "optionColumns": 3
+            },
+            {
+                "title": "And who crashed\nit?",
+                "options": [
+                    "Alfonso",
+                    "Laura",
+                    "Taylor",
+                    "Sam",
+                    "Kaitlyn",
+                    "Zoe",
+                    "Steven",
+                    "Jimmy"
+                ],
+                "correctOption": 7,
+                "optionColumns": 3
+            }
+        ],
+        "hint": null
+    },
+    {
         "unlockThreshold": 2,
-        "message": "Congratulations!\nYou have solved\nall of the easy\npuzzles! The\nnext ones are\nmore challenging!"
+        "questions": [
+            {
+                "title": "Who is this?",
+                "audio_clip": {
+                    "sound": "profile_laura",
+                    "picture": "profile_laura"
+                },
+                "options": [
+                    "Sam",
+                    "Zoe",
+                    "Kaitlyn",
+                    "Taylor",
+                    "Laura",
+                    "Jimmy"
+                ],
+                "correctOption": 4,
+                "optionColumns": 3
+            },
+            {
+                "title": "What is their\nfavorite game?",
+                "options": [
+                    "Dominion",
+                    "Splendor",
+                    "Monopoly",
+                    "Poker",
+                    "Brass",
+                    "Risk"
+                ],
+                "correctOption": 1,
+                "optionColumns": 2
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 2,
+        "questions": [
+            {
+                "title": "Who are they?",
+                "audio_clip": {
+                    "sound": "profile_sam",
+                    "picture": "profile_sam"
+                },
+                "options": [
+                    "Kaitlyn",
+                    "Zoe",
+                    "Jimmy",
+                    "Steven",
+                    "Laura",
+                    "Sam"
+                ],
+                "correctOption": 5,
+                "optionColumns": 3
+            },
+            {
+                "title": null,
+                "audio_clip": {
+                    "sound": "profile_zoe",
+                    "picture": "profile_zoe"
+                },
+                "options": [
+                    "Kaitlyn",
+                    "Zoe",
+                    "Jimmy",
+                    "Steven",
+                    "Laura",
+                    "Sam"
+                ],
+                "correctOption": 1,
+                "optionColumns": 3
+            },
+            {
+                "title": "How many are at\nthe party?",
+                "options": [
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "10"
+                ],
+                "correctOption": 3,
+                "optionColumns": 8
+            }
+            
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 4,
+        "questions": [
+            {
+                "title": "Who is Zoe mad at?",
+                "options": [
+                    "Sam",
+                    "Zoe",
+                    "Alfonso",
+                    "Laura",
+                    "Jimmy",
+                    "Taylor"
+                ],
+                "correctOption": 0,
+                "optionColumns": 3
+            },
+            {
+                "title": "What did they do\nto make her mad?",
+                "options": [
+                    "Cheated on her",
+                    "Ate her last oreo",
+                    "Crashed her car",
+                    "Beat her at poker",
+                    "Insulted her nails",
+                    "Cancelled plans",
+                    "Stabbed her",
+                    "Talked trash",
+                    "Broke her Sony Walkman",
+                    "Used her credit card"
+                ],
+                "correctOption": 5,
+                "optionColumns": 1
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 4,
+        "questions": [
+            {
+                "title": "Which person\ndrinks the most?",
+                "options": [
+                    "Jimmy",
+                    "Zoe",
+                    "Laura",
+                    "Sam",
+                    "Taylor",
+                    "Alfonso"
+                ],
+                "correctOption": 5,
+                "optionColumns": 2
+            },
+            {
+                "title": "What is their\nfavorite drink?",
+                "options": [
+                    "Beer",
+                    "Whiskey, Neat",
+                    "White Russian",
+                    "Hard Seltzer",
+                    "Wine",
+                    "Golden Cadillac",
+                    "Martini",
+                    "Dirty Martini",
+                    "Daiquiri",
+                    "Tequila"
+                ],
+                "correctOption": 2,
+                "optionColumns": 1
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 5,
+        "questions": [
+            {
+                "title": "Who was fired\nfrom their job\nrecently?",
+                "options": [
+                    "Sam",
+                    "Alfonso",
+                    "Laura",
+                    "Zoe",
+                    "Jimmy",
+                    "Taylor"
+                ],
+                "correctOption": 5,
+                "optionColumns": 3
+            },
+            {
+                "title": "Who got them\nfired?",
+                "options": [
+                    "Sam",
+                    "Alfonso",
+                    "Laura",
+                    "Zoe",
+                    "Jimmy",
+                    "Taylor"
+                ],
+                "correctOption": 3,
+                "optionColumns": 3
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 6,
+        "questions": [
+            {
+                "title": "Who can play\nguitar?",
+                "options": [
+                    "Sam",
+                    "Alfonso",
+                    "Jimmy",
+                    "Zoe",
+                    "Laura",
+                    "Taylor"
+                ],
+                "correctOption": 1,
+                "optionColumns": 2
+            },
+            {
+                "title": "Who most enjoys\nlistening to them?",
+                "options": [
+                    "Sam",
+                    "Alfonso",
+                    "Jimmy",
+                    "Zoe",
+                    "Laura",
+                    "Taylor"
+                ],
+                "correctOption": 3,
+                "optionColumns": 2
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 6,
+        "questions": [
+            {
+                "title": "Who arrives to the\nparty late?",
+                "options": [
+                    "Jimmy",
+                    "Laura",
+                    "Sam",
+                    "Taylor",
+                    "Zoe",
+                    "Alfonso"
+                ],
+                "correctOption": 2,
+                "optionColumns": 3
+            },
+            {
+                "title": "Who dislikes loud\nmusic?",
+                "options": [
+                    "Jimmy",
+                    "Laura",
+                    "Sam",
+                    "Taylor",
+                    "Zoe",
+                    "Alfonso"
+                ],
+                "correctOption": 1,
+                "optionColumns": 3
+            },
+            {
+                "title": "How much RAM does\nSam's gaming PC\nhave?",
+                "options": [
+                    "2GB",
+                    "4GB",
+                    "8GB",
+                    "16GB",
+                    "32GB",
+                    "64GB",
+                    "128GB",
+                    "256GB"
+                ],
+                "correctOption": 5,
+                "optionColumns": 3
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 10,
+        "message": "Congratulations!\nYou have solved\nall of the\npuzzles!"
     }
 ]

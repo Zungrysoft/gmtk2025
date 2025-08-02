@@ -8,7 +8,7 @@ import QuizArrowButton from './quizarrowbutton.js'
 import QuizCheckButton from './quizcheckbutton.js'
 import RecallPanel from './recallpanel.js'
 
-document.title = 'In the Loop'
+document.title = 'Gossip Girls: Revelations'
 game.setWidth(1280)
 game.setHeight(720)
 game.createCanvases();
@@ -24,7 +24,7 @@ for (const char of "abcdefghijklmnopqrstuvwxyz") {
   fontData["letter_lower_" + char] = 'images/font/letter_lower_' + char + '.png';
   fontData["letter_upper_" + char] = 'images/font/letter_upper_' + char + '.png';
 }
-for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark', 'colon']) {
+for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark', 'colon', 'apostraphe']) {
   fontData["letter_symbol_" + symbol] = 'images/font/letter_symbol_' + symbol + '.png';
 }
 for (let i = 0; i < 10; i ++) {

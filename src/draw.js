@@ -99,6 +99,10 @@ export function drawText({
       imgName = 'letter_symbol_colon';
     }
 
+    if (char === "'") {
+      imgName = 'letter_symbol_apostraphe';
+    }
+
     if (char >= '0' && char <= '9') {
       imgName = 'letter_number_' + char;
     }

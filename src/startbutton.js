@@ -21,7 +21,8 @@ export default class StartButton extends Button {
   draw() {
     super.draw();
 
-    if (!this.isClickable()) {
+    const isQuizOpen = game.getThing('quiz').getIsEnabled();
+    if (!this.isClickable() && !isQuizOpen) {
       if (u.pointInsideAabb(...game.mouse.position, this.getAabb())) {
         drawSprite({
           sprite: game.assets.textures.ui_tooltip2,
