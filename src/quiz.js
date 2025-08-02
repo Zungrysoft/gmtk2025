@@ -93,6 +93,8 @@ export default class Quiz extends Thing {
       }
     }
     return ret - 1;
+
+    // return game.assets.data.quizzes.length - 1;
   }
 
   changePage(page) {

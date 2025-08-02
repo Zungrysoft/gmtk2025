@@ -37,7 +37,7 @@
         "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
     },
     {
-        "unlockThreshold": 1,
+        "unlockThreshold": 0,
         "questions": [
             {
                 "title": "Who are they?",
@@ -81,43 +81,7 @@
         "hint": "Hint: People like to talk to\nothers who are close by."
     },
     {
-        "unlockThreshold": 1,
-        "questions": [
-            {
-                "title": "Whose car was\ncrashed?",
-                "options": [
-                    "Alfonso",
-                    "Laura",
-                    "Taylor",
-                    "Sam",
-                    "Kaitlyn",
-                    "Zoe",
-                    "Steven",
-                    "Jimmy"
-                ],
-                "correctOption": 2,
-                "optionColumns": 3
-            },
-            {
-                "title": "And who crashed\nit?",
-                "options": [
-                    "Alfonso",
-                    "Laura",
-                    "Taylor",
-                    "Sam",
-                    "Kaitlyn",
-                    "Zoe",
-                    "Steven",
-                    "Jimmy"
-                ],
-                "correctOption": 7,
-                "optionColumns": 3
-            }
-        ],
-        "hint": null
-    },
-    {
-        "unlockThreshold": 2,
+        "unlockThreshold": 0,
         "questions": [
             {
                 "title": "Who is this?",
@@ -153,7 +117,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 2,
+        "unlockThreshold": 0,
         "questions": [
             {
                 "title": "Who are they?",
@@ -209,7 +173,43 @@
         "hint": null
     },
     {
-        "unlockThreshold": 4,
+        "unlockThreshold": 2,
+        "questions": [
+            {
+                "title": "Whose car was\ncrashed?",
+                "options": [
+                    "Alfonso",
+                    "Laura",
+                    "Taylor",
+                    "Sam",
+                    "Kaitlyn",
+                    "Zoe",
+                    "Steven",
+                    "Jimmy"
+                ],
+                "correctOption": 2,
+                "optionColumns": 3
+            },
+            {
+                "title": "And who crashed\nit?",
+                "options": [
+                    "Alfonso",
+                    "Laura",
+                    "Taylor",
+                    "Sam",
+                    "Kaitlyn",
+                    "Zoe",
+                    "Steven",
+                    "Jimmy"
+                ],
+                "correctOption": 7,
+                "optionColumns": 3
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 3,
         "questions": [
             {
                 "title": "Who is Zoe mad at?",
@@ -390,9 +390,5 @@
             }
         ],
         "hint": null
-    },
-    {
-        "unlockThreshold": 10,
-        "message": "Congratulations!\nYou have solved\nall of the\npuzzles!"
     }
 ]
