@@ -21,6 +21,8 @@ import Tutorial from './tutorial.js'
 import WalkingMan from './walkingman.js'
 import Reminder from './reminder.js'
 import Conversation from './conversation.js'
+import LevelsTray from './levelstray.js'
+import QuizClickable from './quizclickable.js'
 
 export default class House extends Thing {
   isDying = false
@@ -33,6 +35,11 @@ export default class House extends Thing {
   nightOverlayAlpha = 0
   furnitureTray = null
 
+  cutEqLow = false
+  cutEqMid = false
+  cutEqHigh = false
+  eqClickables = {}
+
 
   constructor(sprite, type) {
     super();
@@ -41,6 +48,43 @@ export default class House extends Thing {
     game.setThingName(this, 'house')
     this.initUiElements()
     
+  }
+
+  clickedButton(ind) {
+    if (ind === 0) {
+      this.cutEqLow = !this.cutEqLow
+    }
+    if (ind === 1) {
+      this.cutEqMid = !this.cutEqMid
+    }
+    if (ind === 2) {
+      this.cutEqHigh = !this.cutEqHigh
+    }
+
+    soundmanager.playSound('click2', 0.1, 1.4)
+
+    for (const { eqLow, eqMid, eqHigh } of game.globals.audioSources) {
+      eqLow.gain.value = this.cutEqLow ? -30 : 0;
+      eqMid.gain.value = this.cutEqMid ? -30 : 0;
+      eqHigh.gain.value = this.cutEqHigh ? -30 : 0;
+    }
+  }
+
+  getIsEnabled() {
+    return true
+  }
+
+  setUpEqClickables() {
+    this.eqClickables[0] = game.addThing(new QuizClickable(this, 0, -1));
+    this.eqClickables[1] = game.addThing(new QuizClickable(this, 1, -1));
+    this.eqClickables[2] = game.addThing(new QuizClickable(this, 2, -1));
+  }
+
+  deleteEqClickables() {
+    for (const id in this.eqClickables) {
+      this.eqClickables[id].isDead = true;
+      delete this.eqClickables[id];
+    }
   }
 
   update() {
@@ -126,7 +170,7 @@ export default class House extends Thing {
                           [200,600], [0,0], [-200,0], false, [-10,-10,-9,-9]))
     game.addThing(new Tray('tray_mics', game.assets.textures.tray_mics, game.assets.textures.tray_mics,
                           [225,125], [0,595], [0,703], false, [0,8,213,125]))
-    game.addThing(new Tray('tray_levels', game.assets.textures.ui_levels, game.assets.textures.ui_levels,
+    game.addThing(new LevelsTray('tray_levels', game.assets.textures.ui_levels, game.assets.textures.ui_levels,
                           [512, 128], [384,720-128], [384,720], false, [0, 0, 512, 128]))                              
 
 
@@ -184,6 +228,8 @@ export default class House extends Thing {
         soundmanager.playSound('swipe', 0.3, 1.0);
       }
 
+      this.deleteEqClickables();
+
       // Reset quiz failed attempts
       game.getThing('quiz').failedAttempts = {}
       
@@ -208,6 +254,8 @@ export default class House extends Thing {
       if (this.night === 1) {
         game.addThing(new Reminder("Listen for voices...\n   Listen for names..."))
       }
+
+      this.setUpEqClickables();
       
       this.addGuests()
       if (!noSound) {
