@@ -1,3 +1,755 @@
 [
+    {
+        "maxTime": 25,
+        "requiredActivities": [
+            {
+                "participant": "hungry",
+                "activities": ["food_pizza", "food_platter"]
+            }
+        ],
+        "infoKeys": ["hungry_is_hungry"],
+        "audio": [
+            {
+                "speaker": "dancer",
+                "sound": "001_dancer_001",
+                "text": "I see you're at the buffet table straight away."
+            },
+            {
+                "speaker": "hungry",
+                "sound": "001_hungry_001",
+                "text": "Yeah, I'm starving. I had a 12-hour shift, haven't eaten since breakfast."
+            },
+            {
+                "speaker": "dancer",
+                "sound": "001_dancer_002",
+                "text": "Damn! Get some food in you!"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-jimmy-bars"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "bars-alfonso-01",
+                "text": "Hey Jimmy! You wanna join me to check out this bar after? They make killer White Russians"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "bars-jimmy-01",
+                "text": "What kind of snacks do they have there?"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "bars-alfonso-02",
+                "text": "They make the best sliders I've ever had"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "bars-jimmy-02",
+                "text": "Yeah lets go Alfonso! I've been feeling a burger lately"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-jimmy-crash"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "crash-alfonso-01",
+                "text": "Yo Jimmy I heard you crashed Taylor's car! What happened?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash-jimmy-01",
+                "text": "Yeah... I was in a rush to get to the buffet and took a corner too fast"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "crash-alfonso-02",
+                "text": "Is the food that important?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash-jimmy-02",
+                "text": "Always Alfonso. Always."
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-taylor-console"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "console-alfonso-01",
+                "text": "Sorry to hear about the crash Taylor. Here, I brought you a White Russian, my favorite"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "console-taylor-01",
+                "text": "Thanks man, I need that right now. I just had the car detailed too."
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "console-alfonso-02",
+                "text": "Jimmy's normally such a responsible guy."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "console-taylor-02",
+                "text": "Now I gotta deal with insurance, ugh. *gulps drink*"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-taylor-fired"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "fired-taylor-01",
+                "text": "Did you hear? I just got fired."
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "fired-alfonso-01",
+                "text": "No Way! What happened Taylor?"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "fired-taylor-02",
+                "text": "Zoe spread some rumor that I was stealing toilet paper from the bathroom"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "fired-alfonso-02",
+                "text": "I mean, they had 3 ply. I wouldn't blame you"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "fired-taylor-03",
+                "text": "Hah! Shut up Alfonso"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-sam-bailed"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "bailed-alfonso-01",
+                "text": "Zoe told me you ditched her last night. What happened?"
+            },
+            {
+                "speaker": "sam",
+                "sound": "bailed-sam-01",
+                "text": "Well, she invited me out to the bar but my guild wanted to raid so..."
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "bailed-alfonso-02",
+                "text": "You gotta get out there more Sam"
+            },
+            {
+                "speaker": "sam",
+                "sound": "bailed-sam-02",
+                "text": "But the new patch just dropped!"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-sam-late"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "late-sam-01",
+                "text": "Hey Alfonso! Sorry I'm late"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "late-alfonso-01",
+                "text": "What took you so long Sam?"
+            },
+            {
+                "speaker": "sam",
+                "sound": "late-sam-02",
+                "text": "Sorry, I just lost track of time playing Runescape"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "late-alfonso-02",
+                "text": "Well come join in! The party's already started"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-laura-corner"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "corner-alfonso-01",
+                "text": "You dont have to hide in the corner all night Laura"
+            },
+            {
+                "speaker": "laura",
+                "sound": "corner-laura-01",
+                "text": "I know, I just hate loud music"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "corner-alfonso-02",
+                "text": "Here, I brought you a white russian. It's my favorite. Should warm you up"
+            },
+            {
+                "speaker": "laura",
+                "sound": "corner-laura-02",
+                "text": "Hah, thanks. I think i'll stay over here though and play some Splendor"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-laura-game"],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "game-laura-01",
+                "text": "Come take your turn already Alfonso!"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "game-alfonso-01",
+                "text": "Coming! I was just mixing another coctail"
+            },
+            {
+                "speaker": "laura",
+                "sound": "game-laura-02",
+                "text": "We've been waiting for you! Grab your gems before you grab another drink"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "game-alfonso-02",
+                "text": "Hey I'm just trying to have a good time tonight"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-zoe-complain"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "complain-zoe-01",
+                "text": "Ugh did you hear Alfonso? Sam bailed on me last night"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "complain-alfonso-01",
+                "text": "Aww Im sorry Zoe. Did he say why?"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "complain-zoe-02",
+                "text": "No, but I bet he's just playing more Runescape. He keeps talking about this thing called Varlamore?"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "complain-alfonso-02",
+                "text": "I don't know, he makes it sound kinda fun"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "complain-zoe-03",
+                "text": "More fun than a night of drinks and salsa dancing? Impossible"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["alfonso-zoe-guitar"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "guitar-zoe-01",
+                "text": "Wow... you've gotten so good at the guitar lately"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "guitar-alfonso-01",
+                "text": "Hah, thanks Zoe"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["jimmy-taylor-crash"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "crash-taylor-01",
+                "text": "Jimmy! What the hell happened!"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash-jimmy-01",
+                "text": "I'm so sorry Taylor! It was almost 10 and I had to get to Iguanas before they closed"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash-taylor-02",
+                "text": "You crashed my car for a burrito?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash-jimmy-02",
+                "text": "Not just a burrito - the best burrito."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash-taylor-03",
+                "text": "I'm so done with you man"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["jimmy-sam-eating"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "eating-jimmy-01",
+                "text": "Yo Sam, the raids last night were so good!"
+            },
+            {
+                "speaker": "sam",
+                "sound": "eating-sam-01",
+                "text": "I know! But could you try to mute your mic when you eat next time Jimmy?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "eating-jimmy-02",
+                "text": "Oh, sorry, you could hear that?"
+            },
+            {
+                "speaker": "sam",
+                "sound": "eating-sam-02",
+                "text": "Uhh yeah - it was the only thing I could hear sometimes!"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["jimmy-sam-late"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "35765436",
+                "text": "Sorry I'm late Jimmy! I had to stop by the store on the way"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "sdfgsfdgdx",
+                "text": "Hey what's up Sam! What'd you bring?"
+            },
+            {
+                "speaker": "sam",
+                "sound": "asghjfhjg",
+                "text": "Some garden salsa sun chips and ton of goldfish"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "wrestdjyku",
+                "text": "Oh hell yeah I'm taking those home if they dont get finished"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["jimmy-laura-foodafter"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "stjulhkjkhj",
+                "text": "Hey Laura! How's it going"
+            },
+            {
+                "speaker": "laura",
+                "sound": "sdfgsfdgdx",
+                "text": "Oh hi Jimmy. It's good. Just enjoying the company"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "lkmjnhbgv",
+                "text": "Wanna come out to IHOP with us after? We're grabbing pancakes"
+            },
+            {
+                "speaker": "laura",
+                "sound": "xfwfxwefwe",
+                "text": "Sure. I just hope its quiet there"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["jimmy-laura-crash"],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "sfhio89978",
+                "text": "Jimmy I heard you crashed Taylor's car. What happened?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "mjnhbgv",
+                "text": "Iguanas was closing and I kinda rushed over to grab a burrito on the way home"
+            },
+            {
+                "speaker": "laura",
+                "sound": "1234r2we",
+                "text": "Dude! You're smarter than that"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "xsertf",
+                "text": "I know I know... I was just really craving some al pastor"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["jimmy-zoe-fired"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "8o9iukhjuytr5",
+                "text": "Did you hear? Taylor got fired for stealing toilet paper"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "dfgty",
+                "text": "Uhhh... what? Stop lying Zoe. That's crazy"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "wefrg",
+                "text": "No for real! His job stocks 3 ply in the bathroom. Its so soft..."
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "xserghfrtf",
+                "text": "Oh shit they got 3 ply? I might need to steal some for myself."
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["jimmy-zoe-tacos"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "ukjfhy",
+                "text": "Yo Zoe, me and sam are going out to get tacos after. You wanna join us?"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "dfgfgdfgty",
+                "text": "Uh not if Sam's there. I'm still mad at him for ditching me last night to play some game"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "wefhdfgsfdrg",
+                "text": "Cmon, really? You're avoiding him just for that?"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "olikjuhy",
+                "text": "Yeah - he was gonna be my salsa partner! I had to dance with some random"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["sam-laura-games"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "ukujhyjfhy",
+                "text": "Hey whats up Laura! What're you playing tonight?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "dfgfgdfdfggty",
+                "text": "Hey Sam! Just some splendor. I've really been enjoying it lately"
+            },
+            {
+                "speaker": "sam",
+                "sound": "wefhhygdfgsfdrg",
+                "text": "Got room for one more? I'm feeling a board game right now"
+            },
+            {
+                "speaker": "laura",
+                "sound": "olikjfufghy",
+                "text": "Sure hop in! We just got started"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["sam-laura-pc"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "ukujhyfgdfgjfhy",
+                "text": "I heard you just built a new PC Laura, how is it?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "dfgfgdffgdfgdfggty",
+                "text": "Dude its amazing! Got a Ryzen 7, GeForce 5090, and 64 gigs of ram!"
+            },
+            {
+                "speaker": "sam",
+                "sound": "wefhhygdfgsfdrg",
+                "text": "Sheeeeesh thats a beast! What have you played on it so far?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "olikjfufghy",
+                "text": "Stardew valley mostly. Might load up some old flash games too."
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["sam-zoe-canceled"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "ukujhyfggdfgfjfgfhy",
+                "text": "Sam! where were you last night?? Weren't we supposed to go dancing? "
+            },
+            {
+                "speaker": "sam",
+                "sound": "dfgfgdfdfdfggdffgdfggty",
+                "text": "Yeah haha, sorry Zoe. I got caught up in some games with my clan"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "wefhhsdgfyadfgsfdrg",
+                "text": "You ditched me for a fucking video game?"
+            },
+            {
+                "speaker": "sam",
+                "sound": "olikfgfdjdfufghy",
+                "text": "The new patch just came out! We had to check out Varlamore. I'll catch you next time I promise"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "wefhhsfddghfygdfgsfdrg",
+                "text": "Ugh, I'm so done with you."
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["sam-taylor-fired"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "jhgfh",
+                "text": "I heard you got fired Taylor. I'm sorry man..."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "loki",
+                "text": "Thanks Sam. Yeah it sucks. Zoe lied about me stealing toilet paper of all things"
+            },
+            {
+                "speaker": "sam",
+                "sound": "4rtg",
+                "text": "Toilet paper? Come on thats so petty. If you're gonna lie at least make it a good one"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "mnhg",
+                "text": "Well they did have 3 ply there..."
+            },
+            {
+                "speaker": "sam",
+                "sound": "dfvg",
+                "text": "Let's go play some Brass, that'll cheer you up."
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["sam-taylor-games"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "ukuj8uhghyfgddfgjfgfhy",
+                "text": "Whats up Taylor, how you been? It's been a while"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "dfgfgdffgdgffgddfggty",
+                "text": "Hey Sam! I'm good, just chillin. I finally tried out Return of the Obra Dinn"
+            },
+            {
+                "speaker": "sam",
+                "sound": "wefhhygdfdgshfdgrg",
+                "text": "Nice! That's one of my favorites! What'd you think?"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "olikjfufgdgfy",
+                "text": "It was a cool creativity toy. Super unique too! I wish more games were like that"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["laura-zoe-dance"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "gff",
+                "text": "Laura! Come on girl! Get up! Join me on the dance floor!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "jhg",
+                "text": "Uhh... I'm okay over here. But thanks for the offer Zoe"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "kjhgfv",
+                "text": "Awww. Please? I promise its fun. I can teach you some moves!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "ergt",
+                "text": "I don't know, it's a bit loud tonight. I'd rather keep playing Splendor"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["laura-zoe-games"],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "gfsdhghff",
+                "text": "Hey Zoe, wanna join us for some games? Me and Sam were gonna play Splendor"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "jhgfdwgs",
+                "text": "With Sam? Hell no. That kid ditched me last night to sit at home on his computer"
+            },
+            {
+                "speaker": "laura",
+                "sound": "kjfdshghmghfv",
+                "text": "Just ignore him if he bothers you that much. It'll be fun!"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "erfdssdfgt",
+                "text": "Sorry Laura, I just can't with him right now"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["laura-taylor-seat"],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "gfsdff",
+                "text": "Taylor! Come over here! We were about to start a game and we got a seat open"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "jhgfds",
+                "text": "Oooo what are you playing tonight Laura?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "kjfdshgfv",
+                "text": "Brass Lancashire. It's been too long since we played!"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "erfdsgt",
+                "text": "Wait, isnt that the one that takes like 3 hours to finish?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "erfdfgdsgt",
+                "text": "Only if you're slow"
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["laura-taylor-quiet"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "gfssdfdff",
+                "text": "Hey Laura. Mind if I join you in the corner? Feeling kinda overwhelmed tonight"
+            },
+            {
+                "speaker": "laura",
+                "sound": "jhgfdgfd",
+                "text": "Come on over Taylor. There's plenty of room over here. It's nice and quiet away from the music"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "kjfdsgfdhgfv",
+                "text": "Ahh finally. I can relax for a minute. Work as been so hectic lately"
+            },
+            {
+                "speaker": "laura",
+                "sound": "erfasddsgt",
+                "text": "Tell me about it. Customers can be assholes sometimes."
+            }
+        ]
+    },
+    {
+        "maxTime": 90,
+        "infoKeys": ["zoe-taylor-fired"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "gfssdfdfgfsdf",
+                "text": "Zoe! What the hell! "
+            },
+            {
+                "speaker": "zoe",
+                "sound": "jhgfdasdgfd",
+                "text": "I'm sorry!!! I'm so so so sorry Taylor! I didn't think they would actually take me seriously"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "kjfhgddsgfdhgfv",
+                "text": "I work at a very serious company. They take everything seriously"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "erfafdssddsgt",
+                "text": "It was just a joke..."
+            }
+        ]
+    }
     
+    
+    
+
 ]
