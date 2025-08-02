@@ -33,6 +33,10 @@ export default class Conversation extends Thing {
   }
 
   moveToNextDialogue() {
+    if (this.isDead) {
+      return;
+    }
+
     this.dialogueLine ++
 
     // Conversation
