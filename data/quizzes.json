@@ -1,6 +1,7 @@
 [
     {
         "unlockThreshold": 0,
+        "hasArt": true,
         "message": "Use this journal\nto record what\nyour friends are\nsaying behind your\nback.\n\n\nIf you don't have\nthe information\nyou need yet, you\ncan always repeat\nthe party."
     },
     {

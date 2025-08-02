@@ -96,6 +96,7 @@ game.assets.images = await game.loadImages({
   ui_play: 'images/ui/ui_play.png',
   ui_walking_man_1: 'images/ui/walking_man_1.png',
   ui_walking_man_2: 'images/ui/walking_man_2.png',
+  ui_gossip: 'images/ui/ui_gossip.png',
 
   tutorial_bg: 'images/ui/ui_tutorial_background.png',
   tutorial_rightbutton: 'images/ui/ui_button_tutorial_right.png',
