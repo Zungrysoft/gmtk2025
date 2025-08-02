@@ -491,14 +491,14 @@ export default class Guest extends Thing {
 
     // Check max time
     if (conversation.maxTime && conversation.maxTime >= 0) {
-      if (game.getThing('house').partyTime / 60 > conversation.maxTime) {
+      if (game.getThing('house').partyTime / 60 < conversation.maxTime) {
         return false;
       }
     }
 
     // Check min time
     if (conversation.minTime && conversation.minTime >= 0) {
-      if (game.getThing('house').partyTime / 60 < conversation.minTime) {
+      if (game.getThing('house').partyTime / 60 > conversation.minTime) {
         return false;
       }
     }
