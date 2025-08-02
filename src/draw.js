@@ -138,6 +138,10 @@ export function getTextHeight(text) {
   return text.split('\n').length * 32;
 }
 
+export function getTextWidth(text) {
+  return Math.max(...text.split('\n').map(x => x.length)) * 20
+}
+
 function convertDepth(depth) {
   const near = game.getCamera3D().near;
   const far = game.getCamera3D().far;

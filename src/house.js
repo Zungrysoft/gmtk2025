@@ -19,6 +19,7 @@ import PauseButton from './pausebutton.js'
 import PauseMenu from './pausemenu.js'
 import Tutorial from './tutorial.js'
 import WalkingMan from './walkingman.js'
+import Reminder from './reminder.js'
 
 export default class House extends Thing {
   isDying = false
@@ -134,7 +135,7 @@ export default class House extends Thing {
                             
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
-                                [256, 128], [165,0], [165,-128], true, [25, 0, 232, 73]))
+                                [256, 128], [165,0], [165,-128], false, [25, 0, 232, 73]))
 
     // game.addThing(new PauseMenu())
 
@@ -189,6 +190,10 @@ export default class House extends Thing {
 
     if (phase == 'party') {
       game.getThing('recall').addMemory(this.night)
+
+      if (this.night === 1) {
+        game.addThing(new Reminder("Listen for voices...\n   Listen for names..."))
+      }
       
       this.addGuests()
       if (!noSound) {

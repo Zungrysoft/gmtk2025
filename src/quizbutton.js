@@ -17,20 +17,21 @@ export default class QuizButton extends Button {
   update() {
     super.update();
 
+    this.isOpen = this.isVisible();
     this.sprite = game.getThing('quiz')?.isEnabled ? game.assets.textures.ui_quiz_close : game.assets.textures.ui_quiz_open;
   }
 
   isVisible() {
-    return (game.getThing('house')?.night ?? 0) > 1;
+    return !game.getThing('tutorial');
   }
 
   isClickable() {
     return this.isVisible()
   }
 
-  draw() {
-    if (this.isVisible()) {
-      super.draw();
-    }
-  }
+  // draw() {
+  //   if (this.isVisible()) {
+  //     super.draw();
+  //   }
+  // }
 }
