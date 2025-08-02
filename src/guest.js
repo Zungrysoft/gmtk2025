@@ -30,7 +30,7 @@ export default class Guest extends Thing {
   drunkedness = 0
   currentActivity = null;
   activityTime = 0;
-  position = [463, 531];
+  position = [405, 465];
   activityCompletions = {};
   footstepTime = 1.0;
   timeToWait = 60 * 10;
@@ -63,7 +63,7 @@ export default class Guest extends Thing {
       activityPosition = vec2.add(activityPosition, vec2.scale(this.activityOffset, 0.5));
     }
     else {
-      activityPosition = [423, 481];
+      activityPosition = [405, 465];
     }
     if (this.currentActivity) {
       // Walk toward activity

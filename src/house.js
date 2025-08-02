@@ -27,6 +27,7 @@ export default class House extends Thing {
   night = 0
   selectedMic = 0
   partyTime = 0
+  nightOverlayAlpha = 0
   furnitureTray = null
 
   constructor(sprite, type) {
@@ -43,6 +44,7 @@ export default class House extends Thing {
   update() {
     if (this.gamePhase === 'party') {
       this.partyTime ++;
+      this.nightOverlayAlpha = Math.min(1, this.nightOverlayAlpha + 1/60)
 
       // Spatial audio
       const selectedMicObj = game.getThings().find(x => x instanceof Furniture && x.micNumber === this.selectedMic);
@@ -60,6 +62,9 @@ export default class House extends Thing {
         }
         soundmanager.updateSoundPan(pos, lookVector);
       }
+    }
+    else {
+      this.nightOverlayAlpha = Math.max(0, this.nightOverlayAlpha - 1/60)
     }
 
 
@@ -239,7 +244,8 @@ export default class House extends Thing {
 
   draw() {
     // drawBackground({ sprite: game.assets.textures.square, depth: 1, color: [0, 0, 0] });
-    drawBackground({ sprite: game.assets.textures.background_day, depth: 3 });
     drawBackground({ sprite: game.assets.textures.house_day, depth: 10 });
+    drawBackground({ sprite: game.assets.textures.background_day, depth: 3 });
+    drawBackground({ sprite: game.assets.textures.background_night, depth: 5, alpha: this.nightOverlayAlpha });
   }
 }
