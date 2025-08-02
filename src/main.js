@@ -76,6 +76,7 @@ game.assets.images = await game.loadImages({
   furniture_mic_c: 'images/furniture/furniture_mic_c.png',
   furniture_mic_selected: 'images/furniture/furniture_mic_selected.png',
   furniture_mic_loudness: 'images/furniture/furniture_mic_loudness.png',
+  furniture_disabled: 'images/furniture/furniture_disabled.png',
 
   ui_quiz: 'images/ui/ui_quiz.png',
   ui_checkmark: 'images/ui/ui_checkmark.png',

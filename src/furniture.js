@@ -132,6 +132,10 @@ export default class Furniture extends Thing {
   }
 
   isClickable() {
+    if (!this.isPickable() && !this.isPlaced && !this.isBeingDragged) {
+      return;
+    }
+
     if (game.getThing('quiz')?.isEnabled) {
       return false;
     }
@@ -149,6 +153,19 @@ export default class Furniture extends Thing {
           return false;
         }
       }
+    }
+
+    return true;
+  }
+
+  isPickable() {
+    const finishedPages = Object.keys(game.getThing('quiz').solvedPages).length
+
+    if (this.type === 'dancing' && finishedPages < 5) {
+      return false
+    }
+    if (this.type === 'game' && finishedPages < 2) {
+      return false
     }
 
     return true;
@@ -282,6 +299,16 @@ export default class Furniture extends Thing {
         rotation: 0,
         position: this.position,
       })
+      if (!this.isPickable()) {
+        drawSprite({
+          sprite: game.assets.textures.furniture_disabled,
+          centered: true,
+          width: 64 * this.scale,
+          height: 64 * this.scale,
+          depth: this.depth + 1,
+          position: this.position,
+        })
+      }
     }
     else {
       drawSprite({
