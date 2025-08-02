@@ -42,18 +42,12 @@ export default class AudioCheck extends Thing {
     if (this.time === 60) {
       console.log("Spatial audio check:", this.totalSound)
       if (this.totalSound < 3) {
-        this.showError()
+        this.shouldDraw = true
       }
       else {
         this.isDead = true
       }
     }
-    
-  }
-
-  showError() {
-    soundmanager.stopAll();
-    this.shouldDraw = true
   }
 
   draw() {

@@ -30,5 +30,8 @@ export default class TutorialButton extends Button {
   onClick() {
     if (this.isForward) game.getThing('tutorial').stage++
     else game.getThing('tutorial').stage--
+
+    soundmanager.playSound('paper2', 0.13, [1.4, 1.6]);
+    
   }
 }
