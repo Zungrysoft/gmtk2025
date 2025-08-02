@@ -173,7 +173,7 @@ export default class House extends Thing {
       this.night ++
       if (this.night === 2) {
         game.getThing('quiz').toggleIsEnabled()
-        game.getThing('quiz').changePage(1, true)
+        game.getThing('quiz').changePage(0, true)
       }
 
       if (this.night > 1) {

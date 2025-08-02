@@ -356,6 +356,38 @@
         "hint": null
     },
     {
+        "unlockThreshold": 5,
+        "questions": [
+            {
+                "title": "Who is vegetarian?",
+                "options": [
+                    "Jimmy",
+                    "Laura",
+                    "Taylor",
+                    "Zoe",
+                    "Sam",
+                    "Alfonso"
+                ],
+                "correctOption": 3,
+                "optionColumns": 2
+            },
+            {
+                "title": "Who doesn't eat\ntheir veggies?",
+                "options": [
+                    "Jimmy",
+                    "Laura",
+                    "Taylor",
+                    "Zoe",
+                    "Sam",
+                    "Alfonso"
+                ],
+                "correctOption": 4,
+                "optionColumns": 2
+            }
+        ],
+        "hint": null
+    },
+    {
         "unlockThreshold": 6,
         "questions": [
             {
@@ -388,7 +420,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 7,
+        "unlockThreshold": 8,
         "questions": [
             {
                 "title": "Who arrives to the\nparty late?",

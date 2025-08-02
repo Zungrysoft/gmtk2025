@@ -133,5 +133,14 @@
                 "text": "It's been fun, y'all! I'm gonna jet!"
             }
         ]
+    },
+    "zoe-leave-disgust": {
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "zoeleavedisgust",
+                "text": "Ughh, there's no music and no food that I can eat. I'm gonna jet!"
+            }
+        ]
     }
 }
