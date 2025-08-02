@@ -1,7 +1,8 @@
 [
     {
         "unlockThreshold": 0,
-        "message": "Record your\nobservations in\nthis journal.\n\n\nIf you don't have\nthe information\nyou need, you\ncan always repeat\nthe party."
+        "hasArt": true,
+        "message": "Use this journal\nto record what\nyour friends are\nsaying behind your\nback.\n\n\nIf you don't have\nthe information\nyou need yet, you\ncan always repeat\nthe party."
     },
     {
         "unlockThreshold": 0,
@@ -62,7 +63,7 @@
                 "optionColumns": 4
             },
             {
-                "title": "Was there jazz\nmusic playing?",
+                "title": "Was there classical\nmusic playing?",
                 "options": [
                     "Yes",
                     "No"
@@ -350,6 +351,44 @@
                     "Taylor"
                 ],
                 "correctOption": 3,
+                "optionColumns": 3
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 5,
+        "questions": [
+            {
+                "title": "What does Taylor\nmost like to do\nafter getting food?",
+                "options": [
+                    "Play board games",
+                    "Eat more food",
+                    "Dance",
+                    "Drink alcohol",
+                    "Relax in a chair",
+                    "Leave the party"
+                ],
+                "correctOption": 3,
+                "optionColumns": 1
+            },
+            {
+                "title": "Which does Zoe\ndo first?",
+                "options": [
+                    "Dance",
+                    "Drink alcohol"
+                ],
+                "correctOption": 0,
+                "optionColumns": 3
+            },
+            {
+                "title": "Which does Laura\ndo first?",
+                "options": [
+                    "Relax",
+                    "Play games"
+                    
+                ],
+                "correctOption": 1,
                 "optionColumns": 3
             }
         ],

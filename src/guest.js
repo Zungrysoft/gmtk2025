@@ -126,7 +126,7 @@ export default class Guest extends Thing {
       return 60*4;
     }
 
-    return 1200;
+    return 1600;
   }
 
   activityFoley() {

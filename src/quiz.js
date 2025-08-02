@@ -193,6 +193,17 @@ export default class Quiz extends Thing {
     let top = 52;
     let left = 436;
 
+    if (quiz.hasArt) {
+      drawSprite({
+        sprite: game.assets.textures.ui_gossip,
+        width: 1280,
+        height: 720,
+        depth: this.depth+1,
+        position: this.position,
+      })
+      top += 242
+    }
+
     // Hint
     if (quiz.hint) {
       let bottom = 673 - (getTextHeight(quiz.hint) * 0.6);

@@ -9,7 +9,7 @@ import QuizCheckButton from './quizcheckbutton.js'
 import RecallPanel from './recallpanel.js'
 import Tutorial from './tutorial.js'
 
-document.title = 'Gossip Girls: Revelations'
+document.title = 'Girl Gossip: Revelations'
 game.setWidth(1280)
 game.setHeight(720)
 game.createCanvases();
@@ -88,11 +88,14 @@ game.assets.images = await game.loadImages({
   ui_tooltip: 'images/ui/ui_tooltip.png',
   ui_tooltip2: 'images/ui/ui_tooltip2.png',
   ui_levels: 'images/ui/ui_levels.png',
+  ui_levels_switch: 'images/ui/ui_levels_switch.png',
+  ui_levels_switch_off: 'images/ui/ui_levels_switch_off.png',
   ui_recall: 'images/ui/ui_recall.png',
   ui_number: 'images/ui/ui_number.png',
   ui_play: 'images/ui/ui_play.png',
   ui_walking_man_1: 'images/ui/walking_man_1.png',
   ui_walking_man_2: 'images/ui/walking_man_2.png',
+  ui_gossip: 'images/ui/ui_gossip.png',
 
   tutorial_bg: 'images/ui/ui_tutorial_background.png',
   tutorial_rightbutton: 'images/ui/ui_button_tutorial_right.png',
@@ -169,7 +172,7 @@ const foleySounds = {
   foley_food_platter_5: 'sounds/foley/food_platter_5.wav',
   foley_food_platter_6: 'sounds/foley/food_platter_6.wav',
   foley_club_music_left: 'sounds/foley/annoying_club_music_left.wav',
-  foley_club_music_right: 'sounds/foley/annoying_club_music_right.wav',
+  // foley_club_music_right: 'sounds/foley/annoying_club_music_right.wav',
 };
 
 game.assets.sounds = await game.loadAudio({
@@ -177,23 +180,8 @@ game.assets.sounds = await game.loadAudio({
   click2: 'sounds/click2.wav',
   click3: 'sounds/click3.wav',
   swipe: 'sounds/swipe.wav',
-  swoosh1: 'sounds/swoosh1.wav',
-  discover: 'sounds/discover.wav',
-  break2: 'sounds/break2.wav',
-  break5: 'sounds/break5.wav',
-  collect: 'sounds/collect.wav',
-  impact1: 'sounds/impact1.wav',
-  newword1: 'sounds/newword1.wav',
-  newword2: 'sounds/newword2.wav',
-  newword3: 'sounds/newword3.wav',
   error: 'sounds/error.wav',
   block: 'sounds/block.wav',
-  talk: 'sounds/talk.wav',
-  hate: 'sounds/hate.wav',
-  hate2: 'sounds/hate2.wav',
-  hint: 'sounds/hint.wav',
-  menubutton: 'sounds/menubutton.wav',
-  musicchange: 'sounds/musicchange.wav',
   move1: 'sounds/move1.wav',
   move2: 'sounds/move2.wav',
   select: 'sounds/select.wav',

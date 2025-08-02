@@ -262,19 +262,30 @@ class SafeSoundWrapper {
     const analyser = audioContext.createAnalyser();
     analyser.fftSize = 4096;
 
-    // Connect nodes
-    // try {
-    //   soundSource.disconnect(); // May not always be needed
-    // } catch (e) {
-    //   // Ignore if already disconnected
-    // }
+    const eqLow = audioContext.createBiquadFilter();
+    eqLow.type = 'lowshelf';
+    eqLow.frequency.value = 320;
+    eqLow.gain.value = 0;
 
-    // this.sourceNode.connect(analyser);
-    // analyser.connect(panner);
-    // panner.connect(audioContext.destination);
+    const eqMid = audioContext.createBiquadFilter();
+    eqMid.type = 'peaking';
+    eqMid.frequency.value = 600;
+    eqMid.Q.value = 1;
+    eqMid.gain.value = 0;
+
+    const eqHigh = audioContext.createBiquadFilter();
+    eqHigh.type = 'highshelf';
+    eqHigh.frequency.value = 1600;
+    eqHigh.gain.value = 0;
 
     audioElement.pannerObject = panner;
     audioElement.isPositional = true;
+    audioElement.eqLow = eqLow;
+    audioElement.eqMid = eqMid;
+    audioElement.eqHigh = eqHigh;
+    this.eqLow = eqLow;
+    this.eqMid = eqMid;
+    this.eqHigh = eqHigh;
 
     if (!game.globals.audioSources) {
       game.globals.audioSources = [];
@@ -299,7 +310,10 @@ class SafeSoundWrapper {
     if (this.connected) return;
 
     // Connect chain
-    this.sourceNode.connect(this.analyser);
+    this.sourceNode.connect(this.eqLow);
+    this.eqLow.connect(this.eqMid);
+    this.eqMid.connect(this.eqHigh);
+    this.eqHigh.connect(this.analyser);
     this.analyser.connect(this.panner);
     this.panner.connect(this.audioContext.destination);
 
@@ -312,6 +326,10 @@ class SafeSoundWrapper {
     try {
       this.sourceNode?.disconnect();
       this.panner?.disconnect();
+      this.eqLow?.disconnect();
+      this.eqMid?.disconnect();
+      this.eqHigh?.disconnect();
+      this.panner?.disconnect();
       this.analyser?.disconnect();
     } catch (e) {
       console.warn("Safe disconnect failed", e);
@@ -322,22 +340,8 @@ class SafeSoundWrapper {
     this.connected = false;
   }
 
-  // Optional: manually dispose of everything
   dispose() {
     this.disconnect();
     this.audioElement = null;
-  }
-
-  // Optional: get loudness
-  getLoudness() {
-    if (!this.connected) return 0;
-    const data = new Uint8Array(this.analyser.fftSize);
-    this.analyser.getByteTimeDomainData(data);
-    let sum = 0;
-    for (let i = 0; i < data.length; i++) {
-      const v = (data[i] - 128) / 128;
-      sum += v * v;
-    }
-    return Math.sqrt(sum / data.length);
   }
 }

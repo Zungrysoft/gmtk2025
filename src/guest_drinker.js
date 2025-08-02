@@ -13,7 +13,7 @@ export default class GuestDrinker extends Guest {
   speedMultiplier = 1.1
   activityOffset = [-45, 45]
   likes_dancing = 9
-  likes_relax = 0
+  likes_relax = 1
   likes_food_pizza = 0
   likes_food_platter = 0
   likes_game = 0

@@ -194,7 +194,7 @@
 
     {
         "infoKeys": ["jimmy-is-very-hungry"],
-        "maxTime": 15,
+        "maxTime": 20,
         "requiredActivities": [
             {
                 "participant": "jimmy",
@@ -319,87 +319,6 @@
                 "speaker": "alfonso",
                 "sound": "bars-alfonso-02",
                 "text": "Well I figure I'll keep up my streak."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["car-crash-2"],
-        "audio": [
-            {
-                "speaker": "alfonso",
-                "sound": "crash-alfonso-01",
-                "text": "Yo Jimmy I heard you crashed Taylor's car! What happened?"
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "crash-jimmy-01",
-                "text": "Yeah... I was in a rush to get to the buffet and took a corner too fast"
-            },
-            {
-                "speaker": "alfonso",
-                "sound": "crash-alfonso-02",
-                "text": "Is the food that important?"
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "crash-jimmy-02",
-                "text": "Always Alfonso. Always."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["car-crash-2"],
-        "requiredActivitiesPresent": ["alcohol"],
-        "audio": [
-            {
-                "speaker": "alfonso",
-                "sound": "console-alfonso-01",
-                "text": "Sorry to hear about your car Taylor. Maybe a White Russian will cheer you up."
-            },
-            {
-                "speaker": "taylor",
-                "sound": "console-taylor-01",
-                "text": "Thanks man, I could use booze right now. You know, I just had that car detailed too."
-            },
-            {
-                "speaker": "alfonso",
-                "sound": "console-alfonso-02",
-                "text": "Jimmy's normally such a responsible guy."
-            },
-            {
-                "speaker": "taylor",
-                "sound": "console-taylor-02",
-                "text": "Now I gotta deal with insurance, ugh."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["taylor-fired"],
-        "audio": [
-            {
-                "speaker": "taylor",
-                "sound": "fired-taylor-01",
-                "text": "So, I just got fired."
-            },
-            {
-                "speaker": "alfonso",
-                "sound": "fired-alfonso-01",
-                "text": "No Way! What happened, Taylor?"
-            },
-            {
-                "speaker": "taylor",
-                "sound": "fired-taylor-02",
-                "text": "Zoe spread some rumor that I was stealing toilet paper from the bathroom"
-            },
-            {
-                "speaker": "alfonso",
-                "sound": "fired-alfonso-02",
-                "text": "You said they had 3 ply, right? I wouldn't blame you"
-            },
-            {
-                "speaker": "taylor",
-                "sound": "fired-taylor-03",
-                "text": "Hah! Shut up, man!"
             }
         ]
     },
@@ -587,41 +506,6 @@
         ]
     },
     {
-        "infoKeys": ["car-crash"],
-        "audio": [
-            {
-                "speaker": "jimmy",
-                "sound": "crash1",
-                "text": "Hey, Taylor!"
-            },
-            {
-                "speaker": "taylor",
-                "sound": "crash2",
-                "text": "Fuck off."
-            },
-            {
-                "speaker": "taylor",
-                "sound": "crash3",
-                "text": "Okay, look, I'm sorry for crashing your car. I've said I'm sorry a hundred times."
-            },
-            {
-                "speaker": "taylor",
-                "sound": "crash4",
-                "text": "Sorry didn't get my car out of that ditch, Jimmy. Nor does it pay for two thousand dollars in repairs."
-            },
-            {
-                "speaker": "taylor",
-                "sound": "crash5",
-                "text": "I'll pay you back, I swear! I'm just a bit strapped for cash right now."
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "crash6",
-                "text": "Uh huh."
-            }
-        ]
-    },
-    {
         "infoKeys": ["jimmy-eating-loudly"],
         "audio": [
             {
@@ -735,31 +619,6 @@
                 "speaker": "laura",
                 "sound": "xserddnbw628tf",
                 "text": "Christ."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["jimmy-zoe-fired"],
-        "audio": [
-            {
-                "speaker": "zoe",
-                "sound": "8o9iukhjuytr5",
-                "text": "Did you hear? Taylor got fired for stealing toilet paper"
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "dfgty",
-                "text": "Uhhh... what? Stop lying Zoe. That's crazy"
-            },
-            {
-                "speaker": "zoe",
-                "sound": "wefrg",
-                "text": "No for real! His job stocks 3 ply in the bathroom. Its so soft..."
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "xserghfrtf",
-                "text": "Oh shit they got 3 ply? I might need to steal some myself."
             }
         ]
     },
@@ -1094,8 +953,97 @@
             }
         ]
     },
+
+
+
     {
-        "infoKeys": ["zoe-taylor-fired"],
+        "infoKeys": ["car-crash"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "crash1",
+                "text": "Hey, Taylor!"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash2",
+                "text": "Fuck off."
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash3",
+                "text": "Okay, look, I'm sorry for crashing your car. I've said I'm sorry a hundred times."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash4",
+                "text": "Sorry didn't get my car out of that ditch, Jimmy. Nor does it pay for two thousand dollars in repairs."
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash5",
+                "text": "I'll pay you back, I swear! I'm just a bit strapped for cash right now."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash6",
+                "text": "Uh huh."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["car-crash-2"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "crash-alfonso-01",
+                "text": "Yo Jimmy I heard you crashed Taylor's car! What happened?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash-jimmy-01",
+                "text": "Yeah... I was in a rush to get to the buffet and took a corner too fast"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "crash-alfonso-02",
+                "text": "Is the food that important?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "crash-jimmy-02",
+                "text": "Always Alfonso. Always."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["car-crash-2"],
+        "requiredActivitiesPresent": ["alcohol"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "console-alfonso-01",
+                "text": "Sorry to hear about your car Taylor. Maybe a White Russian will cheer you up."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "console-taylor-01",
+                "text": "Thanks man, I could use booze right now. You know, I just had that car detailed too."
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "console-alfonso-02",
+                "text": "Jimmy's normally such a responsible guy."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "console-taylor-02",
+                "text": "Now I gotta deal with insurance, ugh."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["taylor-fired"],
         "audio": [
             {
                 "speaker": "taylor",
@@ -1119,6 +1067,64 @@
             }
         ]
     },
+    {
+        "infoKeys": ["taylor-fired"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "fired-taylor-01",
+                "text": "So, I just got fired."
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "fired-alfonso-01",
+                "text": "No Way! What happened, Taylor?"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "fired-taylor-02",
+                "text": "Zoe spread some rumor that I was stealing toilet paper from the bathroom"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "fired-alfonso-02",
+                "text": "You said they had 3 ply, right? I wouldn't blame you"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "fired-taylor-03",
+                "text": "Hah! Shut up, man!"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["taylor-fired"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "8o9iukhjuytr5",
+                "text": "Did you hear? Taylor got fired for stealing toilet paper"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "dfgty",
+                "text": "Uhhh... what? Stop lying Zoe. That's crazy"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "wefrg",
+                "text": "No for real! His job stocks 3 ply in the bathroom. Its so soft..."
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "xserghfrtf",
+                "text": "Oh shit they got 3 ply? I might need to steal some myself."
+            }
+        ]
+    },
+
+
+
     {
         "infoKeys": ["kaitlyn-is-the-worst"],
         "minTime": 40,
