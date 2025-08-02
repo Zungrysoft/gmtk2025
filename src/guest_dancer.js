@@ -17,7 +17,7 @@ export default class GuestDancer extends Guest {
   likes_food_pizza = 21
   likes_food_platter = 22
   likes_game = 0
-  likes_alcohol = 20
+  likes_alcohol = 19
   likes_guitar = 30
   shoeType = 'barefoot'
 

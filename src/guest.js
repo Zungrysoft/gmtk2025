@@ -19,7 +19,7 @@ export default class Guest extends Thing {
   arrivalTime = 0
   speedMultiplier = 1.0
   activityOffset = [0, 0]
-  likes_dance = 10
+  likes_dancing = 10
   likes_relax = 10
   likes_food_pizza = 10
   likes_food_platter = 10
@@ -209,10 +209,11 @@ export default class Guest extends Thing {
   startConversation() {
     // Find all nearby guests
 
-    const bestConversation = this.pickBestConversation(this.getInterlocutors());
+    const interlocutors = this.getInterlocutors();
+    const bestConversation = this.pickBestConversation(interlocutors);
     if (bestConversation) {
       // Create conversation thing
-      game.addThing(new Conversation(bestConversation));
+      game.addThing(new Conversation(bestConversation, interlocutors));
 
       // Set information keys
       for (const participant of this.getParticipantsOfConversation(bestConversation)) {
@@ -264,7 +265,7 @@ export default class Guest extends Thing {
   }
 
   isInConversation() {
-    if (game.getThings().some(x => x instanceof Conversation && x.conversation.audio.map(x => x.speaker).includes(this.name))) {
+    if (game.getThings().some(x => x instanceof Conversation && x.hasParticipant(this.name))) {
       return true;
     }
     return false;
@@ -272,7 +273,7 @@ export default class Guest extends Thing {
 
   decideCurrentActivity() {
     const activityPreferences = [
-      'dance',
+      'dancing',
       'guitar',
       'relax',
       'food_pizza',
@@ -447,6 +448,15 @@ export default class Guest extends Thing {
     if (!this.isActivityConversable(this.currentActivity)) {
       return false;
     }
+    
+    // Don't talk over other people >:(
+    const otherGuests = game.getThings().filter(x => x instanceof Guest && x !== this);
+    for (const otherGuest of otherGuests) {
+      if (vec2.distance(this.position, otherGuest.position) < CONVERSATION_RADIUS && otherGuest.isInConversation()) {
+        return false;
+      }
+    }
+
     return true;
   }
 
