@@ -154,6 +154,13 @@ export function pause () {
   }
 }
 
+/** Pause all sounds and music, and mark them as paused. */
+export function stopAll () {
+  for (const sound of Object.values(soundsTable)) {
+    sound.pause();
+  }
+}
+
 /** Unpause all previously paused sounds and music. */
 export function unpause () {
   for (const sound of Object.values(soundsTable)) {

@@ -134,7 +134,7 @@ export default class House extends Thing {
                             
 
     game.addThing(new QuizButton('button_quiz', game.assets.textures.ui_quiz_open, game.assets.textures.ui_quiz_closed,
-                                [256, 128], [165,0], [165,-128], false, [25, 0, 232, 73]))
+                                [256, 128], [165,0], [165,-128], true, [25, 0, 232, 73]))
 
     // game.addThing(new PauseMenu())
 
@@ -165,6 +165,8 @@ export default class House extends Thing {
     this.gamePhase = phase
 
     if (phase == 'placement') {
+      soundmanager.stopAll()
+
       if (!noSound) {
         soundmanager.playSound('swipe', 0.3, 1.0);
       }

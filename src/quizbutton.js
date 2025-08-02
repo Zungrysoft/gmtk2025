@@ -8,7 +8,7 @@ import { drawBackground, drawSprite } from './draw.js'
 import Button from './button.js'
 
 export default class QuizButton extends Button {
-  depth = 50
+  depth = 105
 
   onClick() {
     game.getThing('quiz').toggleIsEnabled();

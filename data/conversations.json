@@ -73,7 +73,7 @@
             {
                 "speaker": "taylor",
                 "sound": "console-taylor-02",
-                "text": "Now I gotta deal with insurance, ugh. *gulps drink*"
+                "text": "Now I gotta deal with insurance, ugh."
             }
         ]
     },
@@ -264,29 +264,34 @@
         "infoKeys": ["jimmy-taylor-crash"],
         "audio": [
             {
+                "speaker": "jimmy",
+                "sound": "crash1",
+                "text": "Hey, taylor!"
+            },
+            {
                 "speaker": "taylor",
-                "sound": "crash-taylor-01",
-                "text": "Jimmy! What the hell happened!"
+                "sound": "crash2",
+                "text": "Fuck off."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash3",
+                "text": "Okay, look, I'm sorry. I've said I'm sorry a hundred times."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash4",
+                "text": "Sorry didn't get my car out of that ditch nor does it pay for two thousand dollars in repairs."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "crash5",
+                "text": "I'll pay you back, I swear! I'm just a bit strapped for cash right now."
             },
             {
                 "speaker": "jimmy",
-                "sound": "crash-jimmy-01",
-                "text": "I'm so sorry Taylor! It was almost 10 and I had to get to Iguanas before they closed"
-            },
-            {
-                "speaker": "taylor",
-                "sound": "crash-taylor-02",
-                "text": "You crashed my car for a burrito?"
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "crash-jimmy-02",
-                "text": "Not just a burrito - the best burrito."
-            },
-            {
-                "speaker": "taylor",
-                "sound": "crash-taylor-03",
-                "text": "I'm so done with you man"
+                "sound": "crash6",
+                "text": "Uh huh."
             }
         ]
     },
