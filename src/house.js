@@ -18,6 +18,7 @@ import SkipButton from './skipbutton.js'
 import PauseButton from './pausebutton.js'
 import PauseMenu from './pausemenu.js'
 import Tutorial from './tutorial.js'
+import WalkingMan from './walkingman.js'
 
 export default class House extends Thing {
   isDying = false

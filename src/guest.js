@@ -6,6 +6,7 @@ import Thing from 'thing'
 import Furniture from './furniture.js'
 import { drawSprite, drawText } from './draw.js'
 import Conversation from './conversation.js'
+import WalkingMan from './walkingman.js'
 
 const CONVERSATION_RADIUS = 130
 const TALK_RADIUS = CONVERSATION_RADIUS * 2.1
@@ -41,6 +42,11 @@ export default class Guest extends Thing {
   }
 
   update() {
+    // Spawn animation of entering the party
+    if (this.enteringTime === 95) {
+      game.addThing(new WalkingMan(false))
+    }
+
     if (this.enteringTime == null) {
       this.enteringTime = this.arrivalTime;
     }
@@ -48,6 +54,8 @@ export default class Guest extends Thing {
       this.enteringTime --;
       return;
     }
+
+    
 
     this.inTransit = false;
 
@@ -308,6 +316,7 @@ export default class Guest extends Thing {
   finishActivity() {
     if (this.currentActivity === 'leave') {
       this.isDead = true;
+      game.addThing(new WalkingMan(true))
       return;
     }
 

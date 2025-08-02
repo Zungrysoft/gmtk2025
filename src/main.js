@@ -45,7 +45,6 @@ game.assets.images = await game.loadImages({
   background_night: 'images/ui/ui_background_night.png',
   background_pause: 'images/ui/ui_background_pause.png',
 
-  furniture_food1: 'images/furniture_food1.png',
   furniture_table1: 'images/furniture/furniture_table1.png',
   furniture_table2: 'images/furniture/furniture_table2.png',
   furniture_table3: 'images/furniture/furniture_table3.png',
@@ -87,6 +86,8 @@ game.assets.images = await game.loadImages({
   ui_recall: 'images/ui/ui_recall.png',
   ui_number: 'images/ui/ui_number.png',
   ui_play: 'images/ui/ui_play.png',
+  ui_walking_man_1: 'images/ui/walking_man_1.png',
+  ui_walking_man_2: 'images/ui/walking_man_2.png',
 
   tutorial_bg: 'images/ui/ui_tutorial_background.png',
   tutorial_rightbutton: 'images/ui/ui_button_tutorial_right.png',
