@@ -120,11 +120,13 @@ export default class Quiz extends Thing {
     }
 
     // Create new clickables for buttons (unless page is solved)
-    if (!this.solvedPages[this.currentPage] && this.isEnabled) {
+    if (this.isEnabled) {
       const quiz = game.assets.data.quizzes[this.currentPage];
       for (const questionIndex in quiz.questions) {
-        for (const index in quiz.questions[questionIndex].options) {
-          this.clickables[[questionIndex, index]] = game.addThing(new QuizClickable(this, questionIndex, index));
+        if (!this.solvedPages[this.currentPage]) {
+          for (const index in quiz.questions[questionIndex].options) {
+            this.clickables[[questionIndex, index]] = game.addThing(new QuizClickable(this, questionIndex, index));
+          }
         }
         if (quiz.questions[questionIndex].audioClip) {
           this.clickables[[questionIndex, -1]] = game.addThing(new QuizClickable(this, questionIndex, -1));
@@ -136,6 +138,10 @@ export default class Quiz extends Thing {
   clickedButton(question, option) {
     if (option == -1) {
       // Play profile picture sound
+      const possibleSounds = game.assets.data.quizzes[this.currentPage].questions[question].audioClip.sounds;
+      const r = Math.floor(Math.random() * possibleSounds.length)
+      const chosenSound = possibleSounds[r]
+      soundmanager.playSound(chosenSound, 0.3, 1.0);
     }
     else {
       if (this.selectedOptions[[this.currentPage, question]] == option) {
@@ -206,28 +212,32 @@ export default class Quiz extends Thing {
     // Questions:
     if (quiz.questions) {
       for (const [questionIndex, question] of quiz.questions.entries()) {
-        // Confirmation check mark
-        if (this.solvedPages[this.currentPage]) {
-          drawSprite({
-            sprite: game.assets.textures.ui_checkmark,
-            width: 128,
-            height: 128,
-            depth: this.depth + 2,
-            position: vec2.add(vec2.add(this.position, [left, top]), [-74, -50]),
+        // Title text
+        if (question.title) {
+          // Confirmation check mark
+          if (this.solvedPages[this.currentPage]) {
+            drawSprite({
+              sprite: game.assets.textures.ui_checkmark,
+              width: 128,
+              height: 128,
+              depth: this.depth + 2,
+              position: vec2.add(vec2.add(this.position, [left, top]), [-74, -50]),
+            })
+          }
+
+          drawText({
+            text: question.title,
+            position: vec2.add(this.position, [left, top]),
+            depth: this.depth + 1,
+            color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
           })
+          top += getTextHeight(question.title);
+        }
+        else {
+          top -= 24
         }
 
-        // Title text
-        drawText({
-          text: question.title,
-          position: vec2.add(this.position, [left, top]),
-          depth: this.depth + 1,
-          color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
-        })
-        top += getTextHeight(question.title);
-
-        if (question.audio_clip) {
-
+        if (question.audioClip) {
           drawSprite({
             sprite: game.assets.textures.profile_unknown,
             width: 128,
@@ -235,6 +245,20 @@ export default class Quiz extends Thing {
             depth: this.depth + 1,
             position: vec2.add(vec2.add(this.position, [left, top]), [0, 0]),
           })
+
+          let color = [1, 1, 1];
+          if (this.clickables[[questionIndex, -1]]?.isHighlighted) {
+            color = [1.3, 1.3, 1.3];
+          }
+          drawSprite({
+            sprite: game.assets.textures.ui_play,
+            width: 128,
+            height: 128,
+            color: color,
+            depth: this.depth + 1,
+            position: vec2.add(vec2.add(this.position, [left, top]), [140, 0]),
+          })
+          this.clickables[[questionIndex, -1]]?.setAabb(vec2.add(vec2.add(this.position, [left, top]), [140, 0]), 128, 128)
 
           top += 102
         }

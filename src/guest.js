@@ -30,7 +30,7 @@ export default class Guest extends Thing {
   drunkedness = 0
   currentActivity = null;
   activityTime = 0;
-  position = [463, 531];
+  position = [405, 465];
   activityCompletions = {};
   footstepTime = 1.0;
   timeToWait = 60 * 10;
@@ -63,7 +63,7 @@ export default class Guest extends Thing {
       activityPosition = vec2.add(activityPosition, vec2.scale(this.activityOffset, 0.5));
     }
     else {
-      activityPosition = [423, 481];
+      activityPosition = [405, 465];
     }
     if (this.currentActivity) {
       // Walk toward activity
@@ -130,7 +130,7 @@ export default class Guest extends Thing {
       if (this.canPlayGuitar) {
         // Pick up guitar
         if (this.beenDoingActivityFor === 10) {
-          soundmanager.playSound('foley_guitar_pick_up', 0.6, 1.0, [...this.getFoleyPosition(), 6]);
+          soundmanager.playSound('foley_guitar_pick_up', 0.8, 1.0, [...this.getFoleyPosition(), 6]);
         }
         // Play guitar track
         else if (this.beenDoingActivityFor === 60) {
@@ -145,36 +145,47 @@ export default class Guest extends Thing {
           } else {
             sound = 'foley_guitar_4';
           }
-          soundmanager.playSound(sound, 0.6, 1.0, [...this.getFoleyPosition(), 14]);
+          soundmanager.playSound(sound, 0.8, 1.0, [...this.getFoleyPosition(), 14]);
         }
         // Put guitar down
         else if (this.activityTime === 60) {
-          soundmanager.playSound('foley_guitar_put_down', 0.6, 1.0, [...this.getFoleyPosition(), 6]);
+          soundmanager.playSound('foley_guitar_put_down', 0.8, 1.0, [...this.getFoleyPosition(), 6]);
         }
       }
     }
     if (this.currentActivity === 'alcohol') {
       if (this.beenDoingActivityFor === 60) {
-        soundmanager.playSound(['foley_alcohol_1', 'foley_alcohol_2', 'foley_alcohol_3'], 0.3, 1.0, [...this.getFoleyPosition(), 80]);
+        soundmanager.playSound(['foley_alcohol_1', 'foley_alcohol_2', 'foley_alcohol_3'], 0.4, 1.0, [...this.getFoleyPosition(), 80]);
       }
     }
     if (this.currentActivity === 'relax') {
       if (this.beenDoingActivityFor === 60) {
-        soundmanager.playSound(['foley_chair_sit_1', 'foley_chair_sit_2', 'foley_chair_sit_3'], 0.6, 1.0, [...this.getFoleyPosition(), 30]);
+        soundmanager.playSound(['foley_chair_sit_1', 'foley_chair_sit_2', 'foley_chair_sit_3'], 0.8, 1.0, [...this.getFoleyPosition(), 30]);
       }
       if (this.activityTime === 60) {
-        soundmanager.playSound(['foley_chair_stand_1', 'foley_chair_stand_2', 'foley_chair_stand_3'], 0.6, 1.0, [...this.getFoleyPosition(), 30]);
+        soundmanager.playSound(['foley_chair_stand_1', 'foley_chair_stand_2', 'foley_chair_stand_3'], 0.8, 1.0, [...this.getFoleyPosition(), 30]);
       }
     }
     if (this.currentActivity === 'game') {
       if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
         // Every few seconds, maybe play a board game sound
-        if (this.beenDoingActivityFor % (60 * 2) === 0 && Math.random() < 0.4) {
+        if (this.beenDoingActivityFor % 114 === 0 && Math.random() < 0.4) {
           soundmanager.playSound([
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
             'foley_game_' + Math.floor(Math.random() * 8 + 1),
-          ], 0.6, 1.0, [...this.getFoleyPosition(), 80]);
+          ], 0.8, 1.0, [...this.getFoleyPosition(), 80]);
+        }
+      }
+    }
+    if (this.currentActivity === 'food_platter' || this.currentActivity === 'food_pizza') {
+      if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
+        if (this.beenDoingActivityFor % 43 === 0 && Math.random() < 0.3) {
+          soundmanager.playSound([
+            'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
+            'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
+            'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
+          ], 0.55, 1.0, [...this.getFoleyPosition(), 80]);
         }
       }
     }

@@ -8,7 +8,7 @@ import QuizArrowButton from './quizarrowbutton.js'
 import QuizCheckButton from './quizcheckbutton.js'
 import RecallPanel from './recallpanel.js'
 
-document.title = 'In the Loop'
+document.title = 'Gossip Girls: Revelations'
 game.setWidth(1280)
 game.setHeight(720)
 game.createCanvases();
@@ -24,7 +24,7 @@ for (const char of "abcdefghijklmnopqrstuvwxyz") {
   fontData["letter_lower_" + char] = 'images/font/letter_lower_' + char + '.png';
   fontData["letter_upper_" + char] = 'images/font/letter_upper_' + char + '.png';
 }
-for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark', 'colon']) {
+for (const symbol of ['comma', 'period', 'exclamation_point', 'question_mark', 'colon', 'apostraphe']) {
   fontData["letter_symbol_" + symbol] = 'images/font/letter_symbol_' + symbol + '.png';
 }
 for (let i = 0; i < 10; i ++) {
@@ -42,6 +42,7 @@ game.assets.images = await game.loadImages({
   button_startnight: 'images/ui/ui_button_startnight.png',
   house_day: 'images/ui/ui_house_day.png',
   background_day: 'images/ui/ui_background_day.png',
+  background_night: 'images/ui/ui_background_night.png',
   background_pause: 'images/ui/ui_background_pause.png',
 
   furniture_food1: 'images/furniture_food1.png',
@@ -85,6 +86,7 @@ game.assets.images = await game.loadImages({
   ui_levels: 'images/ui/ui_levels.png',
   ui_recall: 'images/ui/ui_recall.png',
   ui_number: 'images/ui/ui_number.png',
+  ui_play: 'images/ui/ui_play.png',
 
   tutorial_bg: 'images/ui/ui_tutorial_background.png',
   tutorial_rightbutton: 'images/ui/ui_button_tutorial_right.png',
@@ -187,6 +189,25 @@ game.assets.sounds = await game.loadAudio({
   paper1: 'sounds/paper1.wav',
   paper2: 'sounds/paper2.wav',
   recall: 'sounds/recall.wav',
+
+  intro_alfonso_1: 'sounds/intro/intro_alfonso_1.wav',
+  intro_alfonso_2: 'sounds/intro/intro_alfonso_2.wav',
+  intro_alfonso_3: 'sounds/intro/intro_alfonso_3.wav',
+  intro_jimmy_1: 'sounds/intro/intro_jimmy_1.wav',
+  intro_jimmy_2: 'sounds/intro/intro_jimmy_2.wav',
+  intro_jimmy_3: 'sounds/intro/intro_jimmy_3.wav',
+  intro_taylor_1: 'sounds/intro/intro_taylor_1.wav',
+  intro_taylor_2: 'sounds/intro/intro_taylor_2.wav',
+  intro_taylor_3: 'sounds/intro/intro_taylor_3.wav',
+  intro_sam_1: 'sounds/intro/intro_sam_1.wav',
+  intro_sam_2: 'sounds/intro/intro_sam_2.wav',
+  intro_sam_3: 'sounds/intro/intro_sam_3.wav',
+  intro_laura_1: 'sounds/intro/intro_laura_1.wav',
+  intro_laura_2: 'sounds/intro/intro_laura_2.wav',
+  intro_laura_3: 'sounds/intro/intro_laura_3.wav',
+  intro_zoe_1: 'sounds/intro/intro_zoe_1.wav',
+  intro_zoe_2: 'sounds/intro/intro_zoe_2.wav',
+  intro_zoe_3: 'sounds/intro/intro_zoe_3.wav',
 
   ...conversationAudio,
   ...foleySounds,
