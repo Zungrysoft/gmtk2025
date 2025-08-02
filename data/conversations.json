@@ -1,32 +1,5 @@
 [
     {
-        "maxTime": 25,
-        "requiredActivities": [
-            {
-                "participant": "hungry",
-                "activities": ["food_pizza", "food_platter"]
-            }
-        ],
-        "infoKeys": ["hungry_is_hungry"],
-        "audio": [
-            {
-                "speaker": "dancer",
-                "sound": "001_dancer_001",
-                "text": "I see you're at the buffet table straight away."
-            },
-            {
-                "speaker": "hungry",
-                "sound": "001_hungry_001",
-                "text": "Yeah, I'm starving. I had a 12-hour shift, haven't eaten since breakfast."
-            },
-            {
-                "speaker": "dancer",
-                "sound": "001_dancer_002",
-                "text": "Damn! Get some food in you!"
-            }
-        ]
-    },
-    {
         "maxTime": 90,
         "infoKeys": ["alfonso-jimmy-bars"],
         "audio": [
