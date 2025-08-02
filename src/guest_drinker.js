@@ -20,5 +20,5 @@ export default class GuestDrinker extends Guest {
   likes_alcohol = 15
   likes_guitar = 10
   canPlayGuitar = true
-
+  partyNeeds = ['alcohol', 'dancing']
 }

@@ -17,6 +17,15 @@
             }
         ]
     },
+    "alfonso-leave-disgust": {
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "alfonsoleavedisgust",
+                "text": "No booze, no music. That's not a party. I'm outta here!"
+            }
+        ]
+    },
     "jimmy-leave-early": {
         "audio": [
             {
@@ -32,6 +41,15 @@
                 "speaker": "jimmy",
                 "sound": "jimmyleave",
                 "text": "I think it's about that time. I'd better go."
+            }
+        ]
+    },
+    "jimmy-leave-disgust": {
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "jimmyleavedisgust",
+                "text": "Come on! There's no food here! I gotta leave to get something to eat!"
             }
         ]
     },
@@ -86,6 +104,15 @@
                 "speaker": "laura",
                 "sound": "lauraleave",
                 "text": "Thanks, everybody! I'm heading home now!"
+            }
+        ]
+    },
+    "laura-leave-disgust": {
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "lauraleavedisgust",
+                "text": "Hey, they told me there would be board games here. Never mind, I'm leaving."
             }
         ]
     },

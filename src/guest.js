@@ -137,15 +137,19 @@ export default class Guest extends Thing {
     if (this.currentActivity === 'leave' && this.beenDoingActivityFor === 10) {
       // Make sure we have a comment
       let commentStr = `${this.name}-leave`
-      if (game.getThing('house').partyTime < (60 * 30)) {
+      if (this.leftInDisgust && game.assets.data.comments[commentStr + '-disgust']) {
+        commentStr += '-disgust'
+      }
+      else if (game.getThing('house').partyTime < (60 * 30) && game.assets.data.comments[commentStr + '-early']) {
         commentStr += '-early'
       }
+
       if (game.assets.data.comments[commentStr]) {
         // Don't interrupt
         const otherGuests = game.getThings().filter(x => x instanceof Guest);
         let tooClose = false
         for (const otherGuest of otherGuests) {
-          if (vec2.distance(this.position, otherGuest.position) < CONVERSATION_RADIUS/2 && otherGuest.isInConversation()) {
+          if (vec2.distance(this.position, otherGuest.position) < 20 && otherGuest.isInConversation()) {
             tooClose = true
             break
           }
@@ -407,8 +411,27 @@ export default class Guest extends Thing {
     return game.getThings().some(x => x instanceof Furniture && x.type === activity);
   }
 
+  checkLeaveInDisgust() {
+    if (!this.partyNeeds) {
+      return false
+    }
+
+    for (const need of this.partyNeeds) {
+      if (this.isActivityPresent(need)) {
+        return false;
+      }
+    }
+
+    return true
+  }
+
   getActivityScore(activity) {
     let bonus = 0
+
+    if (this.checkLeaveInDisgust()) {
+      this.leftInDisgust = true
+      return -1000
+    }
 
     if (activity.includes('food')) {
       if (this.hunger >= 2) {
