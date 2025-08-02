@@ -135,6 +135,7 @@ const foleySounds = {
   footstep_barefoot_2: 'sounds/footsteps/footstep_barefoot_2.wav',
   footstep_barefoot_3: 'sounds/footsteps/footstep_barefoot_3.wav',
 
+  foley_outdoor_ambience: 'sounds/foley/outdoor_ambience.wav',
   foley_guitar_1: 'sounds/foley/guitar1.wav',
   foley_guitar_2: 'sounds/foley/guitar2.wav',
   foley_guitar_3: 'sounds/foley/guitar3.wav',

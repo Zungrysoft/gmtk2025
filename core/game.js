@@ -563,7 +563,7 @@ export async function loadAudio (locations) {
       return document.querySelector(location)
     }
     const audio = new Audio()
-    if (location.includes('club_music')) {
+    if (location.includes('club_music') || location.includes('ambience')) {
       audio.loop = true
     }
     audio.src = location

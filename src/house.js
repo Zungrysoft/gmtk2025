@@ -222,6 +222,8 @@ export default class House extends Thing {
           thing.startAmbientSounds();
         }
       }
+      // Ambient outdoor sounds
+      soundmanager.playSound('foley_outdoor_ambience', 0.7, 1.0, [409, 481, 120]);
 
       this.selectedMic = 0
       this.partyTime = 0
