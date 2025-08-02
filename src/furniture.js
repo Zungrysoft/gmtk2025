@@ -164,7 +164,10 @@ export default class Furniture extends Thing {
     if (this.type === 'dancing' && finishedPages < 5) {
       return false
     }
-    if (this.type === 'game' && finishedPages < 2) {
+    if (this.type === 'game' && finishedPages < 3) {
+      return false
+    }
+    if (this.type === 'guitar' && finishedPages < 1) {
       return false
     }
 
