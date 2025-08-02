@@ -157,6 +157,42 @@
 
 
     {
+        "infoKeys": ["kaitlyn-owns-guitar"],
+        "maxTime": 25,
+        "requiredActivitiesPresent": ["guitar"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "apwowjk484hn",
+                "text": "Huh. I never knew Kaitlyn owned a guitar. But there's one right there."
+            },
+            {
+                "speaker": "laura",
+                "sound": "dsad235ghghh83",
+                "text": "Yeah, weird"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-owns-guitar"],
+        "maxTime": 25,
+        "requiredActivitiesPresent": ["guitar"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "ap2e92jebvggdtys84hn",
+                "text": "Huh. I never knew Kaitlyn owned a guitar. But there's one right there."
+            },
+            {
+                "speaker": "sam",
+                "sound": "dsdfwdfrdfrfnnnnb",
+                "text": "Yeah, I've never heard her play before."
+            }
+        ]
+    },
+
+
+    {
         "infoKeys": ["jimmy-is-very-hungry"],
         "maxTime": 15,
         "requiredActivities": [
