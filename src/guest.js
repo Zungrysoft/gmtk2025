@@ -123,7 +123,7 @@ export default class Guest extends Thing {
     }
 
     if (this.currentActivity === 'leave') {
-      return 5;
+      return 60*4;
     }
 
     return 1200;
@@ -132,6 +132,29 @@ export default class Guest extends Thing {
   activityFoley() {
     if (!this.currentActivity) {
       return;
+    }
+
+    if (this.currentActivity === 'leave' && this.beenDoingActivityFor === 10) {
+      // Make sure we have a comment
+      let commentStr = `${this.name}-leave`
+      if (game.getThing('house').partyTime < (60 * 30)) {
+        commentStr += '-early'
+      }
+      if (game.assets.data.comments[commentStr]) {
+        // Don't interrupt
+        const otherGuests = game.getThings().filter(x => x instanceof Guest);
+        let tooClose = false
+        for (const otherGuest of otherGuests) {
+          if (vec2.distance(this.position, otherGuest.position) < CONVERSATION_RADIUS/2 && otherGuest.isInConversation()) {
+            tooClose = true
+            break
+          }
+        }
+
+        if (!tooClose) {
+          this.startComment(game.assets.data.comments[commentStr])
+        }
+      }
     }
 
     if (this.currentActivity === 'guitar') {
@@ -206,6 +229,10 @@ export default class Guest extends Thing {
     return this.position;
   }
 
+  startComment(comment) {
+    game.addThing(new Conversation(comment));
+  }
+
   startConversation() {
     // Find all nearby guests
 
@@ -213,7 +240,7 @@ export default class Guest extends Thing {
     const bestConversation = this.pickBestConversation(interlocutors);
     if (bestConversation) {
       // Create conversation thing
-      game.addThing(new Conversation(bestConversation, interlocutors));
+      game.addThing(new Conversation(bestConversation));
 
       // Set information keys
       for (const participant of this.getParticipantsOfConversation(bestConversation)) {
@@ -487,6 +514,11 @@ export default class Guest extends Thing {
       if (!interlocutors.includes(participant)) {
         return false;
       }
+    }
+
+    // Skip manual conversations
+    if (conversation.isManual) {
+      return false;
     }
 
     // Check max time

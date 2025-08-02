@@ -1,0 +1,110 @@
+{
+    "alfonso-leave-early": {
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "alfonsoleaveearly",
+                "text": "Man, this party sucks! I'm outta here!"
+            }
+        ]
+    },
+    "alfonso-leave": {
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "alfonsoleave",
+                "text": "Welp, I think that'll do it for me. I gotta get home."
+            }
+        ]
+    },
+    "jimmy-leave-early": {
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "jimmyleaveearly",
+                "text": "This party blows! I'm leaving!"
+            }
+        ]
+    },
+    "jimmy-leave": {
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "jimmyleave",
+                "text": "I think it's about that time. I'd better go."
+            }
+        ]
+    },
+    "taylor-leave-early": {
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "taylorleaveearly",
+                "text": "There's nothing to do here, I'm gonna go."
+            }
+        ]
+    },
+    "taylor-leave": {
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "taylorleave",
+                "text": "Welp, I'm heading out. It's been fun."
+            }
+        ]
+    },
+    "sam-leave-early": {
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "samleaveearly",
+                "text": "The party's already dead? Lame"
+            }
+        ]
+    },
+    "sam-leave": {
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "samleave",
+                "text": "Well I guess I'm gonna leave"
+            }
+        ]
+    },
+    "laura-leave-early": {
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "lauraleaveearly",
+                "text": "This sucks! I'm just gonna go."
+            }
+        ]
+    },
+    "laura-leave": {
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "lauraleave",
+                "text": "Thanks, everybody! I'm heading home now!"
+            }
+        ]
+    },
+    "zoe-leave-early": {
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "zoeleaveearly",
+                "text": "What a super lame party! What were we thinking?"
+            }
+        ]
+    },
+    "zoe-leave": {
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "zoeleave",
+                "text": "It's been fun, y'all! I'm gonna jet!"
+            }
+        ]
+    }
+}

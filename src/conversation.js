@@ -10,10 +10,9 @@ import Guest from './guest.js'
 export default class Conversation extends Thing {
   time = 0
 
-  constructor(conversation, extraParticipants) {
+  constructor(conversation) {
     super();
     this.conversation = conversation;
-    this.extraParticipants = extraParticipants;
 
     this.dialogueLine = 0;
     this.playDialogue(0)
@@ -64,6 +63,6 @@ export default class Conversation extends Thing {
   }
 
   hasParticipant(participant) {
-    return this.conversation.audio.map(x => x.speaker).includes(participant) // || this.extraParticipants.includes(participant);
+    return this.conversation.audio.map(x => x.speaker).includes(participant)
   }
 }

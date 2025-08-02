@@ -113,15 +113,16 @@ game.assets.images = await game.loadImages({
 
 game.assets.data = await game.loadJson({
   conversations: 'data/conversations.json',
+  comments: 'data/comments.json',
   quizzes: 'data/quizzes.json',
 })
 
-const conversationAudioStrings = game.assets.data.conversations.flatMap(c => c.audio.map(a => a.sound))
+const allConversations = [...game.assets.data.conversations, ...Object.values(game.assets.data.comments)]
+const conversationAudioStrings = allConversations.flatMap(c => c.audio.map(a => a.sound))
 let conversationAudio = {};
 for (const aString of conversationAudioStrings) {
   conversationAudio['conversation_' + aString] = 'sounds/conversations/' + aString + '.wav';
 }
-
 
 // Sounds that will be played in 3D-space simulation
 const foleySounds = {

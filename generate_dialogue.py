@@ -21,7 +21,6 @@ OUTPUT_DIR = "sounds/conversations"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def get_voice_id_by_name(target_name):
-    print(target_name)
     engine = pyttsx3.init()
     for voice in engine.getProperty('voices'):
         if target_name.lower() in voice.name.lower():
@@ -68,6 +67,7 @@ def synthesize_clip(text, output_path, voice_name):
 def process_audio_line(args):
     speaker, text, sound = args
     voice_name = SPEAKER_VOICE_MAP.get(speaker)
+    print(text)
     if voice_name == None:
         print("Invalid speaker " + speaker)
         return
@@ -76,8 +76,14 @@ def process_audio_line(args):
 
 
 if __name__ == "__main__":
+
     with open("data/conversations.json", "r", encoding="utf-8") as f:
         dialogues = json.load(f)
+    
+    with open("data/comments.json", "r", encoding="utf-8") as f2:
+        data = json.load(f2)
+        for key in data:
+            dialogues.append(data[key])
 
     jobs = []
     for entry in dialogues:
