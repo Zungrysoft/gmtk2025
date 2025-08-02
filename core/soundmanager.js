@@ -163,30 +163,26 @@ export function unpause () {
   }
 }
 
-export function configurePositionalSound(soundDef=[]) {
+export function configurePositionalSound(soundDef = []) {
   if (Array.isArray(soundDef)) {
     for (const entry of soundDef) {
-      configurePositionalSound(entry)
+      configurePositionalSound(entry);
     }
-    return
+    return;
   }
 
   try {
-    const sound = game.assets.sounds[soundDef]
+    const sound = game.assets.sounds[soundDef];
 
     if (!sound) {
-      throw new Error("Could not find sound " + soundDef)
+      throw new Error("Could not find sound " + soundDef);
     }
 
-    // If the sound is already positional, skip
-    if (sound.isPositional) {
-      return
-    }
+    // If already configured, skip
+    if (sound.isPositional) return;
 
-    // Create a sound source from the audio element
     const soundSource = audioContext.createMediaElementSource(sound);
 
-    // Create a panner node
     const panner = audioContext.createPanner();
     panner.panningModel = 'HRTF';
     panner.distanceModel = 'exponential';
@@ -197,49 +193,77 @@ export function configurePositionalSound(soundDef=[]) {
     panner.coneOuterAngle = 360;
     panner.coneOuterGain = 1.0;
 
-    // Create analyser node
     const analyser = audioContext.createAnalyser();
     analyser.fftSize = 4096;
 
-    // Connect the nodes and allow the audio element to control playback
-    soundSource.disconnect();
+    // Connect nodes
+    try {
+      soundSource.disconnect(); // May not always be needed
+    } catch (e) {
+      // Ignore if already disconnected
+    }
+
     soundSource.connect(analyser);
     analyser.connect(panner);
     panner.connect(audioContext.destination);
 
-    // Save references to these objects in the audio element so we can access them later
-    sound.pannerObject = panner
-    sound.isPositional = true
+    sound.pannerObject = panner;
+    sound.isPositional = true;
 
-    // Save references to the analyser and panner for later access in loudness checking
     if (!game.globals.audioSources) {
       game.globals.audioSources = [];
     }
-    game.globals.audioSources.push({
-      panner,
-      analyser,
-    })
+
+    game.globals.audioSources.push({ panner, analyser });
 
   } catch (error) {
     console.error('Error configuring spatial audio:', error);
   }
 }
 
-// Updates a sound effect's audio context to change where it's being heard from
 export function updateSoundPan(position, lookVector) {
-  audioContext.listener.positionX.setValueAtTime(position[0], audioContext.currentTime);
-  audioContext.listener.positionY.setValueAtTime(position[2], audioContext.currentTime);
-  audioContext.listener.positionZ.setValueAtTime(position[1], audioContext.currentTime);
+  const listener = audioContext.listener;
+  const t = audioContext.currentTime;
 
-  audioContext.listener.forwardX.setValueAtTime(lookVector[0], audioContext.currentTime);
-  audioContext.listener.forwardY.setValueAtTime(lookVector[2], audioContext.currentTime);
-  audioContext.listener.forwardZ.setValueAtTime(lookVector[1], audioContext.currentTime);
+  // Check for modern AudioParam API
+  const hasPositionX = 'positionX' in listener;
+  const hasForwardX = 'forwardX' in listener;
 
-  // Configure up direction
-  audioContext.listener.upX.setValueAtTime(0, audioContext.currentTime);
-  audioContext.listener.upY.setValueAtTime(1, audioContext.currentTime);
-  audioContext.listener.upZ.setValueAtTime(0, audioContext.currentTime);
+  if (hasPositionX) {
+    listener.positionX.setValueAtTime(position[0], t);
+    listener.positionY.setValueAtTime(position[2], t); // Note the [2]
+    listener.positionZ.setValueAtTime(position[1], t); // [1] is height
 
-  // Disable doppler effect
-  audioContext.listener.dopplerFactor = 0;
+    if (hasForwardX) {
+      listener.forwardX.setValueAtTime(lookVector[0], t);
+      listener.forwardY.setValueAtTime(lookVector[2], t);
+      listener.forwardZ.setValueAtTime(lookVector[1], t);
+
+      listener.upX.setValueAtTime(0, t);
+      listener.upY.setValueAtTime(1, t);
+      listener.upZ.setValueAtTime(0, t);
+    } else {
+      // Fallback orientation
+      listener.setOrientation(
+        lookVector[0], lookVector[2], lookVector[1], // forward
+        0, 1, 0                                       // up
+      );
+    }
+
+  } else {
+    // Fallback to older methods
+    listener.setPosition(position[0], position[2], position[1]); // re-map Y/Z
+    listener.setOrientation(
+      lookVector[0], lookVector[2], lookVector[1], // forward
+      0, 1, 0                                       // up
+    );
+  }
+
+  // Firefox does not support dopplerFactor; ignore if unsupported
+  try {
+    listener.dopplerFactor = 0;
+  } catch (e) {
+    // Do nothing
+  }
 }
+
