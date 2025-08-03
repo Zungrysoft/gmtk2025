@@ -8,7 +8,7 @@ import { drawBackground, drawSprite, drawText, getTextHeight, getTextWidth } fro
 import Button from './button.js'
 import Furniture from './furniture.js'
 import Thing from 'thing'
-import { TEXT_REGULAR, TEXT_SELECTED } from './quiz.js'
+import { TEXT_HIGHLIGHTED, TEXT_REGULAR, TEXT_SELECTED } from './quiz.js'
 
 export default class Reminder extends Thing {
   time = 0
@@ -46,7 +46,7 @@ export default class Reminder extends Thing {
     })
     drawText({
       text: this.text,
-      position: vec2.add(this.position, [4, 4]),
+      position: vec2.add(this.position, [2, 2]),
       depth: this.depth - 1,
       color: TEXT_REGULAR,
     })

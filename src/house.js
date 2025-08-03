@@ -35,6 +35,8 @@ export default class House extends Thing {
   nightOverlayAlpha = 0
   furnitureTray = null
 
+  qTime = 120
+
   cutEqLow = false
   cutEqMid = false
   cutEqHigh = false
@@ -116,6 +118,14 @@ export default class House extends Thing {
     }
     else {
       this.nightOverlayAlpha = Math.max(0, this.nightOverlayAlpha - 1/60)
+
+      if (this.night === 2 && !game.getThing('quiz').isEnabled) {
+        this.qTime --
+        if (this.qTime === 0) {
+          this.qTime --
+          game.addThing(new Reminder("What if you set up\n   the party differently?"))
+        }
+      }
     }
 
 
