@@ -187,7 +187,7 @@ export default class House extends Thing {
     // game.addThing(new PauseButton('button_pause', game.assets.textures.button_pause, game.assets.textures.button_pause,
     //                             [100,100], [1170,20], [1170,-100], true, [3,3,97,97]))
     game.addThing(new SkipButton('button_skipnight', game.assets.textures.button_skipnight, game.assets.textures.button_skipnight,
-                                [100,100], [1070,20], [1070,-100], false, [4,4,92,95]))
+                                [200,100], [1070,20], [1070,-100], false, [4,4,192,95]))
     game.addThing(new StartButton('button_startnight', game.assets.textures.button_startnight, game.assets.textures.button_startnight,
                                 [400,100], [456,613], [456,730], false, [45,7,357,90]))
                             
