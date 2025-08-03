@@ -8,43 +8,6 @@
         "unlockThreshold": 0,
         "questions": [
             {
-                "title": "Who is this?",
-                "audioClip": {
-                    "sounds": ["intro_jimmy_1", "intro_jimmy_2", "intro_jimmy_3"],
-                    "picture": "profile_jimmy"
-                },
-                "options": [
-                    "Taylor",
-                    "Steven",
-                    "Laura",
-                    "Sam",
-                    "Kaitlyn",
-                    "Jimmy",
-                    "Alfonso",
-                    "Zoe"
-                ],
-                "correctOption": 5,
-                "optionColumns": 2
-            },
-            {
-                "title": "And what do they\nalways do first\nwhen they arrive?",
-                "audioClip": null,
-                "options": [
-                    "Dance",
-                    "Relax",
-                    "Eat Food",
-                    "Play Games"
-                ],
-                "correctOption": 2,
-                "optionColumns": 2
-            }
-        ],
-        "hint": "Hint: Try different furniture\nlayouts for different\nresults."
-    },
-    {
-        "unlockThreshold": 0,
-        "questions": [
-            {
                 "title": "Was at least one\nmale present?",
                 "options": [
                     "Yes",
@@ -81,6 +44,35 @@
                 "optionColumns": 4
             }
         ]
+    },
+    {
+        "unlockThreshold": 0,
+        "questions": [
+            {
+                "title": "Who is this?",
+                "audioClip": {
+                    "sounds": ["intro_jimmy_1", "intro_jimmy_2", "intro_jimmy_3"],
+                    "picture": "profile_jimmy"
+                },
+                "options": [
+                    "Taylor",
+                    "Wensley",
+                    "Steven",
+                    "Richard",
+                    "Laura",
+                    "Sam",
+                    "Gertrude",
+                    "Kaitlyn",
+                    "Jimmy",
+                    "Cassidy",
+                    "Alfonso",
+                    "Zoe"
+                ],
+                "correctOption": 8,
+                "optionColumns": 2
+            }
+        ],
+        "hint": "Hint: Try different furniture\nlayouts to get different\nguests to meet."
     },
     {
         "unlockThreshold": 0,
@@ -130,6 +122,37 @@
         "unlockThreshold": 0,
         "questions": [
             {
+                "title": "What does Jimmy\nalways do first\nwhen he arrives?",
+                "audioClip": null,
+                "options": [
+                    "Dance",
+                    "Relax",
+                    "Eat Food",
+                    "Play Games"
+                ],
+                "correctOption": 2,
+                "optionColumns": 2
+            },
+            {
+                "title": "Which of these\nguests drinks\nalcohol?",
+                "audioClip": null,
+                "options": [
+                    "Laura",
+                    "Sam",
+                    "Kaitlyn",
+                    "Alfonso"
+                ],
+                "correctOption": 3,
+                "optionColumns": 2
+            }
+            
+        ],
+        "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
+    },
+    {
+        "unlockThreshold": 0,
+        "questions": [
+            {
                 "title": "Who is this?",
                 "audioClip": {
                     "sounds": ["intro_laura_1", "intro_laura_2", "intro_laura_3"],
@@ -158,7 +181,7 @@
                 "optionColumns": 2
             }
         ],
-        "hint": "Hint: The microphones are\nstereo. Press R to rotate them\nand manage left and right\naudio."
+        "hint": null
     },
     {
         "unlockThreshold": 0,
@@ -212,7 +235,6 @@
                 "correctOption": 3,
                 "optionColumns": 8
             }
-            
         ],
         "hint": null
     },
@@ -292,33 +314,27 @@
         "unlockThreshold": 2,
         "questions": [
             {
-                "title": "Which person\ndrinks the most?",
-                "options": [
-                    "Jimmy",
-                    "Zoe",
-                    "Laura",
-                    "Sam",
-                    "Taylor",
-                    "Alfonso"
-                ],
-                "correctOption": 5,
-                "optionColumns": 2
-            },
-            {
-                "title": "What is their\nfavorite drink?",
+                "title": "What is Alfonso's\nfavorite drink?",
                 "options": [
                     "Beer",
                     "Whiskey, Neat",
-                    "White Russian",
+                    "Alexander",
+                    "Brandy",
                     "Hard Seltzer",
-                    "Wine",
+                    "Harvey Wallbanger",
+                    "White Wine",
+                    "Red Wine",
                     "Golden Cadillac",
+                    "Water",
                     "Martini",
                     "Dirty Martini",
+                    "White Russian",
+                    "Absinthe",
+                    "Benedictine",
                     "Daiquiri",
                     "Tequila"
                 ],
-                "correctOption": 2,
+                "correctOption": 12,
                 "optionColumns": 1
             }
         ],
@@ -327,6 +343,21 @@
     {
         "unlockThreshold": 2,
         "questions": [
+            {
+                "title": "How many separate\nactivities do most\nguests partake in\nduring the party?",
+                "options": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8"
+                ],
+                "correctOption": 1,
+                "optionColumns": 8
+            },
             {
                 "title": "Who was fired\nfrom their job\nrecently?",
                 "options": [
@@ -369,7 +400,7 @@
                     "Relax in a chair",
                     "Leave the party"
                 ],
-                "correctOption": 3,
+                "correctOption": 4,
                 "optionColumns": 1
             },
             {
@@ -420,7 +451,7 @@
                     "Sam",
                     "Alfonso"
                 ],
-                "correctOption": 4,
+                "correctOption": 5,
                 "optionColumns": 2
             }
         ],
@@ -504,5 +535,42 @@
             }
         ],
         "hint": null
+    },
+    {
+        "unlockThreshold": 14,
+        "questions": [
+            {
+                "title": "Who am I?",
+                "options": [
+                    "Laura",
+                    "Jimmy",
+                    "Kaitlyn",
+                    "Sam",
+                    "Taylor",
+                    "Zoe",
+                    "Alfonso",
+                    "Steven"
+                ],
+                "correctOption": 2,
+                "optionColumns": 2
+            },
+            {
+                "title": "Why are they\nmad at me?",
+                "options": [
+                    "Who cares?",
+                    "Whatever",
+                    "lol idk",
+                    "Don't matter"
+                ],
+                "correctOption": "any",
+                "optionColumns": 2
+            }
+        ],
+        "hint": null
+    },
+    {
+        "unlockThreshold": 15,
+        "hasArt2": true,
+        "message": "lol whatever.\nThey'll forget\nabout it tomorrow\nanyway.\n\n\nThanks for playing\n  Girl Gossip:\n  Revelations!"
     }
 ]

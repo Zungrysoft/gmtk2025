@@ -9,7 +9,7 @@ export default class GuestQuietGamer extends Guest {
   // Config
   name = "laura"
   hunger = 1
-  maxDrunkedness = 1
+  maxDrunkedness = 0
   arrivalTime = 650
   speedMultiplier = 1.1
   activityOffset = [45, 45]

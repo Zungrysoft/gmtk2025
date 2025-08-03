@@ -8,7 +8,7 @@ export default class GuestIntenseGamer extends Guest {
   // Config
   name = "sam"
   hunger = 1
-  maxDrunkedness = 1
+  maxDrunkedness = 0
   arrivalTime = 2000
   speedMultiplier = 1.1
   activityOffset = [64, 0]
@@ -17,7 +17,7 @@ export default class GuestIntenseGamer extends Guest {
   likes_food_pizza = 22
   likes_food_platter = 23
   likes_game = 25
-  likes_alcohol = 9
+  likes_alcohol = 0
   likes_guitar = 0
   arrivedLate = true
 

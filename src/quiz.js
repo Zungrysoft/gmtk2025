@@ -68,7 +68,7 @@ export default class Quiz extends Thing {
     if (!this.solvedPages[this.currentPage]) {
       let correctAnswers = 0;
       for (const [questionIndex, question] of quiz.questions.entries()) {
-        if (this.selectedOptions[[this.currentPage, questionIndex]] == question.correctOption) {
+        if (this.selectedOptions[[this.currentPage, questionIndex]] == question.correctOption || question.correctOption === "any") {
           correctAnswers ++;
         }
       }
@@ -199,6 +199,16 @@ export default class Quiz extends Thing {
         position: this.position,
       })
       top += 242
+    }
+
+    if (quiz.hasArt2) {
+      drawSprite({
+        sprite: game.assets.textures.ui_gossip2,
+        width: 1280,
+        height: 720,
+        depth: this.depth+1,
+        position: this.position,
+      })
     }
 
     // Hint
