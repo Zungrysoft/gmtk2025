@@ -246,6 +246,17 @@ export default class Guest extends Thing {
         }
       }
     }
+    if (this.currentActivity === 'tea') {
+      if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
+        if (this.beenDoingActivityFor % 180 === 0 && Math.random() < 0.5) {
+          soundmanager.playSound([
+            'foley_tea_' + Math.floor(Math.random() * 3 + 1),
+            'foley_tea_' + Math.floor(Math.random() * 3 + 1),
+            'foley_tea_' + Math.floor(Math.random() * 3 + 1),
+          ], 0.55, 1.0, [...this.getFoleyPosition(), 80]);
+        }
+      }
+    }
   }
 
   getFoleyPosition() {
@@ -345,6 +356,7 @@ export default class Guest extends Thing {
       'food_platter',
       'game',
       'alcohol',
+      'tea',
     ].filter(x => this.getActivityScore(x) > 0 && this.isActivityPresent(x)).sort((a, b) => this.getActivityScore(b) - this.getActivityScore(a))
 
     // There's nothing here I want to do. Let's bounce!
@@ -604,12 +616,17 @@ export default class Guest extends Thing {
 
     // Check that the right people are doing the right activites
     if (conversation.requiredActivities) {
+      console.log("Trying to play ", conversation)
       for (const req of conversation.requiredActivities) {
         const guestObj = game.getThings().find(x => x.name === req.participant);
 
         if (!guestObj) {
           continue;
         }
+
+        console.log(guestObj)
+        console.log(req.activities)
+
 
         if (!req.activities.includes(guestObj.currentActivity)) {
           return false;

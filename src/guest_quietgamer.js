@@ -20,8 +20,9 @@ export default class GuestQuietGamer extends Guest {
   likes_game = 15
   likes_alcohol = 0
   likes_guitar = 0
+  likes_tea = 9999
   shoeType = 'flipflops'
-  partyNeeds = ['game']
+  partyNeeds = ['game', 'tea']
 
   getActivityNearestPosition(activity) {
     if (activity === 'relax') {

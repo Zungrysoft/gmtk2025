@@ -13,13 +13,14 @@ export default class GuestDrinker extends Guest {
   arrivalTime = 500
   speedMultiplier = 1.1
   activityOffset = [-45, 45]
-  likes_dancing = 9
+  likes_dancing = 8
   likes_relax = 1
   likes_food_pizza = 5
   likes_food_platter = 0
   likes_game = 0
   likes_alcohol = 15
   likes_guitar = 10
+  likes_tea = 9999
   canPlayGuitar = true
-  partyNeeds = ['alcohol', 'dancing', 'jazz']
+  partyNeeds = ['alcohol', 'dancing', 'jazz', 'tea']
 }

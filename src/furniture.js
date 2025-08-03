@@ -170,6 +170,9 @@ export default class Furniture extends Thing {
     if (this.type === 'guitar' && finishedPages < 1) {
       return false
     }
+    if (this.type === 'tea' && finishedPages < 14) {
+      return false
+    }
 
     return true;
   }
@@ -248,7 +251,7 @@ export default class Furniture extends Thing {
   }
 
   mustBePlacedOn() {
-    if (this.type.includes('food') || this.type === 'alcohol' || this.type === 'game') {
+    if (this.type.includes('food') || this.type === 'alcohol' || this.type === 'game' || this.type === 'tea') {
       return ['table'];
     }
     if (this.type === 'mic') {

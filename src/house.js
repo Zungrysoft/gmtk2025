@@ -312,9 +312,10 @@ export default class House extends Thing {
 
     // Misc.
     game.addThing(new Furniture(game.assets.textures.furniture_game, 'game', 13, [-38, -38, 38, 38], [123, 550], null, game.assets.textures.furniture_icon_game));
-    game.addThing(new Furniture(game.assets.textures.furniture_guitar, 'guitar', 15, [-27, -46, 27, 46], [121, 426], null, game.assets.textures.furniture_icon_guitar));
-    game.addThing(new Furniture(game.assets.textures.furniture_jazz, 'jazz', 14, [-55, -55, 55, 55], [42, 446], null, game.assets.textures.furniture_icon_jazz));
-    game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', 14, [-77, -107, 77, 101], [42, 501], null, game.assets.textures.furniture_icon_dancing));
+    game.addThing(new Furniture(game.assets.textures.furniture_guitar, 'guitar', 14, [-27, -46, 27, 46], [121, 426], null, game.assets.textures.furniture_icon_guitar));
+    game.addThing(new Furniture(game.assets.textures.furniture_jazz, 'jazz', 15, [-55, -55, 55, 55], [42, 446], null, game.assets.textures.furniture_icon_jazz));
+    game.addThing(new Furniture(game.assets.textures.furniture_dancing, 'dancing', 16, [-77, -107, 77, 101], [42, 501], null, game.assets.textures.furniture_icon_dancing));
+    game.addThing(new Furniture(game.assets.textures.furniture_tea, 'tea', 17, [-41, -39, 29, 35], [38, 566], null, game.assets.textures.furniture_icon_tea));
 
   }
 

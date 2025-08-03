@@ -1,5 +1,133 @@
 [
     {
+        "infoKeys": ["kaitlyn-is-the-worst-f3hfh83"],
+        "requiredActivities": [
+            {
+                "participant": "zoe",
+                "activities": ["tea"]
+            },
+            {
+                "participant": "laura",
+                "activities": ["tea"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "g5ew2c55gn8ctdgx",
+                "text": "So, you having fun?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "ys23nh6b2m4pvj3x",
+                "text": "Yeah, it's good. Much better without KAITLYN here."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst-f3b2378fhf"],
+        "requiredActivities": [
+            {
+                "participant": "alfonso",
+                "activities": ["tea"]
+            },
+            {
+                "participant": "taylor",
+                "activities": ["tea"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "qny3ue5qdqiunkcq",
+                "text": "Kinda weird here without kaitlyn."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "44ia0emdim71hs01",
+                "text": "Is that a complaint?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst-bhvjdjdjy262"],
+        "requiredActivities": [
+            {
+                "participant": "zoe",
+                "activities": ["tea"]
+            },
+            {
+                "participant": "jimmy",
+                "activities": ["tea"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "f0ex9l22t27c9wj0",
+                "text": "It's a really fun party we have here. Not that KAITLYN gets to enjoy it!"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "ge4ojqrgqqqhg18w",
+                "text": "Why even speak her name? She's dead to me."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst-97yg82d2gd"],
+        "requiredActivities": [
+            {
+                "participant": "sam",
+                "activities": ["tea"]
+            },
+            {
+                "participant": "taylor",
+                "activities": ["tea"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "t1t1piwh824hc7ne",
+                "text": "Do you really think it's a good idea throwing a party in Kaitlyn's house?"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "znk2wnozsxdszfj7",
+                "text": "What? Are you worried she's gonna find out? Oh no! She might give US the silent treatment."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst-anabaaffs"],
+        "requiredActivities": [
+            {
+                "participant": "sam",
+                "activities": ["tea"]
+            },
+            {
+                "participant": "laura",
+                "activities": ["tea"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "ix2w5m2m0ewga2ib",
+                "text": "You know the worst part about this party? The whole thing smells like KAITLYN!"
+            },
+            {
+                "speaker": "sam",
+                "sound": "3ekbud9fjvdp48lj",
+                "text": "Well that's what happens when you throw a secret party at Kaitlyn's house."
+            }
+        ]
+    },
+    
+
+
+    {
         "infoKeys": ["greetings"],
         "maxTime": 15,
         "requiredActivitiesPresent": ["alcohol", "dancing"],
@@ -721,89 +849,6 @@
                 "speaker": "jimmy",
                 "sound": "ghiakgx16zvd4l3p",
                 "text": "Uhhh... what? Stop lying Zoe. That's crazy"
-            }
-        ]
-    },
-
-
-
-    {
-        "infoKeys": ["kaitlyn-is-the-worst"],
-        "minTime": 40,
-        "audio": [
-            {
-                "speaker": "zoe",
-                "sound": "g5ew2c55gn8ctdgx",
-                "text": "So, you having fun?"
-            },
-            {
-                "speaker": "laura",
-                "sound": "ys23nh6b2m4pvj3x",
-                "text": "Yeah, it's good. Much better without KAITLYN here."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["kaitlyn-is-the-worst"],
-        "minTime": 40,
-        "audio": [
-            {
-                "speaker": "alfonso",
-                "sound": "qny3ue5qdqiunkcq",
-                "text": "Kinda weird here without kaitlyn."
-            },
-            {
-                "speaker": "taylor",
-                "sound": "44ia0emdim71hs01",
-                "text": "Is that a complaint?"
-            }
-        ]
-    },
-    {
-        "infoKeys": ["kaitlyn-is-the-worst"],
-        "minTime": 40,
-        "audio": [
-            {
-                "speaker": "zoe",
-                "sound": "f0ex9l22t27c9wj0",
-                "text": "It's a really fun party we have here. Not that KAITLYN gets to enjoy it!"
-            },
-            {
-                "speaker": "jimmy",
-                "sound": "ge4ojqrgqqqhg18w",
-                "text": "Why even speak her name? She's dead to me."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["kaitlyn-is-the-worst"],
-        "minTime": 40,
-        "audio": [
-            {
-                "speaker": "sam",
-                "sound": "t1t1piwh824hc7ne",
-                "text": "Do you really think it's a good idea throwing a party in Kaitlyn's house?"
-            },
-            {
-                "speaker": "taylor",
-                "sound": "znk2wnozsxdszfj7",
-                "text": "What? Are you worried she's gonna find out? Oh no! She might give US the silent treatment."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["kaitlyn-is-the-worst"],
-        "minTime": 40,
-        "audio": [
-            {
-                "speaker": "laura",
-                "sound": "ix2w5m2m0ewga2ib",
-                "text": "You know the worst part about this party? The whole thing smells like KAITLYN!"
-            },
-            {
-                "speaker": "sam",
-                "sound": "3ekbud9fjvdp48lj",
-                "text": "Well that's what happens when you throw a secret party at Kaitlyn's house."
             }
         ]
     }
