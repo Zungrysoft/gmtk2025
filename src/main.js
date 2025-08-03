@@ -117,7 +117,7 @@ game.assets.images = await game.loadImages({
 })
 
 game.assets.data = await game.loadJson({
-  conversations: 'data/conversations.json',
+  conversations: 'data/conversations_data_new.json',
   comments: 'data/comments.json',
   quizzes: 'data/quizzes.json',
 })

@@ -1,0 +1,810 @@
+[
+    {
+        "infoKeys": ["greetings"],
+        "maxTime": 15,
+        "requiredActivitiesPresent": ["alcohol", "dancing"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "gnu6fqn701qogmjv",
+                "text": "Pretty wild party, huh?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "sg7dsaamfzo96sa0",
+                "text": "Yeah, I guess"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["greetings"],
+        "maxTime": 15,
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "6vh93mxnlctdhgcp",
+                "text": "Hey, Jimmy"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "pa7oko6t5r9osudq",
+                "text": "Oh, Hey!"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["greetings"],
+        "maxTime": 15,
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "qx9x2jf5rlna8a2v",
+                "text": "Hi Laura! So good to see you!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "lmoxfunh8294yj66",
+                "text": "Hey, how've you been?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["greetings"],
+        "maxTime": 15,
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "1p0kiryf09xsq2ce",
+                "text": "Hi Laura."
+            },
+            {
+                "speaker": "laura",
+                "sound": "ouizic5ly2lg3827",
+                "text": "Oh, hey."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["alfonso-is-drunk"],
+        "drunkParticipants": ["alfonso"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "0aeui39vkfo0mxft",
+                "text": "Whoa there. How we doing, alfie?"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "dtkbralchbyrfhze",
+                "text": "I'm... DRUNK! yeAH! verydrunknow"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["alfonso-is-drunk"],
+        "drunkParticipants": ["alfonso"],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "brflu9cerkb622e2",
+                "text": "Careful there. You might want to sober up a bit."
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "oo0a4ys4ac2n4aie",
+                "text": "Hey, the FONZ parties BETTER when he's had a FEW"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["alfonso-is-drunk"],
+        "drunkParticipants": ["alfonso"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "sl0uenjd46pn6tq7",
+                "text": "Oh, MAN these White Russians are fkn GOOD. Pour me ANOTHER ONE!"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "wzuapz8n2njs2nij",
+                "text": "alfonso is drunk tonight, guys!"
+            }
+        ]
+    },
+
+
+    {
+        "infoKeys": ["kaitlyn-owns-guitar"],
+        "maxTime": 25,
+        "requiredActivitiesPresent": ["guitar"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "v0t8sp0fv3jfehst",
+                "text": "Huh. I never knew Kaitlyn owned a guitar. But there's one right there."
+            },
+            {
+                "speaker": "sam",
+                "sound": "lg9d1ufxockn5n0r",
+                "text": "Yeah, I've never heard her play before."
+            }
+        ]
+    },
+
+
+    {
+        "infoKeys": ["jimmy-is-very-hungry"],
+        "maxTime": 20,
+        "requiredActivities": [
+            {
+                "participant": "jimmy",
+                "activities": ["food_pizza", "food_platter"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "sxa6b0l05z1awti8",
+                "text": "I see you're at the buffet table straight away."
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "p5igaerc7id90l0u",
+                "text": "Yeah, I'm starving. I forgot to bring my lunch to work, so I haven't eaten since breakfast."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["jimmy-is-very-hungry"],
+        "requiredActivities": [
+            {
+                "participant": "jimmy",
+                "activities": ["food_pizza", "food_platter"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "blhx58letxtd8c0y",
+                "text": "Jimmy and the buffet table! Name a more iconic pairing!"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "b053muh2owr0vi2b",
+                "text": "Gimme a break alfonso, I haven't eaten since 6am. I was dreaming about the food here the entire drive over."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["jimmy-is-very-hungry"],
+        "requiredActivities": [
+            {
+                "participant": "jimmy",
+                "activities": ["food_pizza"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "nst8t2gygzwg4bi8",
+                "text": "How's the pizza?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "gjzl9a1wm0gme5ci",
+                "text": "Hardly matters. I'm so hungry I could eat all four of these boxes right now. But yeah, it's pretty good."
+            }
+        ]
+    },
+
+
+    {
+        "infoKeys": ["alfonso-veggies"],
+        "requiredActivities": [
+            {
+                "participant": "sam",
+                "activities": ["food_platter"]
+            }
+        ],
+        "requiredActivitiesPresent": ["food_pizza"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "sdx7wk2wjst4ex4c",
+                "text": "Why are you going for the veggie platter? You know, sam, there's pizza right over there."
+            },
+            {
+                "speaker": "sam",
+                "sound": "v9gdanyv779np845",
+                "text": "I had carbs for lunch."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["zoe-vegetarian"],
+        "requiredActivities": [
+            {
+                "participant": "zoe",
+                "activities": ["food_platter"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "gmzxn5y5m7hzpphf",
+                "text": "This is a pretty good vegetable platter!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "1wynhth212xonqtq",
+                "text": "Pizza's great and all, but sometimes it's just too heavy. It's good they have a veggie option for you!"
+            }
+        ]
+    },
+
+
+    {
+        "infoKeys": ["alfonso-likes-white-russians"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "k98fqn377j54u3jb",
+                "text": "Hey Jimmy! You wanna join me to check out this bar after? They make a killer White Russian!"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "9qh9a85ktbsishsy",
+                "text": "We all know how you like White Russians. You downed like five of them at Steven's place last week."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["sam-bailed"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "8eldhv3emz8m3jjp",
+                "text": "Zoe told me you ditched her last night. What happened?"
+            },
+            {
+                "speaker": "sam",
+                "sound": "ljv2erip8jigs5zi",
+                "text": "Well, she invited me out to the bar but my guild wanted to raid so..."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["laura-avoid-music"],
+        "requiredActivitiesPresent": ["dancing"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["relax"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "5avt5zpwypl4vosc",
+                "text": "You dont have to hide in the corner all night Laura"
+            },
+            {
+                "speaker": "laura",
+                "sound": "1freddc7jksz9a16",
+                "text": "I know, I just hate this loud music"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["dshuahduwqbdj"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["game"]
+            },
+            {
+                "participant": "sam",
+                "activities": ["game"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "bp1vfyfrk5gx1x2u",
+                "text": "Come take your turn already, Sam!"
+            },
+            {
+                "speaker": "sam",
+                "sound": "we6nt32zm90xw0x4",
+                "text": "Patience! I'm deciding my next move!"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["dsdd2455uwq11bdj"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["game"]
+            },
+            {
+                "participant": "taylor",
+                "activities": ["game"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "bxos4zib8486g4pf",
+                "text": "Whose turn is it?"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "b7ghm8sqgsobqma7",
+                "text": "It's mine, I'm still thinking."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["dshuaj28hhdj"],
+        "requiredActivities": [
+            {
+                "participant": "taylor",
+                "activities": ["game"]
+            },
+            {
+                "participant": "sam",
+                "activities": ["game"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "lfj3q7zhjl72ygv8",
+                "text": "Watch and learn, rookie. I'll show you how a master plays this game!"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "l8m1wltimril57bc",
+                "text": "I wait with baited breath."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["sam-bailed", "zoe-likes-dancing"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "3nxncyesdu6f3btd",
+                "text": "Ugh did you hear, Alfonso? Sam bailed on me last night"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "8rbs2phz9zpmpxzg",
+                "text": "Aww Im sorry Zoe. Did he say why?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["alfonso-guitar-compliment"],
+        "requiredEvents": ["alfonso-played-guitar"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "4uxgs4chyuauflpr",
+                "text": "Wow... you've gotten so good at the guitar lately"
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "xdti80xx0eqr548i",
+                "text": "Hah, thanks Zoe,"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["jimmy-eating-loudly"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "z6d1jvjwtpsrz47t",
+                "text": "Yo Sam, the raids last night were so good!"
+            },
+            {
+                "speaker": "sam",
+                "sound": "auloltmay6kyh1e7",
+                "text": "I know! But could you try to mute your mic when you eat next time Jimmy?"
+            }
+        ]
+    },
+    {
+        "maxTime": 45,
+        "infoKeys": ["sam-late"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "6xfcel7j8facvnz9",
+                "text": "Hey, sorry. I had to stop by the store on the way here."
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "lp6z7g31ag9ohy72",
+                "text": "Hey what's up Sam! What'd you bring?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["jimmy-food-after"],
+        "requiredActivitiesPresent": ["dancing"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "gur6twyzj9ntkyw7",
+                "text": "Hey Laura! How's it going"
+            },
+            {
+                "speaker": "laura",
+                "sound": "s2sbuxw8xhvxmokr",
+                "text": "Oh hi Jimmy. It's good. Just enjoying the company"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["car-crash-2"],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "t8fv9te0h74mar6s",
+                "text": "Jimmy I heard you crashed Taylor's car. What happened?"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "oe2w5rihza0leyie",
+                "text": "Iguanas was closing and I kinda rushed over to grab a burrito on the way home. I took a turn too hard."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["jimmy-food-after", "sam-bailed"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "22cbwf1aurh9ak1x",
+                "text": "Yo Zoe, me and sam are going out to get tacos after. You wanna join us?"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "ipe78s4xpvxsgljt",
+                "text": "Uh not if Sam's there. I'm still mad at him for ditching me last night to play a goddamn computer game!"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["nduwq78hqdh7811"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["game"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "sk93nmm5ms1yshjw",
+                "text": "Hey whats up Laura! What game are you playing?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "ack0rh2xtewhakmn",
+                "text": "Hey Sam! Just some splendor. I've really been enjoying it lately. Want to join?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["sam-gaming-pc"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "lv8f47kv9az5zurd",
+                "text": "I just built a new gaming PC!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "zzb6c1kji5r67v7h",
+                "text": "Oh, really? What specs?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["sam-gaming-pc"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "oha2w4amt21k8xe0",
+                "text": "So how's your super powerful gaming PC?"
+            },
+            {
+                "speaker": "sam",
+                "sound": "w4uejrxunxz9fcif",
+                "text": "Oh, it's great! Super smooth performance on everything!"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["sam-bailed-2"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "0xlid2hqg1jykzxf",
+                "text": "Hey, Zoe."
+            },
+            {
+                "speaker": "zoe",
+                "sound": "ipnb3dg9nogxkgap",
+                "text": "I am so not talking to you."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["taylor-fired"],
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "6ypzskgczv4poyau",
+                "text": "I heard you got fired Taylor. I'm sorry man..."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "l0l4hllgbjm2bgc3",
+                "text": "Thanks Sam. Yeah it sucks. Zoe lied about me stealing toilet paper of all things"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["laura-zoe-dance"],
+        "requiredActivitiesPresent": ["dancing", "game"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "mltlk3kghk2szj84",
+                "text": "Laura! Come on girl! Get up! Join me on the dance floor!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "qlu1xrwswiso7psg",
+                "text": "Uhh... I'm okay over here. But thanks for the offer Zoe"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["laura-zoe-games", "sam-bailed"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["game"]
+            },
+            {
+                "participant": "sam",
+                "activities": ["game"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "kza9oz5ur6qpo8br",
+                "text": "Hey Zoe, wanna join us for some games? Me and Sam were gonna play Splendor"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "w2n7kygdrzxpn1ob",
+                "text": "With Sam? Hell no. That kid ditched me last night to sit at home on his computer"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["laura-taylor-seat"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["game"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "l0adatcfk80l0dpv",
+                "text": "Taylor! Come over here! We were about to start a game and we got a seat open"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "mal74b8uo12q6frj",
+                "text": "Oooo what are you playing tonight Laura?"
+            }
+        ]
+    },
+    {
+        "minTime": 10,
+        "infoKeys": ["laura-taylor-quiet"],
+        "requiredActivitiesPresent": ["dancing"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["relax"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "wu5p9u559d22kem7",
+                "text": "Hey Laura. Mind if I join you in the corner? Feeling kinda overwhelmed tonight"
+            },
+            {
+                "speaker": "laura",
+                "sound": "vb0iiy5vkf9gsihk",
+                "text": "Come on over Taylor. There's plenty of room over here. It's nice and quiet away from the music"
+            }
+        ]
+    },
+
+
+
+    {
+        "infoKeys": ["car-crash"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "e5662v6b5l1qwws1",
+                "text": "Hey, Taylor!"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "i4e5zgq02jsl1wxh",
+                "text": "Fuck off."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["car-crash-2"],
+        "requiredActivitiesPresent": ["alcohol"],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "c5195a1bdv283y90",
+                "text": "Sorry to hear about your car Taylor. Maybe a White Russian will cheer you up."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "5vg8s774gkm3s04p",
+                "text": "Thanks man, I could use booze right now. You know, I just had that car detailed too."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["taylor-fired"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "ii0r7uv4vro012vf",
+                "text": "Zoe! What the hell! "
+            },
+            {
+                "speaker": "zoe",
+                "sound": "ee5cva7uhvosaaxh",
+                "text": "I'm sorry!!! I'm so so so sorry Taylor! I didn't think they would actually take me seriously"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["taylor-fired"],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "fpvotwtvi5w0c8vz",
+                "text": "So, I just got fired."
+            },
+            {
+                "speaker": "alfonso",
+                "sound": "sytpr1mwp17agjeo",
+                "text": "No Way! What happened, Taylor?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["taylor-fired"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "suzybd51kbfszbav",
+                "text": "Did you hear? Taylor got fired for stealing toilet paper"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "ghiakgx16zvd4l3p",
+                "text": "Uhhh... what? Stop lying Zoe. That's crazy"
+            }
+        ]
+    },
+
+
+
+    {
+        "infoKeys": ["kaitlyn-is-the-worst"],
+        "minTime": 40,
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "g5ew2c55gn8ctdgx",
+                "text": "So, you having fun?"
+            },
+            {
+                "speaker": "laura",
+                "sound": "ys23nh6b2m4pvj3x",
+                "text": "Yeah, it's good. Much better without KAITLYN here."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst"],
+        "minTime": 40,
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "qny3ue5qdqiunkcq",
+                "text": "Kinda weird here without kaitlyn."
+            },
+            {
+                "speaker": "taylor",
+                "sound": "44ia0emdim71hs01",
+                "text": "Is that a complaint?"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst"],
+        "minTime": 40,
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "f0ex9l22t27c9wj0",
+                "text": "It's a really fun party we have here. Not that KAITLYN gets to enjoy it!"
+            },
+            {
+                "speaker": "jimmy",
+                "sound": "ge4ojqrgqqqhg18w",
+                "text": "Why even speak her name? She's dead to me."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst"],
+        "minTime": 40,
+        "audio": [
+            {
+                "speaker": "sam",
+                "sound": "t1t1piwh824hc7ne",
+                "text": "Do you really think it's a good idea throwing a party in Kaitlyn's house?"
+            },
+            {
+                "speaker": "taylor",
+                "sound": "znk2wnozsxdszfj7",
+                "text": "What? Are you worried she's gonna find out? Oh no! She might give US the silent treatment."
+            }
+        ]
+    },
+    {
+        "infoKeys": ["kaitlyn-is-the-worst"],
+        "minTime": 40,
+        "audio": [
+            {
+                "speaker": "laura",
+                "sound": "ix2w5m2m0ewga2ib",
+                "text": "You know the worst part about this party? The whole thing smells like KAITLYN!"
+            },
+            {
+                "speaker": "sam",
+                "sound": "3ekbud9fjvdp48lj",
+                "text": "Well that's what happens when you throw a secret party at Kaitlyn's house."
+            }
+        ]
+    }
+]

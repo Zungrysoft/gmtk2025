@@ -3,7 +3,7 @@
         "audio": [
             {
                 "speaker": "alfonso",
-                "sound": "alfonsoleaveearly",
+                "sound": "44aoz4urcox4idcq",
                 "text": "Man, this party sucks! I'm outta here!"
             }
         ]
@@ -12,7 +12,7 @@
         "audio": [
             {
                 "speaker": "alfonso",
-                "sound": "alfonsoleave",
+                "sound": "1gxbycdyhsxenh54",
                 "text": "Welp, I think that'll do it for me. I gotta get home."
             }
         ]
@@ -21,8 +21,17 @@
         "audio": [
             {
                 "speaker": "alfonso",
-                "sound": "alfonsoleavedisgust",
+                "sound": "1gxbycdyhsxenh54",
                 "text": "No booze, no music. That's not a party. I'm outta here!"
+            }
+        ]
+    },
+    "alfonso-leave-drunk": {
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "qp0be5jrk8jwznxj",
+                "text": "Whooo! What a party! I gotta go!"
             }
         ]
     },
@@ -30,7 +39,7 @@
         "audio": [
             {
                 "speaker": "jimmy",
-                "sound": "jimmyleaveearly",
+                "sound": "wjw1vysena7ij152",
                 "text": "This party blows! I'm leaving!"
             }
         ]
@@ -39,7 +48,7 @@
         "audio": [
             {
                 "speaker": "jimmy",
-                "sound": "jimmyleave",
+                "sound": "39der6kmnqimbofv",
                 "text": "I think it's about that time. I'd better go."
             }
         ]
@@ -48,7 +57,7 @@
         "audio": [
             {
                 "speaker": "jimmy",
-                "sound": "jimmyleavedisgust",
+                "sound": "u9d7gdb4b93qagsg",
                 "text": "Come on! There's no food here! I gotta leave to get something to eat!"
             }
         ]
@@ -57,7 +66,7 @@
         "audio": [
             {
                 "speaker": "taylor",
-                "sound": "taylorleaveearly",
+                "sound": "wfwbj5hqm0d0zttl",
                 "text": "There's nothing to do here, I'm gonna go."
             }
         ]
@@ -66,7 +75,7 @@
         "audio": [
             {
                 "speaker": "taylor",
-                "sound": "taylorleave",
+                "sound": "320fzgln4kqxt8vc",
                 "text": "Welp, I'm heading out. It's been fun."
             }
         ]
@@ -75,7 +84,7 @@
         "audio": [
             {
                 "speaker": "sam",
-                "sound": "samleaveearly",
+                "sound": "j1u9nemg5sud6srg",
                 "text": "The party's already dead? Lame"
             }
         ]
@@ -84,7 +93,7 @@
         "audio": [
             {
                 "speaker": "sam",
-                "sound": "samleave",
+                "sound": "3k3hevzn3hm8apca",
                 "text": "Well I guess I'm gonna leave"
             }
         ]
@@ -93,7 +102,7 @@
         "audio": [
             {
                 "speaker": "laura",
-                "sound": "lauraleaveearly",
+                "sound": "mbw1ylxb4avybn6p",
                 "text": "This sucks! I'm just gonna go."
             }
         ]
@@ -102,7 +111,7 @@
         "audio": [
             {
                 "speaker": "laura",
-                "sound": "lauraleave",
+                "sound": "oe2bvbhdsmku1imo",
                 "text": "Thanks, everybody! I'm heading home now!"
             }
         ]
@@ -111,7 +120,7 @@
         "audio": [
             {
                 "speaker": "laura",
-                "sound": "lauraleavedisgust",
+                "sound": "5tq5pk1smf1vvveh",
                 "text": "Hey, they told me there would be board games here. Never mind, I'm leaving."
             }
         ]
@@ -120,7 +129,7 @@
         "audio": [
             {
                 "speaker": "zoe",
-                "sound": "zoeleaveearly",
+                "sound": "mgb5ov6dae9plnf1",
                 "text": "What a super lame party! What were we thinking?"
             }
         ]
@@ -129,7 +138,7 @@
         "audio": [
             {
                 "speaker": "zoe",
-                "sound": "zoeleave",
+                "sound": "nnd2gqd4ka5l5o3r",
                 "text": "It's been fun, y'all! I'm gonna jet!"
             }
         ]
@@ -138,7 +147,7 @@
         "audio": [
             {
                 "speaker": "zoe",
-                "sound": "zoeleavedisgust",
+                "sound": "iwg3ee3bizg31djw",
                 "text": "Ughh, there's no music and no food that I can eat. I'm gonna jet!"
             }
         ]
