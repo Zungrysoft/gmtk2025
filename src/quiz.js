@@ -10,6 +10,7 @@ import QuizClickable from './quizclickable.js'
 
 const SOLVE_DURATION = 30;
 
+export const TEXT_TITLE = [0.31, 0.18, 0.30];
 export const TEXT_REGULAR = [0.4, 0.266, 0.38];
 export const TEXT_HIGHLIGHTED = [0.65, 0.54, 0.64];
 export const TEXT_SELECTED = [0.91, 0.82, 0.90];
@@ -254,7 +255,7 @@ export default class Quiz extends Thing {
             text: question.title,
             position: vec2.add(this.position, [left, top]),
             depth: this.depth + 1,
-            color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_REGULAR,
+            color: this.solvedPages[this.currentPage] ? TEXT_SELECTED : TEXT_TITLE,
           })
           top += getTextHeight(question.title);
         }
