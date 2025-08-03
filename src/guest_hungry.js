@@ -9,7 +9,7 @@ export default class GuestHungry extends Guest {
   name = "jimmy"
   hunger = 1
   maxDrunkedness = 1
-  arrivalTime = 300
+  arrivalTime = 500
   speedMultiplier = 1.1
   activityOffset = [-64, 0]
   likes_dancing = 7
