@@ -199,7 +199,7 @@ const foleySounds = {
   foley_food_pizza_3: 'sounds/foley/food_pizza_3.wav',
   foley_club_music_left: 'sounds/foley/annoying_club_music_left.wav',
   // foley_club_music_right: 'sounds/foley/annoying_club_music_right.wav',
-  foley_jazz_music: 'sounds/foley/nice_jazz.wav',
+  foley_jazz_music: 'sounds/foley/nice_jazz_music.wav',
 };
 
 game.assets.sounds = await game.loadAudio({
