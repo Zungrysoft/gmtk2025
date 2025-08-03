@@ -225,13 +225,23 @@ export default class Guest extends Thing {
         }
       }
     }
-    if (this.currentActivity === 'food_platter' || this.currentActivity === 'food_pizza') {
+    if (this.currentActivity === 'food_platter') {
       if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
         if (this.beenDoingActivityFor % 43 === 0 && Math.random() < 0.3) {
           soundmanager.playSound([
             'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
             'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
             'foley_food_platter_' + Math.floor(Math.random() * 6 + 1),
+          ], 0.55, 1.0, [...this.getFoleyPosition(), 80]);
+        }
+      }
+    }
+    if (this.currentActivity === 'food_pizza') {
+      if (this.beenDoingActivityFor > 60 && this.activityTime > 60) {
+        if (this.beenDoingActivityFor % 120 === 0 && Math.random() < 0.3) {
+          soundmanager.playSound([
+            'foley_food_pizza_' + Math.floor(Math.random() * 3 + 1),
+            'foley_food_pizza_' + Math.floor(Math.random() * 3 + 1),
           ], 0.55, 1.0, [...this.getFoleyPosition(), 80]);
         }
       }
