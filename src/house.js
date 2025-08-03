@@ -123,7 +123,7 @@ export default class House extends Thing {
         this.qTime --
         if (this.qTime === 0) {
           this.qTime --
-          game.addThing(new Reminder("What if you set up\n   the party differently?"))
+          game.addThing(new Reminder("What if you set up\n   the party differently?", true))
         }
       }
     }

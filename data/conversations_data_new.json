@@ -572,22 +572,6 @@
         ]
     },
     {
-        "infoKeys": ["alfonso-guitar-compliment"],
-        "requiredEvents": ["alfonso-played-guitar"],
-        "audio": [
-            {
-                "speaker": "zoe",
-                "sound": "4uxgs4chyuauflpr",
-                "text": "Wow... you've gotten so good at the guitar lately"
-            },
-            {
-                "speaker": "alfonso",
-                "sound": "xdti80xx0eqr548i",
-                "text": "Hah, thanks Zoe,"
-            }
-        ]
-    },
-    {
         "infoKeys": ["jimmy-eating-loudly"],
         "audio": [
             {

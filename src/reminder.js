@@ -8,19 +8,20 @@ import { drawBackground, drawSprite, drawText, getTextHeight, getTextWidth } fro
 import Button from './button.js'
 import Furniture from './furniture.js'
 import Thing from 'thing'
-import { TEXT_HIGHLIGHTED, TEXT_REGULAR, TEXT_SELECTED } from './quiz.js'
+import { TEXT_HIGHLIGHTED, TEXT_REGULAR, TEXT_SELECTED, TEXT_TITLE } from './quiz.js'
 
 export default class Reminder extends Thing {
   time = 0
   position = [0, 0]
   depth = 2000
 
-  constructor(text) {
+  constructor(text, isDark) {
     super()
     this.text = text
     this.middlePos = vec2.add([1280/2, 720/2], [getTextWidth(text) * -0.5, getTextHeight(text) * -0.5])
     this.position = [-400, this.middlePos[1]]
     this.endPos = [1280 + 400, this.middlePos[1]]
+    this.isDark = isDark
   }
 
   update() {
@@ -42,13 +43,13 @@ export default class Reminder extends Thing {
       text: this.text,
       position: this.position,
       depth: this.depth,
-      color: TEXT_SELECTED,
+      color: this.isDark ? TEXT_HIGHLIGHTED : TEXT_SELECTED,
     })
     drawText({
       text: this.text,
       position: vec2.add(this.position, [2, 2]),
       depth: this.depth - 1,
-      color: TEXT_REGULAR,
+      color: this.isDark ? TEXT_TITLE : TEXT_REGULAR,
     })
   }
 }
