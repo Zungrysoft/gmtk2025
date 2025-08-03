@@ -300,6 +300,32 @@
             }
         ]
     },
+    {
+        "infoKeys": ["zoe-vegetarian"],
+        "requiredActivities": [
+            {
+                "participant": "zoe",
+                "activities": ["food_platter"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "fsd293ddcvcvczztgztzcvv",
+                "text": "This is a pretty good vegetable platter!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "fsg4g4savv",
+                "text": "Pizza's great and all, but sometimes it's just too heavy. It's good they have a veggie option for you!"
+            },
+            {
+                "speaker": "zoe",
+                "sound": "dfsfdffg",
+                "text": "yup!"
+            }
+        ]
+    },
 
 
     {
