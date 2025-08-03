@@ -318,8 +318,11 @@ export default class House extends Thing {
 
   draw() {
     // drawBackground({ sprite: game.assets.textures.square, depth: 1, color: [0, 0, 0] });
-    drawBackground({ sprite: game.assets.textures.house_day, depth: 10 });
+    
+    
     drawBackground({ sprite: game.assets.textures.background_day, depth: 3 });
     drawBackground({ sprite: game.assets.textures.background_night, depth: 5, alpha: this.nightOverlayAlpha });
+    drawBackground({ sprite: game.assets.textures.house_day, depth: 10 });
+    drawBackground({ sprite: game.assets.textures.house_night, depth: 12, alpha: this.nightOverlayAlpha });
   }
 }

@@ -54,10 +54,6 @@ export default class Tutorial extends Thing {
       if (game.getThing('mainmenu_title')) {
         game.getThing('mainmenu_title').isDead = true
       }
-      
-      // game.getThing('mainmenu_button').depth = -1
-      // game.getThing('mainmenu_background').depth = -1
-      // game.getThing('mainmenu_title').depth = -1
 
       game.getThing('tutorial_button_forward').depth = 101
       game.getThing('tutorial_text1').depth = 101

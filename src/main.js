@@ -44,6 +44,7 @@ game.assets.images = await game.loadImages({
   button_skipnight: 'images/ui/ui_button_skipnight.png',
   button_startnight: 'images/ui/ui_button_startnight.png',
   house_day: 'images/ui/ui_house_day.png',
+  house_night: 'images/ui/ui_house_night.png',
   background_day: 'images/ui/ui_background_day.png',
   background_night: 'images/ui/ui_background_night.png',
   background_pause: 'images/ui/ui_background_pause.png',
