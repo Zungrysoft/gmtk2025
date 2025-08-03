@@ -128,14 +128,14 @@ export default class Guest extends Thing {
     }
 
     if (this.currentActivity === 'alcohol') {
-      return 1900;
+      return 1600;
     }
 
     if (this.currentActivity === 'relax') {
-      return 1700;
+      return 1400;
     }
 
-    return 2000;
+    return 1700;
   }
 
   activityFoley() {
