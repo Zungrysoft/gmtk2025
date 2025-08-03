@@ -68,7 +68,7 @@ export default class Quiz extends Thing {
     if (!this.solvedPages[this.currentPage]) {
       let correctAnswers = 0;
       for (const [questionIndex, question] of quiz.questions.entries()) {
-        if (this.selectedOptions[[this.currentPage, questionIndex]] == question.correctOption) {
+        if (this.selectedOptions[[this.currentPage, questionIndex]] == question.correctOption || question.correctOption === "any") {
           correctAnswers ++;
         }
       }
@@ -145,10 +145,7 @@ export default class Quiz extends Thing {
   clickedButton(question, option) {
     if (option == -1) {
       // Play profile picture sound
-      const possibleSounds = game.assets.data.quizzes[this.currentPage].questions[question].audioClip.sounds;
-      const r = Math.floor(Math.random() * possibleSounds.length)
-      const chosenSound = possibleSounds[r]
-      soundmanager.playSound(chosenSound, 0.3, 1.0);
+      soundmanager.playSound(game.assets.data.quizzes[this.currentPage].questions[question].audioClip.sounds, 0.3, 1.0);
     }
     else {
       if (this.selectedOptions[[this.currentPage, question]] == option) {
@@ -202,6 +199,16 @@ export default class Quiz extends Thing {
         position: this.position,
       })
       top += 242
+    }
+
+    if (quiz.hasArt2) {
+      drawSprite({
+        sprite: game.assets.textures.ui_gossip2,
+        width: 1280,
+        height: 720,
+        depth: this.depth+1,
+        position: this.position,
+      })
     }
 
     // Hint

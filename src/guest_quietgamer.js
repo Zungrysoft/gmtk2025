@@ -9,17 +9,17 @@ export default class GuestQuietGamer extends Guest {
   // Config
   name = "laura"
   hunger = 1
-  maxDrunkedness = 1
+  maxDrunkedness = 0
   arrivalTime = 650
   speedMultiplier = 1.1
   activityOffset = [45, 45]
   likes_dancing = 0
-  likes_relax = 17
+  likes_relax = 7
   likes_food_pizza = 20
   likes_food_platter = 19
-  likes_game = 18
+  likes_game = 15
   likes_alcohol = 0
-  likes_guitar = 1
+  likes_guitar = 0
   shoeType = 'flipflops'
   partyNeeds = ['game']
 

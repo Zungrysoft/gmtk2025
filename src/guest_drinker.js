@@ -9,12 +9,13 @@ export default class GuestDrinker extends Guest {
   name = "alfonso"
   hunger = 0
   maxDrunkedness = 2
+  isDrunkard = true
   arrivalTime = 500
   speedMultiplier = 1.1
   activityOffset = [-45, 45]
   likes_dancing = 9
   likes_relax = 1
-  likes_food_pizza = 0
+  likes_food_pizza = 5
   likes_food_platter = 0
   likes_game = 0
   likes_alcohol = 15
