@@ -37,7 +37,7 @@ export default class TutorialButton extends Button {
   }
 
   isClickable() {
-    return this.isForward || (game.getThing('tutorial')?.stage ?? 0) > 0
+    return this.isForward || (game.getThing('tutorial')?.stage ?? 0) > 1
   }
 
   onClick() {
