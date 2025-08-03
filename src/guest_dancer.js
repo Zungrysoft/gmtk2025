@@ -12,12 +12,12 @@ export default class GuestDancer extends Guest {
   arrivalTime = 200
   speedMultiplier = 1.1
   activityOffset = [0, -64]
-  likes_dancing = 25
+  likes_dancing = 20
   likes_relax = 10
   likes_food_pizza = 0
-  likes_food_platter = 22
+  likes_food_platter = 18
   likes_game = 0
-  likes_alcohol = 19
+  likes_alcohol = 15
   likes_guitar = 30
   shoeType = 'barefoot'
   partyNeeds = ['dancing', 'food_platter']
