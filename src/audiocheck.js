@@ -18,6 +18,7 @@ export default class AudioCheck extends Thing {
 
   constructor() {
     super()
+    game.setThingName(this, 'audiocheck')
     soundmanager.updateSoundPan([100000, 100000, 100000], [1, 0, 0])
   }
 
@@ -43,9 +44,6 @@ export default class AudioCheck extends Thing {
       console.log("Spatial audio check:", this.totalSound)
       if (this.totalSound < 3) {
         this.shouldDraw = true
-      }
-      else {
-        this.isDead = true
       }
     }
   }

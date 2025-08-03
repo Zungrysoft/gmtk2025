@@ -45,8 +45,6 @@ export default class Tutorial extends Thing {
     // }
 
     if (this.stage === 1) {
-      game.addThing(new AudioCheck());
-
       // game.getThing('mainmenu_button').isDead = true
       // game.getThing('mainmenu_background').isDead = true
       // game.getThing('mainmenu_title').isDead = true

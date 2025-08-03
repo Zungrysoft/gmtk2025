@@ -6,6 +6,7 @@ import * as vec3 from 'vector3'
 import Tray from './tray.js'
 import { drawBackground, drawSprite } from './draw.js'
 import Button from './button.js'
+import AudioCheck from './audiocheck.js'
 
 export default class TutorialButton extends Button {
   isForward = true
@@ -26,8 +27,8 @@ export default class TutorialButton extends Button {
     }
 
     if (isMainMenuButton) {
-      // this.size = [1280,1280]
-      // this.aabb = [460,514,784,659]
+      this.size = [1280, 720]
+      this.aabb = [460,514,784,659]
       this.position = [0,0]
       this.openPosition = [0,0]
       this.closedPosition = [0,0]
@@ -37,10 +38,13 @@ export default class TutorialButton extends Button {
 
   isClickable() {
     return this.isForward || (game.getThing('tutorial')?.stage ?? 0) > 0
-    
   }
 
   onClick() {
+    if (!game.getThing('audiocheck')) {
+      game.addThing(new AudioCheck());
+    }
+
     if (this.isForward) game.getThing('tutorial').stage++
     else game.getThing('tutorial').stage--
 
