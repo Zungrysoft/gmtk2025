@@ -128,10 +128,14 @@ export default class Guest extends Thing {
     }
 
     if (this.currentActivity === 'alcohol') {
-      return 2200;
+      return 1900;
     }
 
-    return 3000;
+    if (this.currentActivity === 'relax') {
+      return 1700;
+    }
+
+    return 2000;
   }
 
   activityFoley() {
@@ -142,7 +146,10 @@ export default class Guest extends Thing {
     if (this.currentActivity === 'leave' && this.beenDoingActivityFor === 10) {
       // Make sure we have a comment
       let commentStr = `${this.name}-leave`
-      if (this.leftInDisgust && game.assets.data.comments[commentStr + '-disgust']) {
+      if (this.isDrunkard && this.drunkedness > 0 && game.assets.data.comments[commentStr + '-drunk']) {
+        commentStr += '-drunk'
+      }
+      else if (this.leftInDisgust && game.assets.data.comments[commentStr + '-disgust']) {
         commentStr += '-disgust'
       }
       else if (game.getThing('house').partyTime < (60 * 30) && game.assets.data.comments[commentStr + '-early']) {
