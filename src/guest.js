@@ -384,7 +384,7 @@ export default class Guest extends Thing {
   }
 
   startActivity(activity) {
-    console.log(this.name, "started activity", activity)
+    // console.log(this.name, "started activity", activity)
     this.currentActivity = activity;
     this.activityTime = this.getActivityDuration();
     this.beenDoingActivityFor = 0;
@@ -413,7 +413,7 @@ export default class Guest extends Thing {
     }
 
     this.activityCompletions[this.currentActivity] = (this.activityCompletions[this.currentActivity] ?? 0) + 1;
-    console.log(this.name, "FINISHED activity", this.currentActivity)
+    // console.log(this.name, "FINISHED activity", this.currentActivity)
     this.currentActivity = null;
     this.activityFurniture = null;
     this.beenDoingActivityFor = 0;

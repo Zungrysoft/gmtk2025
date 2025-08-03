@@ -129,49 +129,49 @@ export default class House extends Thing {
     }
 
 
-    if (game.keysDown.ShiftLeft) {
-      if (game.keysPressed.KeyJ) {
-        this.changePhase('party')
-      } 
+    // if (game.keysDown.ShiftLeft) {
+    //   if (game.keysPressed.KeyJ) {
+    //     this.changePhase('party')
+    //   } 
 
-      // Randomize room structure
-      if (game.keysPressed.KeyK) {
-        for (let i = 0; i < 100; i ++) {
-          for (const furniture of game.getThings().filter(x => x instanceof Furniture)) {
-            if (furniture.isValidPlacement()) {
-              continue;
-            }
+    //   // Randomize room structure
+    //   if (game.keysPressed.KeyK) {
+    //     for (let i = 0; i < 100; i ++) {
+    //       for (const furniture of game.getThings().filter(x => x instanceof Furniture)) {
+    //         if (furniture.isValidPlacement()) {
+    //           continue;
+    //         }
 
-            for (let j = 0; j < 1000; j ++) {
-              furniture.position = [Math.random() * 837 + 220, Math.random() * 461 + 117];
-              furniture.rotation = Math.floor(Math.random() * 4)
-              if (furniture.isValidPlacement()) {
-                furniture.isPlaced = true;
-                break;
-              }
-            }
-          }
-        }
-      }
+    //         for (let j = 0; j < 1000; j ++) {
+    //           furniture.position = [Math.random() * 837 + 220, Math.random() * 461 + 117];
+    //           furniture.rotation = Math.floor(Math.random() * 4)
+    //           if (furniture.isValidPlacement()) {
+    //             furniture.isPlaced = true;
+    //             break;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
 
-      // Randomize mics
-      if (game.keysPressed.KeyL) {
-        for (const furniture of game.getThings().filter(x => x instanceof Furniture && x.type === 'mic')) {
-          if (furniture.isValidPlacement()) {
-            continue;
-          }
+    //   // Randomize mics
+    //   if (game.keysPressed.KeyL) {
+    //     for (const furniture of game.getThings().filter(x => x instanceof Furniture && x.type === 'mic')) {
+    //       if (furniture.isValidPlacement()) {
+    //         continue;
+    //       }
 
-          for (let j = 0; j < 1000; j ++) {
-            furniture.position = [Math.random() * 837 + 220, Math.random() * 461 + 117];
-            furniture.rotation = Math.floor(Math.random() * 4)
-            if (furniture.isValidPlacement()) {
-              furniture.isPlaced = true;
-              break;
-            }
-          }
-        }
-      }
-    }
+    //       for (let j = 0; j < 1000; j ++) {
+    //         furniture.position = [Math.random() * 837 + 220, Math.random() * 461 + 117];
+    //         furniture.rotation = Math.floor(Math.random() * 4)
+    //         if (furniture.isValidPlacement()) {
+    //           furniture.isPlaced = true;
+    //           break;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   // add the trays and clickable buttons to the scene
@@ -330,7 +330,14 @@ export default class House extends Thing {
 
   draw() {
     // drawBackground({ sprite: game.assets.textures.square, depth: 1, color: [0, 0, 0] });
-    
+    if (game.keysDown.KeyP) {
+      drawText({
+        position: [314, 30],
+        text: "Cheaty debug screen!",
+        scale: 2,
+        depth: 8000,
+      })
+    }
     
     drawBackground({ sprite: game.assets.textures.background_day, depth: 3 });
     drawBackground({ sprite: game.assets.textures.background_night, depth: 5, alpha: this.nightOverlayAlpha });
