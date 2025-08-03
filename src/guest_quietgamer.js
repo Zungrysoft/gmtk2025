@@ -19,7 +19,7 @@ export default class GuestQuietGamer extends Guest {
   likes_food_platter = 19
   likes_game = 15
   likes_alcohol = 0
-  likes_guitar = 1
+  likes_guitar = 0
   shoeType = 'flipflops'
   partyNeeds = ['game']
 

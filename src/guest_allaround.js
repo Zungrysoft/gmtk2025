@@ -18,6 +18,6 @@ export default class GuestAllAround extends Guest {
   likes_food_platter = 13
   likes_game = 2
   likes_alcohol = 9
-  likes_guitar = 5
+  likes_guitar = 0
 
 }

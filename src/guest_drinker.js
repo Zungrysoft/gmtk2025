@@ -9,6 +9,7 @@ export default class GuestDrinker extends Guest {
   name = "alfonso"
   hunger = 0
   maxDrunkedness = 2
+  isDrunkard = true
   arrivalTime = 500
   speedMultiplier = 1.1
   activityOffset = [-45, 45]

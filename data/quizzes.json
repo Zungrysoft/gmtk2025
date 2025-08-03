@@ -253,7 +253,7 @@
         "hint": "Hint: Some people will leave if\ncertain party elements are\nmissing. Use this."
     },
     {
-        "unlockThreshold": 3,
+        "unlockThreshold": 2,
         "questions": [
             {
                 "title": "Who is Zoe mad at?",
@@ -289,7 +289,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 4,
+        "unlockThreshold": 2,
         "questions": [
             {
                 "title": "Which person\ndrinks the most?",
@@ -325,7 +325,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 5,
+        "unlockThreshold": 2,
         "questions": [
             {
                 "title": "Who was fired\nfrom their job\nrecently?",
@@ -357,7 +357,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 5,
+        "unlockThreshold": 2,
         "questions": [
             {
                 "title": "What does Taylor\nmost like to do\nafter getting food?",
@@ -395,7 +395,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 5,
+        "unlockThreshold": 2,
         "questions": [
             {
                 "title": "Who is vegetarian?",
@@ -427,7 +427,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 6,
+        "unlockThreshold": 2,
         "questions": [
             {
                 "title": "Who dislikes loud\nmusic?",
@@ -459,7 +459,7 @@
         "hint": null
     },
     {
-        "unlockThreshold": 8,
+        "unlockThreshold": 2,
         "questions": [
             {
                 "title": "Who arrives to the\nparty late?",

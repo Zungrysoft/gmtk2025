@@ -36,6 +36,7 @@ export default class Guest extends Thing {
   footstepTime = 1.0;
   timeToWait = 60 * 10;
   discussedInfoKeys = {}
+  activitiesDone = 0
 
   constructor() {
     super();
@@ -126,7 +127,11 @@ export default class Guest extends Thing {
       return 60*4;
     }
 
-    return 1600;
+    if (this.currentActivity === 'alcohol') {
+      return 2200;
+    }
+
+    return 3000;
   }
 
   activityFoley() {
@@ -303,6 +308,18 @@ export default class Guest extends Thing {
   }
 
   decideCurrentActivity() {
+    // Only two activities per person.
+    if (this.activitiesDone >= 2 || (this.arrivedLate && this.activitiesDone >= 1)) {
+      this.startActivity('leave');
+      return;
+    }
+
+    // Only one person left. No need to prolong this.
+    if (game.getThings().filter(x => x instanceof Guest && !x.isDead).length <= 1) {
+      this.startActivity('leave');
+      return;
+    }
+
     const activityPreferences = [
       'dancing',
       'guitar',
@@ -343,6 +360,7 @@ export default class Guest extends Thing {
     this.activityTime = this.getActivityDuration();
     this.beenDoingActivityFor = 0;
     this.activityFurniture = this.getActivityNearestFurniture(activity)
+    this.activitiesDone ++
     this.inTransit = true
   }
 
@@ -590,7 +608,7 @@ export default class Guest extends Thing {
         continue;
       }
 
-      if (participant.drunkedness >= 2) {
+      if (participant.isDrunkard && participant.drunkedness >= 1) {
         if (!conversation.drunkParticipants) {
           return false;
         }
