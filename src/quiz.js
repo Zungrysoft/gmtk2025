@@ -13,6 +13,7 @@ const SOLVE_DURATION = 30;
 export const TEXT_TITLE = [0.31, 0.18, 0.30];
 export const TEXT_REGULAR = [0.4, 0.266, 0.38];
 export const TEXT_HIGHLIGHTED = [0.65, 0.54, 0.64];
+export const TEXT_HIGHLIGHTED2 = [0.45, 0.44, 0.54];
 export const TEXT_SELECTED = [0.91, 0.82, 0.90];
 
 export default class Quiz extends Thing {
@@ -299,7 +300,7 @@ export default class Quiz extends Thing {
 
           let color = TEXT_REGULAR;
           if (this.clickables[[questionIndex, index]]?.isHighlighted) {
-            color = TEXT_HIGHLIGHTED;
+            color = TEXT_HIGHLIGHTED2;
           }
           if (this.selectedOptions[[this.currentPage, questionIndex]] == index) {
             color = TEXT_SELECTED;
