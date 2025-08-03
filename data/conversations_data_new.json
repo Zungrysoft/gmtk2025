@@ -1,6 +1,6 @@
 [
     {
-        "infoKeys": ["kaitlyn-is-the-worst-f3hfh83"],
+        "infoKeys": ["kaitlyn-is-a-bitch"],
         "requiredActivities": [
             {
                 "participant": "zoe",
@@ -25,7 +25,7 @@
         ]
     },
     {
-        "infoKeys": ["kaitlyn-is-the-worst-f3b2378fhf"],
+        "infoKeys": ["kaitlyn-is-a-bitch"],
         "requiredActivities": [
             {
                 "participant": "alfonso",
@@ -75,7 +75,7 @@
         ]
     },
     {
-        "infoKeys": ["kaitlyn-is-the-worst-97yg82d2gd"],
+        "infoKeys": ["kaitlyn-is-the-worst-938493829"],
         "requiredActivities": [
             {
                 "participant": "sam",
@@ -262,6 +262,69 @@
 
 
     {
+        "minTime": 10,
+        "infoKeys": ["laura-taylor-quiet"],
+        "requiredActivitiesPresent": ["dancing"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["relax"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "taylor",
+                "sound": "wu5p9u559d22kem7",
+                "text": "Hey Laura. Mind if I join you in the corner? Feeling kinda overwhelmed tonight"
+            },
+            {
+                "speaker": "laura",
+                "sound": "vb0iiy5vkf9gsihk",
+                "text": "Come on over Taylor. There's plenty of room over here. It's nice and quiet away from the music"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["laura-zoe-dance"],
+        "requiredActivitiesPresent": ["dancing", "game"],
+        "audio": [
+            {
+                "speaker": "zoe",
+                "sound": "mltlk3kghk2szj84",
+                "text": "Laura! Come on girl! Get up! Join me on the dance floor!"
+            },
+            {
+                "speaker": "laura",
+                "sound": "qlu1xrwswiso7psg",
+                "text": "Uhh... I'm okay over here. But thanks for the offer Zoe"
+            }
+        ]
+    },
+    {
+        "infoKeys": ["laura-avoid-music"],
+        "requiredActivitiesPresent": ["dancing"],
+        "requiredActivities": [
+            {
+                "participant": "laura",
+                "activities": ["relax"]
+            }
+        ],
+        "audio": [
+            {
+                "speaker": "alfonso",
+                "sound": "5avt5zpwypl4vosc",
+                "text": "You dont have to hide in the corner all night Laura"
+            },
+            {
+                "speaker": "laura",
+                "sound": "1freddc7jksz9a16",
+                "text": "I know, I just hate this loud music"
+            }
+        ]
+    },
+
+
+    {
         "infoKeys": ["jimmy-is-very-hungry"],
         "maxTime": 20,
         "requiredActivities": [
@@ -370,6 +433,22 @@
             }
         ]
     },
+    {
+        "infoKeys": ["jimmy-food-after"],
+        "requiredActivitiesPresent": ["dancing"],
+        "audio": [
+            {
+                "speaker": "jimmy",
+                "sound": "gur6twyzj9ntkyw7",
+                "text": "Hey Laura! How's it going"
+            },
+            {
+                "speaker": "laura",
+                "sound": "s2sbuxw8xhvxmokr",
+                "text": "Oh hi Jimmy. It's good. Just enjoying the company"
+            }
+        ]
+    },
 
 
     {
@@ -399,28 +478,6 @@
                 "speaker": "sam",
                 "sound": "ljv2erip8jigs5zi",
                 "text": "Well, she invited me out to the bar but my guild wanted to raid so..."
-            }
-        ]
-    },
-    {
-        "infoKeys": ["laura-avoid-music"],
-        "requiredActivitiesPresent": ["dancing"],
-        "requiredActivities": [
-            {
-                "participant": "laura",
-                "activities": ["relax"]
-            }
-        ],
-        "audio": [
-            {
-                "speaker": "alfonso",
-                "sound": "5avt5zpwypl4vosc",
-                "text": "You dont have to hide in the corner all night Laura"
-            },
-            {
-                "speaker": "laura",
-                "sound": "1freddc7jksz9a16",
-                "text": "I know, I just hate this loud music"
             }
         ]
     },
@@ -562,22 +619,6 @@
         ]
     },
     {
-        "infoKeys": ["jimmy-food-after"],
-        "requiredActivitiesPresent": ["dancing"],
-        "audio": [
-            {
-                "speaker": "jimmy",
-                "sound": "gur6twyzj9ntkyw7",
-                "text": "Hey Laura! How's it going"
-            },
-            {
-                "speaker": "laura",
-                "sound": "s2sbuxw8xhvxmokr",
-                "text": "Oh hi Jimmy. It's good. Just enjoying the company"
-            }
-        ]
-    },
-    {
         "infoKeys": ["car-crash-2"],
         "audio": [
             {
@@ -688,22 +729,7 @@
             }
         ]
     },
-    {
-        "infoKeys": ["laura-zoe-dance"],
-        "requiredActivitiesPresent": ["dancing", "game"],
-        "audio": [
-            {
-                "speaker": "zoe",
-                "sound": "mltlk3kghk2szj84",
-                "text": "Laura! Come on girl! Get up! Join me on the dance floor!"
-            },
-            {
-                "speaker": "laura",
-                "sound": "qlu1xrwswiso7psg",
-                "text": "Uhh... I'm okay over here. But thanks for the offer Zoe"
-            }
-        ]
-    },
+    
     {
         "infoKeys": ["laura-zoe-games", "sam-bailed"],
         "requiredActivities": [
@@ -747,29 +773,6 @@
                 "speaker": "taylor",
                 "sound": "mal74b8uo12q6frj",
                 "text": "Oooo what are you playing tonight Laura?"
-            }
-        ]
-    },
-    {
-        "minTime": 10,
-        "infoKeys": ["laura-taylor-quiet"],
-        "requiredActivitiesPresent": ["dancing"],
-        "requiredActivities": [
-            {
-                "participant": "laura",
-                "activities": ["relax"]
-            }
-        ],
-        "audio": [
-            {
-                "speaker": "taylor",
-                "sound": "wu5p9u559d22kem7",
-                "text": "Hey Laura. Mind if I join you in the corner? Feeling kinda overwhelmed tonight"
-            },
-            {
-                "speaker": "laura",
-                "sound": "vb0iiy5vkf9gsihk",
-                "text": "Come on over Taylor. There's plenty of room over here. It's nice and quiet away from the music"
             }
         ]
     },
