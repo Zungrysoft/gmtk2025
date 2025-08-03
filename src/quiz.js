@@ -264,7 +264,7 @@ export default class Quiz extends Thing {
 
         if (question.audioClip) {
           drawSprite({
-            sprite: game.assets.textures.profile_unknown,
+            sprite: this.solvedPages[this.currentPage] ? game.assets.textures[question.audioClip.picture] : game.assets.textures.profile_unknown,
             width: 128,
             height: 128,
             depth: this.depth + 1,

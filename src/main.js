@@ -99,6 +99,13 @@ game.assets.images = await game.loadImages({
   ui_gossip: 'images/ui/ui_gossip.png',
   ui_gossip2: 'images/ui/ui_gossip2.png',
 
+  profile_jimmy: 'images/profile/profile_jimmy.png',
+  profile_sam: 'images/profile/profile_sam.png',
+  profile_laura: 'images/profile/profile_laura.png',
+  profile_zoe: 'images/profile/profile_zoe.png',
+  profile_taylor: 'images/profile/profile_taylor.png',
+  profile_alfonso: 'images/profile/profile_alfonso.png',
+
   tutorial_bg: 'images/ui/ui_tutorial_background.png',
   tutorial_rightbutton: 'images/ui/ui_button_tutorial_right.png',
   tutorial_leftbutton: 'images/ui/ui_button_tutorial_left.png',
