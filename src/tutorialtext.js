@@ -8,12 +8,13 @@ import { drawBackground, drawSprite, drawText, getTextHeight } from './draw.js'
 
 export default class TutorialText extends Thing {
   titleCardAsset = null
-  depth = 99
+  depth = 100
 
-  constructor(name, asset) {
+  constructor(name, asset, depth) {
     super();
     game.setThingName(this, name)
     this.titleCardAsset = asset
+    this.depth = depth
   }
 
   draw() {
