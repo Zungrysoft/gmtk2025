@@ -144,6 +144,8 @@ export default class Guest extends Thing {
     }
 
     if (this.currentActivity === 'leave' && this.beenDoingActivityFor === 10) {
+      
+
       // Make sure we have a comment
       let commentStr = `${this.name}-leave`
       if (this.isDrunkard && this.drunkedness > 0 && game.assets.data.comments[commentStr + '-drunk']) {
@@ -152,7 +154,7 @@ export default class Guest extends Thing {
       else if (this.leftInDisgust && game.assets.data.comments[commentStr + '-disgust']) {
         commentStr += '-disgust'
       }
-      else if (game.getThing('house').partyTime < (60 * 30) && game.assets.data.comments[commentStr + '-early']) {
+      else if (game.getThing('house').partyTime < (60 * 20) && game.assets.data.comments[commentStr + '-early']) {
         commentStr += '-early'
       }
 
