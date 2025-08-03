@@ -55,6 +55,7 @@ export default class Tutorial extends Thing {
         game.getThing('mainmenu_title').isDead = true
       }
 
+      game.getThing('tutorial_button_backward').depth = -1
       game.getThing('tutorial_button_forward').depth = 101
       game.getThing('tutorial_text1').depth = 101
       game.getThing('tutorial_text2').depth = 99

@@ -344,7 +344,7 @@
         "unlockThreshold": 2,
         "questions": [
             {
-                "title": "How many separate\nactivities do most\nguests partake in\nduring the party?",
+                "title": "How many separate\nactivities does\neach individual\nguest do during\n the party?",
                 "options": [
                     "1",
                     "2",

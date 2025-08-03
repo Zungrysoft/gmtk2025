@@ -57,7 +57,7 @@ export default class Quiz extends Thing {
   }
 
   isCheckBlocked() {
-    return (this.failedAttempts[this.currentPage] ?? 0) >= 2;
+    return (this.failedAttempts[this.currentPage] ?? 0) >= 3;
   }
 
   checkAnswer() {
