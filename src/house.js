@@ -296,13 +296,13 @@ export default class House extends Thing {
 
     // Seating
     game.addThing(new Furniture(game.assets.textures.furniture_chair1, 'chair', 3, [-40, -45, 40, 45], [33, 173], null, game.assets.textures.furniture_icon_chair1));
-    game.addThing(new Furniture(game.assets.textures.furniture_chair2, 'chair', 4, [-40, -45, 40, 45], [79, 171], null, game.assets.textures.furniture_icon_chair1));
-    game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'chair', 5, [-50, -44, 45, 41], [142, 179], null, game.assets.textures.furniture_icon_chair1));
-    game.addThing(new Furniture(game.assets.textures.furniture_couch, 'couch', 6, [-115, -46, 115, 46], [129, 225], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_chair2, 'chair', 4, [-40, -45, 40, 45], [75, 173], null, game.assets.textures.furniture_icon_chair1));
+    game.addThing(new Furniture(game.assets.textures.furniture_loveseat, 'chair', 5, [-50, -44, 45, 41], [142, 170], null, game.assets.textures.furniture_icon_loveseat));
+    game.addThing(new Furniture(game.assets.textures.furniture_couch, 'couch', 6, [-115, -46, 115, 46], [120, 220], null, game.assets.textures.furniture_icon_couch));
 
     // Tables
-    game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', 7, [-105, -52, 105, 52], [27, 72], null, game.assets.textures.furniture_icon_table3));
-    game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', 8, [-83, -64, 83, 64], [87, 74], null, game.assets.textures.furniture_icon_table3));
+    game.addThing(new Furniture(game.assets.textures.furniture_table1, 'table', 7, [-105, -52, 105, 52], [27, 72], null, game.assets.textures.furniture_icon_table1));
+    game.addThing(new Furniture(game.assets.textures.furniture_table2, 'table', 8, [-83, -64, 83, 64], [87, 74], null, game.assets.textures.furniture_icon_table2));
     game.addThing(new Furniture(game.assets.textures.furniture_table3, 'table', 9, [-66, -48, 66, 48], [143, 77], null, game.assets.textures.furniture_icon_table3));
 
     // Food
