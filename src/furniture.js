@@ -278,6 +278,10 @@ export default class Furniture extends Thing {
       const centerPosition = vec2.rotate([0, -75], this.rotation * Math.PI * 0.5)
       soundmanager.playSound('foley_club_music_left', 0.9, 1.0, [...vec2.add(this.position, centerPosition), 200])
     }
+
+    if (this.type === 'jazz') {
+      soundmanager.playSound('foley_jazz_music', 0.1, 1.0, [...this.position, 90])
+    }
   }
 
   draw() {

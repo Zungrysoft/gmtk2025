@@ -427,10 +427,10 @@ export default class Guest extends Thing {
       return game.getThings().some(x => x instanceof Furniture && (x.type === 'chair' || x.type === 'couch'));
     }
 
-    // Guitar won't be played if there is loud music
+    // Guitar won't be played if there is other music
     if (activity === 'guitar') {
       return game.getThings().some(x => x instanceof Furniture && x.type === 'guitar') &&
-        !game.getThings().some(x => x instanceof Furniture && x.type === 'dancing');
+        !game.getThings().some(x => x instanceof Furniture && x.type === 'dancing' || x.type === 'jazz');
     }
 
     return game.getThings().some(x => x instanceof Furniture && x.type === activity);

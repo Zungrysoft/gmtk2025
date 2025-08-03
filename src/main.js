@@ -70,6 +70,8 @@ game.assets.images = await game.loadImages({
   furniture_icon_alcohol: 'images/furniture/furniture_icon_alcohol.png',
   furniture_dancing: 'images/furniture/furniture_dj.png',
   furniture_icon_dancing: 'images/furniture/furniture_icon_dj.png',
+  furniture_jazz: 'images/furniture/furniture_jazz.png',
+  furniture_icon_jazz: 'images/furniture/furniture_icon_jazz.png',
   furniture_guitar: 'images/furniture/furniture_guitar.png',
   furniture_icon_guitar: 'images/furniture/furniture_icon_guitar.png',
   furniture_game: 'images/furniture/furniture_game.png',
@@ -186,6 +188,7 @@ const foleySounds = {
   foley_food_platter_6: 'sounds/foley/food_platter_6.wav',
   foley_club_music_left: 'sounds/foley/annoying_club_music_left.wav',
   // foley_club_music_right: 'sounds/foley/annoying_club_music_right.wav',
+  foley_jazz_music: 'sounds/foley/nice_jazz.wav',
 };
 
 game.assets.sounds = await game.loadAudio({
@@ -225,10 +228,6 @@ game.assets.sounds = await game.loadAudio({
 
   ...conversationAudio,
   ...foleySounds,
-
-  music1: 'sounds/track1.flac',
-  music2: 'sounds/track2.flac',
-  music3: 'sounds/track3.flac',
 })
 soundmanager.setSoundsTable(game.assets.sounds)
 
