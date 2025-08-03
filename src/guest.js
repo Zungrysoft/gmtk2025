@@ -616,17 +616,12 @@ export default class Guest extends Thing {
 
     // Check that the right people are doing the right activites
     if (conversation.requiredActivities) {
-      console.log("Trying to play ", conversation)
       for (const req of conversation.requiredActivities) {
         const guestObj = game.getThings().find(x => x.name === req.participant);
 
         if (!guestObj) {
           continue;
         }
-
-        console.log(guestObj)
-        console.log(req.activities)
-
 
         if (!req.activities.includes(guestObj.currentActivity)) {
           return false;
